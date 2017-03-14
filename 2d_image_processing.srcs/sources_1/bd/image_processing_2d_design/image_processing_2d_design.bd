@@ -26,6 +26,130 @@
         <spirit:busType spirit:library="display_processing_system7" spirit:name="fixedio" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="display_processing_system7" spirit:name="fixedio_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>CLK.LINESCANNER0_PIXEL_CLOCK</spirit:name>
+        <spirit:displayName>Clk</spirit:displayName>
+        <spirit:description>Clock</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="clock_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>CLK</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER0_PIXEL_CLOCK</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>FREQ_HZ</spirit:name>
+            <spirit:value>25000000</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>CLK.LINESCANNER0_MAIN_CLOCK</spirit:name>
+        <spirit:displayName>Clk</spirit:displayName>
+        <spirit:description>Clock</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="clock_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>CLK</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER0_MAIN_CLOCK</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>CLK.LINESCANNER1_PIXEL_CLOCK</spirit:name>
+        <spirit:displayName>Clk</spirit:displayName>
+        <spirit:description>Clock</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="clock_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>CLK</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER1_PIXEL_CLOCK</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>FREQ_HZ</spirit:name>
+            <spirit:value>25000000</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>CLK.LINESCANNER1_MAIN_CLOCK</spirit:name>
+        <spirit:displayName>Clk</spirit:displayName>
+        <spirit:description>Clock</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="clock_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>CLK</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER1_MAIN_CLOCK</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>RST.LINESCANNER0_N_RESET</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER0_N_RESET</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>RST.LINESCANNER1_N_RESET</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER1_N_RESET</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters/>
+      </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:model>
       <spirit:views>
@@ -35,7 +159,136 @@
           <spirit:hierarchyRef spirit:library="BlockDiagram" spirit:name="image_processing_2d_design_imp" spirit:vendor="xilinx.com" spirit:version="1.00.a"/>
         </spirit:view>
       </spirit:views>
-      <spirit:ports/>
+      <spirit:ports>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_DATA</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>7</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_END_ADC</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_LVAL</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_PIXEL_CLOCK</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_RST_CVC</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_RST_CDS</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_SAMPLE</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_MAIN_CLOCK</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_LOAD_PULSE</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_DATA</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>7</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_END_ADC</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_LVAL</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_PIXEL_CLOCK</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_RST_CVC</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_RST_CDS</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_SAMPLE</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_MAIN_CLOCK</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_LOAD_PULSE</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_N_RESET</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_N_RESET</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+      </spirit:ports>
     </spirit:model>
   </spirit:component>
 
@@ -158,6 +411,16 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_xlconcat_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>frequency_analyzer_synch_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="frequency_analyzer_synch" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_frequency_analyzer_synch_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">frequency_analyzer_synch</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
       <spirit:interconnection>
@@ -205,6 +468,12 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M03_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="s_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="n_reset"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="n_reset"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_N_RESET"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_N_RESET"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>clock_divider_0_output_clock</spirit:name>
@@ -217,6 +486,7 @@
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="image_capture_enabled"/>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="enable"/>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="enable"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="enable"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
@@ -237,24 +507,9 @@
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>clock_divider_1_output_clock</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="clock_divider_1" spirit:portRef="output_clock"/>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="ext_spi_clk"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>Net</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="data"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="data"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>linescanner_image_capture_unit_0_pixel_captured</spirit:name>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="pixel_captured"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="pixel_clock"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>Net1</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="data"/>
-        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="data"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>linescanner_image_capture_unit_1_pixel_captured</spirit:name>
@@ -275,6 +530,132 @@
         <spirit:name>xlconcat_0_dout</spirit:name>
         <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="dout"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="IRQ_F2P"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>frequency_analyzer_synch_0_start_analyzer_0</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="start_analyzer_0"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="start"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>frequency_analyzer_synch_0_stop_analyzer_0</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="stop_analyzer_0"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="stop"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>frequency_analyzer_synch_0_start_analyzer_1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="start_analyzer_1"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="start"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="clock"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>frequency_analyzer_synch_0_stop_analyzer_1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="stop_analyzer_1"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="stop"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_1_pixel_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="pixel_data"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_0_pixel_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="pixel_data"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER0_DATA_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_DATA"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER0_END_ADC_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_END_ADC"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="end_adc"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER0_LVAL_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_LVAL"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="lval"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER0_PIXEL_CLOCK_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_PIXEL_CLOCK"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="pixel_clock"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_1_rst_cvc</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="rst_cvc"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_RST_CVC"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_1_rst_cds</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="rst_cds"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_RST_CDS"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_1_sample</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="sample"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_SAMPLE"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_1_main_clock</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="main_clock"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_MAIN_CLOCK"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_1_load_pulse</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="load_pulse"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_LOAD_PULSE"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER1_DATA_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_DATA"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER1_END_ADC_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_END_ADC"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="end_adc"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER1_LVAL_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_LVAL"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="lval"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER1_PIXEL_CLOCK_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_PIXEL_CLOCK"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="pixel_clock"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_0_rst_cvc</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="rst_cvc"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_RST_CVC"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_0_rst_cds</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="rst_cds"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_RST_CDS"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_0_sample</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="sample"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_SAMPLE"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_0_main_clock</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="main_clock"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_MAIN_CLOCK"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>linescanner_image_capture_unit_0_load_pulse</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="load_pulse"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_LOAD_PULSE"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>clock_divider_1_output_clock</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="clock_divider_1" spirit:portRef="output_clock"/>
+        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="s_axi_aclk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

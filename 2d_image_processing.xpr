@@ -97,8 +97,19 @@
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xbar_0/image_processing_2d_design_xbar_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_interconnect_0_0/image_processing_2d_design_axi_interconnect_0_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_proc_sys_reset_0_1/image_processing_2d_design_proc_sys_reset_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_0_1/image_processing_2d_design_frequency_analyzer_manager_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_1_0/image_processing_2d_design_frequency_analyzer_manager_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xlconcat_0_0/image_processing_2d_design_xlconcat_0_0.xci"/>
       </File>
       <File Path="$PPRDIR/src/frequency_analyzer_manager.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/frequency_analyzer_synch.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
