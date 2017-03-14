@@ -229,7 +229,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.STARTUP_IO" xilinx:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1) and (spirit:decode(id(&apos;PARAM_VALUE.UC_FAMILY&apos;)) = 0) and (spirit:decode(id(&apos;PARAM_VALUE.C_SHARED_STARTUP&apos;)) = 0))">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.STARTUP_IO" xilinx:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1) and (spirit:decode(id(&apos;PARAM_VALUE.UC_FAMILY&apos;)) = 0) and (spirit:decode(id(&apos;PARAM_VALUE.C_SHARED_STARTUP&apos;)) = 0))">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -1658,7 +1658,7 @@ When set to:   0 - Default.   1 - When the core is configured in dual/quad SPI m
 The slaves are numbered right to left starting at zero with the LSB. The slave numbers correspond to the indexes of signal SS
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_SS_BITS&apos;)))">1</spirit:bitWidth>
+            <spirit:bitWidth spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_SS_BITS&apos;)))">2</spirit:bitWidth>
             <spirit:volatile>true</spirit:volatile>
             <spirit:access>read-write</spirit:access>
             <spirit:writeValueConstraint>
@@ -4042,7 +4042,7 @@ This bit has no significance in dual or quad mode.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sck_i" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 0)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sck_i" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 0)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4061,7 +4061,7 @@ This bit has no significance in dual or quad mode.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sck_o" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 0)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sck_o" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 0)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4080,7 +4080,7 @@ This bit has no significance in dual or quad mode.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sck_t" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 0)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sck_t" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 0)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4090,7 +4090,7 @@ This bit has no significance in dual or quad mode.
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_NUM_SS_BITS&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_NUM_SS_BITS&apos;)) - 1)">1</spirit:left>
             <spirit:right spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_LSB_STUP&apos;)))">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -4116,7 +4116,7 @@ This bit has no significance in dual or quad mode.
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_NUM_SS_BITS&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_NUM_SS_BITS&apos;)) - 1)">1</spirit:left>
             <spirit:right spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_LSB_STUP&apos;)))">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -4167,7 +4167,7 @@ This bit has no significance in dual or quad mode.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.cfgclk" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.cfgclk" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4186,7 +4186,7 @@ This bit has no significance in dual or quad mode.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.cfgmclk" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.cfgmclk" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4205,7 +4205,7 @@ This bit has no significance in dual or quad mode.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.eos" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.eos" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4224,7 +4224,7 @@ This bit has no significance in dual or quad mode.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.preq" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.preq" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_STARTUP&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4475,7 +4475,7 @@ This bit has no significance in dual or quad mode.
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NUM_SS_BITS</spirit:name>
         <spirit:displayName>No. of Slave Select Bits</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_SS_BITS" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_SS_BITS" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">2</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NUM_TRANSFER_BITS</spirit:name>
@@ -4490,7 +4490,7 @@ This bit has no significance in dual or quad mode.
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_USE_STARTUP</spirit:name>
         <spirit:displayName>Use STARTUP Primitive</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_USE_STARTUP" spirit:maximum="1" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_USE_STARTUP" spirit:maximum="1" spirit:rangeType="long">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SPI_MEMORY</spirit:name>
@@ -4626,7 +4626,7 @@ This bit has no significance in dual or quad mode.
       <spirit:name>C_USE_STARTUP</spirit:name>
       <spirit:displayName>Use STARTUPE2 Primitive</spirit:displayName>
       <spirit:description>This parameter should be set when the targeted FPGA have STARTUPE2 primitive for routing the SPI clock. Please refer PG for more reference. Allowed values are 0= STARTUP is not included, 1= STARTUP is included. Example Design is not supported when STARTUPE2 primitive is chosen in the design.</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_USE_STARTUP" spirit:choiceRef="choice_pairs_4873554b" spirit:order="70">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_USE_STARTUP" spirit:choiceRef="choice_pairs_4873554b" spirit:order="70">0</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -4639,7 +4639,7 @@ This bit has no significance in dual or quad mode.
       <spirit:name>C_USE_STARTUP_INT</spirit:name>
       <spirit:displayName>STARTUP Primitive Usage</spirit:displayName>
       <spirit:description>This parameter will determine if the STARTUP primitive is instantiated with-in IP or outside</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_USE_STARTUP_INT" spirit:choiceRef="choice_pairs_9f49441c" spirit:order="71" spirit:configGroups="1 UnGrouped">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_USE_STARTUP_INT" spirit:choiceRef="choice_pairs_9f49441c" spirit:order="71" spirit:configGroups="1 UnGrouped">0</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -4678,7 +4678,7 @@ This bit has no significance in dual or quad mode.
       <spirit:name>C_NUM_SS_BITS</spirit:name>
       <spirit:displayName>No. of Slave Select Bits</spirit:displayName>
       <spirit:description>This parameter should be set to choose the no. SPI slave memories in design. This parameter decides the length of Slave Select port width of the core.</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_NUM_SS_BITS" spirit:order="80" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_NUM_SS_BITS" spirit:order="80" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">2</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -4769,7 +4769,7 @@ This bit has no significance in dual or quad mode.
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_SHARED_STARTUP">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_SHARED_STARTUP">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -4971,6 +4971,15 @@ This bit has no significance in dual or quad mode.
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AXI_LITE.PROTOCOL" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AXI_LITE.RUSER_WIDTH" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.AXI_LITE.WUSER_WIDTH" xilinx:valueSource="constant"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_FIFO_DEPTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_NUM_SS_BITS" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_SCK_RATIO" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_TYPE_OF_AXI4_INTERFACE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_USE_STARTUP" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_USE_STARTUP_INT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_XIP_MODE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FIFO_INCLUDED" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Master_mode" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
