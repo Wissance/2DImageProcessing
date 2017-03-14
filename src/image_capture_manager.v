@@ -47,7 +47,7 @@
 	);
 	
 // Instantiation of Axi Bus Interface S00_AXI
-	image_capture_manager_S00_AXI # ( 
+	axi_slave_impl # ( 
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) image_capture_manager_S00_AXI_inst (

@@ -1,7 +1,7 @@
 
 `timescale 1 ns / 1 ps
 
-	module image_capture_manager_S00_AXI #
+	module axi_slave_impl #
 	(
 		// Users to add parameters here
 

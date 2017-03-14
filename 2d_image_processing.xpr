@@ -42,7 +42,7 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/src/image_capture_manager_S00_AXI.v">
+      <File Path="$PPRDIR/src/axi_slave_impl.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -87,6 +87,16 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_1_0/image_processing_2d_design_linescanner_image_capture_unit_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_0_0/image_processing_2d_design_linescanner_image_capture_unit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_clock_divider_0_0/image_processing_2d_design_clock_divider_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_image_capture_manager_0_0/image_processing_2d_design_image_capture_manager_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xbar_0/image_processing_2d_design_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_proc_sys_reset_0_1/image_processing_2d_design_proc_sys_reset_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_processing_system7_0_0/image_processing_2d_design_processing_system7_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_interconnect_0_0/image_processing_2d_design_axi_interconnect_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_quad_spi_0_1/image_processing_2d_design_axi_quad_spi_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_clock_divider_1_0/image_processing_2d_design_clock_divider_1_0.xci"/>
       </File>
       <File Path="$PPRDIR/src/frequency_analyzer_manager.v">
         <FileInfo>
