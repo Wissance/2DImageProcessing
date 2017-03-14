@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>user.org</spirit:vendor>
+  <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>customized_ip</spirit:library>
   <spirit:name>image_processing_2d_design_clock_divider_1_0</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -120,7 +120,7 @@
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
-  <spirit:description>user.org:module_ref:clock_divider:1.0</spirit:description>
+  <spirit:description>xilinx.com:module_ref:clock_divider:1.0</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>clock_division</spirit:name>

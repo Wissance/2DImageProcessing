@@ -23,16 +23,17 @@
 module frequency_analyzer_manager #
 (
     parameter integer DUMP_FREQUENCIES_REQUEST = 666,
-
     // Parameters of Axi Slave Bus Interface S00_AXI
-    parameter integer C_S00_AXI_DATA_WIDTH    = 32,
-    parameter integer C_S00_AXI_ADDR_WIDTH    = 4
+    parameter integer C_S00_AXI_DATA_WIDTH = 32,
+    parameter integer C_S00_AXI_ADDR_WIDTH = 4
 )
 (
     input wire [7:0] data,
     input wire pixel_clock,
-    input wire enable,
+    input wire start,
+    input wire stop,
     input wire clear,
+    output wire irq,
     // Ports of Axi Slave Bus Interface S00_AXI
     input wire  s00_axi_aclk,
     input wire  s00_axi_aresetn,
@@ -55,7 +56,7 @@ module frequency_analyzer_manager #
     output wire [1 : 0] s00_axi_rresp,
     output wire  s00_axi_rvalid,
     input wire  s00_axi_rready
-    );
+);
     
     // todo: set it from image_capture_manager
     localparam integer pixel_0_index = 15;
@@ -66,6 +67,7 @@ module frequency_analyzer_manager #
     reg pixel_1_sample_data;
     reg pixel_2_sample_data;
     reg [9:0] pixel_counter;
+    wire enable;
     
     integer pixel_0_f1_action_time;
     integer pixel_0_f2_action_time;
@@ -74,14 +76,16 @@ module frequency_analyzer_manager #
     integer pixel_2_f1_action_time;
     integer pixel_2_f2_action_time;
     
+    // enable generator
+    FDCE #(.INIT(0)) enable_generator(.C(s00_axi_aclk), .CE(s00_axi_aresetn), .D(start), .Q(enable), .CLR(stop));
     //todo: umv: set proper frequencies
-    freaquency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
          pixel_0_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear), 
                           .f1_value(pixel_0_f1_action_time), .f2_value(pixel_0_f2_action_time));
-    freaquency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
          pixel_1_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
                           .f1_value(pixel_1_f1_action_time), .f2_value(pixel_1_f2_action_time));
-    freaquency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
          pixel_2_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
                           .f1_value(pixel_2_f1_action_time), .f2_value(pixel_2_f2_action_time));
     
@@ -90,7 +94,7 @@ module frequency_analyzer_manager #
     ( 
         .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
         .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
-    ) frequency_analyzer_manager_I_inst (
+    ) frequency_analyzer_manager_inst (
         .S_AXI_ACLK(s00_axi_aclk),
         .S_AXI_ARESETN(s00_axi_aresetn),
         .S_AXI_AWADDR(s00_axi_awaddr),
@@ -116,7 +120,7 @@ module frequency_analyzer_manager #
     
     always @(posedge pixel_clock)
     begin
-        if(clear || ~ s00_axi_aresetn)
+        if(clear || ~s00_axi_aresetn)
         begin
             pixel_0_sample_data <= 0;
             pixel_1_sample_data <= 0;
@@ -140,14 +144,16 @@ module frequency_analyzer_manager #
     
     always @(posedge s00_axi_aclk)
     begin
-        if(s00_axi_wstrb[0] || s00_axi_wvalid)
+        if(s00_axi_aresetn)
         begin
-            if(s00_axi_wdata == DUMP_FREQUENCIES_REQUEST)
+            if(s00_axi_wstrb[0] || s00_axi_wvalid)
             begin
-            //todo: umv: add data send
+                if(s00_axi_wdata == DUMP_FREQUENCIES_REQUEST)
+                begin
+                    //todo: umv: add data send
+                end
             end
         end
-
     end
     
 endmodule
