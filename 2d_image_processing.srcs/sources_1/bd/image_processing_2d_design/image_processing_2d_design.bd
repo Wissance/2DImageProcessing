@@ -27,6 +27,44 @@
         <spirit:abstractionType spirit:library="display_processing_system7" spirit:name="fixedio_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
+        <spirit:name>RST.LINESCANNER0_N_RESET</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER0_N_RESET</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>RST.LINESCANNER1_N_RESET</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>LINESCANNER1_N_RESET</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters/>
+      </spirit:busInterface>
+      <spirit:busInterface>
         <spirit:name>CLK.LINESCANNER0_PIXEL_CLOCK</spirit:name>
         <spirit:displayName>Clk</spirit:displayName>
         <spirit:description>Clock</spirit:description>
@@ -113,44 +151,6 @@
         <spirit:parameters/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>RST.LINESCANNER0_N_RESET</spirit:name>
-        <spirit:displayName>Reset</spirit:displayName>
-        <spirit:description>Reset</spirit:description>
-        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:slave/>
-        <spirit:portMaps>
-          <spirit:portMap>
-            <spirit:logicalPort>
-              <spirit:name>RST</spirit:name>
-            </spirit:logicalPort>
-            <spirit:physicalPort>
-              <spirit:name>LINESCANNER0_N_RESET</spirit:name>
-            </spirit:physicalPort>
-          </spirit:portMap>
-        </spirit:portMaps>
-        <spirit:parameters/>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>RST.LINESCANNER1_N_RESET</spirit:name>
-        <spirit:displayName>Reset</spirit:displayName>
-        <spirit:description>Reset</spirit:description>
-        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:slave/>
-        <spirit:portMaps>
-          <spirit:portMap>
-            <spirit:logicalPort>
-              <spirit:name>RST</spirit:name>
-            </spirit:logicalPort>
-            <spirit:physicalPort>
-              <spirit:name>LINESCANNER1_N_RESET</spirit:name>
-            </spirit:physicalPort>
-          </spirit:portMap>
-        </spirit:portMaps>
-        <spirit:parameters/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>CLK.LINESCANNER_CLK</spirit:name>
         <spirit:displayName>Clk</spirit:displayName>
         <spirit:description>Clock</spirit:description>
@@ -179,6 +179,18 @@
         </spirit:view>
       </spirit:views>
       <spirit:ports>
+        <spirit:port>
+          <spirit:name>LINESCANNER0_N_RESET</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER1_N_RESET</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
         <spirit:port>
           <spirit:name>LINESCANNER0_DATA</spirit:name>
           <spirit:wire>
@@ -296,25 +308,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>LINESCANNER0_N_RESET</spirit:name>
-          <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>LINESCANNER1_N_RESET</spirit:name>
-          <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>LINESCANNER_CLK</spirit:name>
-          <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>LINESCANNER_MOSI</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
           </spirit:wire>
@@ -323,6 +317,12 @@
           <spirit:name>LINESCANNER_MISO</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>LINESCANNER_MOSI</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
@@ -551,6 +551,9 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_INCLUDE_ACP_TRANS_CHECK">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_S_AXI_HP0_ID_WIDTH">6</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_S_AXI_HP0_DATA_WIDTH">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_S_AXI_HP1_DATA_WIDTH">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_S_AXI_HP2_DATA_WIDTH">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_S_AXI_HP3_DATA_WIDTH">64</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_DDR">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_SMC">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_QSPI">0</spirit:configurableElementValue>
@@ -848,7 +851,7 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_MIO_53_PULLUP">disabled</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_MIO_53_IOTYPE">LVCMOS 3.3V</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_MIO_53_SLEW">slow</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UIPARAM_GENERATE_SUMMARY">NA</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UIPARAM_GENERATE_SUMMARY">NONE</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_MIO_TREE_PERIPHERALS">NAND Flash#GPIO#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#UART 1#UART 1#GPIO#GPIO#GPIO#GPIO</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_MIO_TREE_SIGNALS">cs#gpio[1]#ale#we_b#data[2]#data[0]#data[1]#cle#re_b#data[4]#data[5]#data[6]#data[7]#data[3]#busy#gpio[15]#gpio[16]#gpio[17]#gpio[18]#gpio[19]#gpio[20]#gpio[21]#gpio[22]#gpio[23]#gpio[24]#gpio[25]#gpio[26]#gpio[27]#clk#cmd#data[0]#data[1]#data[2]#data[3]#wp#cd#gpio[36]#gpio[37]#gpio[38]#gpio[39]#gpio[40]#gpio[41]#gpio[42]#gpio[43]#gpio[44]#gpio[45]#gpio[46]#gpio[47]#tx#rx#gpio[50]#gpio[51]#gpio[52]#gpio[53]</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_PS7_SI_REV">PRODUCTION</spirit:configurableElementValue>
@@ -963,6 +966,25 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
+        <spirit:instanceName>xlconcat_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="xlconcat" spirit:vendor="xilinx.com" spirit:version="2.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_xlconcat_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="IN0_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="IN1_WIDTH">1</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>frequency_analyzer_synch_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="frequency_analyzer_synch" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_frequency_analyzer_synch_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">frequency_analyzer_synch</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
         <spirit:instanceName>clock_divider_1</spirit:instanceName>
         <spirit:componentRef spirit:library="module_ref" spirit:name="clock_divider" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -998,25 +1020,6 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_frequency_analyzer_manager_1_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceName">frequency_analyzer_manager</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>xlconcat_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="xlconcat" spirit:vendor="xilinx.com" spirit:version="2.1"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_xlconcat_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="IN0_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="IN1_WIDTH">1</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>frequency_analyzer_synch_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="frequency_analyzer_synch" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_frequency_analyzer_synch_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">frequency_analyzer_synch</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -1058,7 +1061,12 @@
       <spirit:adHocConnection>
         <spirit:name>proc_sys_reset_0_peripheral_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="peripheral_aresetn"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER1_N_RESET"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_N_RESET"/>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="s_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="n_reset"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M00_ARESETN"/>
@@ -1066,14 +1074,9 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S01_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M02_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M03_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="n_reset"/>
-        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="n_reset"/>
-        <spirit:externalPortReference spirit:portRef="LINESCANNER0_N_RESET"/>
-        <spirit:externalPortReference spirit:portRef="LINESCANNER1_N_RESET"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>clock_divider_0_output_clock</spirit:name>
@@ -1085,8 +1088,8 @@
         <spirit:name>image_capture_manager_0_image_capture_enabled</spirit:name>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="image_capture_enabled"/>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="enable"/>
-        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="enable"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="enable"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="enable"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
@@ -1103,8 +1106,8 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M02_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="clock_divider_1" spirit:portRef="input_clock"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>linescanner_image_capture_unit_0_pixel_captured</spirit:name>
@@ -1144,8 +1147,8 @@
       <spirit:adHocConnection>
         <spirit:name>frequency_analyzer_synch_0_start_analyzer_1</spirit:name>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="start_analyzer_1"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="start"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="clock"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="start"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>frequency_analyzer_synch_0_stop_analyzer_1</spirit:name>
