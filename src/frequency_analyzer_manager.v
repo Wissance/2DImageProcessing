@@ -79,13 +79,13 @@ module frequency_analyzer_manager #
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(s00_axi_aclk), .CE(s00_axi_aresetn), .D(start), .Q(enable), .CLR(stop));
     //todo: umv: set proper frequencies
-    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(100000000)) 
          pixel_0_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear), 
                           .f1_value(pixel_0_f1_action_time), .f2_value(pixel_0_f2_action_time));
-    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(100000000)) 
          pixel_1_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
                           .f1_value(pixel_1_f1_action_time), .f2_value(pixel_1_f2_action_time));
-    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(1000000)) 
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(100000000)) 
          pixel_2_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
                           .f1_value(pixel_2_f1_action_time), .f2_value(pixel_2_f2_action_time));
     
