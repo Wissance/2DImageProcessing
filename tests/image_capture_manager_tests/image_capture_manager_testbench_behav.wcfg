@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="image_capture_manager_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="image_capture_manager_testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="516856340000fs"></ZoomStartTime>
+      <ZoomEndTime time="1052856340001fs"></ZoomEndTime>
+      <Cursor1Time time="1001000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/image_capture_manager_testbench/aclk" type="logic">
+      <obj_property name="ElementShortName">aclk</obj_property>
+      <obj_property name="ObjectShortName">aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/aresetn" type="logic">
+      <obj_property name="ElementShortName">aresetn</obj_property>
+      <obj_property name="ObjectShortName">aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/awaddr" type="array">
+      <obj_property name="ElementShortName">awaddr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">awaddr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/awprot" type="array">
+      <obj_property name="ElementShortName">awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/awvalid" type="logic">
+      <obj_property name="ElementShortName">awvalid</obj_property>
+      <obj_property name="ObjectShortName">awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/awready" type="logic">
+      <obj_property name="ElementShortName">awready</obj_property>
+      <obj_property name="ObjectShortName">awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/wdata" type="array">
+      <obj_property name="ElementShortName">wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/wstrb" type="array">
+      <obj_property name="ElementShortName">wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/wvalid" type="logic">
+      <obj_property name="ElementShortName">wvalid</obj_property>
+      <obj_property name="ObjectShortName">wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/wready" type="logic">
+      <obj_property name="ElementShortName">wready</obj_property>
+      <obj_property name="ObjectShortName">wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/bresp" type="array">
+      <obj_property name="ElementShortName">bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/bvalid" type="logic">
+      <obj_property name="ElementShortName">bvalid</obj_property>
+      <obj_property name="ObjectShortName">bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/bready" type="logic">
+      <obj_property name="ElementShortName">bready</obj_property>
+      <obj_property name="ObjectShortName">bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/enable" type="logic">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/clear_memory" type="logic">
+      <obj_property name="ElementShortName">clear_memory</obj_property>
+      <obj_property name="ObjectShortName">clear_memory</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/C_S00_AXI_DATA_WIDTH" type="array">
+      <obj_property name="ElementShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/image_capture_manager_testbench/C_S00_AXI_ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+</wave_config>

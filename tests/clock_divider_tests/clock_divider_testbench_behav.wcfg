@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="clock_divider_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="clock_divider_testbench" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="13560000001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="5" />
+   <wvobject fp_name="/clock_divider_testbench/input_clock" type="logic">
+      <obj_property name="ElementShortName">input_clock</obj_property>
+      <obj_property name="ObjectShortName">input_clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/clock_divider_testbench/output_clock_1" type="logic">
+      <obj_property name="ElementShortName">output_clock_1</obj_property>
+      <obj_property name="ObjectShortName">output_clock_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/clock_divider_testbench/output_clock_2" type="logic">
+      <obj_property name="ElementShortName">output_clock_2</obj_property>
+      <obj_property name="ObjectShortName">output_clock_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/clock_divider_testbench/output_clock_3" type="logic">
+      <obj_property name="ElementShortName">output_clock_3</obj_property>
+      <obj_property name="ObjectShortName">output_clock_3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/clock_divider_testbench/output_clock_4" type="logic">
+      <obj_property name="ElementShortName">output_clock_4</obj_property>
+      <obj_property name="ObjectShortName">output_clock_4</obj_property>
+   </wvobject>
+</wave_config>

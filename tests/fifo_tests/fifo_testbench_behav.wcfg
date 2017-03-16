@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="fifo_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="fifo_testbench" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="678000000002fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/fifo_testbench/enable" type="logic">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/clear" type="logic">
+      <obj_property name="ElementShortName">clear</obj_property>
+      <obj_property name="ObjectShortName">clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/fifo_ready" type="logic">
+      <obj_property name="ElementShortName">fifo_ready</obj_property>
+      <obj_property name="ObjectShortName">fifo_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/push_clock" type="logic">
+      <obj_property name="ElementShortName">push_clock</obj_property>
+      <obj_property name="ObjectShortName">push_clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/in_data" type="array">
+      <obj_property name="ElementShortName">in_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">in_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/pushed_last" type="logic">
+      <obj_property name="ElementShortName">pushed_last</obj_property>
+      <obj_property name="ObjectShortName">pushed_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/pop_clock" type="logic">
+      <obj_property name="ElementShortName">pop_clock</obj_property>
+      <obj_property name="ObjectShortName">pop_clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/out_data" type="array">
+      <obj_property name="ElementShortName">out_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fifo_testbench/popped_last" type="logic">
+      <obj_property name="ElementShortName">popped_last</obj_property>
+      <obj_property name="ObjectShortName">popped_last</obj_property>
+   </wvobject>
+</wave_config>
