@@ -12,7 +12,7 @@
         // Width of S_AXI data bus
         parameter integer C_S_AXI_DATA_WIDTH = 32,
         // Width of S_AXI address bus
-        parameter integer C_S_AXI_ADDR_WIDTH = 4
+        parameter integer C_S_AXI_ADDR_WIDTH = 10
     )
     (
         // Users to add ports here
@@ -104,7 +104,7 @@
     // ADDR_LSB = 2 for 32 bits (n downto 2)
     // ADDR_LSB = 3 for 64 bits (n downto 3)
     localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
-    localparam integer OPT_MEM_ADDR_BITS = 8 - C_S_AXI_DATA_WIDTH/32;
+    localparam integer OPT_MEM_ADDR_BITS =  C_S_AXI_ADDR_WIDTH - ADDR_LSB - 1;
     //----------------------------------------------
     reg register_operation_done;
     reg [C_S_AXI_DATA_WIDTH-1:0] registers[NUMBER_OF_REGISTERS - 1 : 0];
@@ -405,7 +405,9 @@
             2'h3 : reg_data_out <= slv_reg3;
             default : reg_data_out <= 0;
         endcase*/
-        reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]];
+        if(axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
+            reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]];
+        else reg_data_out <= 0;
     end
 
     // Output register or memory read data
