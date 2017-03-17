@@ -19,8 +19,8 @@
         //input wire register_clock,
 		input wire [1:0] register_operation,      // 1 - read, 2 - write, 3 - complete
 		input wire [7 : 0] register_number,
-		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] register_write,
-		output reg [C_S_AXI_ADDR_WIDTH-1 : 0] register_read,
+		input wire [C_S_AXI_DATA_WIDTH -1 : 0] register_write,
+		output reg [C_S_AXI_DATA_WIDTH -1 : 0] register_read,
         // User ports ends
 		
         // Do not modify the ports beyond this line
@@ -237,7 +237,7 @@
              for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8) -1; byte_index = byte_index + 1)
              begin
                  if (S_AXI_WSTRB[byte_index] == 1) 
-                     registers[axi_awaddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]][(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index * 8) +: 8];
+                     registers[axi_awaddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] - 1][(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index * 8) +: 8];
              end
         end
 		    //todo: umv: re-write this ....
@@ -290,7 +290,7 @@
 		    if(register_operation == `REGISTER_WRITE_OPERATION)
 		    begin
 		        //register_operation_done <= 1;
-		        registers[register_number] <= register_write;
+		        registers[register_number - 1] <= register_write;
 		    end
 		    //if(register_operation == 0)
 		        //register_operation_done <= 0;
@@ -368,7 +368,7 @@
     // bus and axi_rresp indicates the status of read transaction.axi_rvalid 
     // is deasserted on reset (active low). axi_rresp and axi_rdata are 
     // cleared to zero on reset (active low).  
-    always @( posedge S_AXI_ACLK )
+    always @(posedge S_AXI_ACLK)
     begin
         if ( S_AXI_ARESETN == 1'b0 )
         begin
@@ -405,8 +405,8 @@
             2'h3 : reg_data_out <= slv_reg3;
             default : reg_data_out <= 0;
         endcase*/
-        if(slv_reg_rden && axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
-            reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]];
+        if(axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
+            reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] - 1];
         //else reg_data_out <= 0;
     end
 

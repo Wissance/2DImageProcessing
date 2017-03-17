@@ -9,8 +9,8 @@
     (
 		input wire [1:0] register_operation,      // 1 - read, 2 - write, 3 - complete
 		input wire [7 : 0] register_number,
-		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] register_write,
-		output wire [C_S_AXI_ADDR_WIDTH-1 : 0] register_read,
+		input wire [C_S_AXI_DATA_WIDTH -1 : 0] register_write,
+		output wire [C_S_AXI_DATA_WIDTH -1 : 0] register_read,
 		
         input wire S_AXI_ACLK,
         input wire S_AXI_ARESETN,
