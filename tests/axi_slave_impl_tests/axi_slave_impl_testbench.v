@@ -4,7 +4,7 @@
     (
         parameter integer NUMBER_OF_REGISTERS = 6,
         parameter integer C_S_AXI_DATA_WIDTH = 32,
-        parameter integer C_S_AXI_ADDR_WIDTH = 4
+        parameter integer C_S_AXI_ADDR_WIDTH = 10
     )
     (
 		input wire [1:0] register_operation,      // 1 - read, 2 - write, 3 - complete
