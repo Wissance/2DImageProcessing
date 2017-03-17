@@ -60,7 +60,7 @@
 		.S_AXI_RDATA(S_AXI_RDATA),
 		.S_AXI_RRESP(S_AXI_RRESP),
 		.S_AXI_RVALID(S_AXI_RVALID),
-		.S_AXI_RREADY(S_AXI_READY),
+		.S_AXI_RREADY(S_AXI_RREADY),
 		.register_operation(register_operation),
 		.register_number(register_number),
 		.register_read(register_read),

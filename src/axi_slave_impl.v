@@ -225,7 +225,7 @@
             //slv_reg1 <= 0;
             ///slv_reg2 <= 0;
             //slv_reg3 <= 0;
-            for (register_index = 0; register_index <= NUMBER_OF_REGISTERS; register_index = byte_index + 1)
+            for (register_index = 0; register_index <= NUMBER_OF_REGISTERS; register_index = register_index + 1)
                 registers[register_index] <= 0;
         end 
         else 
@@ -405,9 +405,9 @@
             2'h3 : reg_data_out <= slv_reg3;
             default : reg_data_out <= 0;
         endcase*/
-        if(axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
+        if(slv_reg_rden && axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
             reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]];
-        else reg_data_out <= 0;
+        //else reg_data_out <= 0;
     end
 
     // Output register or memory read data
