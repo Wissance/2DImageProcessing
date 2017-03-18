@@ -39,7 +39,7 @@ end
 
 always @(posedge clock or posedge clear)
 begin
-    if(clear)
+    if(~clear)
     begin
         start_sample_value = 0;
         frequency1_counter = 0;
