@@ -110,10 +110,10 @@
     reg [C_S_AXI_DATA_WIDTH-1:0] registers[NUMBER_OF_REGISTERS - 1 : 0];
     //------------------------------------------------
     //-- Number of Slave Registers 4
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg0;
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1;
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg2;
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg3;
+    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg0;
+    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1;
+    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg2;
+    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg3;
     wire slv_reg_rden;
     wire slv_reg_wren;
     reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
@@ -405,9 +405,10 @@
             2'h3 : reg_data_out <= slv_reg3;
             default : reg_data_out <= 0;
         endcase*/
-        if(axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
-            reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] - 1];
-        //else reg_data_out <= 0;
+        if(//axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] > 0 &&
+           axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
+           reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]];
+        else reg_data_out <= 0;
     end
 
     // Output register or memory read data
@@ -430,7 +431,7 @@
             begin
                 if(register_operation == `REGISTER_READ_OPERATION)
                 begin
-                    register_read <= registers[register_number];
+                    register_read <= registers[register_number - 1];
                     //register_operation_done <= 1;
                 end
             end
