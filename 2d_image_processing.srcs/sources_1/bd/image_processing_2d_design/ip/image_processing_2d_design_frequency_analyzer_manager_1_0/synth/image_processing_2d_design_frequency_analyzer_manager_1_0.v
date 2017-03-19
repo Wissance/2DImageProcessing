@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "frequency_analyzer_manager,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "image_processing_2d_design_frequency_analyzer_manager_1_0,frequency_analyzer_manager,{}" *)
-(* CORE_GENERATION_INFO = "image_processing_2d_design_frequency_analyzer_manager_1_0,frequency_analyzer_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=frequency_analyzer_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DUMP_FREQUENCIES_REQUEST=666,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "image_processing_2d_design_frequency_analyzer_manager_1_0,frequency_analyzer_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=frequency_analyzer_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module image_processing_2d_design_frequency_analyzer_manager_1_0 (
   data,
@@ -136,7 +136,6 @@ output wire s00_axi_rvalid;
 input wire s00_axi_rready;
 
   frequency_analyzer_manager #(
-    .DUMP_FREQUENCIES_REQUEST(666),
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(4)
   ) inst (

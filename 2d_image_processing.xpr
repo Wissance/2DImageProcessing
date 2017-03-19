@@ -116,14 +116,14 @@
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xlconcat_0_0/image_processing_2d_design_xlconcat_0_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_1_0/image_processing_2d_design_frequency_analyzer_manager_1_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_0_1/image_processing_2d_design_frequency_analyzer_manager_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_0_1/image_processing_2d_design_auto_pc_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_2/image_processing_2d_design_auto_pc_2.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_ds_0/image_processing_2d_design_auto_ds_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design.hwh"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_1/image_processing_2d_design_auto_pc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_0_1/image_processing_2d_design_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="image_processing_2d_design_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_2/image_processing_2d_design_auto_pc_2.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hdl/image_processing_2d_design.hwdef"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="image_processing_2d_design_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_1/image_processing_2d_design_auto_pc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design.hwh"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/image_processing_2d_design/hdl/image_processing_2d_design_wrapper.v">
         <FileInfo>

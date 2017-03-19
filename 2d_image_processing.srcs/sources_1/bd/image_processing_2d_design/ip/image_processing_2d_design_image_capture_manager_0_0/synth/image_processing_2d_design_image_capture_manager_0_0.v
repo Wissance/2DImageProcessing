@@ -47,20 +47,16 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:module_ref:frequency_analyzer_manager:1.0
+// IP VLNV: xilinx.com:module_ref:image_capture_manager:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "frequency_analyzer_manager,Vivado 2016.2" *)
-(* CHECK_LICENSE_TYPE = "image_processing_2d_design_frequency_analyzer_manager_0_1,frequency_analyzer_manager,{}" *)
-(* CORE_GENERATION_INFO = "image_processing_2d_design_frequency_analyzer_manager_0_1,frequency_analyzer_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=frequency_analyzer_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* X_CORE_INFO = "image_capture_manager,Vivado 2016.2" *)
+(* CHECK_LICENSE_TYPE = "image_processing_2d_design_image_capture_manager_0_0,image_capture_manager,{}" *)
+(* CORE_GENERATION_INFO = "image_processing_2d_design_image_capture_manager_0_0,image_capture_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=image_capture_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,START_IMAGE_CAPTURE_COMMAND=1,STOP_IMAGE_CAPTURE_COMMAND=2,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module image_processing_2d_design_frequency_analyzer_manager_0_1 (
-  data,
-  pixel_clock,
-  start,
-  stop,
-  clear,
-  irq,
+module image_processing_2d_design_image_capture_manager_0_0 (
+  image_capture_enabled,
+  clear_memory,
   s00_axi_aclk,
   s00_axi_aresetn,
   s00_axi_awaddr,
@@ -84,14 +80,8 @@ module image_processing_2d_design_frequency_analyzer_manager_0_1 (
   s00_axi_rready
 );
 
-input wire [7 : 0] data;
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pixel_clock CLK" *)
-input wire pixel_clock;
-input wire start;
-input wire stop;
-input wire clear;
-(* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 irq INTERRUPT" *)
-output wire irq;
+output wire image_capture_enabled;
+output wire clear_memory;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s00_axi_aclk CLK" *)
 input wire s00_axi_aclk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 s00_axi_aresetn RST" *)
@@ -135,16 +125,14 @@ output wire s00_axi_rvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 s00_axi RREADY" *)
 input wire s00_axi_rready;
 
-  frequency_analyzer_manager #(
+  image_capture_manager #(
+    .START_IMAGE_CAPTURE_COMMAND(1),
+    .STOP_IMAGE_CAPTURE_COMMAND(2),
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(4)
   ) inst (
-    .data(data),
-    .pixel_clock(pixel_clock),
-    .start(start),
-    .stop(stop),
-    .clear(clear),
-    .irq(irq),
+    .image_capture_enabled(image_capture_enabled),
+    .clear_memory(clear_memory),
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn),
     .s00_axi_awaddr(s00_axi_awaddr),

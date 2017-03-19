@@ -135,7 +135,6 @@ output wire s00_axi_rvalid;
 input wire s00_axi_rready;
 
   frequency_analyzer_manager #(
-    .DUMP_FREQUENCIES_REQUEST(666),
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(4)
   ) inst (
