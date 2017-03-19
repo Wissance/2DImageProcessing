@@ -31,3 +31,21 @@
 # Debug files
 *.dSYM/
 *.su
+
+# Log files
+*.log
+# Jou files
+*.jou
+# Backups
+*.backup
+# Generated shit
+*.hw
+*.cache
+*.runs
+*.sim
+*.sdk
+*.ip_user_files
+*.str
+*.Xil
+*Debug/
+
