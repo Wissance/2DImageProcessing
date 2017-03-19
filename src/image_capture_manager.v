@@ -46,10 +46,30 @@
 		input wire  s00_axi_rready
 	);
 	
-// Instantiation of Axi Bus Interface S00_AXI
+/*	wire [C_S00_AXI_DATA_WIDTH - 1 : 0] register_read_net;
+	wire [C_S00_AXI_DATA_WIDTH - 1 : 0] register_write_net;
+	wire [1:0] register_operation_net;
+	wire [7:0] register_number_net;*/
+	
+    wire [C_S00_AXI_DATA_WIDTH - 1 : 0] register_read;
+    reg [C_S00_AXI_DATA_WIDTH - 1 : 0] register_write;
+    reg [1:0] register_operation;
+    reg [7:0] register_number;
+    
+    always @(*)
+    begin
+        register_write = 0;
+        //register_write_net;
+        register_operation = 0;//register_operation_net;
+        register_number = 0;//register_number_net;
+    end
+	
+	
+    // Instantiation of Axi Bus Interface S00_AXI
 	axi_slave_impl # ( 
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
-		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
+		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
+		.NUMBER_OF_REGISTERS(4)
 	) image_capture_manager_S00_AXI_inst (
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
@@ -71,7 +91,11 @@
 		.S_AXI_RDATA(s00_axi_rdata),
 		.S_AXI_RRESP(s00_axi_rresp),
 		.S_AXI_RVALID(s00_axi_rvalid),
-		.S_AXI_RREADY(s00_axi_rready)
+		.S_AXI_RREADY(s00_axi_rready),
+		.register_read(register_read),
+		.register_write(register_write),
+		.register_number(register_number),
+		.register_operation(register_operation)
 	);
 
 	// Add user logic here

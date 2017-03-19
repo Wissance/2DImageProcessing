@@ -83,12 +83,22 @@ module frequency_analyzer_manager #
     wire [31:0] pixel_2_f1_action_time_net;
     wire [31:0] pixel_2_f2_action_time_net;
     
-    assign pixel_0_f1_action_time = pixel_0_f1_action_time_net;
+/*    assign pixel_0_f1_action_time_net = pixel_0_f1_action_time;
     assign pixel_0_f2_action_time_net = pixel_0_f2_action_time;
     assign pixel_1_f1_action_time_net = pixel_1_f1_action_time;
     assign pixel_1_f2_action_time_net = pixel_1_f2_action_time;
     assign pixel_2_f1_action_time_net = pixel_2_f1_action_time;
-    assign pixel_2_f2_action_time_net = pixel_2_f2_action_time;
+    assign pixel_2_f2_action_time_net = pixel_2_f2_action_time;*/
+    
+    always @(*)
+    begin
+        pixel_0_f1_action_time = pixel_0_f1_action_time_net;
+        pixel_0_f2_action_time = pixel_0_f2_action_time_net;
+        pixel_1_f1_action_time = pixel_1_f1_action_time_net;
+        pixel_1_f2_action_time = pixel_1_f2_action_time_net;
+        pixel_2_f1_action_time = pixel_2_f1_action_time_net;
+        pixel_2_f2_action_time = pixel_2_f2_action_time_net;
+    end
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(s00_axi_aclk), .CE(s00_axi_aresetn), .D(start), .Q(enable), .CLR(stop));

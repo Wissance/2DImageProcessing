@@ -202,6 +202,12 @@ CONFIG.NUM_MI {4} \
 CONFIG.NUM_SI {2} \
  ] $axi_interconnect_0
 
+  # Create instance: axi_interconnect_1, and set properties
+  set axi_interconnect_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_1 ]
+  set_property -dict [ list \
+CONFIG.NUM_MI {2} \
+ ] $axi_interconnect_1
+
   # Create instance: axi_quad_spi_0, and set properties
   set axi_quad_spi_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_quad_spi:3.2 axi_quad_spi_0 ]
   set_property -dict [ list \
@@ -1189,10 +1195,12 @@ CONFIG.IN1_WIDTH {1} \
  ] $xlconcat_0
 
   # Create interface connections
+  connect_bd_intf_net -intf_net S01_AXI_1 [get_bd_intf_pins axi_interconnect_0/S01_AXI] [get_bd_intf_pins axi_interconnect_1/M01_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M00_AXI [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_pins axi_quad_spi_0/AXI_LITE]
   connect_bd_intf_net -intf_net axi_interconnect_0_M01_AXI [get_bd_intf_pins axi_interconnect_0/M01_AXI] [get_bd_intf_pins image_capture_manager_0/s00_axi]
   connect_bd_intf_net -intf_net axi_interconnect_0_M02_AXI [get_bd_intf_pins axi_interconnect_0/M02_AXI] [get_bd_intf_pins frequency_analyzer_manager_1/s00_axi]
   connect_bd_intf_net -intf_net axi_interconnect_0_M03_AXI [get_bd_intf_pins axi_interconnect_0/M03_AXI] [get_bd_intf_pins frequency_analyzer_manager_0/s00_axi]
+  connect_bd_intf_net -intf_net axi_interconnect_1_M00_AXI [get_bd_intf_pins axi_interconnect_1/M00_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins processing_system7_0/M_AXI_GP0]
@@ -1233,12 +1241,16 @@ CONFIG.IN1_WIDTH {1} \
   connect_bd_net -net linescanner_image_capture_unit_1_rst_cds [get_bd_ports LINESCANNER0_RST_CDS] [get_bd_pins linescanner_image_capture_unit_1/rst_cds]
   connect_bd_net -net linescanner_image_capture_unit_1_rst_cvc [get_bd_ports LINESCANNER0_RST_CVC] [get_bd_pins linescanner_image_capture_unit_1/rst_cvc]
   connect_bd_net -net linescanner_image_capture_unit_1_sample [get_bd_ports LINESCANNER0_SAMPLE] [get_bd_pins linescanner_image_capture_unit_1/sample]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_ports LINESCANNER0_N_RESET] [get_bd_ports LINESCANNER1_N_RESET] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_interconnect_0/S01_ARESETN] [get_bd_pins axi_quad_spi_0/s_axi_aresetn] [get_bd_pins frequency_analyzer_manager_0/s00_axi_aresetn] [get_bd_pins frequency_analyzer_manager_1/s00_axi_aresetn] [get_bd_pins frequency_analyzer_synch_0/reset] [get_bd_pins image_capture_manager_0/s00_axi_aresetn] [get_bd_pins linescanner_image_capture_unit_0/n_reset] [get_bd_pins linescanner_image_capture_unit_1/n_reset] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/S01_ACLK] [get_bd_pins axi_quad_spi_0/s_axi_aclk] [get_bd_pins clock_divider_0/input_clock] [get_bd_pins clock_divider_1/input_clock] [get_bd_pins frequency_analyzer_manager_0/s00_axi_aclk] [get_bd_pins frequency_analyzer_manager_1/s00_axi_aclk] [get_bd_pins image_capture_manager_0/s00_axi_aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_ports LINESCANNER0_N_RESET] [get_bd_ports LINESCANNER1_N_RESET] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_interconnect_0/S01_ARESETN] [get_bd_pins axi_interconnect_1/ARESETN] [get_bd_pins axi_interconnect_1/M00_ARESETN] [get_bd_pins axi_interconnect_1/M01_ARESETN] [get_bd_pins axi_interconnect_1/S00_ARESETN] [get_bd_pins axi_quad_spi_0/s_axi_aresetn] [get_bd_pins frequency_analyzer_manager_0/clear] [get_bd_pins frequency_analyzer_manager_0/s00_axi_aresetn] [get_bd_pins frequency_analyzer_manager_1/clear] [get_bd_pins frequency_analyzer_manager_1/s00_axi_aresetn] [get_bd_pins frequency_analyzer_synch_0/reset] [get_bd_pins image_capture_manager_0/s00_axi_aresetn] [get_bd_pins linescanner_image_capture_unit_0/n_reset] [get_bd_pins linescanner_image_capture_unit_1/n_reset] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/S01_ACLK] [get_bd_pins axi_interconnect_1/ACLK] [get_bd_pins axi_interconnect_1/M00_ACLK] [get_bd_pins axi_interconnect_1/M01_ACLK] [get_bd_pins axi_interconnect_1/S00_ACLK] [get_bd_pins axi_quad_spi_0/s_axi_aclk] [get_bd_pins clock_divider_0/input_clock] [get_bd_pins clock_divider_1/input_clock] [get_bd_pins frequency_analyzer_manager_0/s00_axi_aclk] [get_bd_pins frequency_analyzer_manager_1/s00_axi_aclk] [get_bd_pins image_capture_manager_0/s00_axi_aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins processing_system7_0/IRQ_F2P] [get_bd_pins xlconcat_0/dout]
 
   # Create address segments
+  create_bd_addr_seg -range 0x00001000 -offset 0x41E00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_quad_spi_0/AXI_LITE/Reg] SEG_axi_quad_spi_0_Reg
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs frequency_analyzer_manager_0/s00_axi/reg0] SEG_frequency_analyzer_manager_0_reg0
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs frequency_analyzer_manager_1/s00_axi/reg0] SEG_frequency_analyzer_manager_1_reg0
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs image_capture_manager_0/s00_axi/reg0] SEG_image_capture_manager_0_reg0
 
   # Perform GUI Layout
   regenerate_bd_layout -layout_string {
@@ -1278,58 +1290,61 @@ preplace inst clock_divider_1 -pg 1 -lvl 6 -y -260 -defaultsOSRD
 preplace inst frequency_analyzer_synch_0 -pg 1 -lvl 2 -y -410 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 4 -y -700 -defaultsOSRD
 preplace inst proc_sys_reset_0 -pg 1 -lvl 6 -y -400 -defaultsOSRD
-preplace inst image_capture_manager_0 -pg 1 -lvl 5 -y -120 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 5 -y -450 -defaultsOSRD
+preplace inst image_capture_manager_0 -pg 1 -lvl 5 -y -30 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 5 -y -290 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 5 -y -720 -defaultsOSRD
 preplace inst frequency_analyzer_manager_0 -pg 1 -lvl 3 -y -600 -defaultsOSRD
 preplace inst axi_quad_spi_0 -pg 1 -lvl 6 -y 0 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 6 -y -680 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 6 1 NJ
-preplace netloc linescanner_image_capture_unit_1_main_clock 1 0 2 NJ -870 -250
+preplace netloc linescanner_image_capture_unit_1_main_clock 1 0 2 NJ -760 -260
 preplace netloc linescanner_image_capture_unit_1_sample 1 0 2 NJ -750 -270
-preplace netloc clock_divider_0_output_clock 1 0 2 -630 -490 NJ
+preplace netloc clock_divider_0_output_clock 1 0 2 -610 -480 NJ
 preplace netloc linescanner_image_capture_unit_0_rst_cds 1 0 2 NJ -300 -280
 preplace netloc linescanner_image_capture_unit_0_rst_cvc 1 0 2 NJ -280 -290
 preplace netloc LINESCANNER1_LVAL_1 1 0 1 N
-preplace netloc linescanner_image_capture_unit_1_rst_cds 1 0 2 NJ -740 -280
-preplace netloc image_capture_manager_0_image_capture_enabled 1 0 6 -640 -720 NJ -740 NJ -740 NJ -630 550 -680 950
-preplace netloc clock_divider_1_output_clock 1 5 2 1000 -200 1420
-preplace netloc axi_quad_spi_0_ss_o 1 6 1 1420
+preplace netloc linescanner_image_capture_unit_1_rst_cds 1 0 2 NJ -730 -280
+preplace netloc image_capture_manager_0_image_capture_enabled 1 0 6 -620 -390 NJ -300 NJ -300 NJ -300 580 50 950
+preplace netloc clock_divider_1_output_clock 1 5 2 1020 -200 1450
+preplace netloc axi_quad_spi_0_ss_o 1 6 1 1440
 preplace netloc LINESCANNER1_END_ADC_1 1 0 1 N
-preplace netloc frequency_analyzer_manager_1_irq 1 3 1 370
-preplace netloc processing_system7_0_M_AXI_GP0 1 4 3 NJ -830 NJ -830 1420
-preplace netloc LINESCANNER_MISO_1 1 6 1 1420
-preplace netloc axi_interconnect_0_M02_AXI 1 2 4 NJ -720 NJ -640 560 -670 940
+preplace netloc frequency_analyzer_manager_1_irq 1 3 1 360
+preplace netloc processing_system7_0_M_AXI_GP0 1 4 3 NJ -880 NJ -880 1450
+preplace netloc LINESCANNER_MISO_1 1 6 1 1440
+preplace netloc axi_interconnect_0_M02_AXI 1 2 4 NJ -470 NJ -510 N -510 980
 preplace netloc linescanner_image_capture_unit_0_load_pulse 1 0 2 NJ -360 -250
 preplace netloc linescanner_image_capture_unit_0_main_clock 1 0 2 NJ -340 -260
-preplace netloc frequency_analyzer_manager_0_irq 1 3 1 340
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 5 2 1000 -530 1420
+preplace netloc frequency_analyzer_manager_0_irq 1 3 1 350
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 5 2 1010 -520 1440
 preplace netloc LINESCANNER1_PIXEL_CLOCK_1 1 0 1 N
-preplace netloc axi_quad_spi_0_io0_o 1 6 1 1430
+preplace netloc axi_quad_spi_0_io0_o 1 6 1 1450
 preplace netloc linescanner_image_capture_unit_0_sample 1 0 2 NJ -320 -270
-preplace netloc axi_quad_spi_0_sck_o 1 6 1 1430
-preplace netloc xlconcat_0_dout 1 4 2 NJ -690 NJ
+preplace netloc axi_quad_spi_0_sck_o 1 6 1 1450
+preplace netloc xlconcat_0_dout 1 4 2 NJ -580 NJ
 preplace netloc processing_system7_0_FIXED_IO 1 6 1 NJ
 preplace netloc linescanner_image_capture_unit_1_pixel_data 1 1 2 -230 -650 NJ
 preplace netloc linescanner_image_capture_unit_1_pixel_captured 1 1 2 -220 -630 NJ
-preplace netloc axi_interconnect_0_M00_AXI 1 5 1 970
+preplace netloc S01_AXI_1 1 4 2 630 -860 970
+preplace netloc axi_interconnect_0_M00_AXI 1 5 1 990
 preplace netloc linescanner_image_capture_unit_1_rst_cvc 1 0 2 NJ -710 -290
 preplace netloc LINESCANNER0_END_ADC_1 1 0 1 N
 preplace netloc LINESCANNER0_DATA_1 1 0 1 N
-preplace netloc frequency_analyzer_synch_0_start_analyzer_0 1 2 1 50
-preplace netloc linescanner_image_capture_unit_0_pixel_captured 1 1 2 -190 -190 NJ
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 7 -620 -480 -200 -510 90 -480 NJ -480 550 -190 NJ -190 1430
-preplace netloc axi_interconnect_0_M01_AXI 1 4 2 590 -660 930
-preplace netloc frequency_analyzer_synch_0_start_analyzer_1 1 1 2 -190 -490 80
+preplace netloc frequency_analyzer_synch_0_start_analyzer_0 1 2 1 60
+preplace netloc linescanner_image_capture_unit_0_pixel_captured 1 1 2 -220 -190 NJ
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 7 -600 -470 -230 -510 90 -460 NJ -460 590 60 NJ -310 1440
+preplace netloc axi_interconnect_0_M01_AXI 1 4 2 630 40 960
+preplace netloc frequency_analyzer_synch_0_start_analyzer_1 1 1 2 -220 -490 80
 preplace netloc frequency_analyzer_synch_0_stop_analyzer_0 1 2 1 70
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 7 -620 -880 NJ -880 60 -760 NJ -760 570 -750 990 -840 1430
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 7 -630 -490 NJ -520 100 -450 NJ -450 610 -890 1000 -530 1450
+preplace netloc axi_interconnect_1_M00_AXI 1 5 1 1010
 preplace netloc LINESCANNER1_DATA_1 1 0 1 N
-preplace netloc linescanner_image_capture_unit_1_load_pulse 1 0 2 NJ -760 -260
-preplace netloc linescanner_image_capture_unit_0_pixel_data 1 1 2 -210 -210 NJ
-preplace netloc frequency_analyzer_synch_0_stop_analyzer_1 1 2 1 50
-preplace netloc axi_interconnect_0_M03_AXI 1 2 4 NJ -770 NJ -770 N -770 960
+preplace netloc linescanner_image_capture_unit_1_load_pulse 1 0 2 NJ -870 -240
+preplace netloc linescanner_image_capture_unit_0_pixel_data 1 1 2 -230 -210 NJ
+preplace netloc frequency_analyzer_synch_0_stop_analyzer_1 1 2 1 70
+preplace netloc axi_interconnect_0_M03_AXI 1 2 4 NJ -480 NJ -500 N -500 970
 preplace netloc LINESCANNER0_PIXEL_CLOCK_1 1 0 1 N
 preplace netloc LINESCANNER0_LVAL_1 1 0 1 N
-levelinfo -pg 1 -660 -440 -70 230 460 770 1210 1460 -top -890 -bot 190
+levelinfo -pg 1 -660 -440 -60 240 490 790 1230 1470 -top -900 -bot 110
 ",
 }
 
