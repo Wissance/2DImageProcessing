@@ -237,7 +237,7 @@
              for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8) -1; byte_index = byte_index + 1)
              begin
                  if (S_AXI_WSTRB[byte_index] == 1) 
-                     registers[axi_awaddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] - 1][(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index * 8) +: 8];
+                     registers[axi_awaddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]][(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index * 8) +: 8];
              end
         end
 		    //todo: umv: re-write this ....
