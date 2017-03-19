@@ -22,10 +22,9 @@
 
 module frequency_analyzer_manager #
 (
-    parameter integer DUMP_FREQUENCIES_REQUEST = 666,
     // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
-    parameter integer C_S00_AXI_ADDR_WIDTH = 4
+    parameter integer C_S00_AXI_ADDR_WIDTH = 10
 )
 (
     input wire [7:0] data,
@@ -62,39 +61,68 @@ module frequency_analyzer_manager #
     localparam integer pixel_0_index = 15;
     localparam integer pixel_1_index = 511;
     localparam integer pixel_2_index = 1023;
+    localparam integer registers_number = 6;
     
+    // frequency analyzer data
     reg pixel_0_sample_data;
     reg pixel_1_sample_data;
     reg pixel_2_sample_data;
     reg [9:0] pixel_counter;
     wire enable;
+    // axi register access
+    reg[31:0] register_write;
+    reg[1:0] register_operation;
+    reg[7:0] register_number;
+    wire[31:0] register_read;
+    reg[2:0] register_counter;
+    reg write_completed;
     
-    integer pixel_0_f1_action_time;
-    integer pixel_0_f2_action_time;
-    integer pixel_1_f1_action_time;
-    integer pixel_1_f2_action_time;
-    integer pixel_2_f1_action_time;
-    integer pixel_2_f2_action_time;
+    // frequency analyzer frequencies times
+    reg [31:0] pixel_0_f1_action_time;
+    reg [31:0] pixel_0_f2_action_time;
+    reg [31:0] pixel_1_f1_action_time;
+    reg [31:0] pixel_1_f2_action_time;
+    reg [31:0] pixel_2_f1_action_time;
+    reg [31:0] pixel_2_f2_action_time;    
+    wire [31:0] pixel_0_f1_action_time_net;
+    wire [31:0] pixel_0_f2_action_time_net;
+    wire [31:0] pixel_1_f1_action_time_net;
+    wire [31:0] pixel_1_f2_action_time_net;
+    wire [31:0] pixel_2_f1_action_time_net;
+    wire [31:0] pixel_2_f2_action_time_net;
+    
+    always @(*)
+    begin
+        pixel_0_f1_action_time = pixel_0_f1_action_time_net;
+        pixel_0_f2_action_time = pixel_0_f2_action_time_net;
+        pixel_1_f1_action_time = pixel_1_f1_action_time_net;
+        pixel_1_f2_action_time = pixel_1_f2_action_time_net;
+        pixel_2_f1_action_time = pixel_2_f1_action_time_net;
+        pixel_2_f2_action_time = pixel_2_f2_action_time_net;
+    end
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(s00_axi_aclk), .CE(s00_axi_aresetn), .D(start), .Q(enable), .CLR(stop));
     //todo: umv: set proper frequencies
-    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(100000000)) 
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .FREQUENCY_DEVIATION(10), .CLOCK(100000000)) 
          pixel_0_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear), 
-                          .f1_value(pixel_0_f1_action_time), .f2_value(pixel_0_f2_action_time));
-    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(100000000)) 
+                          .f1_value(pixel_0_f1_action_time_net), .f2_value(pixel_0_f2_action_time_net));
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .FREQUENCY_DEVIATION(10), .CLOCK(100000000)) 
          pixel_1_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
-                          .f1_value(pixel_1_f1_action_time), .f2_value(pixel_1_f2_action_time));
-    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .DEVIATION(10), .CLOCK(100000000)) 
+                          .f1_value(pixel_1_f1_action_time_net), .f2_value(pixel_1_f2_action_time_net));
+    frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .FREQUENCY_DEVIATION(10), .CLOCK(100000000)) 
          pixel_2_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
-                          .f1_value(pixel_2_f1_action_time), .f2_value(pixel_2_f2_action_time));
-    
+                          .f1_value(pixel_2_f1_action_time_net), .f2_value(pixel_2_f2_action_time_net));
+    assign irg = stop;
     // Instantiation of Axi Bus Interface S00_AXI
     axi_slave_impl # 
     ( 
         .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
-        .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
-    ) frequency_analyzer_manager_inst (
+        .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
+        .NUMBER_OF_REGISTERS(registers_number)
+    ) 
+    frequency_analyzer_manager_inst 
+    (
         .S_AXI_ACLK(s00_axi_aclk),
         .S_AXI_ARESETN(s00_axi_aresetn),
         .S_AXI_AWADDR(s00_axi_awaddr),
@@ -115,7 +143,11 @@ module frequency_analyzer_manager #
         .S_AXI_RDATA(s00_axi_rdata),
         .S_AXI_RRESP(s00_axi_rresp),
         .S_AXI_RVALID(s00_axi_rvalid),
-        .S_AXI_RREADY(s00_axi_rready)
+        .S_AXI_RREADY(s00_axi_rready),
+        .register_operation(register_operation),
+        .register_number(register_number),
+        .register_read(register_read),
+        .register_write(register_write)
     );
     
     always @(posedge pixel_clock)
@@ -144,15 +176,27 @@ module frequency_analyzer_manager #
     
     always @(posedge s00_axi_aclk)
     begin
-        if(s00_axi_aresetn)
+        if(stop && ~write_completed)
+        for(register_counter = 0; register_counter < registers_number; register_counter = register_counter + 1)
         begin
-            if(s00_axi_wstrb[0] || s00_axi_wvalid)
-            begin
-                if(s00_axi_wdata == DUMP_FREQUENCIES_REQUEST)
-                begin
-                    //todo: umv: add data send
-                end
-            end
+            register_operation <= 2;//`REGISTER_WRITE_OPERATION;
+            register_number <= register_counter + 1;
+            register_write <= 33; //todo: umv emulation, add function get_frequency(number)
+            if(register_counter == registers_number - 1)
+                write_completed <= 1;
+        end
+        if(stop && write_completed)
+        begin
+            register_operation <= 0;
+            register_number <= 0;
+            register_write <= 0;
+        end
+        if(~stop)
+        begin
+            register_operation <= 0;
+            register_number <= 0;
+            register_write <= 0;
+            write_completed <= 0;
         end
     end
     

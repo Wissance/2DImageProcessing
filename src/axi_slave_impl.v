@@ -225,7 +225,7 @@
             //slv_reg1 <= 0;
             ///slv_reg2 <= 0;
             //slv_reg3 <= 0;
-            for (register_index = 0; register_index <= NUMBER_OF_REGISTERS; register_index = register_index + 1)
+            for (register_index = 0; register_index < NUMBER_OF_REGISTERS; register_index = register_index + 1)
                 registers[register_index] <= 0;
         end 
         else 
