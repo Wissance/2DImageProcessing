@@ -120,7 +120,7 @@ module frequency_analyzer_manager #
     
     always @(posedge pixel_clock)
     begin
-        if(clear || ~s00_axi_aresetn)
+        if(~clear || ~s00_axi_aresetn)
         begin
             pixel_0_sample_data <= 0;
             pixel_1_sample_data <= 0;

@@ -42,7 +42,7 @@ module frequency_analyzer_synch #
 	
 	always @(posedge clock)
 	begin
-	    if(reset)
+	    if(~reset)
 		    clock_counter <= 0;
 	    else
 		begin
@@ -57,7 +57,7 @@ module frequency_analyzer_synch #
 	
 	always @(posedge clock)
 	begin
-	    if(reset)
+	    if(~reset)
 		begin
 		    start_analyzer_0 <= 0;
 			stop_analyzer_0 <= 0;
