@@ -16,7 +16,6 @@ public:
     void stopImageCapture();
     DragsterConfig getDragsterConfig(unsigned char linescannerIndex);
 private:
-    void configureInterrupts();
     // dragster
     void initializeSpi();
     void initializeDragsters();

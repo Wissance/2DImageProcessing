@@ -64,18 +64,18 @@ void ImageCaptureManager::configureInterrupts()
     XScuGic_SetPriorityTriggerType(&_interruptController, FREQUENCY_ANALYZER_0_INTERRUPT_ID, 0xA0, 0x3);
     XScuGic_SetPriorityTriggerType(&_interruptController, FREQUENCY_ANALYZER_1_INTERRUPT_ID, 0xA0, 0x3);
 
-    status = XScuGic_Connect(&_interruptController, FREQUENCY_ANALYZER_0_INTERRUPT_ID,
+    status = XScuGic_Connect(&_interruptController, VDMA_1_WRITE_INTERRUPT_ID,
                             (Xil_InterruptHandler)XAxiVdma_WriteIntrHandler,  &_vdma1);
     if (status != XST_SUCCESS)
         xil_printf("\n XScuGic_Connect failed (VDMA 1) \r\n");
     //
-    status = XScuGic_Connect(&_interruptController,  FREQUENCY_ANALYZER_1_INTERRUPT_ID,
+    status = XScuGic_Connect(&_interruptController, VDMA_2_WRITE_INTERRUPT_ID,
                              (Xil_InterruptHandler)XAxiVdma_WriteIntrHandler,  &_vdma2);
     if (status != XST_SUCCESS)
         xil_printf("\n XScuGic_Connect failed (VDMA 2) \r\n");
 
-    XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_0_INTERRUPT_ID);
-    XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_1_INTERRUPT_ID);
+    XScuGic_Enable(&_interruptController, VDMA_1_WRITE_INTERRUPT_ID);
+    XScuGic_Enable(&_interruptController, VDMA_2_WRITE_INTERRUPT_ID);
 
     Xil_ExceptionInit();
     Xil_ExceptionRegisterHandler( XIL_EXCEPTION_ID_IRQ_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, &_interruptController);

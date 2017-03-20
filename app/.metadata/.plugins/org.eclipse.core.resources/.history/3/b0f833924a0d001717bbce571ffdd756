@@ -11,9 +11,6 @@
 #define LINESCANNER0_SLAVE_SELECT 1
 #define LINESCANNER1_SLAVE_SELECT 2
 
-#define FREQUENCY_ANALYZER_0_INTERRUPT_ID 11
-#define FREQUENCY_ANALYZER_1_INTERRUPT_ID 12
-
 #define INTERRUPT_CONTROLLER_DEVICE_ID XPAR_SCUGIC_SINGLE_DEVICE_ID
 
 u8 readBuffer[2];
@@ -39,48 +36,12 @@ void ImageCaptureManager::stopImageCapture()
     xil_printf("\n Image Capture Manager has been stopped\n\r");
 }
 
-DragsterConfig ImageCaptureManager::getDragsterConfig(unsigned char linescannerIndex)
+struct DragsterConfig ImageCaptureManager::getDragsterConfig(unsigned char linescannerIndex)
 {
     struct DragsterConfig config;
     readDragsterConfigImpl(&config, linescannerIndex == LINESCANNER0 ? LINESCANNER0_SLAVE_SELECT
                                                                      : LINESCANNER1_SLAVE_SELECT);
     return config;
-}
-
-void ImageCaptureManager::configureInterrupts()
-{
-    XScuGic_Config* config = XScuGic_LookupConfig(INTERRUPT_CONTROLLER_DEVICE_ID);
-    if(!config)
-        xil_printf("\n XScuGic_LookupConfig failed \r\n");
-    int status = XScuGic_CfgInitialize(&_interruptController, config, config->CpuBaseAddress);
-    if (status != XST_SUCCESS)
-        xil_printf("\n XScuGic_CfgInitialize \r\n");
-    // Set priority and trigger type.
-    //    Priority range: 0...248.
-    //    Trigger types:
-    //        Software-generated Interrupts(SFI): 2(always);
-    //        Private Peripheral Interrupt(PPI): 1(Active HIGH), 3(Rising edge);
-    //        Shared Peripheral Interrupts(SPI): 1(Active HIGH), 3(Rising edge);*/
-    XScuGic_SetPriorityTriggerType(&_interruptController, FREQUENCY_ANALYZER_0_INTERRUPT_ID, 0xA0, 0x3);
-    XScuGic_SetPriorityTriggerType(&_interruptController, FREQUENCY_ANALYZER_1_INTERRUPT_ID, 0xA0, 0x3);
-
-    status = XScuGic_Connect(&_interruptController, FREQUENCY_ANALYZER_0_INTERRUPT_ID,
-                            (Xil_InterruptHandler)XAxiVdma_WriteIntrHandler,  &_vdma1);
-    if (status != XST_SUCCESS)
-        xil_printf("\n XScuGic_Connect failed (VDMA 1) \r\n");
-    //
-    status = XScuGic_Connect(&_interruptController,  FREQUENCY_ANALYZER_1_INTERRUPT_ID,
-                             (Xil_InterruptHandler)XAxiVdma_WriteIntrHandler,  &_vdma2);
-    if (status != XST_SUCCESS)
-        xil_printf("\n XScuGic_Connect failed (VDMA 2) \r\n");
-
-    XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_0_INTERRUPT_ID);
-    XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_1_INTERRUPT_ID);
-
-    Xil_ExceptionInit();
-    Xil_ExceptionRegisterHandler( XIL_EXCEPTION_ID_IRQ_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, &_interruptController);
-
-    Xil_ExceptionEnable();
 }
 
 //void ImageCaptureManager::configureVdmaInterrupts()

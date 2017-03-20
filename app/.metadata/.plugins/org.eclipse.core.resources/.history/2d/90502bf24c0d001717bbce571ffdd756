@@ -74,8 +74,8 @@ void ImageCaptureManager::configureInterrupts()
     if (status != XST_SUCCESS)
         xil_printf("\n XScuGic_Connect failed (VDMA 2) \r\n");
 
-    XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_0_INTERRUPT_ID);
-    XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_1_INTERRUPT_ID);
+    XScuGic_Enable(&_interruptController, VDMA_1_WRITE_INTERRUPT_ID);
+    XScuGic_Enable(&_interruptController, VDMA_2_WRITE_INTERRUPT_ID);
 
     Xil_ExceptionInit();
     Xil_ExceptionRegisterHandler( XIL_EXCEPTION_ID_IRQ_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, &_interruptController);
