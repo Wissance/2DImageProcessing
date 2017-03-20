@@ -14,6 +14,9 @@ int main()
     ImageCaptureManager systemManager;
     systemManager.initialize();
 
+    // start process ...
+    systemManager.startImageCapture();
+
     // check config
     DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
     DragsterConfig linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
@@ -26,7 +29,7 @@ int main()
     xil_printf("Linescanner 1, Register3: 0x%02X", linescanner1Config.getControlRegister3()._registerValue);
     // todo: umv: write configuration in files via FatFS
     // start process ...
-    systemManager.startImageCapture();
+    //systemManager.startImageCapture();
     for(;;);
     // stop ...
     systemManager.stopImageCapture();

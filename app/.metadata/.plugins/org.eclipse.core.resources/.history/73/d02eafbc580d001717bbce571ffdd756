@@ -79,12 +79,12 @@ void ImageCaptureManager::configureInterrupts()
     status = XScuGic_Connect(&_interruptController, FREQUENCY_ANALYZER_0_INTERRUPT_ID,
                             (Xil_InterruptHandler)freuqencyAnalyzer0Handler,  NULL);
     if (status != XST_SUCCESS)
-        xil_printf("\n XScuGic_Connect failed (Frequency analyzer manager 0) \r\n");
+        xil_printf("\n XScuGic_Connect failed (VDMA 1) \r\n");
     //
     status = XScuGic_Connect(&_interruptController,  FREQUENCY_ANALYZER_1_INTERRUPT_ID,
                              (Xil_InterruptHandler)freuqencyAnalyzer1Handler,  NULL);
     if (status != XST_SUCCESS)
-        xil_printf("\n XScuGic_Connect failed (Frequency analyzer manager 1) \r\n");
+        xil_printf("\n XScuGic_Connect failed (VDMA 2) \r\n");
 
     XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_0_INTERRUPT_ID);
     XScuGic_Enable(&_interruptController,  FREQUENCY_ANALYZER_1_INTERRUPT_ID);
@@ -186,12 +186,10 @@ void ImageCaptureManager::sendDragsterRegisterValue(unsigned char address, unsig
 
 unsigned char ImageCaptureManager::readDragsterRegisterValue(unsigned char address)
 {
-    #define READ_REGISTER_ADDRESS 0x0F
+    #define READ_REGISTER_ADDRESS 0xF
     writeBuffer[0] = convertFromMsbToLsbFirst(address);
     writeBuffer[0] = convertFromMsbToLsbFirst(READ_REGISTER_ADDRESS);
-    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2);
-    if(result != -XST_SUCCESS)
-        xil_printf("Read fails, reason %d", result);
+    XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2);
     return convertFromLsbToMsbFirst(readBuffer[0]);
 }
 
