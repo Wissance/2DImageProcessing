@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;testapp_image_processing_2d/src/managers/imageCaptureManager.c&apos; to &apos;imageCaptureManager.cpp&apos;" description="Rename resource &apos;imageCaptureManager.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/managers/imageCaptureManager.c" name="imageCaptureManager.cpp" stamp="1489995671513" updateReferences="true"/>
+</session>

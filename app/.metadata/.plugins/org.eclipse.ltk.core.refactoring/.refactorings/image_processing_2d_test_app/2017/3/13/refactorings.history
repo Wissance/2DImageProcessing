@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;image_processing_2d_test_app/src/data/dragsterConfig.c&apos; to &apos;dragsterConfig.cpp&apos;" description="Rename resource &apos;dragsterConfig.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/data/dragsterConfig.c" name="dragsterConfig.cpp" stamp="1489999219676" updateReferences="true"/>
+</session>
