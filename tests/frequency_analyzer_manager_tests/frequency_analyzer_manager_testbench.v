@@ -2,7 +2,10 @@ module frequency_analyzer_manager_testbench #
 (
     // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
-    parameter integer C_S00_AXI_ADDR_WIDTH = 10
+    parameter integer C_S00_AXI_ADDR_WIDTH = 10,
+    parameter integer PIXEL_0_INDEX = 0,
+    parameter integer PIXEL_1_INDEX = 1,
+    parameter integer PIXEL_2_INDEX = 2
 )
 (
     input wire [7:0] data,
@@ -38,7 +41,10 @@ module frequency_analyzer_manager_testbench #
     frequency_analyzer_manager #
 	(
 	    .C_S00_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
-		.C_S00_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
+		.C_S00_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
+		.PIXEL_0_INDEX(PIXEL_0_INDEX),
+		.PIXEL_1_INDEX(PIXEL_1_INDEX),
+		.PIXEL_2_INDEX(PIXEL_2_INDEX)
 	) 
 	testing_frequency_analyzer_manager
 	(
@@ -48,7 +54,7 @@ module frequency_analyzer_manager_testbench #
         .stop(stop),
         .clear(clear),
         .irq(irq),
-    // Ports of Axi Slave Bus Interface S00_AXI
+         // Ports of Axi Slave Bus Interface S00_AXI
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_aresetn(s00_axi_aresetn),
         .s00_axi_awaddr(s00_axi_awaddr),

@@ -24,7 +24,10 @@ module frequency_analyzer_manager #
 (
     // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
-    parameter integer C_S00_AXI_ADDR_WIDTH = 10
+    parameter integer C_S00_AXI_ADDR_WIDTH = 10,
+    parameter integer PIXEL_0_INDEX = 15,
+    parameter integer PIXEL_1_INDEX = 511,
+    parameter integer PIXEL_2_INDEX = 1023
 )
 (
     input wire [7:0] data,
@@ -58,9 +61,9 @@ module frequency_analyzer_manager #
 );
     
     // todo: set it from image_capture_manager
-    localparam integer pixel_0_index = 15;
-    localparam integer pixel_1_index = 511;
-    localparam integer pixel_2_index = 1023;
+    //localparam integer pixel_0_index = 15;
+    //localparam integer pixel_1_index = 511;
+    //localparam integer pixel_2_index = 1023;
     localparam integer registers_number = 6;
     
     // frequency analyzer data
@@ -113,7 +116,7 @@ module frequency_analyzer_manager #
     frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .FREQUENCY_DEVIATION(10), .CLOCK(100000000)) 
          pixel_2_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
                           .f1_value(pixel_2_f1_action_time_net), .f2_value(pixel_2_f2_action_time_net));
-    assign irg = stop;
+    assign irq = stop;
     // Instantiation of Axi Bus Interface S00_AXI
     axi_slave_impl # 
     ( 
@@ -164,11 +167,11 @@ module frequency_analyzer_manager #
             if(enable)
             begin
                 pixel_counter <= pixel_counter + 1;
-                if(pixel_counter == pixel_0_index)
+                if(pixel_counter == PIXEL_0_INDEX)
                     pixel_0_sample_data <= data[7];
-                else if (pixel_counter == pixel_1_index)
+                else if (pixel_counter == PIXEL_1_INDEX)
                     pixel_1_sample_data = data[7];
-                else if (pixel_counter == pixel_2_index)
+                else if (pixel_counter == PIXEL_2_INDEX)
                     pixel_2_sample_data = data[7];
             end
         end
