@@ -104,8 +104,10 @@ module frequency_analyzer_manager #
         pixel_2_f2_action_time = pixel_2_f2_action_time_net;
     end
     
+    supply1 vcc;
+    
     // enable generator
-    FDCE #(.INIT(0)) enable_generator(.C(s00_axi_aclk), .CE(s00_axi_aresetn), .D(start), .Q(enable), .CLR(stop));
+    FDCE #(.INIT(0)) enable_generator(.C(start), .CE(s00_axi_aresetn), .D(vcc), .Q(enable), .CLR(stop));
     //todo: umv: set proper frequencies
     frequency_analyzer #(.FREQUENCY_1(9000), .FREQUENCY_2(11000), .FREQUENCY_DEVIATION(10), .CLOCK(100000000)) 
          pixel_0_analyzer(.sample_data(pixel_0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear), 
