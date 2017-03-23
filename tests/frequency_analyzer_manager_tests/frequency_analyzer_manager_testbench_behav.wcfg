@@ -11,129 +11,162 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3160184860000000fs"></ZoomStartTime>
-      <ZoomEndTime time="6475184860000001fs"></ZoomEndTime>
-      <Cursor1Time time="5922684860000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="434643832251fs"></ZoomEndTime>
+      <Cursor1Time time="61600000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="30" />
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/data">
+   <WVObjectSize size="38" />
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/data" type="array">
       <obj_property name="ElementShortName">data[7:0]</obj_property>
       <obj_property name="ObjectShortName">data[7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/pixel_clock">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_sample_data" type="logic">
+      <obj_property name="ElementShortName">pixel0_sample_data</obj_property>
+      <obj_property name="ObjectShortName">pixel0_sample_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel1_sample_data" type="logic">
+      <obj_property name="ElementShortName">pixel1_sample_data</obj_property>
+      <obj_property name="ObjectShortName">pixel1_sample_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel2_sample_data" type="logic">
+      <obj_property name="ElementShortName">pixel2_sample_data</obj_property>
+      <obj_property name="ObjectShortName">pixel2_sample_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/pixel_clock" type="logic">
       <obj_property name="ElementShortName">pixel_clock</obj_property>
       <obj_property name="ObjectShortName">pixel_clock</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/start">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/start" type="logic">
       <obj_property name="ElementShortName">start</obj_property>
       <obj_property name="ObjectShortName">start</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/stop">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/stop" type="logic">
       <obj_property name="ElementShortName">stop</obj_property>
       <obj_property name="ObjectShortName">stop</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/enable">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/enable" type="logic">
       <obj_property name="ElementShortName">enable</obj_property>
       <obj_property name="ObjectShortName">enable</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/clear">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/clear" type="logic">
       <obj_property name="ElementShortName">clear</obj_property>
       <obj_property name="ObjectShortName">clear</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/irq">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/irq" type="logic">
       <obj_property name="ElementShortName">irq</obj_property>
       <obj_property name="ObjectShortName">irq</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_aclk">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_f1_action_time" type="array">
+      <obj_property name="ElementShortName">pixel0_f1_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel0_f1_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_f0_action_time" type="array">
+      <obj_property name="ElementShortName">pixel0_f0_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel0_f0_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel1_f0_action_time" type="array">
+      <obj_property name="ElementShortName">pixel1_f0_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel1_f0_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel1_f1_action_time" type="array">
+      <obj_property name="ElementShortName">pixel1_f1_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel1_f1_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel2_f0_action_time" type="array">
+      <obj_property name="ElementShortName">pixel2_f0_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel2_f0_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel2_f1_action_time" type="array">
+      <obj_property name="ElementShortName">pixel2_f1_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel2_f1_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel_counter" type="array">
+      <obj_property name="ElementShortName">pixel_counter[9:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel_counter[9:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_aresetn">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_aresetn" type="logic">
       <obj_property name="ElementShortName">s00_axi_aresetn</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aresetn</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_awaddr">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_awaddr" type="array">
       <obj_property name="ElementShortName">s00_axi_awaddr[9:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awaddr[9:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_awprot">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_awprot" type="array">
       <obj_property name="ElementShortName">s00_axi_awprot[2:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awprot[2:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_awvalid">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_awvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_awvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_awready">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_awready" type="logic">
       <obj_property name="ElementShortName">s00_axi_awready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_wdata">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_wdata" type="array">
       <obj_property name="ElementShortName">s00_axi_wdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_wstrb">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_wstrb" type="array">
       <obj_property name="ElementShortName">s00_axi_wstrb[3:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wstrb[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_wvalid">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_wvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_wvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_wready">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_wready" type="logic">
       <obj_property name="ElementShortName">s00_axi_wready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_bresp">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_bresp" type="array">
       <obj_property name="ElementShortName">s00_axi_bresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_bresp[1:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_bvalid">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_bvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_bvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_bvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_bready">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_bready" type="logic">
       <obj_property name="ElementShortName">s00_axi_bready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_bready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_araddr">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_araddr" type="array">
       <obj_property name="ElementShortName">s00_axi_araddr[9:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_araddr[9:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_arprot">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_arprot" type="array">
       <obj_property name="ElementShortName">s00_axi_arprot[2:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_arprot[2:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_arvalid">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_arvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_arvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_arvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_arready">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_arready" type="logic">
       <obj_property name="ElementShortName">s00_axi_arready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_arready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_rdata">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_rdata" type="array">
       <obj_property name="ElementShortName">s00_axi_rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/s00_axi_rresp">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_rresp" type="array">
       <obj_property name="ElementShortName">s00_axi_rresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rresp[1:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_rvalid">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_rvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_rvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/frequency_analyzer_manager_testbench/s00_axi_rready">
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_rready" type="logic">
       <obj_property name="ElementShortName">s00_axi_rready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/C_S00_AXI_DATA_WIDTH">
-      <obj_property name="ElementShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/frequency_analyzer_manager_testbench/C_S00_AXI_ADDR_WIDTH">
-      <obj_property name="ElementShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
    </wvobject>
 </wave_config>
