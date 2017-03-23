@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="14" Path="E:/oms/2DImageProcessing/2d_image_processing.xpr">
+<Project Version="7" Minor="14" Path="/home/michael/Projects/Xilinx/2DImageProcessing/2d_image_processing.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="207163eb4246467283401edab4bbd337"/>
@@ -26,7 +26,7 @@
     <Option Name="IPUserFilesDir" Val="$PPRDIR/2d_image_processing.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/2d_image_processing.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="104"/>
+    <Option Name="WTXSimLaunchSim" Val="117"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -99,31 +99,31 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="image_processing_2d_design_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_1_0/image_processing_2d_design_linescanner_image_capture_unit_1_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_0_0/image_processing_2d_design_linescanner_image_capture_unit_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_clock_divider_0_0/image_processing_2d_design_clock_divider_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_image_capture_manager_0_0/image_processing_2d_design_image_capture_manager_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xbar_0/image_processing_2d_design_xbar_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_interconnect_0_0/image_processing_2d_design_axi_interconnect_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_proc_sys_reset_0_1/image_processing_2d_design_proc_sys_reset_0_1.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_processing_system7_0_0/image_processing_2d_design_processing_system7_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_synch_0_0/image_processing_2d_design_frequency_analyzer_synch_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xlconcat_0_0/image_processing_2d_design_xlconcat_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_1_0/image_processing_2d_design_frequency_analyzer_manager_1_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_0_1/image_processing_2d_design_frequency_analyzer_manager_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_quad_spi_0_1/image_processing_2d_design_axi_quad_spi_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_proc_sys_reset_0_1/image_processing_2d_design_proc_sys_reset_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_interconnect_0_0/image_processing_2d_design_axi_interconnect_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xbar_0/image_processing_2d_design_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_image_capture_manager_0_0/image_processing_2d_design_image_capture_manager_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_clock_divider_0_0/image_processing_2d_design_clock_divider_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_0_0/image_processing_2d_design_linescanner_image_capture_unit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_1_0/image_processing_2d_design_linescanner_image_capture_unit_1_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_clock_divider_1_0/image_processing_2d_design_clock_divider_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_quad_spi_0_1/image_processing_2d_design_axi_quad_spi_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_0_1/image_processing_2d_design_frequency_analyzer_manager_0_1.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hdl/image_processing_2d_design.hwdef"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design_bd.tcl"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design.hwh"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="image_processing_2d_design_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_2/image_processing_2d_design_auto_pc_2.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_1/image_processing_2d_design_auto_pc_1.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_ds_0/image_processing_2d_design_auto_ds_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_0_1/image_processing_2d_design_auto_pc_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xbar_1/image_processing_2d_design_xbar_1.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_interconnect_1_0/image_processing_2d_design_axi_interconnect_1_0.xci"/>
         <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hdl/image_processing_2d_design.v"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_2/image_processing_2d_design_auto_pc_2.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_synch_0_0/image_processing_2d_design_frequency_analyzer_synch_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xlconcat_0_0/image_processing_2d_design_xlconcat_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_1_0/image_processing_2d_design_frequency_analyzer_manager_1_0.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/image_processing_2d_design/hdl/image_processing_2d_design_wrapper.v">
         <FileInfo>
@@ -245,6 +245,7 @@
       </Config>
     </FileSet>
     <FileSet Name="frequency_analyzer_manager_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/frequency_analyzer_manager_tests">
+      <Filter Type="Srcs"/>
       <File Path="$PPRDIR/tests/frequency_analyzer_manager_tests/frequency_analyzer_manager_testbench.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -289,19 +290,15 @@
     <Simulator Name="Riviera">
       <Option Name="Description" Val="Riviera-PRO Simulator"/>
     </Simulator>
-    <Simulator Name="ActiveHDL">
-      <Option Name="Description" Val="Active-HDL Simulator"/>
-    </Simulator>
   </Simulators>
   <Runs Version="1" Minor="10">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Vivado Synthesis Defaults" State="current" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Default settings for Implementation." State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Default settings for Implementation." State="current" SynthRun="synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016"/>
         <Step Id="init_design"/>
@@ -314,7 +311,6 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
   </Runs>
   <MsgRule>

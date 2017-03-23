@@ -11,14 +11,26 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="999996125fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000776fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="434643832251fs"></ZoomEndTime>
+      <Cursor1Time time="61600000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="29" />
+   <WVObjectSize size="38" />
    <wvobject fp_name="/frequency_analyzer_manager_testbench/data" type="array">
       <obj_property name="ElementShortName">data[7:0]</obj_property>
       <obj_property name="ObjectShortName">data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_sample_data" type="logic">
+      <obj_property name="ElementShortName">pixel0_sample_data</obj_property>
+      <obj_property name="ObjectShortName">pixel0_sample_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel1_sample_data" type="logic">
+      <obj_property name="ElementShortName">pixel1_sample_data</obj_property>
+      <obj_property name="ObjectShortName">pixel1_sample_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel2_sample_data" type="logic">
+      <obj_property name="ElementShortName">pixel2_sample_data</obj_property>
+      <obj_property name="ObjectShortName">pixel2_sample_data</obj_property>
    </wvobject>
    <wvobject fp_name="/frequency_analyzer_manager_testbench/pixel_clock" type="logic">
       <obj_property name="ElementShortName">pixel_clock</obj_property>
@@ -32,6 +44,10 @@
       <obj_property name="ElementShortName">stop</obj_property>
       <obj_property name="ObjectShortName">stop</obj_property>
    </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/enable" type="logic">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
    <wvobject fp_name="/frequency_analyzer_manager_testbench/clear" type="logic">
       <obj_property name="ElementShortName">clear</obj_property>
       <obj_property name="ObjectShortName">clear</obj_property>
@@ -39,6 +55,35 @@
    <wvobject fp_name="/frequency_analyzer_manager_testbench/irq" type="logic">
       <obj_property name="ElementShortName">irq</obj_property>
       <obj_property name="ObjectShortName">irq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_f1_action_time" type="array">
+      <obj_property name="ElementShortName">pixel0_f1_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel0_f1_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_f0_action_time" type="array">
+      <obj_property name="ElementShortName">pixel0_f0_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel0_f0_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel1_f0_action_time" type="array">
+      <obj_property name="ElementShortName">pixel1_f0_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel1_f0_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel1_f1_action_time" type="array">
+      <obj_property name="ElementShortName">pixel1_f1_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel1_f1_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel2_f0_action_time" type="array">
+      <obj_property name="ElementShortName">pixel2_f0_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel2_f0_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel2_f1_action_time" type="array">
+      <obj_property name="ElementShortName">pixel2_f1_action_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel2_f1_action_time[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel_counter" type="array">
+      <obj_property name="ElementShortName">pixel_counter[9:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel_counter[9:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
@@ -123,13 +168,5 @@
    <wvobject fp_name="/frequency_analyzer_manager_testbench/s00_axi_rready" type="logic">
       <obj_property name="ElementShortName">s00_axi_rready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/frequency_analyzer_manager_testbench/C_S00_AXI_DATA_WIDTH" type="array">
-      <obj_property name="ElementShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/frequency_analyzer_manager_testbench/C_S00_AXI_ADDR_WIDTH" type="array">
-      <obj_property name="ElementShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
    </wvobject>
 </wave_config>

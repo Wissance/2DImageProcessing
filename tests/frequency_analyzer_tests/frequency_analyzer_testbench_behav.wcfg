@@ -11,9 +11,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="2830000000001fs"></ZoomEndTime>
-      <Cursor1Time time="2000000000000fs"></Cursor1Time>
+      <ZoomStartTime time="1060300000000fs"></ZoomStartTime>
+      <ZoomEndTime time="1663140236688fs"></ZoomEndTime>
+      <Cursor1Time time="1130000000000fs"></Cursor1Time>
    </zoom_setting>
    <WVObjectSize size="6" />
    <wvobject fp_name="/frequency_analyzer_testbench/sample_data" type="logic">
@@ -32,12 +32,12 @@
       <obj_property name="ElementShortName">clear</obj_property>
       <obj_property name="ObjectShortName">clear</obj_property>
    </wvobject>
+   <wvobject fp_name="/frequency_analyzer_testbench/f0_value" type="array">
+      <obj_property name="ElementShortName">f0_value[31:0]</obj_property>
+      <obj_property name="ObjectShortName">f0_value[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/frequency_analyzer_testbench/f1_value" type="array">
       <obj_property name="ElementShortName">f1_value[31:0]</obj_property>
       <obj_property name="ObjectShortName">f1_value[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/frequency_analyzer_testbench/f2_value" type="array">
-      <obj_property name="ElementShortName">f2_value[31:0]</obj_property>
-      <obj_property name="ObjectShortName">f2_value[31:0]</obj_property>
    </wvobject>
 </wave_config>

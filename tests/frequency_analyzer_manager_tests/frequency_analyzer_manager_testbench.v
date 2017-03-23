@@ -2,7 +2,18 @@ module frequency_analyzer_manager_testbench #
 (
     // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
-    parameter integer C_S00_AXI_ADDR_WIDTH = 10
+    parameter integer C_S00_AXI_ADDR_WIDTH = 10,
+    parameter integer PIXEL0_INDEX = 32,
+    parameter integer PIXEL1_INDEX = 513,
+    parameter integer PIXEL2_INDEX = 1023,
+    parameter integer PIXEL0_FREQUENCY0 = 9000,
+    parameter integer PIXEL0_FREQUENCY1 = 19000,
+    parameter integer PIXEL1_FREQUENCY0 = 15000,
+    parameter integer PIXEL1_FREQUENCY1 = 20000,
+    parameter integer PIXEL2_FREQUENCY0 = 25000,
+    parameter integer PIXEL2_FREQUENCY1 = 50000,
+    parameter integer FREQUENCY_DEVIATION = 20,
+    parameter integer CLOCK_FREQUENCY = 50000000
 )
 (
     input wire [7:0] data,
@@ -38,7 +49,18 @@ module frequency_analyzer_manager_testbench #
     frequency_analyzer_manager #
 	(
 	    .C_S00_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
-		.C_S00_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
+		.C_S00_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
+		.PIXEL0_INDEX(PIXEL0_INDEX),
+		.PIXEL1_INDEX(PIXEL1_INDEX),
+		.PIXEL2_INDEX(PIXEL2_INDEX),
+		.PIXEL0_FREQUENCY0(PIXEL0_FREQUENCY0),
+        .PIXEL0_FREQUENCY1(PIXEL0_FREQUENCY1),
+        .PIXEL1_FREQUENCY0(PIXEL1_FREQUENCY0),
+        .PIXEL1_FREQUENCY1(PIXEL1_FREQUENCY1),
+        .PIXEL2_FREQUENCY0(PIXEL2_FREQUENCY0),
+        .PIXEL2_FREQUENCY1(PIXEL2_FREQUENCY1),
+        .FREQUENCY_DEVIATION(FREQUENCY_DEVIATION),
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)
 	) 
 	testing_frequency_analyzer_manager
 	(
@@ -48,7 +70,7 @@ module frequency_analyzer_manager_testbench #
         .stop(stop),
         .clear(clear),
         .irq(irq),
-    // Ports of Axi Slave Bus Interface S00_AXI
+         // Ports of Axi Slave Bus Interface S00_AXI
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_aresetn(s00_axi_aresetn),
         .s00_axi_awaddr(s00_axi_awaddr),
