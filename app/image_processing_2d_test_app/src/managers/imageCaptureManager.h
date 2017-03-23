@@ -3,6 +3,7 @@
 
 #include "imageCaptureState.h"
 #include "dragsterConfig.h"
+#include "pixelFrequencies.h"
 #include "xspi.h"
 #include "xscugic.h"
 #include "xil_exception.h"

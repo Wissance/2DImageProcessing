@@ -20,14 +20,29 @@
 u8 readBuffer[2];
 u8 writeBuffer[2];
 
+PixelFrequencies linescanner0PixelFrequencies;
+PixelFrequencies linescanner1PixelFrequencies;
+
 void freuqencyAnalyzer0Handler(void *data)
 {
     xil_printf("Frequency analyzer 0 rised");
+    linescanner0PixelFrequencies._pixel0Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 0);
+    linescanner0PixelFrequencies._pixel0Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 4);
+    linescanner0PixelFrequencies._pixel1Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
+    linescanner0PixelFrequencies._pixel1Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
+    linescanner0PixelFrequencies._pixel2Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
+    linescanner0PixelFrequencies._pixel2Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 20);
 }
 
 void freuqencyAnalyzer1Handler(void *data)
 {
     xil_printf("Frequency analyzer 1 rised");
+    linescanner1PixelFrequencies._pixel0Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 0);
+    linescanner1PixelFrequencies._pixel0Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 4);
+    linescanner1PixelFrequencies._pixel1Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
+    linescanner1PixelFrequencies._pixel1Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
+    linescanner1PixelFrequencies._pixel2Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
+    linescanner1PixelFrequencies._pixel2Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 20);
 }
 
 void ImageCaptureManager::initialize()
@@ -163,13 +178,13 @@ void ImageCaptureManager::initializeDragsterImpl(DragsterConfig* config, int dra
         beginDragsterConfigTransaction();
         // Запись конфигурации регистров Dragster
         // CONTROL Register 2
-        sendDragsterRegisterValue(CONTROL_REGISTER_2_ADDRESS, config->getControlRegister2()._registerValue);
+        sendDragsterRegisterValue(CONTROL_REGISTER_2_ADDRESS, config->getControlRegister2()._mapImpl._registerValue);
         // CONTROL Register 3
-        sendDragsterRegisterValue(CONTROL_REGISTER_3_ADDRESS, config->getControlRegister3()._registerValue);
+        sendDragsterRegisterValue(CONTROL_REGISTER_3_ADDRESS, config->getControlRegister3()._mapImpl._registerValue);
         // End of Data Register
         sendDragsterRegisterValue(END_OF_RANGE_REGISTER_ADDRESS, config->getEndOfRangeRegister());  // 8 bit pixels value
         // CONTROL Register 1
-        sendDragsterRegisterValue(CONTROL_REGISTER_1_ADDRESS, config->getControlRegister1()._registerValue);
+        sendDragsterRegisterValue(CONTROL_REGISTER_1_ADDRESS, config->getControlRegister1()._mapImpl._registerValue);
         // 0 byte (must generate at least 3 clk before SS is disabled)
         endDragsterConfigTransaction();
     }
@@ -186,12 +201,15 @@ void ImageCaptureManager::sendDragsterRegisterValue(unsigned char address, unsig
 
 unsigned char ImageCaptureManager::readDragsterRegisterValue(unsigned char address)
 {
-    #define READ_REGISTER_ADDRESS 0x0F
+    //#define READ_REGISTER_ADDRESS
+	//beginDragsterConfigTransaction();
+	unsigned char readRegisterAddress = 0x0F;
     writeBuffer[0] = convertFromMsbToLsbFirst(address);
-    writeBuffer[0] = convertFromMsbToLsbFirst(READ_REGISTER_ADDRESS);
+    writeBuffer[1] = convertFromMsbToLsbFirst(readRegisterAddress);//READ_REGISTER_ADDRESS);
     int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2);
     if(result != -XST_SUCCESS)
         xil_printf("Read fails, reason %d", result);
+    //endDragsterConfigTransaction();
     return convertFromLsbToMsbFirst(readBuffer[0]);
 }
 

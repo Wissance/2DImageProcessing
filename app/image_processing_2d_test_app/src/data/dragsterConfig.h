@@ -17,9 +17,9 @@ unsigned char convertFromLsbToMsbFirst(unsigned char byte);
 
 struct DragsterControlRegister1
 {
-    union
+    union Map
     {
-        struct
+        struct MapStruct
         {
             unsigned char _updateRequest : 1;     // bit 0
             unsigned char _mainClockDivider : 2;  // bit 1, 2
@@ -28,16 +28,16 @@ struct DragsterControlRegister1
             unsigned char _saturationEnabled : 1; // bit 5
             unsigned char _adcMode : 1;           // bit 6
             unsigned char _vThreshold : 1;        // bit 7
-        };
+        } _mapStruct;
         unsigned char _registerValue;
-    };
+    } _mapImpl;
 };
 
 struct DragsterControlRegister2
 {
-    union
+    union Map
     {
-        struct
+        struct MapStruct
         {
             unsigned char _autoGenerateLoadPulse : 1; // bit 0
             unsigned char _enableControlOffset : 1;   // bit 1
@@ -46,36 +46,36 @@ struct DragsterControlRegister2
             unsigned char _enableWhiteClamping : 1;   // bit 4
             unsigned char _analogGain : 1;            // bit 5
             unsigned char : 2;                        // bit 6, 7
-        };
+        } _mapStruct;
         unsigned char _registerValue;
-    };
+    } _mapImpl;
 };
 
 struct DragsterControlRegister3
 {
-    union
+    union Map
     {
-        struct
+        struct MapStruct
         {
             unsigned char _pixelClockEnablede : 1; // bit 0
             unsigned char _reLinearization : 1;    // bit 1
             unsigned char _enableOffsetSram : 1;   // bit 2
             unsigned char _bandgapSwitch : 3;      // bit 3, 4, 5
             unsigned char : 2;                     // bit 6, 7
-        };
+        } _mapStruct;
         unsigned char _registerValue;
-    };
+    } _mapImpl;
 };
 
 class DragsterConfig
 {
 public:
     DragsterControlRegister1 getControlRegister1() {return _controlRegister1;}
-    void setControlRegister1(unsigned char value) {_controlRegister1._registerValue = value;}
+    void setControlRegister1(unsigned char value) {_controlRegister1._mapImpl._registerValue = value;}
     DragsterControlRegister2 getControlRegister2() {return _controlRegister2;}
-    void setControlRegister2(unsigned char value) {_controlRegister2._registerValue = value;}
+    void setControlRegister2(unsigned char value) {_controlRegister2._mapImpl._registerValue = value;}
     DragsterControlRegister3 getControlRegister3() {return _controlRegister3;}
-    void setControlRegister3(unsigned char value) {_controlRegister3._registerValue = value;}
+    void setControlRegister3(unsigned char value) {_controlRegister3._mapImpl._registerValue = value;}
     unsigned char getAdcGainRegister() {return _adcGainRegister;}
     void setAdcGainRegister(unsigned char value) {_adcGainRegister = value;}
     unsigned char getOffsetRegister() {return _offsetRegister;}
