@@ -232,8 +232,8 @@
 /******************************************************************/
 
 /* Definitions for Fabric interrupts connected to ps7_scugic_0 */
-#define XPAR_FABRIC_FREQUENCY_ANALYZER_MANAGER_1_IRQ_INTR 61
-#define XPAR_FABRIC_FREQUENCY_ANALYZER_MANAGER_0_IRQ_INTR 62
+#define XPAR_FABRIC_FREQUENCY_ANALYZER_MANAGER_0_IRQ_INTR 61
+#define XPAR_FABRIC_FREQUENCY_ANALYZER_MANAGER_1_IRQ_INTR 62
 
 /******************************************************************/
 
