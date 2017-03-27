@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Mar 20 10:02:04 2017
+//Date        : Mon Mar 27 10:59:03 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -258,23 +258,23 @@ module image_processing_2d_design
   wire [1:0]axi_quad_spi_0_ss_o;
   wire clock_divider_0_output_clock;
   wire clock_divider_1_output_clock;
-  wire frequency_analyzer_manager_0_irq;
-  wire frequency_analyzer_manager_1_irq;
+  (* MARK_DEBUG *) wire frequency_analyzer_manager_0_irq;
+  (* MARK_DEBUG *) wire frequency_analyzer_manager_1_irq;
   wire frequency_analyzer_synch_0_start_analyzer_0;
   wire frequency_analyzer_synch_0_start_analyzer_1;
   wire frequency_analyzer_synch_0_stop_analyzer_0;
   wire frequency_analyzer_synch_0_stop_analyzer_1;
-  wire image_capture_manager_0_image_capture_enabled;
+  (* MARK_DEBUG *) wire image_capture_manager_0_image_capture_enabled;
   wire linescanner_image_capture_unit_0_load_pulse;
   wire linescanner_image_capture_unit_0_main_clock;
-  wire linescanner_image_capture_unit_0_pixel_captured;
+  (* MARK_DEBUG *) wire linescanner_image_capture_unit_0_pixel_captured;
   wire [7:0]linescanner_image_capture_unit_0_pixel_data;
   wire linescanner_image_capture_unit_0_rst_cds;
   wire linescanner_image_capture_unit_0_rst_cvc;
   wire linescanner_image_capture_unit_0_sample;
   wire linescanner_image_capture_unit_1_load_pulse;
   wire linescanner_image_capture_unit_1_main_clock;
-  wire linescanner_image_capture_unit_1_pixel_captured;
+  (* MARK_DEBUG *) wire linescanner_image_capture_unit_1_pixel_captured;
   wire [7:0]linescanner_image_capture_unit_1_pixel_data;
   wire linescanner_image_capture_unit_1_rst_cds;
   wire linescanner_image_capture_unit_1_rst_cvc;
@@ -664,46 +664,18 @@ module image_processing_2d_design
   image_processing_2d_design_clock_divider_1_0 clock_divider_1
        (.input_clock(processing_system7_0_FCLK_CLK0),
         .output_clock(clock_divider_1_output_clock));
-  image_processing_2d_design_frequency_analyzer_manager_0_1 frequency_analyzer_manager_0
-       (.clear(proc_sys_reset_0_peripheral_aresetn),
-        .data(linescanner_image_capture_unit_1_pixel_data),
-        .irq(frequency_analyzer_manager_0_irq),
-        .pixel_clock(linescanner_image_capture_unit_1_pixel_captured),
-        .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
-        .s00_axi_araddr(axi_interconnect_0_M03_AXI_ARADDR[3:0]),
-        .s00_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),
-        .s00_axi_arprot(axi_interconnect_0_M03_AXI_ARPROT),
-        .s00_axi_arready(axi_interconnect_0_M03_AXI_ARREADY),
-        .s00_axi_arvalid(axi_interconnect_0_M03_AXI_ARVALID),
-        .s00_axi_awaddr(axi_interconnect_0_M03_AXI_AWADDR[3:0]),
-        .s00_axi_awprot(axi_interconnect_0_M03_AXI_AWPROT),
-        .s00_axi_awready(axi_interconnect_0_M03_AXI_AWREADY),
-        .s00_axi_awvalid(axi_interconnect_0_M03_AXI_AWVALID),
-        .s00_axi_bready(axi_interconnect_0_M03_AXI_BREADY),
-        .s00_axi_bresp(axi_interconnect_0_M03_AXI_BRESP),
-        .s00_axi_bvalid(axi_interconnect_0_M03_AXI_BVALID),
-        .s00_axi_rdata(axi_interconnect_0_M03_AXI_RDATA),
-        .s00_axi_rready(axi_interconnect_0_M03_AXI_RREADY),
-        .s00_axi_rresp(axi_interconnect_0_M03_AXI_RRESP),
-        .s00_axi_rvalid(axi_interconnect_0_M03_AXI_RVALID),
-        .s00_axi_wdata(axi_interconnect_0_M03_AXI_WDATA),
-        .s00_axi_wready(axi_interconnect_0_M03_AXI_WREADY),
-        .s00_axi_wstrb(axi_interconnect_0_M03_AXI_WSTRB),
-        .s00_axi_wvalid(axi_interconnect_0_M03_AXI_WVALID),
-        .start(frequency_analyzer_synch_0_start_analyzer_0),
-        .stop(frequency_analyzer_synch_0_stop_analyzer_0));
-  image_processing_2d_design_frequency_analyzer_manager_1_0 frequency_analyzer_manager_1
+  image_processing_2d_design_frequency_analyzer_manager_0_0 frequency_analyzer_manager_0
        (.clear(proc_sys_reset_0_peripheral_aresetn),
         .data(linescanner_image_capture_unit_0_pixel_data),
-        .irq(frequency_analyzer_manager_1_irq),
+        .irq(frequency_analyzer_manager_0_irq),
         .pixel_clock(linescanner_image_capture_unit_0_pixel_captured),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
-        .s00_axi_araddr(axi_interconnect_0_M02_AXI_ARADDR[3:0]),
+        .s00_axi_araddr(axi_interconnect_0_M02_AXI_ARADDR[9:0]),
         .s00_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),
         .s00_axi_arprot(axi_interconnect_0_M02_AXI_ARPROT),
         .s00_axi_arready(axi_interconnect_0_M02_AXI_ARREADY),
         .s00_axi_arvalid(axi_interconnect_0_M02_AXI_ARVALID),
-        .s00_axi_awaddr(axi_interconnect_0_M02_AXI_AWADDR[3:0]),
+        .s00_axi_awaddr(axi_interconnect_0_M02_AXI_AWADDR[9:0]),
         .s00_axi_awprot(axi_interconnect_0_M02_AXI_AWPROT),
         .s00_axi_awready(axi_interconnect_0_M02_AXI_AWREADY),
         .s00_axi_awvalid(axi_interconnect_0_M02_AXI_AWVALID),
@@ -720,8 +692,36 @@ module image_processing_2d_design
         .s00_axi_wvalid(axi_interconnect_0_M02_AXI_WVALID),
         .start(frequency_analyzer_synch_0_start_analyzer_1),
         .stop(frequency_analyzer_synch_0_stop_analyzer_1));
+  image_processing_2d_design_frequency_analyzer_manager_1_1 frequency_analyzer_manager_1
+       (.clear(proc_sys_reset_0_peripheral_aresetn),
+        .data(linescanner_image_capture_unit_1_pixel_data),
+        .irq(frequency_analyzer_manager_1_irq),
+        .pixel_clock(linescanner_image_capture_unit_1_pixel_captured),
+        .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
+        .s00_axi_araddr(axi_interconnect_0_M03_AXI_ARADDR[9:0]),
+        .s00_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),
+        .s00_axi_arprot(axi_interconnect_0_M03_AXI_ARPROT),
+        .s00_axi_arready(axi_interconnect_0_M03_AXI_ARREADY),
+        .s00_axi_arvalid(axi_interconnect_0_M03_AXI_ARVALID),
+        .s00_axi_awaddr(axi_interconnect_0_M03_AXI_AWADDR[9:0]),
+        .s00_axi_awprot(axi_interconnect_0_M03_AXI_AWPROT),
+        .s00_axi_awready(axi_interconnect_0_M03_AXI_AWREADY),
+        .s00_axi_awvalid(axi_interconnect_0_M03_AXI_AWVALID),
+        .s00_axi_bready(axi_interconnect_0_M03_AXI_BREADY),
+        .s00_axi_bresp(axi_interconnect_0_M03_AXI_BRESP),
+        .s00_axi_bvalid(axi_interconnect_0_M03_AXI_BVALID),
+        .s00_axi_rdata(axi_interconnect_0_M03_AXI_RDATA),
+        .s00_axi_rready(axi_interconnect_0_M03_AXI_RREADY),
+        .s00_axi_rresp(axi_interconnect_0_M03_AXI_RRESP),
+        .s00_axi_rvalid(axi_interconnect_0_M03_AXI_RVALID),
+        .s00_axi_wdata(axi_interconnect_0_M03_AXI_WDATA),
+        .s00_axi_wready(axi_interconnect_0_M03_AXI_WREADY),
+        .s00_axi_wstrb(axi_interconnect_0_M03_AXI_WSTRB),
+        .s00_axi_wvalid(axi_interconnect_0_M03_AXI_WVALID),
+        .start(frequency_analyzer_synch_0_start_analyzer_0),
+        .stop(frequency_analyzer_synch_0_stop_analyzer_0));
   image_processing_2d_design_frequency_analyzer_synch_0_0 frequency_analyzer_synch_0
-       (.clock(frequency_analyzer_synch_0_start_analyzer_1),
+       (.clock(processing_system7_0_FCLK_CLK0),
         .enable(image_capture_manager_0_image_capture_enabled),
         .reset(proc_sys_reset_0_peripheral_aresetn),
         .start_analyzer_0(frequency_analyzer_synch_0_start_analyzer_0),
@@ -893,8 +893,8 @@ module image_processing_2d_design
         .S_AXI_HP0_WSTRB(axi_interconnect_1_M00_AXI_WSTRB),
         .S_AXI_HP0_WVALID(axi_interconnect_1_M00_AXI_WVALID));
   image_processing_2d_design_xlconcat_0_0 xlconcat_0
-       (.In0(frequency_analyzer_manager_0_irq),
-        .In1(frequency_analyzer_manager_1_irq),
+       (.In0(frequency_analyzer_manager_1_irq),
+        .In1(frequency_analyzer_manager_0_irq),
         .dout(xlconcat_0_dout));
 endmodule
 
