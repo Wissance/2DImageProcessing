@@ -1,8 +1,8 @@
 # LINESCANNER PIXEL_CLOCK (INPUT)
-create_clock -period 20.000 -name linescanner0_pixel_clock -waveform {0.000 10.000} [get_ports LINESCANNER0_PIXEL_CLOCK]
-create_clock -period 20.000 -name linescanner1_pixel_clock -waveform {0.000 10.000} [get_ports LINESCANNER1_PIXEL_CLOCK]
+create_clock -period 10.000 -name linescanner0_pixel_clock -waveform {0.000 5.000} [get_ports LINESCANNER0_PIXEL_CLOCK]
+create_clock -period 10.000 -name linescanner1_pixel_clock -waveform {0.000 5.000} [get_ports LINESCANNER1_PIXEL_CLOCK]
 # FABRIC CLOCK
-create_clock -period 10.000 -name pl_fabric_clock -waveform {0.000 5.000} [get_pins image_processing_2d_design_i/processing_system7_0/FCLK_CLK0]
+create_clock -period 5.000 -name pl_fabric_clock -waveform {0.000 2.500} [get_pins image_processing_2d_design_i/processing_system7_0/FCLK_CLK0]
 set_clock_groups -logically_exclusive -group linescanner0_pixel_clock -group linescanner1_pixel_clock
 set_clock_groups -logically_exclusive -group pl_fabric_clock -group linescanner0_pixel_clock
 set_clock_groups -logically_exclusive -group pl_fabric_clock -group linescanner1_pixel_clock
