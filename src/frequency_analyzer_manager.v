@@ -202,7 +202,7 @@ module frequency_analyzer_manager #
         begin
             register_operation <= 2;//`REGISTER_WRITE_OPERATION;
             register_number <= register_counter + 1;
-            register_write <= 33; 
+            register_write <= 255; 
                              //get_frequency(register_counter);
             if(register_counter == registers_number - 1)
                 write_completed <= 1;

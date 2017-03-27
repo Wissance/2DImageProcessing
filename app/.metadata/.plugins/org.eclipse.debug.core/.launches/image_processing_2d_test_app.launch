@@ -33,7 +33,7 @@
 <stringAttribute key="xilinx.romem.base" value=""/>
 <stringAttribute key="xilinx.romem.size" value=""/>
 <stringAttribute key="xilinx.stdio.baud" value="9600"/>
-<booleanAttribute key="xilinx.stdio.connect" value="false"/>
+<booleanAttribute key="xilinx.stdio.connect" value="true"/>
 <stringAttribute key="xilinx.stdio.port" value="JTAG UART"/>
 <booleanAttribute key="xilinx.xmd.crosstrigger" value="true"/>
 <booleanAttribute key="xilinx.xmd.safe.mode" value="false"/>

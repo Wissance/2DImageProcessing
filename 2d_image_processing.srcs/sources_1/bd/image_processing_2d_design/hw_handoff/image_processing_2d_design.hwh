@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 27 13:56:37 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 27 16:30:35 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -25,104 +25,14 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
-    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="O" LEFT="0" NAME="LINESCANNER1_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="7" NAME="LINESCANNER0_DATA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER0_DATA">
+    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="data"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="LINESCANNER0_END_ADC" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER0_END_ADC">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="end_adc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="LINESCANNER0_LVAL" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER0_LVAL">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="lval"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="25000000" DIR="I" NAME="LINESCANNER0_PIXEL_CLOCK" SIGIS="clk" SIGNAME="External_Ports_LINESCANNER0_PIXEL_CLOCK">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="pixel_clock"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER0_RST_CVC" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cvc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="rst_cvc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER0_RST_CDS" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cds">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="rst_cds"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER0_SAMPLE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_sample">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="sample"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LINESCANNER0_MAIN_CLOCK" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_1_main_clock">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="main_clock"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER0_LOAD_PULSE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_load_pulse">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="load_pulse"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="7" NAME="LINESCANNER1_DATA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_DATA">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="data"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="LINESCANNER1_END_ADC" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_END_ADC">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="end_adc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="LINESCANNER1_LVAL" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_LVAL">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="lval"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="25000000" DIR="I" NAME="LINESCANNER1_PIXEL_CLOCK" SIGIS="clk" SIGNAME="External_Ports_LINESCANNER1_PIXEL_CLOCK">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="pixel_clock"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER1_RST_CVC" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cvc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="rst_cvc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER1_RST_CDS" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cds">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="rst_cds"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER1_SAMPLE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_sample">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="sample"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LINESCANNER1_MAIN_CLOCK" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_0_main_clock">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="main_clock"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LINESCANNER1_LOAD_PULSE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_load_pulse">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="load_pulse"/>
+        <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LINESCANNER_CLK" SIGIS="clk" SIGNAME="axi_quad_spi_0_sck_o">
@@ -143,6 +53,96 @@
     <PORT DIR="O" LEFT="1" NAME="LINESCANNER_CS" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_o">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ss_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="LINESCANNER0_LVAL" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER0_LVAL">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="lval"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="25000000" DIR="I" NAME="LINESCANNER0_PIXEL_CLOCK" SIGIS="clk" SIGNAME="External_Ports_LINESCANNER0_PIXEL_CLOCK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="pixel_clock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER0_RST_CVC" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cvc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="rst_cvc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER0_RST_CDS" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cds">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="rst_cds"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER0_SAMPLE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_sample">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="sample"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LINESCANNER0_MAIN_CLOCK" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_0_main_clock">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="main_clock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER0_LOAD_PULSE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_load_pulse">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="load_pulse"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="LINESCANNER0_DATA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER0_DATA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="LINESCANNER0_END_ADC" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER0_END_ADC">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="end_adc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="LINESCANNER1_DATA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_DATA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="LINESCANNER1_END_ADC" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_END_ADC">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="end_adc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="LINESCANNER1_LVAL" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_LVAL">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="lval"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="25000000" DIR="I" NAME="LINESCANNER1_PIXEL_CLOCK" SIGIS="clk" SIGNAME="External_Ports_LINESCANNER1_PIXEL_CLOCK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="pixel_clock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER1_RST_CVC" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cvc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="rst_cvc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER1_RST_CDS" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cds">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="rst_cds"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER1_SAMPLE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_sample">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="sample"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LINESCANNER1_MAIN_CLOCK" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_1_main_clock">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="main_clock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="LINESCANNER1_LOAD_PULSE" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_load_pulse">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="load_pulse"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -2679,7 +2679,7 @@
         <PARAMETER NAME="PIXEL2_FREQUENCY1" VALUE="30000"/>
         <PARAMETER NAME="FREQUENCY_DEVIATION" VALUE="10"/>
         <PARAMETER NAME="CLOCK_FREQUENCY" VALUE="100000000"/>
-        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_frequency_analyzer_manager_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_frequency_analyzer_manager_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0x43C10000"/>
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x43C10FFF"/>
@@ -2695,14 +2695,14 @@
             <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="pixel_captured"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="start" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_start_analyzer_1">
+        <PORT DIR="I" NAME="start" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_start_analyzer_0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="start_analyzer_1"/>
+            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="start_analyzer_0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="stop" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_stop_analyzer_1">
+        <PORT DIR="I" NAME="stop" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_stop_analyzer_0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="stop_analyzer_1"/>
+            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="stop_analyzer_0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="clear" SIGIS="undef" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
@@ -2712,8 +2712,8 @@
         </PORT>
         <PORT DIR="O" NAME="irq" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="frequency_analyzer_manager_0_irq">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconcat_0" PORT="In1"/>
-            <CONNECTION INSTANCE="ila_0" PORT="probe2"/>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In0"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe4"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -2893,7 +2893,7 @@
         <PARAMETER NAME="PIXEL2_FREQUENCY1" VALUE="30000"/>
         <PARAMETER NAME="FREQUENCY_DEVIATION" VALUE="10"/>
         <PARAMETER NAME="CLOCK_FREQUENCY" VALUE="100000000"/>
-        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_frequency_analyzer_manager_1_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_frequency_analyzer_manager_1_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0x43C20000"/>
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x43C20FFF"/>
@@ -2909,14 +2909,14 @@
             <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="pixel_captured"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="start" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_start_analyzer_0">
+        <PORT DIR="I" NAME="start" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_start_analyzer_1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="start_analyzer_0"/>
+            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="start_analyzer_1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="stop" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_stop_analyzer_0">
+        <PORT DIR="I" NAME="stop" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_stop_analyzer_1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="stop_analyzer_0"/>
+            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="stop_analyzer_1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="clear" SIGIS="undef" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
@@ -2926,8 +2926,8 @@
         </PORT>
         <PORT DIR="O" NAME="irq" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="frequency_analyzer_manager_1_irq">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconcat_0" PORT="In0"/>
-            <CONNECTION INSTANCE="ila_0" PORT="probe4"/>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In1"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe2"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -3114,22 +3114,22 @@
         </PORT>
         <PORT DIR="O" NAME="start_analyzer_0" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_start_analyzer_0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="start"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="start"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="stop_analyzer_0" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_stop_analyzer_0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="stop"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="stop"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="start_analyzer_1" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_start_analyzer_1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="start"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="start"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="stop_analyzer_1" SIGIS="undef" SIGNAME="frequency_analyzer_synch_0_stop_analyzer_1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="stop"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="stop"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -4203,11 +4203,11 @@
         <PARAMETER NAME="C_PROBE1021_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE1022_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE1023_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE1_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE2_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE3_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE4_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_PROBE0_TYPE" VALUE="2"/>
+        <PARAMETER NAME="C_PROBE1_TYPE" VALUE="2"/>
+        <PARAMETER NAME="C_PROBE2_TYPE" VALUE="2"/>
+        <PARAMETER NAME="C_PROBE3_TYPE" VALUE="2"/>
+        <PARAMETER NAME="C_PROBE4_TYPE" VALUE="2"/>
         <PARAMETER NAME="C_PROBE5_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE6_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE7_TYPE" VALUE="0"/>
@@ -6251,20 +6251,20 @@
         <PARAMETER NAME="C_PROBE1021_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE1022_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE1023_MU_CNT" VALUE="1"/>
-        <PARAMETER NAME="C_ADV_TRIGGER" VALUE="0"/>
+        <PARAMETER NAME="C_ADV_TRIGGER" VALUE="1"/>
         <PARAMETER NAME="C_EN_DDR_ILA" VALUE="0"/>
         <PARAMETER NAME="C_DDR_CLK_GEN" VALUE="0"/>
         <PARAMETER NAME="C_CLK_FREQ" VALUE="200"/>
         <PARAMETER NAME="C_CLK_PERIOD" VALUE="5.0"/>
         <PARAMETER NAME="C_INPUT_PIPE_STAGES" VALUE="0"/>
-        <PARAMETER NAME="C_EN_STRG_QUAL" VALUE="0"/>
+        <PARAMETER NAME="C_EN_STRG_QUAL" VALUE="1"/>
         <PARAMETER NAME="C_CLKFBOUT_MULT_F" VALUE="10"/>
         <PARAMETER NAME="C_DIVCLK_DIVIDE" VALUE="3"/>
         <PARAMETER NAME="C_CLKOUT0_DIVIDE_F" VALUE="10"/>
         <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_ila_0_0"/>
         <PARAMETER NAME="EN_BRAM_DRC" VALUE="TRUE"/>
         <PARAMETER NAME="ALL_PROBE_SAME_MU" VALUE="true"/>
-        <PARAMETER NAME="ALL_PROBE_SAME_MU_CNT" VALUE="1"/>
+        <PARAMETER NAME="ALL_PROBE_SAME_MU_CNT" VALUE="2"/>
         <PARAMETER NAME="C_SLOT_0_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_SLOT_0_AXI_ADDR_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_SLOT_0_AXIS_TDATA_WIDTH" VALUE="32"/>
@@ -6282,24 +6282,16 @@
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="image_capture_enabled"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe1" RIGHT="0" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_pixel_captured">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="pixel_captured"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe2" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_0_irq">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="irq"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe3" RIGHT="0" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_pixel_captured">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="pixel_captured"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe4" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_1_irq">
+        <PORT DIR="I" LEFT="0" NAME="probe1" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="0" NAME="probe2" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_1_irq">
           <CONNECTIONS>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="irq"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe3" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="0" NAME="probe4" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_0_irq">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="irq"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6323,9 +6315,9 @@
       <PORTS>
         <PORT DIR="O" NAME="image_capture_enabled" SIGIS="undef" SIGNAME="image_capture_manager_0_image_capture_enabled">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="enable"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="enable"/>
             <CONNECTION INSTANCE="ila_0" PORT="probe0"/>
+            <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="enable"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
@@ -6491,88 +6483,7 @@
     <MODULE FULLNAME="/linescanner_image_capture_unit_0" HWVERSION="1.0" INSTANCE="linescanner_image_capture_unit_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="linescanner_image_capture_unit" VLNV="xilinx.com:module_ref:linescanner_image_capture_unit:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_linescanner_image_capture_unit_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="image_capture_manager_0_image_capture_enabled">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="image_capture_manager_0" PORT="image_capture_enabled"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="data" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_DATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_DATA"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="rst_cvc" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cvc">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_RST_CVC"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="rst_cds" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cds">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_RST_CDS"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="sample" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_sample">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_SAMPLE"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="end_adc" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_END_ADC">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_END_ADC"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="lval" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_LVAL">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_LVAL"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="pixel_clock" SIGIS="clk" SIGNAME="External_Ports_LINESCANNER1_PIXEL_CLOCK">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_PIXEL_CLOCK"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="main_clock_source" SIGIS="undef" SIGNAME="clock_divider_0_output_clock">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="clock_divider_0" PORT="output_clock"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="main_clock" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_0_main_clock">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_MAIN_CLOCK"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="n_reset" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="load_pulse" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_load_pulse">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_LOAD_PULSE"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="pixel_data" RIGHT="0" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_pixel_data">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="data"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="pixel_captured" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_pixel_captured">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_0" PORT="probe1"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="pixel_clock"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE FULLNAME="/linescanner_image_capture_unit_1" HWVERSION="1.0" INSTANCE="linescanner_image_capture_unit_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="linescanner_image_capture_unit" VLNV="xilinx.com:module_ref:linescanner_image_capture_unit:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_linescanner_image_capture_unit_1_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_linescanner_image_capture_unit_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -6586,17 +6497,17 @@
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_DATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="rst_cvc" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cvc">
+        <PORT DIR="O" NAME="rst_cvc" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cvc">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_RST_CVC"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="rst_cds" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cds">
+        <PORT DIR="O" NAME="rst_cds" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_rst_cds">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_RST_CDS"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="sample" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_sample">
+        <PORT DIR="O" NAME="sample" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_sample">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_SAMPLE"/>
           </CONNECTIONS>
@@ -6621,7 +6532,7 @@
             <CONNECTION INSTANCE="clock_divider_0" PORT="output_clock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="main_clock" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_1_main_clock">
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="main_clock" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_0_main_clock">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_MAIN_CLOCK"/>
           </CONNECTIONS>
@@ -6631,9 +6542,89 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="load_pulse" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_load_pulse">
+        <PORT DIR="O" NAME="load_pulse" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_load_pulse">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_LOAD_PULSE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="pixel_data" RIGHT="0" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_pixel_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="pixel_captured" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_0_pixel_captured">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="pixel_clock"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/linescanner_image_capture_unit_1" HWVERSION="1.0" INSTANCE="linescanner_image_capture_unit_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="linescanner_image_capture_unit" VLNV="xilinx.com:module_ref:linescanner_image_capture_unit:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_linescanner_image_capture_unit_1_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="image_capture_manager_0_image_capture_enabled">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="image_capture_manager_0" PORT="image_capture_enabled"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="data" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_DATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_DATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rst_cvc" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cvc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_RST_CVC"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rst_cds" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_rst_cds">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_RST_CDS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sample" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_sample">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_SAMPLE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="end_adc" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_END_ADC">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_END_ADC"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="lval" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER1_LVAL">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_LVAL"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="pixel_clock" SIGIS="clk" SIGNAME="External_Ports_LINESCANNER1_PIXEL_CLOCK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_PIXEL_CLOCK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="main_clock_source" SIGIS="undef" SIGNAME="clock_divider_0_output_clock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clock_divider_0" PORT="output_clock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="main_clock" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_1_main_clock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_MAIN_CLOCK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="n_reset" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="load_pulse" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_load_pulse">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_LOAD_PULSE"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="pixel_data" RIGHT="0" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_pixel_data">
@@ -6643,7 +6634,6 @@
         </PORT>
         <PORT DIR="O" NAME="pixel_captured" SIGIS="undef" SIGNAME="linescanner_image_capture_unit_1_pixel_captured">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_0" PORT="probe3"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="pixel_clock"/>
           </CONNECTIONS>
         </PORT>
@@ -6689,12 +6679,17 @@
         <PORT DIR="O" LEFT="0" NAME="interconnect_aresetn" RIGHT="0" SIGIS="rst"/>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
+            <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
+            <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="clear"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="clear"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
@@ -6706,11 +6701,6 @@
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="ARESETN"/>
-            <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="clear"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="clear"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -8063,6 +8053,9 @@
             <CONNECTION INSTANCE="clock_divider_0" PORT="input_clock"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="clock"/>
             <CONNECTION INSTANCE="ila_0" PORT="clk"/>
+            <CONNECTION INSTANCE="clock_divider_1" PORT="input_clock"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
@@ -8074,9 +8067,6 @@
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="ACLK"/>
-            <CONNECTION INSTANCE="clock_divider_1" PORT="input_clock"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="200000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk"/>
@@ -8359,14 +8349,14 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="0" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_1_irq">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="irq"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_0_irq">
+        <PORT DIR="I" LEFT="0" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_0_irq">
           <CONNECTIONS>
             <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="irq"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="frequency_analyzer_manager_1_irq">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="irq"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_0_dout">

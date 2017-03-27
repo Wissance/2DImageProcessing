@@ -75,5 +75,25 @@ set_false_path -from [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/
 set_false_path -from [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/u_ila_cap_ctrl/U_NS0/I_YESLUT6.U_SRL32_*/CLK*" }] -to [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_cap_ctrl/U_NS0/I_YESLUT6.I_YES_OREG.O_reg*" && IS_SEQUENTIAL} ]
 set_false_path -from [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/u_ila_cap_ctrl/U_NS1/I_YESLUT6.U_SRL32_*/CLK*" }] -to [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_cap_ctrl/U_NS1/I_YESLUT6.I_YES_OREG.O_reg*" && IS_SEQUENTIAL} ]
 
+##
+## ILA ADVANCED Trigger False Paths
+##
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.arm_out_transfer_inst/dout_reg1_reg/C" }] -to [get_cells -hierarchical -filter { NAME =~  "*ila_core_inst/ADV_TRIG.u_adv_trig/cntcmpsel*" && IS_SEQUENTIAL } ]
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.arm_out_transfer_inst/dout_reg1_reg/C" }] -to [get_cells -hierarchical -filter { NAME =~  "*ila_core_inst/ADV_TRIG.u_adv_trig/current_state*" && IS_SEQUENTIAL } ]
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.arm_out_transfer_inst/dout_reg1_reg/C" }] -to [get_cells -hierarchical -filter { NAME =~  "*ila_core_inst/ADV_TRIG.u_adv_trig/trigger*" && IS_SEQUENTIAL } ]
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.arm_out_transfer_inst/dout_reg1_reg/C" }] -to [get_cells -hierarchical -filter { NAME =~  "*ila_core_inst/ADV_TRIG.u_adv_trig/CAPTURE_O*" && IS_SEQUENTIAL } ]
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.arm_out_transfer_inst/dout_reg1_reg/C" }] -to [get_cells -hierarchical -filter { NAME =~  "*ila_core_inst/ADV_TRIG.u_adv_trig/SEQUENCER_STATE_O*" && IS_SEQUENTIAL } ]
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/U_SCRST/I_YESLUT6.U_SRL32*/CLK" }] -to [get_cells -hierarchical -filter { NAME =~  "*ila_core_inst/COUNTER.u_count/G_COUNTER[*].U_COUNTER/counter*" && IS_SEQUENTIAL } ] 
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/COUNTER.u_count/G_COUNTER[*].U_COUNTER/counter_load_i*/C" }] -to [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/COUNTER.u_count/G_COUNTER[*].U_COUNTER/counter_reg[*]/D" }]
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/ADV_TRIG.u_adv_trig/SEQUENCER_STATE_O*/C" }] -to [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/u_ila_regs/reg_88f/I_EN_STAT_EQ1.U_STAT/xsdb_reg*/D" }]
+set_false_path -from [get_pins -hierarchical -filter { NAME =~ "*ila_core_inst/ADV_TRIG.u_adv_trig/FLAG*/C" }] -to [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/u_ila_regs/reg_892/I_EN_STAT_EQ1.U_STAT/xsdb_reg*/D" }]
+#set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/fsm_mem_data*" && IS_SEQUENTIAL }]
+set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/u_ila_regs/reg_1a/I_EN_CTL_EQ1.U_CTL/xsdb_reg_reg*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/COUNTER.u_count/G_COUNTER[*].U_COUNTER/counter_reg*" && IS_SEQUENTIAL }] 
+set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/fsm_mem_data*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/ADV_TRIG.u_adv_trig/current_state_reg*" && IS_SEQUENTIAL} ] 
+set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/fsm_mem_data*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/ADV_TRIG.u_adv_trig/cntcmpsel_reg*" && IS_SEQUENTIAL} ] 
+set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/fsm_mem_data*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/ADV_TRIG.u_adv_trig/FLAG*" && IS_SEQUENTIAL} ]
+set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/fsm_mem_data*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~ "*ila_core_inst/COUNTER.u_count/G_COUNTER[*].U_COUNTER/counter_reg*" && IS_SEQUENTIAL}]
+set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/fsm_mem_data*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/trigger_reg*" && IS_SEQUENTIAL }]
+set_false_path -from [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/fsm_mem_data*" && IS_SEQUENTIAL }] -to [get_cells -hierarchical -filter { NAME =~ "*ADV_TRIG.u_adv_trig/CAPTURE_O_reg*" && IS_SEQUENTIAL }]
 
 
