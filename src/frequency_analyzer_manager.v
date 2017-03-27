@@ -202,7 +202,8 @@ module frequency_analyzer_manager #
         begin
             register_operation <= 2;//`REGISTER_WRITE_OPERATION;
             register_number <= register_counter + 1;
-            register_write <= 33; //todo: umv emulation, add function get_frequency(number)
+            register_write <= 33; 
+                             //get_frequency(register_counter);
             if(register_counter == registers_number - 1)
                 write_completed <= 1;
         end
@@ -220,5 +221,18 @@ module frequency_analyzer_manager #
             write_completed <= 0;
         end
     end
+    
+    function [31:0] get_frequency;
+    input reg[2:0] index;
+        case (index)
+        0: get_frequency = pixel0_f0_action_time;
+        1: get_frequency = pixel0_f1_action_time;
+        2: get_frequency = pixel1_f0_action_time;
+        3: get_frequency = pixel1_f1_action_time;
+        4: get_frequency = pixel2_f0_action_time;
+        5: get_frequency = pixel2_f1_action_time;
+        default: get_frequency = 0;
+        endcase
+    endfunction
     
 endmodule

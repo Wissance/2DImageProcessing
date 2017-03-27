@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Mar 27 10:59:03 2017
+//Date        : Mon Mar 27 11:41:22 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "image_processing_2d_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_processing_2d_design,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=29,numReposBlks=18,numNonXlnxBlks=0,numHierBlks=11,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,da_board_cnt=1,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "image_processing_2d_design.hwdef" *) 
+(* CORE_GENERATION_INFO = "image_processing_2d_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_processing_2d_design,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=30,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=11,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,da_board_cnt=1,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "image_processing_2d_design.hwdef" *) 
 module image_processing_2d_design
    (DDR_addr,
     DDR_ba,
@@ -728,6 +728,13 @@ module image_processing_2d_design
         .start_analyzer_1(frequency_analyzer_synch_0_start_analyzer_1),
         .stop_analyzer_0(frequency_analyzer_synch_0_stop_analyzer_0),
         .stop_analyzer_1(frequency_analyzer_synch_0_stop_analyzer_1));
+  image_processing_2d_design_ila_0_0 ila_0
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .probe0(image_capture_manager_0_image_capture_enabled),
+        .probe1(linescanner_image_capture_unit_0_pixel_captured),
+        .probe2(frequency_analyzer_manager_0_irq),
+        .probe3(linescanner_image_capture_unit_1_pixel_captured),
+        .probe4(frequency_analyzer_manager_1_irq));
   image_processing_2d_design_image_capture_manager_0_0 image_capture_manager_0
        (.image_capture_enabled(image_capture_manager_0_image_capture_enabled),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),

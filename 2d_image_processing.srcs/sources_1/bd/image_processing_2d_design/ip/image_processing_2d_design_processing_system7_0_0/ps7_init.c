@@ -4130,8 +4130,125 @@ unsigned long ps7_debug_3_0[] = {
     EMIT_MASKWRITE(0XF8809FB0, 0xFFFFFFFFU ,0xC5ACCE55U),
     // .. .. FINISH: UNLOCKING CTI REGISTERS
     // .. .. START: ENABLING CTI MODULES AND CHANNELS
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8898000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898000, 0x00000001U ,0x00000001U),
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8899000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899000, 0x00000001U ,0x00000001U),
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8809000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809000, 0x00000001U ,0x00000001U),
+    // .. .. CTIGATEEN3 = 0
+    // .. .. ==> 0XF8898140[3:3] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000000U
+    // .. .. CTIGATEEN2 = 0
+    // .. .. ==> 0XF8898140[2:2] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000000U
+    // .. .. CTIGATEEN1 = 1
+    // .. .. ==> 0XF8898140[1:1] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000002U
+    // .. .. CTIGATEEN0 = 1
+    // .. .. ==> 0XF8898140[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898140, 0x0000000FU ,0x00000003U),
+    // .. .. CTIGATEEN3 = 1
+    // .. .. ==> 0XF8899140[3:3] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
+    // .. .. CTIGATEEN2 = 1
+    // .. .. ==> 0XF8899140[2:2] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000004U
+    // .. .. CTIGATEEN1 = 0
+    // .. .. ==> 0XF8899140[1:1] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000000U
+    // .. .. CTIGATEEN0 = 0
+    // .. .. ==> 0XF8899140[0:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899140, 0x0000000FU ,0x0000000CU),
+    // .. .. CTIGATEEN3 = 1
+    // .. .. ==> 0XF8809140[3:3] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
+    // .. .. CTIGATEEN2 = 1
+    // .. .. ==> 0XF8809140[2:2] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000004U
+    // .. .. CTIGATEEN1 = 1
+    // .. .. ==> 0XF8809140[1:1] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000002U
+    // .. .. CTIGATEEN0 = 1
+    // .. .. ==> 0XF8809140[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809140, 0x0000000FU ,0x0000000FU),
     // .. .. FINISH: ENABLING CTI MODULES AND CHANNELS
     // .. .. START: MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS
+    // .. .. TRIGINEN = 1
+    // .. .. ==> 0XF8898020[3:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898020, 0x0000000FU ,0x00000001U),
+    // .. .. TRIGINEN = 4
+    // .. .. ==> 0XF8899020[3:0] = 0x00000004U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000004U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899020, 0x0000000FU ,0x00000004U),
+    // .. .. TRIGOUTEN = 2
+    // .. .. ==> 0XF88980A0[3:0] = 0x00000002U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000002U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88980A0, 0x0000000FU ,0x00000002U),
+    // .. .. TRIGOUTEN = 8
+    // .. .. ==> 0XF88990A0[3:0] = 0x00000008U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000008U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88990A0, 0x0000000FU ,0x00000008U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809020[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809020, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809024[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809024, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809028[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809028, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF880902C[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF880902C, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A0[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A0, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A4[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A4, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A8[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A8, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090AC[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090AC, 0x0000000FU ,0x00000000U),
     // .. .. FINISH: MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS
     // .. FINISH: CROSS TRIGGER CONFIGURATIONS
     // FINISH: top
@@ -8388,8 +8505,125 @@ unsigned long ps7_debug_2_0[] = {
     EMIT_MASKWRITE(0XF8809FB0, 0xFFFFFFFFU ,0xC5ACCE55U),
     // .. .. FINISH: UNLOCKING CTI REGISTERS
     // .. .. START: ENABLING CTI MODULES AND CHANNELS
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8898000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898000, 0x00000001U ,0x00000001U),
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8899000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899000, 0x00000001U ,0x00000001U),
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8809000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809000, 0x00000001U ,0x00000001U),
+    // .. .. CTIGATEEN3 = 0
+    // .. .. ==> 0XF8898140[3:3] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000000U
+    // .. .. CTIGATEEN2 = 0
+    // .. .. ==> 0XF8898140[2:2] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000000U
+    // .. .. CTIGATEEN1 = 1
+    // .. .. ==> 0XF8898140[1:1] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000002U
+    // .. .. CTIGATEEN0 = 1
+    // .. .. ==> 0XF8898140[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898140, 0x0000000FU ,0x00000003U),
+    // .. .. CTIGATEEN3 = 1
+    // .. .. ==> 0XF8899140[3:3] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
+    // .. .. CTIGATEEN2 = 1
+    // .. .. ==> 0XF8899140[2:2] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000004U
+    // .. .. CTIGATEEN1 = 0
+    // .. .. ==> 0XF8899140[1:1] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000000U
+    // .. .. CTIGATEEN0 = 0
+    // .. .. ==> 0XF8899140[0:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899140, 0x0000000FU ,0x0000000CU),
+    // .. .. CTIGATEEN3 = 1
+    // .. .. ==> 0XF8809140[3:3] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
+    // .. .. CTIGATEEN2 = 1
+    // .. .. ==> 0XF8809140[2:2] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000004U
+    // .. .. CTIGATEEN1 = 1
+    // .. .. ==> 0XF8809140[1:1] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000002U
+    // .. .. CTIGATEEN0 = 1
+    // .. .. ==> 0XF8809140[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809140, 0x0000000FU ,0x0000000FU),
     // .. .. FINISH: ENABLING CTI MODULES AND CHANNELS
     // .. .. START: MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS
+    // .. .. TRIGINEN = 1
+    // .. .. ==> 0XF8898020[3:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898020, 0x0000000FU ,0x00000001U),
+    // .. .. TRIGINEN = 4
+    // .. .. ==> 0XF8899020[3:0] = 0x00000004U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000004U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899020, 0x0000000FU ,0x00000004U),
+    // .. .. TRIGOUTEN = 2
+    // .. .. ==> 0XF88980A0[3:0] = 0x00000002U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000002U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88980A0, 0x0000000FU ,0x00000002U),
+    // .. .. TRIGOUTEN = 8
+    // .. .. ==> 0XF88990A0[3:0] = 0x00000008U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000008U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88990A0, 0x0000000FU ,0x00000008U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809020[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809020, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809024[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809024, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809028[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809028, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF880902C[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF880902C, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A0[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A0, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A4[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A4, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A8[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A8, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090AC[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090AC, 0x0000000FU ,0x00000000U),
     // .. .. FINISH: MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS
     // .. FINISH: CROSS TRIGGER CONFIGURATIONS
     // FINISH: top
@@ -12579,8 +12813,125 @@ unsigned long ps7_debug_1_0[] = {
     EMIT_MASKWRITE(0XF8809FB0, 0xFFFFFFFFU ,0xC5ACCE55U),
     // .. .. FINISH: UNLOCKING CTI REGISTERS
     // .. .. START: ENABLING CTI MODULES AND CHANNELS
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8898000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898000, 0x00000001U ,0x00000001U),
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8899000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899000, 0x00000001U ,0x00000001U),
+    // .. .. GLBEN = 1
+    // .. .. ==> 0XF8809000[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809000, 0x00000001U ,0x00000001U),
+    // .. .. CTIGATEEN3 = 0
+    // .. .. ==> 0XF8898140[3:3] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000000U
+    // .. .. CTIGATEEN2 = 0
+    // .. .. ==> 0XF8898140[2:2] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000000U
+    // .. .. CTIGATEEN1 = 1
+    // .. .. ==> 0XF8898140[1:1] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000002U
+    // .. .. CTIGATEEN0 = 1
+    // .. .. ==> 0XF8898140[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898140, 0x0000000FU ,0x00000003U),
+    // .. .. CTIGATEEN3 = 1
+    // .. .. ==> 0XF8899140[3:3] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
+    // .. .. CTIGATEEN2 = 1
+    // .. .. ==> 0XF8899140[2:2] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000004U
+    // .. .. CTIGATEEN1 = 0
+    // .. .. ==> 0XF8899140[1:1] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000000U
+    // .. .. CTIGATEEN0 = 0
+    // .. .. ==> 0XF8899140[0:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899140, 0x0000000FU ,0x0000000CU),
+    // .. .. CTIGATEEN3 = 1
+    // .. .. ==> 0XF8809140[3:3] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000008U    VAL : 0x00000008U
+    // .. .. CTIGATEEN2 = 1
+    // .. .. ==> 0XF8809140[2:2] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000004U    VAL : 0x00000004U
+    // .. .. CTIGATEEN1 = 1
+    // .. .. ==> 0XF8809140[1:1] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000002U    VAL : 0x00000002U
+    // .. .. CTIGATEEN0 = 1
+    // .. .. ==> 0XF8809140[0:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x00000001U    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809140, 0x0000000FU ,0x0000000FU),
     // .. .. FINISH: ENABLING CTI MODULES AND CHANNELS
     // .. .. START: MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS
+    // .. .. TRIGINEN = 1
+    // .. .. ==> 0XF8898020[3:0] = 0x00000001U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000001U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8898020, 0x0000000FU ,0x00000001U),
+    // .. .. TRIGINEN = 4
+    // .. .. ==> 0XF8899020[3:0] = 0x00000004U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000004U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8899020, 0x0000000FU ,0x00000004U),
+    // .. .. TRIGOUTEN = 2
+    // .. .. ==> 0XF88980A0[3:0] = 0x00000002U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000002U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88980A0, 0x0000000FU ,0x00000002U),
+    // .. .. TRIGOUTEN = 8
+    // .. .. ==> 0XF88990A0[3:0] = 0x00000008U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000008U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88990A0, 0x0000000FU ,0x00000008U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809020[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809020, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809024[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809024, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF8809028[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF8809028, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGINEN = 0
+    // .. .. ==> 0XF880902C[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF880902C, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A0[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A0, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A4[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A4, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090A8[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090A8, 0x0000000FU ,0x00000000U),
+    // .. .. TRIGOUTEN = 0
+    // .. .. ==> 0XF88090AC[3:0] = 0x00000000U
+    // .. ..     ==> MASK : 0x0000000FU    VAL : 0x00000000U
+    // .. .. 
+    EMIT_MASKWRITE(0XF88090AC, 0x0000000FU ,0x00000000U),
     // .. .. FINISH: MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS
     // .. FINISH: CROSS TRIGGER CONFIGURATIONS
     // FINISH: top

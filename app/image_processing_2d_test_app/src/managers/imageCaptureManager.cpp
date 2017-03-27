@@ -3,6 +3,7 @@
 #include "modulesMap.h"
 #include "globalDefs.h"
 #include "xparameters.h"
+#include "xil_exception.h"
 
 #define SPI_DEVICE_ID XPAR_SPI_0_DEVICE_ID
 
@@ -206,7 +207,7 @@ unsigned char ImageCaptureManager::readDragsterRegisterValue(unsigned char addre
 	unsigned char readRegisterAddress = 0x0F;
     writeBuffer[0] = convertFromMsbToLsbFirst(address);
     writeBuffer[1] = convertFromMsbToLsbFirst(readRegisterAddress);//READ_REGISTER_ADDRESS);
-    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2);
+    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2 + 2);
     if(result != -XST_SUCCESS)
         xil_printf("Read fails, reason %d", result);
     //endDragsterConfigTransaction();

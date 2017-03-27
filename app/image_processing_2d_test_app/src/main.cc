@@ -27,10 +27,13 @@ int main()
     // todo: umv: write configuration in files via FatFS
     // start process ...
     systemManager.startImageCapture();
-    linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
-    linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
-    for(;;);
+    //linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
+    //linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
+    for(;;)
+    {
+    	xil_printf("infinite loop cycle");
+    }
     // stop ...
-    //systemManager.stopImageCapture();
+    systemManager.stopImageCapture();
     return 0;
 }
