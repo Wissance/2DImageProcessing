@@ -25918,14 +25918,6 @@
       <spirit:enumeration>0xE0104fff</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
-      <spirit:name>choice_list_31d1d296</spirit:name>
-      <spirit:enumeration>&lt;Select></spirit:enumeration>
-      <spirit:enumeration>DISABLED</spirit:enumeration>
-      <spirit:enumeration>CPU0 DBG_ACK</spirit:enumeration>
-      <spirit:enumeration>CPU1 DBG_ACK</spirit:enumeration>
-      <spirit:enumeration>BOTH</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
       <spirit:name>choice_list_32c7371b</spirit:name>
       <spirit:enumeration>128 MBits</spirit:enumeration>
       <spirit:enumeration>256 MBits</spirit:enumeration>
@@ -26021,6 +26013,13 @@
       <spirit:enumeration>Low</spirit:enumeration>
       <spirit:enumeration>Medium</spirit:enumeration>
       <spirit:enumeration>High</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_54bd954f</spirit:name>
+      <spirit:enumeration>DISABLED</spirit:enumeration>
+      <spirit:enumeration>CPU0 DBG_ACK</spirit:enumeration>
+      <spirit:enumeration>CPU1 DBG_ACK</spirit:enumeration>
+      <spirit:enumeration>BOTH</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_56e9f994</spirit:name>
@@ -26342,14 +26341,6 @@
     <spirit:choice>
       <spirit:name>choice_list_83842e96</spirit:name>
       <spirit:enumeration>0xE0009FFF</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_list_85a6bbc3</spirit:name>
-      <spirit:enumeration>&lt;Select></spirit:enumeration>
-      <spirit:enumeration>DISABLED</spirit:enumeration>
-      <spirit:enumeration>CPU0 DBG_REQ</spirit:enumeration>
-      <spirit:enumeration>CPU1 DBG_REQ</spirit:enumeration>
-      <spirit:enumeration>BOTH</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_86458347</spirit:name>
@@ -26858,6 +26849,13 @@
     <spirit:choice>
       <spirit:name>choice_list_df1359ef</spirit:name>
       <spirit:enumeration>0xE0005000</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_e0cafc1a</spirit:name>
+      <spirit:enumeration>DISABLED</spirit:enumeration>
+      <spirit:enumeration>CPU0 DBG_REQ</spirit:enumeration>
+      <spirit:enumeration>CPU1 DBG_REQ</spirit:enumeration>
+      <spirit:enumeration>BOTH</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_e14dbfa8</spirit:name>
@@ -29331,92 +29329,92 @@
     <spirit:parameter>
       <spirit:name>PCW_USE_CROSS_TRIGGER</spirit:name>
       <spirit:displayName>PCW USE CROSS TRIGGER</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_USE_CROSS_TRIGGER" spirit:choiceRef="choice_list_8af5a703" spirit:order="48100">0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_USE_CROSS_TRIGGER" spirit:choiceRef="choice_list_8af5a703" spirit:order="48100">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_IN0</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN0" spirit:choiceRef="choice_list_85a6bbc3" spirit:order="48102">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN0" spirit:choiceRef="choice_list_e0cafc1a" spirit:order="48102">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_IN1</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN1" spirit:choiceRef="choice_list_85a6bbc3" spirit:order="48103">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN1" spirit:choiceRef="choice_list_e0cafc1a" spirit:order="48103">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_IN2</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN2" spirit:choiceRef="choice_list_85a6bbc3" spirit:order="48104">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN2" spirit:choiceRef="choice_list_e0cafc1a" spirit:order="48104">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_IN3</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN3" spirit:choiceRef="choice_list_85a6bbc3" spirit:order="48105">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_IN3" spirit:choiceRef="choice_list_e0cafc1a" spirit:order="48105">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_OUT0</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT0" spirit:choiceRef="choice_list_31d1d296" spirit:order="48106">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT0" spirit:choiceRef="choice_list_54bd954f" spirit:order="48106">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_OUT1</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT1" spirit:choiceRef="choice_list_31d1d296" spirit:order="48107">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT1" spirit:choiceRef="choice_list_54bd954f" spirit:order="48107">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_OUT2</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT2" spirit:choiceRef="choice_list_31d1d296" spirit:order="48108">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT2" spirit:choiceRef="choice_list_54bd954f" spirit:order="48108">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FTM_CTI_OUT3</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT3" spirit:choiceRef="choice_list_31d1d296" spirit:order="48109">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FTM_CTI_OUT3" spirit:choiceRef="choice_list_54bd954f" spirit:order="48109">DISABLED</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1) ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -30250,7 +30248,7 @@
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="((spirit:decode(id(PARAM_VALUE.PCW_USE_FABRIC_INTERRUPT)) = 1)&amp;&amp;(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1))">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="((spirit:decode(id(PARAM_VALUE.PCW_USE_FABRIC_INTERRUPT)) = 1)&amp;&amp;(spirit:decode(id(PARAM_VALUE.PCW_USE_CROSS_TRIGGER)) = 1))">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
