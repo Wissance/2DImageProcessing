@@ -173,7 +173,7 @@ module frequency_analyzer_manager #
     
     always @(posedge pixel_clock)
     begin
-        if(~clear || ~s00_axi_aresetn || stop)
+        if(~clear || ~s00_axi_aresetn)
         begin
             pixel0_sample_data <= 0;
             pixel1_sample_data <= 0;
@@ -191,6 +191,13 @@ module frequency_analyzer_manager #
                     pixel1_sample_data = data[7];
                 else if (pixel_counter == PIXEL2_INDEX)
                     pixel2_sample_data = data[7];
+            end
+            if(write_completed)
+            begin
+                pixel0_sample_data <= 0;
+                pixel1_sample_data <= 0;
+                pixel2_sample_data <= 0;
+                pixel_counter <= 0;
             end
         end
     end

@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir D:\\Projects\\2DImageProcessing\\app\\webtalk
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Чт мар 30 16:31:26 2017" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Чт мар 30 18:06:13 2017" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "SDK v2016.2" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2016.2" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "amd64" -context "software_version_and_target_device"
@@ -12,9 +12,9 @@ webtalk_add_data -client project -key target_family -value "NA" -context "softwa
 webtalk_add_data -client project -key target_device -value "NA" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_package -value "NA" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_speed -value "NA" -context "software_version_and_target_device"
-webtalk_add_data -client project -key random_id -value "bklq89rn4l3kv92fjjufqevsj5" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_id -value "2016.2_14" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "14" -context "software_version_and_target_device"
+webtalk_add_data -client project -key random_id -value "f3ho31ep02a3u20n5k5fik61a6" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_id -value "2016.2_15" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "15" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "" -context "user_environment"
@@ -22,12 +22,9 @@ webtalk_add_data -client project -key cpu_speed -value "" -context "user_environ
 webtalk_add_data -client project -key total_processors -value "" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "" -context "user_environment"
 webtalk_register_client -client sdk
-webtalk_add_data -client sdk -key uid -value "1490873460804" -context "sdk\\\\hardware/1490873460804"
-webtalk_add_data -client sdk -key isZynq -value "true" -context "sdk\\\\hardware/1490873460804"
-webtalk_add_data -client sdk -key Processors -value "2" -context "sdk\\\\hardware/1490873460804"
-webtalk_add_data -client sdk -key VivadoVersion -value "2016.2" -context "sdk\\\\hardware/1490873460804"
-webtalk_add_data -client sdk -key Arch -value "zynq" -context "sdk\\\\hardware/1490873460804"
-webtalk_add_data -client sdk -key Device -value "7z020" -context "sdk\\\\hardware/1490873460804"
-webtalk_add_data -client sdk -key IsHandoff -value "true" -context "sdk\\\\hardware/1490873460804"
-webtalk_transmit -clientid 1330392862 -regid "" -xml D:\\Projects\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.xml -html D:\\Projects\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.html -wdm D:\\Projects\\2DImageProcessing\\app\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
+webtalk_add_data -client sdk -key uid -value "1490875826242" -context "sdk\\\\bsp/1490875826242"
+webtalk_add_data -client sdk -key hwid -value "1490873460804" -context "sdk\\\\bsp/1490875826242"
+webtalk_add_data -client sdk -key os -value "standalone" -context "sdk\\\\bsp/1490875826242"
+webtalk_add_data -client sdk -key apptemplate -value "null" -context "sdk\\\\bsp/1490875826242"
+webtalk_transmit -clientid 4216454788 -regid "" -xml D:\\Projects\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.xml -html D:\\Projects\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.html -wdm D:\\Projects\\2DImageProcessing\\app\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
 webtalk_terminate

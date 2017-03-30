@@ -39,7 +39,6 @@ void freuqencyAnalyzer0Handler(void *data)
     linescanner0PixelFrequencies._pixel1Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
     linescanner0PixelFrequencies._pixel1Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
     linescanner0PixelFrequencies._pixel2Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
-    linescanner0PixelFrequencies._pixel2Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
     //lock = 0;
 }
 
