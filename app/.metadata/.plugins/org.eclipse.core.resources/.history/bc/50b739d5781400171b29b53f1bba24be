@@ -33,7 +33,7 @@ int main()
 
     for(;;)
     {
-    	//xil_printf("infinite loop cycle");
+    	xil_printf("infinite loop cycle");
     }
     // stop ...
     systemManager.stopImageCapture();

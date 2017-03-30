@@ -32,9 +32,9 @@
 <booleanAttribute key="xilinx.profile.enable" value="false"/>
 <stringAttribute key="xilinx.romem.base" value=""/>
 <stringAttribute key="xilinx.romem.size" value=""/>
-<stringAttribute key="xilinx.stdio.baud" value="9600"/>
+<stringAttribute key="xilinx.stdio.baud" value="115200"/>
 <booleanAttribute key="xilinx.stdio.connect" value="true"/>
-<stringAttribute key="xilinx.stdio.port" value="JTAG UART"/>
+<stringAttribute key="xilinx.stdio.port" value="COM20"/>
 <booleanAttribute key="xilinx.xmd.crosstrigger" value="true"/>
 <booleanAttribute key="xilinx.xmd.safe.mode" value="false"/>
 </launchConfiguration>
