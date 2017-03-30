@@ -24,26 +24,39 @@ u8 writeBuffer[2];
 PixelFrequencies linescanner0PixelFrequencies;
 PixelFrequencies linescanner1PixelFrequencies;
 
+//static int lock = 0;
+
 void freuqencyAnalyzer0Handler(void *data)
 {
-    xil_printf("Frequency analyzer 0 rised");
+    //while(lock);
+    //lock = 1;
+    linescanner0PixelFrequencies._counter++;
+    // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 1
+    //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
+    //xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);
     linescanner0PixelFrequencies._pixel0Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 0);
     linescanner0PixelFrequencies._pixel0Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 4);
     linescanner0PixelFrequencies._pixel1Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
     linescanner0PixelFrequencies._pixel1Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
     linescanner0PixelFrequencies._pixel2Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
-    linescanner0PixelFrequencies._pixel2Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 20);
+    //lock = 0;
 }
 
 void freuqencyAnalyzer1Handler(void *data)
 {
-    xil_printf("Frequency analyzer 1 rised");
+    //while(lock);
+    //lock = 1;
+    linescanner1PixelFrequencies._counter++;
+    // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 0
+    //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
+    //xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);
     linescanner1PixelFrequencies._pixel0Frequency0 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 0);
     linescanner1PixelFrequencies._pixel0Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 4);
     linescanner1PixelFrequencies._pixel1Frequency0 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 8);
     linescanner1PixelFrequencies._pixel1Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 12);
     linescanner1PixelFrequencies._pixel2Frequency0 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 16);
     linescanner1PixelFrequencies._pixel2Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
+    //lock = 0;
 }
 
 void ImageCaptureManager::initialize()
@@ -129,7 +142,7 @@ void ImageCaptureManager::initializeSpi()
         xil_printf("\n XSpi_CfgInitialize Failed\n\r");
 
     /* По умолчанию SPI является Slave, опция ниже конфигурирует его как Master */
-     status = XSpi_SetOptions(&_spi, XSP_MASTER_OPTION);
+     status = XSpi_SetOptions(&_spi, XSP_MASTER_OPTION | XSP_MANUAL_SSELECT_OPTION);
     if(status != XST_SUCCESS)
         xil_printf("\n XSpi_SetOptions Failed\n\r");
 

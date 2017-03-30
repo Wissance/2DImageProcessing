@@ -12,6 +12,8 @@ struct PixelFrequencies
 
     int _pixel2Frequency0;
     int _pixel2Frequency1;
+
+    int _counter;
 };
 
 

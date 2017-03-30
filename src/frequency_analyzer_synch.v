@@ -103,7 +103,7 @@ module frequency_analyzer_synch #
 					            start_analyzer_1 <= 0;
 					            stop_analyzer_1 <= 0;
 							end
-							else
+							else if(clock_counter >= frequency_ticks + frequency_ticks)
 							begin
 								start_analyzer_0 <= 1;
 					            stop_analyzer_0 <= 0;

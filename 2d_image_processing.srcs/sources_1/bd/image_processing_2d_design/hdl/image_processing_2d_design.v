@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Mar 30 12:55:25 2017
+//Date        : Thu Mar 30 15:51:48 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -244,7 +244,7 @@ module image_processing_2d_design
   wire linescanner_image_capture_unit_1_rst_cds;
   wire linescanner_image_capture_unit_1_rst_cvc;
   wire linescanner_image_capture_unit_1_sample;
-  wire [0:0]proc_sys_reset_0_peripheral_aresetn;
+  (* MARK_DEBUG *) wire [0:0]proc_sys_reset_0_peripheral_aresetn;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;

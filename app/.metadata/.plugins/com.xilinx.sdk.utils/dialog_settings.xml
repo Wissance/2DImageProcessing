@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="D:\Projects\2DImageProcessing\app" key="com.xilinx.sdk.hw.ui.hwspec.last"/>
 	<item value="D:\Projects\2DImageProcessing\2d_image_processing.runs\impl_1" key="program_fpga_view_bit_bmm_browse_key"/>
+	<item value="D:\Projects\2DImageProcessing\app" key="hwspec_file_selection"/>
 	<item value="D:\Projects\2DImageProcessing\2d_image_processing.runs\impl_1" key="last_stored_selection"/>
 </section>
