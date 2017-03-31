@@ -85,7 +85,7 @@ module frequency_analyzer_manager #
     reg[1:0] register_operation;
     reg[7:0] register_number;
     wire[31:0] register_read;
-    reg[2:0] register_counter;
+    //reg[2:0] register_counter;
     reg write_completed;
     
     // frequency analyzer frequencies times
@@ -202,26 +202,32 @@ module frequency_analyzer_manager #
         end
     end
     
-    always @(posedge s00_axi_aclk)
-    begin
-        if(stop && ~write_completed)
-        for(register_counter = 0; register_counter < registers_number; register_counter = register_counter + 1)
-        begin
+    always @(posedge s00_axi_aclk) begin
+        if(stop && ~write_completed) begin
+            register_operation <= 2;//`REGISTER_WRITE_OPERATION;
+            register_number <= register_number + 1;
+            register_write <= 200 + register_number; 
+                         //get_frequency(register_counter);
+            if(register_number == registers_number - 1)
+                write_completed <= 1;
+        end
+        
+        /*for(register_counter = 0; register_counter < registers_number; register_counter = register_counter + 1) begin
             register_operation <= 2;//`REGISTER_WRITE_OPERATION;
             register_number <= register_counter + 1;
             register_write <= 255; 
                              //get_frequency(register_counter);
             if(register_counter == registers_number - 1)
                 write_completed <= 1;
-        end
-        if(stop && write_completed)
-        begin
+        end*/
+        
+        if(stop && write_completed) begin
             register_operation <= 0;
             register_number <= 0;
             register_write <= 0;
         end
-        if(~stop)
-        begin
+        
+        if(~stop) begin
             register_operation <= 0;
             register_number <= 0;
             register_write <= 0;
