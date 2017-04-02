@@ -38,7 +38,7 @@ begin
     frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
 end
 
-always @(posedge clock or posedge clear)
+always @(posedge clock or negedge clear)
 begin
     if(~clear)
     begin
