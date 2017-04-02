@@ -85,7 +85,6 @@ module frequency_analyzer_manager #
     reg[1:0] register_operation;
     reg[7:0] register_number;
     wire[31:0] register_read;
-    //reg[2:0] register_counter;
     reg write_completed;
     
     // frequency analyzer frequencies times
@@ -102,8 +101,7 @@ module frequency_analyzer_manager #
     wire [31:0] pixel2_f0_action_time_net;
     wire [31:0] pixel2_f1_action_time_net;
     
-    always @(*)
-    begin
+    always @(*) begin
         pixel0_f0_action_time = pixel0_f0_action_time_net;
         pixel0_f1_action_time = pixel0_f1_action_time_net;
         pixel1_f0_action_time = pixel1_f0_action_time_net;
@@ -171,20 +169,18 @@ module frequency_analyzer_manager #
         .register_write(register_write)
     );
     
-    always @(posedge pixel_clock)
-    begin
-        if(~clear || ~s00_axi_aresetn)
-        begin
+    always @(posedge pixel_clock) begin
+        if(!clear || !s00_axi_aresetn) begin
             pixel0_sample_data <= 0;
             pixel1_sample_data <= 0;
             pixel2_sample_data <= 0;
             pixel_counter <= 0;
         end
-        else
-        begin
-            if(enable)
-            begin
+        
+        else begin
+            if(enable) begin
                 pixel_counter <= pixel_counter + 1;
+                
                 if(pixel_counter == PIXEL0_INDEX)
                     pixel0_sample_data <= data[7];
                 else if (pixel_counter == PIXEL1_INDEX)
@@ -192,8 +188,8 @@ module frequency_analyzer_manager #
                 else if (pixel_counter == PIXEL2_INDEX)
                     pixel2_sample_data = data[7];
             end
-            if(write_completed)
-            begin
+            
+            if(write_completed) begin
                 pixel0_sample_data <= 0;
                 pixel1_sample_data <= 0;
                 pixel2_sample_data <= 0;
@@ -203,7 +199,7 @@ module frequency_analyzer_manager #
     end
     
     always @(posedge s00_axi_aclk) begin
-        if(stop && ~write_completed) begin
+        if(stop && !write_completed) begin
             register_operation <= 2;//`REGISTER_WRITE_OPERATION;
             register_number <= register_number + 1;
             register_write <= 200 + register_number; 
@@ -212,22 +208,13 @@ module frequency_analyzer_manager #
                 write_completed <= 1;
         end
         
-        /*for(register_counter = 0; register_counter < registers_number; register_counter = register_counter + 1) begin
-            register_operation <= 2;//`REGISTER_WRITE_OPERATION;
-            register_number <= register_counter + 1;
-            register_write <= 255; 
-                             //get_frequency(register_counter);
-            if(register_counter == registers_number - 1)
-                write_completed <= 1;
-        end*/
-        
         if(stop && write_completed) begin
             register_operation <= 0;
             register_number <= 0;
             register_write <= 0;
         end
         
-        if(~stop) begin
+        if(!stop) begin
             register_operation <= 0;
             register_number <= 0;
             register_write <= 0;
@@ -236,16 +223,16 @@ module frequency_analyzer_manager #
     end
     
     function [31:0] get_frequency;
-    input reg[2:0] index;
+        input reg[2:0] index;
+        
         case (index)
-        0: get_frequency = pixel0_f0_action_time;
-        1: get_frequency = pixel0_f1_action_time;
-        2: get_frequency = pixel1_f0_action_time;
-        3: get_frequency = pixel1_f1_action_time;
-        4: get_frequency = pixel2_f0_action_time;
-        5: get_frequency = pixel2_f1_action_time;
-        default: get_frequency = 0;
+            0: get_frequency = pixel0_f0_action_time;
+            1: get_frequency = pixel0_f1_action_time;
+            2: get_frequency = pixel1_f0_action_time;
+            3: get_frequency = pixel1_f1_action_time;
+            4: get_frequency = pixel2_f0_action_time;
+            5: get_frequency = pixel2_f1_action_time;
+            default: get_frequency = 0;
         endcase
-    endfunction
-    
+    endfunction 
 endmodule
