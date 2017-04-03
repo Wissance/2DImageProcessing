@@ -40,7 +40,7 @@ initial begin
     frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
 end
 
-always @(posedge clock or negedge clear) begin
+always @(posedge clock) begin
     if(!clear) begin
         start_sample_value <= 0;
         frequency0_counter <= 0;
