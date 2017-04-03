@@ -39,55 +39,64 @@ module frequency_analyzer_synch #
     localparam integer signal_delay = 20;
     integer clock_counter;
 
-	always @(posedge clock) begin
+	always @(posedge clock) 
+	begin
 	    if(!reset)
 		    clock_counter <= 0;
-	    else if(enable) begin
-            clock_counter <= clock_counter + 1;
-            
+	    else if(enable) 
+	    begin
+            clock_counter <= clock_counter + 1;      
             if(clock_counter >= frequency_ticks + frequency_ticks + signal_delay)
                 clock_counter <= 0;
 		end
 	end
 	
-	always @(posedge clock) begin
-	    if(!reset) begin
+	always @(posedge clock) 
+	begin
+	    if(!reset) 
+	    begin
 		    start_analyzer_0 <= 0;
 			stop_analyzer_0 <= 0;
 			start_analyzer_1 <= 0;
 			stop_analyzer_1 <= 0;
 		end
 		
-		else if(enable) begin
-            if(clock_counter < signal_delay) begin
+		else if(enable) 
+		begin
+            if(clock_counter < signal_delay) 
+            begin
                 start_analyzer_0 <= 1;
                 stop_analyzer_0 <= 0;
                 start_analyzer_1 <= 0;
                 stop_analyzer_1 <= 0;
             end
             
-            else if(clock_counter >= signal_delay && clock_counter < frequency_ticks) begin
+            else if(clock_counter >= signal_delay && clock_counter < frequency_ticks) 
+            begin
                 start_analyzer_0 <= 0;
                 stop_analyzer_0 <= 0;
                 start_analyzer_1 <= 0;
                 stop_analyzer_1 <= 0;
             end
                 
-            else if(clock_counter >= frequency_ticks && clock_counter < frequency_ticks + signal_delay) begin
+            else if(clock_counter >= frequency_ticks && clock_counter < frequency_ticks + signal_delay) 
+            begin
                 start_analyzer_0 <= 0;
                 stop_analyzer_0 <= 1;
                 start_analyzer_1 <= 1;
                 stop_analyzer_1 <= 0;
             end
                     
-            else if(clock_counter >= frequency_ticks + signal_delay && clock_counter < frequency_ticks + frequency_ticks) begin
+            else if(clock_counter >= frequency_ticks + signal_delay && clock_counter < frequency_ticks + frequency_ticks) 
+            begin
                 start_analyzer_0 <= 0;
                 stop_analyzer_0 <= 0;
                 start_analyzer_1 <= 0;
                 stop_analyzer_1 <= 0;
             end
                         
-            else if(clock_counter >= frequency_ticks + frequency_ticks) begin
+            else if(clock_counter >= frequency_ticks + frequency_ticks) 
+            begin
                 start_analyzer_0 <= 1;
                 stop_analyzer_0 <= 0;
                 start_analyzer_1 <= 0;

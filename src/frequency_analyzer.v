@@ -34,19 +34,23 @@ reg[1:0] check_result;
 assign f0_value = frequency0_counter;
 assign f1_value = frequency1_counter;
 
-always @(posedge clock) begin
-    if(!clear) begin
+always @(posedge clock) 
+begin
+    if(!clear) 
+    begin
         start_sample_value = 0;
         frequency0_counter = 0;
         frequency1_counter = 0;
         frequency_counter = 0;
     end
     
-    else if(enable) begin
+    else if(enable) 
+    begin
         if(frequency_counter == 0)
             start_sample_value = sample_data;
             
-        else if(sample_data != start_sample_value) begin
+        else if(sample_data != start_sample_value) 
+        begin
             start_sample_value = sample_data;
             check_result = check_frequency(frequency_counter);
                 
@@ -56,15 +60,13 @@ always @(posedge clock) begin
                 frequency0_counter = frequency0_counter + frequency_counter;
                     
             frequency_counter = 0;
-        end
-            
+        end        
         frequency_counter = frequency_counter + 1;
     end
 end
 
-function[1:0] check_frequency(input integer frequency);/* Синтезируемость порта с типом integer вызывает вопросы. */
-    reg[1:0] result;
-    
+function[1:0] check_frequency(input reg[31:0] frequency);/* Синтезируемость порта с типом integer вызывает вопросы. */
+    reg[1:0] result;    
     begin
         //todo: umv: first approach frequency could have deviation
         if(frequency >= frequency0_ticks - frequency0_deviation && frequency <= frequency0_ticks + frequency0_deviation)
