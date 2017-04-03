@@ -9,6 +9,7 @@
 <includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/include-fixed"/>
 <includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/../../../../arm-none-eabi/include"/>
 <definedSymbol symbol="__STDC__=1"/>
+<definedSymbol symbol="__cplusplus=199711L"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
 <definedSymbol symbol="__GNUC_MINOR__=9"/>
@@ -37,6 +38,7 @@
 <definedSymbol symbol="__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__"/>
 <definedSymbol symbol="__FLOAT_WORD_ORDER__=__ORDER_LITTLE_ENDIAN__"/>
 <definedSymbol symbol="__SIZEOF_POINTER__=4"/>
+<definedSymbol symbol="__GNUG__=4"/>
 <definedSymbol symbol="__SIZE_TYPE__=unsigned int"/>
 <definedSymbol symbol="__PTRDIFF_TYPE__=int"/>
 <definedSymbol symbol="__WCHAR_TYPE__=unsigned int"/>
@@ -72,6 +74,10 @@
 <definedSymbol symbol="__UINT_FAST64_TYPE__=long long unsigned int"/>
 <definedSymbol symbol="__INTPTR_TYPE__=int"/>
 <definedSymbol symbol="__UINTPTR_TYPE__=unsigned int"/>
+<definedSymbol symbol="__GXX_WEAK__=1"/>
+<definedSymbol symbol="__DEPRECATED=1"/>
+<definedSymbol symbol="__GXX_RTTI=1"/>
+<definedSymbol symbol="__EXCEPTIONS=1"/>
 <definedSymbol symbol="__GXX_ABI_VERSION=1002"/>
 <definedSymbol symbol="__SCHAR_MAX__=127"/>
 <definedSymbol symbol="__SHRT_MAX__=32767"/>
@@ -150,13 +156,9 @@
 <definedSymbol symbol="__DBL_MAX_EXP__=1024"/>
 <definedSymbol symbol="__DBL_MAX_10_EXP__=308"/>
 <definedSymbol symbol="__DBL_DECIMAL_DIG__=17"/>
-<definedSymbol symbol="__DBL_MAX__=((double)1.7976931348623157e+308L)"/>
 <definedSymbol symbol="__DBL_MAX__=double(1.7976931348623157e+308L)"/>
-<definedSymbol symbol="__DBL_MIN__=((double)2.2250738585072014e-308L)"/>
 <definedSymbol symbol="__DBL_MIN__=double(2.2250738585072014e-308L)"/>
-<definedSymbol symbol="__DBL_EPSILON__=((double)2.2204460492503131e-16L)"/>
 <definedSymbol symbol="__DBL_EPSILON__=double(2.2204460492503131e-16L)"/>
-<definedSymbol symbol="__DBL_DENORM_MIN__=((double)4.9406564584124654e-324L)"/>
 <definedSymbol symbol="__DBL_DENORM_MIN__=double(4.9406564584124654e-324L)"/>
 <definedSymbol symbol="__DBL_HAS_DENORM__=1"/>
 <definedSymbol symbol="__DBL_HAS_INFINITY__=1"/>
@@ -317,6 +319,7 @@
 <definedSymbol symbol="__GNUC_GNU_INLINE__=1"/>
 <definedSymbol symbol="__NO_INLINE__=1"/>
 <definedSymbol symbol="__CHAR_UNSIGNED__=1"/>
+<definedSymbol symbol="__WCHAR_UNSIGNED__=1"/>
 <definedSymbol symbol="__GCC_ATOMIC_BOOL_LOCK_FREE=1"/>
 <definedSymbol symbol="__GCC_ATOMIC_CHAR_LOCK_FREE=1"/>
 <definedSymbol symbol="__GCC_ATOMIC_CHAR16_T_LOCK_FREE=1"/>
@@ -352,21 +355,18 @@
 <definedSymbol symbol="__GXX_TYPEINFO_EQUALITY_INLINE=0"/>
 <definedSymbol symbol="__ELF__=1"/>
 <definedSymbol symbol="__USES_INITFINI__=1"/>
-<definedSymbol symbol="__cplusplus=199711L"/>
-<definedSymbol symbol="__GNUG__=4"/>
-<definedSymbol symbol="__GXX_WEAK__=1"/>
-<definedSymbol symbol="__DEPRECATED=1"/>
-<definedSymbol symbol="__GXX_RTTI=1"/>
-<definedSymbol symbol="__EXCEPTIONS=1"/>
-<definedSymbol symbol="__WCHAR_UNSIGNED__=1"/>
 </collector>
 </instance>
 <instance id="xilinx.gnu.armv7.exe.release.977389261;xilinx.gnu.armv7.exe.release.977389261.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/../../../../arm-none-eabi/include/c++/4.9.2"/>
+<includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/../../../../arm-none-eabi/include/c++/4.9.2/arm-none-eabi"/>
+<includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/../../../../arm-none-eabi/include/c++/4.9.2/backward"/>
 <includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/include"/>
 <includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/include-fixed"/>
 <includePath path="c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/4.9.2/../../../../arm-none-eabi/include"/>
 <definedSymbol symbol="__STDC__=1"/>
+<definedSymbol symbol="__cplusplus=199711L"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
 <definedSymbol symbol="__GNUC_MINOR__=9"/>
@@ -395,6 +395,7 @@
 <definedSymbol symbol="__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__"/>
 <definedSymbol symbol="__FLOAT_WORD_ORDER__=__ORDER_LITTLE_ENDIAN__"/>
 <definedSymbol symbol="__SIZEOF_POINTER__=4"/>
+<definedSymbol symbol="__GNUG__=4"/>
 <definedSymbol symbol="__SIZE_TYPE__=unsigned int"/>
 <definedSymbol symbol="__PTRDIFF_TYPE__=int"/>
 <definedSymbol symbol="__WCHAR_TYPE__=unsigned int"/>
@@ -430,6 +431,10 @@
 <definedSymbol symbol="__UINT_FAST64_TYPE__=long long unsigned int"/>
 <definedSymbol symbol="__INTPTR_TYPE__=int"/>
 <definedSymbol symbol="__UINTPTR_TYPE__=unsigned int"/>
+<definedSymbol symbol="__GXX_WEAK__=1"/>
+<definedSymbol symbol="__DEPRECATED=1"/>
+<definedSymbol symbol="__GXX_RTTI=1"/>
+<definedSymbol symbol="__EXCEPTIONS=1"/>
 <definedSymbol symbol="__GXX_ABI_VERSION=1002"/>
 <definedSymbol symbol="__SCHAR_MAX__=127"/>
 <definedSymbol symbol="__SHRT_MAX__=32767"/>
@@ -508,10 +513,10 @@
 <definedSymbol symbol="__DBL_MAX_EXP__=1024"/>
 <definedSymbol symbol="__DBL_MAX_10_EXP__=308"/>
 <definedSymbol symbol="__DBL_DECIMAL_DIG__=17"/>
-<definedSymbol symbol="__DBL_MAX__=((double)1.7976931348623157e+308L)"/>
-<definedSymbol symbol="__DBL_MIN__=((double)2.2250738585072014e-308L)"/>
-<definedSymbol symbol="__DBL_EPSILON__=((double)2.2204460492503131e-16L)"/>
-<definedSymbol symbol="__DBL_DENORM_MIN__=((double)4.9406564584124654e-324L)"/>
+<definedSymbol symbol="__DBL_MAX__=double(1.7976931348623157e+308L)"/>
+<definedSymbol symbol="__DBL_MIN__=double(2.2250738585072014e-308L)"/>
+<definedSymbol symbol="__DBL_EPSILON__=double(2.2204460492503131e-16L)"/>
+<definedSymbol symbol="__DBL_DENORM_MIN__=double(4.9406564584124654e-324L)"/>
 <definedSymbol symbol="__DBL_HAS_DENORM__=1"/>
 <definedSymbol symbol="__DBL_HAS_INFINITY__=1"/>
 <definedSymbol symbol="__DBL_HAS_QUIET_NAN__=1"/>
@@ -671,6 +676,7 @@
 <definedSymbol symbol="__GNUC_GNU_INLINE__=1"/>
 <definedSymbol symbol="__NO_INLINE__=1"/>
 <definedSymbol symbol="__CHAR_UNSIGNED__=1"/>
+<definedSymbol symbol="__WCHAR_UNSIGNED__=1"/>
 <definedSymbol symbol="__GCC_ATOMIC_BOOL_LOCK_FREE=1"/>
 <definedSymbol symbol="__GCC_ATOMIC_CHAR_LOCK_FREE=1"/>
 <definedSymbol symbol="__GCC_ATOMIC_CHAR16_T_LOCK_FREE=1"/>

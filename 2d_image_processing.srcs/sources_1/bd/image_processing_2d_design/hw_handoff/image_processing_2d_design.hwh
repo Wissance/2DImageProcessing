@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar 30 15:51:50 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Apr 03 16:13:52 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -1617,7 +1617,7 @@
         <PARAMETER NAME="C_XIP_MODE" VALUE="0"/>
         <PARAMETER NAME="C_UC_FAMILY" VALUE="0"/>
         <PARAMETER NAME="C_FIFO_DEPTH" VALUE="16"/>
-        <PARAMETER NAME="C_SCK_RATIO" VALUE="16"/>
+        <PARAMETER NAME="C_SCK_RATIO" VALUE="2"/>
         <PARAMETER NAME="C_NUM_SS_BITS" VALUE="2"/>
         <PARAMETER NAME="C_NUM_TRANSFER_BITS" VALUE="8"/>
         <PARAMETER NAME="C_SPI_MODE" VALUE="0"/>
@@ -2704,8 +2704,8 @@
       </DOCUMENTS>
       <PARAMETERS>
         <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_EXT_RST_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_AUX_RST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_EXT_RST_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_AUX_RST_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_EXT_RESET_HIGH" VALUE="0"/>
         <PARAMETER NAME="C_AUX_RESET_HIGH" VALUE="0"/>
         <PARAMETER NAME="C_NUM_BUS_RST" VALUE="1"/>
@@ -2740,11 +2740,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
             <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
+            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="clear"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
@@ -4109,10 +4109,10 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ACLK"/>
             <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="clock_divider_0" PORT="input_clock"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="clock"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>

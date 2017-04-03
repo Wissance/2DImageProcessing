@@ -16,27 +16,35 @@ int main()
     systemManager.initialize();
 
     // check config
+    //DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
+    //DragsterConfig linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
+/*    xil_printf("Linescanner 0, Register1: 0x%02X \r\n", linescanner0Config.getControlRegister1()._mapImpl._registerValue);
+    xil_printf("Linescanner 0, Register2: 0x%02X \r\n", linescanner0Config.getControlRegister2()._mapImpl._registerValue);
+    xil_printf("Linescanner 0, Register3: 0x%02X \r\n", linescanner0Config.getControlRegister3()._mapImpl._registerValue);
+
+    xil_printf("Linescanner 1, Register1: 0x%02X \r\n", linescanner1Config.getControlRegister1()._mapImpl._registerValue);
+    xil_printf("Linescanner 1, Register2: 0x%02X \r\n", linescanner1Config.getControlRegister2()._mapImpl._registerValue);
+    xil_printf("Linescanner 1, Register3: 0x%02X \r\n", linescanner1Config.getControlRegister3()._mapImpl._registerValue);*/
+    // todo: umv: write configuration in files via FatFS
+    // start process ...
+    systemManager.startImageCapture();
+
     DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
     DragsterConfig linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
+
+    for(long l= 0; l < 40000000; l++)
+    {
+    	//xil_printf("infinite loop cycle");
+    }
+
     xil_printf("Linescanner 0, Register1: 0x%02X \r\n", linescanner0Config.getControlRegister1()._mapImpl._registerValue);
     xil_printf("Linescanner 0, Register2: 0x%02X \r\n", linescanner0Config.getControlRegister2()._mapImpl._registerValue);
     xil_printf("Linescanner 0, Register3: 0x%02X \r\n", linescanner0Config.getControlRegister3()._mapImpl._registerValue);
 
     xil_printf("Linescanner 1, Register1: 0x%02X \r\n", linescanner1Config.getControlRegister1()._mapImpl._registerValue);
     xil_printf("Linescanner 1, Register2: 0x%02X \r\n", linescanner1Config.getControlRegister2()._mapImpl._registerValue);
-    xil_printf("Linescanner 1, Register3: 0x%02X \r\n", linescanner1Config.getControlRegister3()._mapImpl._registerValue);
-    // todo: umv: write configuration in files via FatFS
-    // start process ...
-    systemManager.startImageCapture();
+    xil_printf("Linescanner 1, Register3: 0x%02X \r\n\r\n", linescanner1Config.getControlRegister3()._mapImpl._registerValue);
 
-    linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
-    linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
-
-    for(long l= 0; l < 40000000; l++)
-    {
-    	//xil_printf("infinite loop cycle");
-    }
-    // stop ...
     xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
     xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);
 
@@ -54,6 +62,7 @@ int main()
     xil_printf("Frequency analyzer 1 pixel2 frequency 0 %d \r\n", linescanner1PixelFrequencies._pixel2Frequency0);
     xil_printf("Frequency analyzer 1 pixel2 frequency 1 %d \r\n", linescanner1PixelFrequencies._pixel2Frequency1);
 
+    // stop ...
     systemManager.stopImageCapture();
     return 0;
 }

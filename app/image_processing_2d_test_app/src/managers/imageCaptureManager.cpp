@@ -217,14 +217,14 @@ void ImageCaptureManager::sendDragsterRegisterValue(unsigned char address, unsig
 unsigned char ImageCaptureManager::readDragsterRegisterValue(unsigned char address)
 {
     //#define READ_REGISTER_ADDRESS
-	beginDragsterConfigTransaction();
+	//beginDragsterConfigTransaction();
 	unsigned char readRegisterAddress = 0x0F;
-    writeBuffer[0] = convertFromMsbToLsbFirst(address);
-    writeBuffer[1] = convertFromMsbToLsbFirst(readRegisterAddress);//READ_REGISTER_ADDRESS);
-    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2 + 2);
+    writeBuffer[0] = convertFromMsbToLsbFirst(readRegisterAddress);
+    writeBuffer[1] = convertFromMsbToLsbFirst(address); //READ_REGISTER_ADDRESS);
+    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2);
     if(result != -XST_SUCCESS)
         xil_printf("Read fails, reason %d", result);
-    endDragsterConfigTransaction();
+    //endDragsterConfigTransaction();
     return convertFromLsbToMsbFirst(readBuffer[0]);
 }
 
@@ -235,6 +235,6 @@ void ImageCaptureManager::beginDragsterConfigTransaction()
 
 void ImageCaptureManager::endDragsterConfigTransaction()
 {
-    writeBuffer[0] = 0;
-    XSpi_Transfer(&_spi, writeBuffer, NULL, 1);
+    u8 emptyBuffer[1] = {0};
+    XSpi_Transfer(&_spi, emptyBuffer, NULL, 1);
 }

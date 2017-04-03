@@ -88,7 +88,7 @@ preplace netloc LINESCANNER1_DATA_1 1 0 1 -690
 preplace netloc axi_interconnect_0_M03_AXI 1 2 3 100 -530 NJ -540 1140
 preplace netloc LINESCANNER0_PIXEL_CLOCK_1 1 0 1 -680
 preplace netloc LINESCANNER0_LVAL_1 1 0 1 -690
-levelinfo -pg 1 -730 -440 -60 237 954 1410 1660 -top -890 -bot 110
+levelinfo -pg 1 -730 -440 -60 237 954 1410 1680 -top -890 -bot 110
 ",
 }
 {
