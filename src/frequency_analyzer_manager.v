@@ -93,7 +93,8 @@ module frequency_analyzer_manager #
     reg [31:0] pixel1_f0_action_time;
     reg [31:0] pixel1_f1_action_time;
     reg [31:0] pixel2_f0_action_time;
-    reg [31:0] pixel2_f1_action_time;    
+    reg [31:0] pixel2_f1_action_time;
+    
     wire [31:0] pixel0_f0_action_time_net;
     wire [31:0] pixel0_f1_action_time_net;
     wire [31:0] pixel1_f0_action_time_net;
@@ -114,25 +115,49 @@ module frequency_analyzer_manager #
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(start), .CE(s00_axi_aresetn), .D(vcc), .Q(enable), .CLR(stop));
+    
     //todo: umv: set proper frequencies
-    frequency_analyzer #(.FREQUENCY0(PIXEL0_FREQUENCY0), .FREQUENCY1(PIXEL0_FREQUENCY1), 
-                         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION), .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-                         .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) 
-         pixel0_analyzer(.sample_data(pixel0_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear), 
-                         .f0_value(pixel0_f0_action_time_net), .f1_value(pixel0_f1_action_time_net));
+    frequency_analyzer #(
+        .FREQUENCY0(PIXEL0_FREQUENCY0),
+        .FREQUENCY1(PIXEL0_FREQUENCY1), 
+        .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
+        .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) pixel0_analyzer(
+            .sample_data(pixel0_sample_data),
+            .clock(s00_axi_aclk),
+            .enable(enable),
+            .clear(clear), 
+            .f0_value(pixel0_f0_action_time_net),
+            .f1_value(pixel0_f1_action_time_net));
                          
-    frequency_analyzer #(.FREQUENCY0(PIXEL1_FREQUENCY0), .FREQUENCY1(PIXEL1_FREQUENCY1), 
-                         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION), .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-                         .CLOCK_FREQUENCY(CLOCK_FREQUENCY))
-         pixel1_analyzer(.sample_data(pixel1_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
-                          .f0_value(pixel1_f0_action_time_net), .f1_value(pixel1_f1_action_time_net));
+    frequency_analyzer #(
+        .FREQUENCY0(PIXEL1_FREQUENCY0),
+        .FREQUENCY1(PIXEL1_FREQUENCY1), 
+        .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
+        .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) pixel1_analyzer(
+            .sample_data(pixel1_sample_data),
+            .clock(s00_axi_aclk),
+            .enable(enable),
+            .clear(clear),
+            .f0_value(pixel1_f0_action_time_net),
+            .f1_value(pixel1_f1_action_time_net));
                           
-    frequency_analyzer #(.FREQUENCY0(PIXEL2_FREQUENCY0), .FREQUENCY1(PIXEL2_FREQUENCY1), 
-                         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION), .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-                         .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) 
-         pixel2_analyzer(.sample_data(pixel2_sample_data), .clock(s00_axi_aclk), .enable(enable), .clear(clear),
-                         .f0_value(pixel2_f0_action_time_net), .f1_value(pixel2_f1_action_time_net));
+    frequency_analyzer #(
+        .FREQUENCY0(PIXEL2_FREQUENCY0),
+        .FREQUENCY1(PIXEL2_FREQUENCY1), 
+        .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
+        .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) pixel2_analyzer(
+            .sample_data(pixel2_sample_data),
+            .clock(s00_axi_aclk),
+            .enable(enable),
+            .clear(clear),
+            .f0_value(pixel2_f0_action_time_net),
+            .f1_value(pixel2_f1_action_time_net));
+            
     assign irq = stop;
+    
     // Instantiation of Axi Bus Interface S00_AXI
     axi_slave_impl # 
     ( 
@@ -163,6 +188,7 @@ module frequency_analyzer_manager #
         .S_AXI_RRESP(s00_axi_rresp),
         .S_AXI_RVALID(s00_axi_rvalid),
         .S_AXI_RREADY(s00_axi_rready),
+        
         .register_operation(register_operation),
         .register_number(register_number),
         .register_read(register_read),
@@ -222,9 +248,7 @@ module frequency_analyzer_manager #
         end
     end
     
-    function [31:0] get_frequency;
-        input reg[2:0] index;
-        
+    function [31:0] get_frequency(input reg[2:0] index);
         case (index)
             0: get_frequency = pixel0_f0_action_time;
             1: get_frequency = pixel0_f1_action_time;
