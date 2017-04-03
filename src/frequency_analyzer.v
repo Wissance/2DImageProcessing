@@ -62,8 +62,7 @@ always @(posedge clock) begin
     end
 end
 
-function[1:0] check_frequency;
-    input integer frequency;
+function[1:0] check_frequency(input integer frequency);/* Синтезируемость порта с типом integer вызывает вопросы. */
     reg[1:0] result;
     
     begin
