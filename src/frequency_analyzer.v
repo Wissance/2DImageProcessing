@@ -18,27 +18,21 @@ module frequency_analyzer #
     output wire[31:0] f1_value
 );
 
-integer frequency0_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY0);
-integer frequency1_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY1);
+localparam integer frequency0_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY0);
+localparam integer frequency1_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY1);
 
-integer frequency0_deviation = 0;
-integer frequency1_deviation = 0;
+localparam integer frequency0_deviation = (frequency0_ticks * FREQUENCY0_DEVIATION) / 100;
+localparam integer frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
 
-integer frequency_counter = 0;
-integer frequency0_counter = 0;
-integer frequency1_counter = 0;
+integer frequency_counter;
+integer frequency0_counter;
+integer frequency1_counter;
 
 reg start_sample_value;
 reg[1:0] check_result;
 
 assign f0_value = frequency0_counter;
 assign f1_value = frequency1_counter;
-
-initial begin
-    start_sample_value = 0;
-    frequency0_deviation = (frequency0_ticks * FREQUENCY0_DEVIATION) / 100;
-    frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
-end
 
 always @(posedge clock) begin
     if(!clear) begin
