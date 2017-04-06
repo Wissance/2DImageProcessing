@@ -22,7 +22,7 @@
 
 module linescanner_image_capture_unit(
     input wire enable,
-    input wire[7:0] data,
+    (*keep*)input wire[7:0] data,
     output reg rst_cvc,
     output reg rst_cds,
     output reg sample,
@@ -33,7 +33,7 @@ module linescanner_image_capture_unit(
     output main_clock,
     input wire n_reset,
     output reg load_pulse,
-    output wire[7:0] pixel_data,
+    (*keep*)output wire[7:0] pixel_data,
     output wire pixel_captured);
     
     assign main_clock = main_clock_source;

@@ -29,12 +29,6 @@
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="image_processing_2d_test_app"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
-<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/image_processing_2d_test_app"/>
-</listAttribute>
-<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="4"/>
-</listAttribute>
 <booleanAttribute key="xilinx.profile.enable" value="false"/>
 <stringAttribute key="xilinx.romem.base" value=""/>
 <stringAttribute key="xilinx.romem.size" value=""/>

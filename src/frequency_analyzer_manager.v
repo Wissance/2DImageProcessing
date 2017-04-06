@@ -25,16 +25,16 @@ module frequency_analyzer_manager #
     // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 10,
-    parameter integer PIXEL0_INDEX = 15,
+    parameter integer PIXEL0_INDEX = 63,
     parameter integer PIXEL1_INDEX = 511,
     parameter integer PIXEL2_INDEX = 1023,
-    parameter integer PIXEL0_FREQUENCY0 = 9000,
-    parameter integer PIXEL0_FREQUENCY1 = 11000,
+    parameter integer PIXEL0_FREQUENCY0 = 5000,
+    parameter integer PIXEL0_FREQUENCY1 = 10000,
     parameter integer PIXEL1_FREQUENCY0 = 15000,
     parameter integer PIXEL1_FREQUENCY1 = 20000,
     parameter integer PIXEL2_FREQUENCY0 = 25000,
     parameter integer PIXEL2_FREQUENCY1 = 30000,
-    parameter integer FREQUENCY_DEVIATION = 10,
+    parameter integer FREQUENCY_DEVIATION = 20,
     parameter integer CLOCK_FREQUENCY = 100000000
 )
 (
@@ -215,9 +215,9 @@ module frequency_analyzer_manager #
                 if(pixel_counter == PIXEL0_INDEX)
                     pixel0_sample_data <= data[7];
                 else if (pixel_counter == PIXEL1_INDEX)
-                    pixel1_sample_data = data[7];
+                    pixel1_sample_data <= data[7];
                 else if (pixel_counter == PIXEL2_INDEX)
-                    pixel2_sample_data = data[7];
+                    pixel2_sample_data <= data[7];
             end
             
             if(write_completed) 
@@ -236,8 +236,7 @@ module frequency_analyzer_manager #
         begin
             register_operation <= 2;//`REGISTER_WRITE_OPERATION;
             register_number <= register_number + 1;
-            register_write <= 200 + register_number; 
-                         //get_frequency(register_counter);
+            register_write <= get_frequency(register_number);//200 + register_number; 
             if(register_number == registers_number - 1)
                 write_completed <= 1;
         end

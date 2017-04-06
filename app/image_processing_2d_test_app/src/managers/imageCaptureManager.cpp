@@ -34,12 +34,12 @@ void freuqencyAnalyzer0Handler(void *data)
     // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 1
     //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
     //xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);
-    linescanner0PixelFrequencies._pixel0Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 0);
-    linescanner0PixelFrequencies._pixel0Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 4);
-    linescanner0PixelFrequencies._pixel1Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
-    linescanner0PixelFrequencies._pixel1Frequency1 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
-    linescanner0PixelFrequencies._pixel2Frequency0 = read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
-    linescanner0PixelFrequencies._pixel2Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
+    linescanner0PixelFrequencies._pixel0Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 0);
+    linescanner0PixelFrequencies._pixel0Frequency1 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 4);
+    linescanner0PixelFrequencies._pixel1Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
+    linescanner0PixelFrequencies._pixel1Frequency1 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
+    linescanner0PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
+    linescanner0PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
     //lock = 0;
 }
 
@@ -51,12 +51,12 @@ void freuqencyAnalyzer1Handler(void *data)
     // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 0
     //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
     //xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);
-    linescanner1PixelFrequencies._pixel0Frequency0 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 0);
-    linescanner1PixelFrequencies._pixel0Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 4);
-    linescanner1PixelFrequencies._pixel1Frequency0 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 8);
-    linescanner1PixelFrequencies._pixel1Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 12);
-    linescanner1PixelFrequencies._pixel2Frequency0 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 16);
-    linescanner1PixelFrequencies._pixel2Frequency1 = read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
+    linescanner1PixelFrequencies._pixel0Frequency0 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 0);
+    linescanner1PixelFrequencies._pixel0Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 4);
+    linescanner1PixelFrequencies._pixel1Frequency0 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 8);
+    linescanner1PixelFrequencies._pixel1Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 12);
+    linescanner1PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 16);
+    linescanner1PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
     //lock = 0;
 }
 
@@ -219,9 +219,10 @@ unsigned char ImageCaptureManager::readDragsterRegisterValue(unsigned char addre
     //#define READ_REGISTER_ADDRESS
 	//beginDragsterConfigTransaction();
 	unsigned char readRegisterAddress = 0x0F;
+	readBuffer[0] = 0;
     writeBuffer[0] = convertFromMsbToLsbFirst(readRegisterAddress);
     writeBuffer[1] = convertFromMsbToLsbFirst(address); //READ_REGISTER_ADDRESS);
-    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2);
+    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2 + 1);
     if(result != -XST_SUCCESS)
         xil_printf("Read fails, reason %d", result);
     //endDragsterConfigTransaction();
