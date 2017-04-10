@@ -36,6 +36,8 @@ assign f0_value = frequency0_counter;
 assign f1_value = frequency1_counter;
 //enable == 1 ? frequency1_counter : 0;
 
+
+
 initial
 begin
     frequency_counter = 32'b0;

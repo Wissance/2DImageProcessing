@@ -24,8 +24,8 @@ module frequency_analyzer_testbench #
 (
     parameter FREQUENCY0 = 9000,
     parameter FREQUENCY1 = 11000,
-    parameter FREQUENCY0_DEVIATION = 10,
-    parameter FREQUENCY1_DEVIATION = 10,
+    parameter FREQUENCY0_DEVIATION = 20,
+    parameter FREQUENCY1_DEVIATION = 20,
     parameter CLOCK_FREQUENCY = 50000000
 )
 (

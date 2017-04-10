@@ -78,9 +78,9 @@ module frequency_analyzer_manager #
     reg [9:0] pixel2_counter;
     wire enable;
     // axi register access
-    reg[31:0] register_write;
-    reg[1:0] register_operation;
-    reg[7:0] register_number;
+    wire[31:0] register_write;
+    wire[1:0] register_operation;
+    wire[7:0] register_number;
     wire[31:0] register_read;
     reg write_completed;
 
@@ -92,6 +92,13 @@ module frequency_analyzer_manager #
     wire [31:0] pixel2_f1_action_time_net;
     
     supply1 vcc;
+    reg[31:0] register_write_value;
+    reg[1:0] register_operation_value;
+    reg[7:0] register_number_value;
+    
+    assign register_write = register_write_value;
+    assign register_operation = register_operation_value;
+    assign register_number = register_number_value;
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(start), .CE(s00_axi_aresetn), .D(vcc), .Q(enable), .CLR(stop));
@@ -227,9 +234,35 @@ module frequency_analyzer_manager #
     begin
         if(s00_axi_aresetn)
         begin
-            write_completed <= 0;
+           write_completed <= 0;
+           register_number_value <= 0;
+        end
+        if(stop)
+        begin
+            if(~write_completed)
+            begin
+                register_number_value <= register_number_value + 1;
+                if(register_number > 0)
+                begin
+                    register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
+                    register_write_value <= get_frequency(register_number);
+                end
+                if(register_number == 6)
+                    write_completed <= 1;
+            end
+            else
+            begin
+                register_operation_value <= 0;
+                register_write_value <= 0;
+            end
+            //if(register_number == 6)
         end
         else
+        begin
+            write_completed <= 0;
+            register_number_value <= 0;
+        end
+        /*else
         begin
             if(stop)
             begin
@@ -255,7 +288,7 @@ module frequency_analyzer_manager #
                 register_write <= 0;
                 write_completed <= 0;
             end
-        end
+        end*/
     end
     
     function [31:0] get_frequency(input reg[2:0] index);
