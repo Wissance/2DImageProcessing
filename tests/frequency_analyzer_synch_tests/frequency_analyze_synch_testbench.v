@@ -20,24 +20,34 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module frequency_analyzer_synch_testbench #
-(
-    parameter integer CLOCK = 100000000,
-    parameter integer FREQUENCY = 2000
-)
-(
-    input wire clock,
-    input wire reset,
-    input wire enable,
-    output wire start_analyzer_0,
-    output wire stop_analyzer_0,
-    output wire start_analyzer_1,
-    output wire stop_analyzer_1
-);
+module frequency_analyzer_synch_testbench;
 
-frequency_analyzer_synch #(.FREQUENCY(FREQUENCY), .CLOCK(CLOCK)) 
-testing_frequency_analyzer_synch (.clock(clock), .enable(enable), .reset(reset), 
-                               .start_analyzer_0(start_analyzer_0), .stop_analyzer_0(stop_analyzer_0),
-							   .start_analyzer_1(start_analyzer_1), .stop_analyzer_1(stop_analyzer_1));
+reg clock;
+reg reset;
+reg enable;
+wire start_analyzer_0;
+wire stop_analyzer_0;
+wire start_analyzer_1;
+wire stop_analyzer_1;
+
+frequency_analyzer_synch #(.FREQUENCY(2000), .CLOCK(100000000)) f(
+    .clock(clock),
+    .enable(enable),
+    .reset(reset), 
+    .start_analyzer_0(start_analyzer_0),
+    .stop_analyzer_0(stop_analyzer_0),
+    .start_analyzer_1(start_analyzer_1),
+    .stop_analyzer_1(stop_analyzer_1));
+
+    initial begin
+        clock <= 1'b0;
+        reset <= 1'b0;
+        enable <= 1'b0;
+        
+        reset <= #10 1'b1;
+        enable <= #10 1'b1;
+    end
+    
+    always #5 clock <= ~clock;
 
 endmodule

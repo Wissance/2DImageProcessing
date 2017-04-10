@@ -33,9 +33,11 @@
 							<tool id="xilinx.gnu.armv7.cxx.toolchain.compiler.debug.1996931390" name="ARM v7 g++ compiler" superClass="xilinx.gnu.armv7.cxx.toolchain.compiler.debug">
 								<option defaultValue="gnu.c.optimization.level.none" id="xilinx.gnu.compiler.option.optimization.level.1139676979" name="Optimization Level" superClass="xilinx.gnu.compiler.option.optimization.level" valueType="enumerated"/>
 								<option id="xilinx.gnu.compiler.option.debugging.level.1216587240" name="Debug Level" superClass="xilinx.gnu.compiler.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
-								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.523101141" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath"/>
+								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.523101141" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
+									<listOptionValue builtIn="false" value="../../image_processing_2d_bsp/ps7_cortexa9_0/include"/>
+								</option>
 								<option id="xilinx.gnu.compiler.misc.other.117727793" name="Other flags" superClass="xilinx.gnu.compiler.misc.other" value="-c -fmessage-length=0 -MT&quot;$@&quot; -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard" valueType="string"/>
-								<option id="xilinx.gnu.compiler.dircategory.includes.1041011952" superClass="xilinx.gnu.compiler.dircategory.includes" valueType="includePath">
+								<option id="xilinx.gnu.compiler.dircategory.includes.1041011952" name="Include Paths" superClass="xilinx.gnu.compiler.dircategory.includes" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../image_processing_2d_bsp/ps7_cortexa9_0/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/image_processing_2d_test_app/src/data}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/image_processing_2d_test_app/src/global}&quot;"/>

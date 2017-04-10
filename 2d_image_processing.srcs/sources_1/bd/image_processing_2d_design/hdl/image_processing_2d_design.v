@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Mar 30 15:51:48 2017
+//Date        : Mon Apr 10 17:01:31 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -102,15 +102,15 @@ module image_processing_2d_design
   input LINESCANNER_MISO;
   output LINESCANNER_MOSI;
 
-  wire [7:0]LINESCANNER0_DATA_1;
+  (* MARK_DEBUG *) wire [7:0]LINESCANNER0_DATA_1;
   wire LINESCANNER0_END_ADC_1;
   wire LINESCANNER0_LVAL_1;
   wire LINESCANNER0_PIXEL_CLOCK_1;
-  wire [7:0]LINESCANNER1_DATA_1;
+  (* MARK_DEBUG *) wire [7:0]LINESCANNER1_DATA_1;
   wire LINESCANNER1_END_ADC_1;
   wire LINESCANNER1_LVAL_1;
   wire LINESCANNER1_PIXEL_CLOCK_1;
-  wire LINESCANNER_MISO_1;
+  (* MARK_DEBUG *) wire LINESCANNER_MISO_1;
   wire [31:0]axi_interconnect_0_M00_AXI_ARADDR;
   wire axi_interconnect_0_M00_AXI_ARREADY;
   wire axi_interconnect_0_M00_AXI_ARVALID;
@@ -218,22 +218,22 @@ module image_processing_2d_design
   wire axi_interconnect_0_M04_AXI_WREADY;
   wire [3:0]axi_interconnect_0_M04_AXI_WSTRB;
   wire axi_interconnect_0_M04_AXI_WVALID;
-  wire axi_quad_spi_0_io0_o;
+  (* MARK_DEBUG *) wire axi_quad_spi_0_io0_o;
   wire axi_quad_spi_0_sck_o;
-  wire [1:0]axi_quad_spi_0_ss_o;
+  (* MARK_DEBUG *) wire [1:0]axi_quad_spi_0_ss_o;
   wire clock_divider_0_output_clock;
-  wire clock_divider_1_output_clock;
-  (* MARK_DEBUG *) wire frequency_analyzer_manager_0_irq;
-  (* MARK_DEBUG *) wire frequency_analyzer_manager_1_irq;
-  (* MARK_DEBUG *) wire frequency_analyzer_synch_0_start_analyzer_0;
-  (* MARK_DEBUG *) wire frequency_analyzer_synch_0_start_analyzer_1;
-  (* MARK_DEBUG *) wire frequency_analyzer_synch_0_stop_analyzer_0;
-  (* MARK_DEBUG *) wire frequency_analyzer_synch_0_stop_analyzer_1;
+  (* MARK_DEBUG *) wire clock_divider_1_output_clock;
+  wire frequency_analyzer_manager_0_irq;
+  wire frequency_analyzer_manager_1_irq;
+  wire frequency_analyzer_synch_0_start_analyzer_0;
+  wire frequency_analyzer_synch_0_start_analyzer_1;
+  wire frequency_analyzer_synch_0_stop_analyzer_0;
+  wire frequency_analyzer_synch_0_stop_analyzer_1;
   wire image_capture_manager_0_image_capture_enabled;
   wire linescanner_image_capture_unit_0_load_pulse;
   wire linescanner_image_capture_unit_0_main_clock;
   wire linescanner_image_capture_unit_0_pixel_captured;
-  wire [7:0]linescanner_image_capture_unit_0_pixel_data;
+  (* MARK_DEBUG *) wire [7:0]linescanner_image_capture_unit_0_pixel_data;
   wire linescanner_image_capture_unit_0_rst_cds;
   wire linescanner_image_capture_unit_0_rst_cvc;
   wire linescanner_image_capture_unit_0_sample;
@@ -244,7 +244,7 @@ module image_processing_2d_design
   wire linescanner_image_capture_unit_1_rst_cds;
   wire linescanner_image_capture_unit_1_rst_cvc;
   wire linescanner_image_capture_unit_1_sample;
-  (* MARK_DEBUG *) wire [0:0]proc_sys_reset_0_peripheral_aresetn;
+  wire [0:0]proc_sys_reset_0_peripheral_aresetn;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -522,9 +522,9 @@ module image_processing_2d_design
         .S01_AXI_wvalid(1'b0));
   image_processing_2d_design_axi_quad_spi_0_1 axi_quad_spi_0
        (.ext_spi_clk(clock_divider_1_output_clock),
-        .io0_i(LINESCANNER_MISO_1),
+        .io0_i(1'b0),
         .io0_o(axi_quad_spi_0_io0_o),
-        .io1_i(1'b0),
+        .io1_i(LINESCANNER_MISO_1),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(axi_interconnect_0_M00_AXI_ARADDR[6:0]),
         .s_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),

@@ -109,11 +109,6 @@
     reg register_operation_done;
     reg [C_S_AXI_DATA_WIDTH-1:0] registers[NUMBER_OF_REGISTERS - 1 : 0];
     //------------------------------------------------
-    //-- Number of Slave Registers 4
-    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg0;
-    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1;
-    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg2;
-    //reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg3;
     wire slv_reg_rden;
     wire slv_reg_wren;
     reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
@@ -185,9 +180,9 @@
     // S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_wready is 
     // de-asserted when reset is low. 
 
-    always @( posedge S_AXI_ACLK )
+    always @(posedge S_AXI_ACLK)
     begin
-        if ( S_AXI_ARESETN == 1'b0 )
+        if (S_AXI_ARESETN == 1'b0)
         begin
             axi_wready <= 1'b0;
         end 
@@ -221,79 +216,25 @@
     begin
         if (S_AXI_ARESETN == 1'b0)
         begin
-            //slv_reg0 <= 0;
-            //slv_reg1 <= 0;
-            ///slv_reg2 <= 0;
-            //slv_reg3 <= 0;
             for (register_index = 0; register_index < NUMBER_OF_REGISTERS; register_index = register_index + 1)
                 registers[register_index] <= 0;
         end 
         else 
-		//begin
         if (slv_reg_wren)
         begin
-            //axi_awaddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]
-            //registers[]
              for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8) -1; byte_index = byte_index + 1)
              begin
                  if (S_AXI_WSTRB[byte_index] == 1) 
                      registers[axi_awaddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]][(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index * 8) +: 8];
              end
         end
-		    //todo: umv: re-write this ....
-            /*case (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
-                2'h0:
-                    for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8) -1; byte_index = byte_index + 1)
-                        if (S_AXI_WSTRB[byte_index] == 1) 
-				        begin
-                            // Respective byte enables are asserted as per write strobes 
-                            // Slave register 0
-                            slv_reg0[(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index * 8) +: 8];
-                        end  
-                2'h1:
-                    for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8) - 1; byte_index = byte_index + 1)
-                        if (S_AXI_WSTRB[byte_index] == 1) 
-						begin
-                            // Respective byte enables are asserted as per write strobes 
-                            // Slave register 1
-                            slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-                        end  
-                2'h2:
-                    for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8) - 1; byte_index = byte_index + 1)
-                        if (S_AXI_WSTRB[byte_index] == 1) 
-						begin
-                            // Respective byte enables are asserted as per write strobes 
-                            // Slave register 2
-                            slv_reg2[(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index * 8) +: 8];
-                        end  
-                2'h3:
-                    for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8)-1; byte_index = byte_index + 1)
-                        if (S_AXI_WSTRB[byte_index] == 1) 
-					    begin
-                            // Respective byte enables are asserted as per write strobes 
-                            // Slave register 3
-                            slv_reg3[(byte_index * 8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-                         end  
-                default : 
-				begin
-                    slv_reg0 <= slv_reg0;
-                    slv_reg1 <= slv_reg1;
-                    slv_reg2 <= slv_reg2;
-                    slv_reg3 <= slv_reg3;
-                end
-            endcase
-        //end
-        end*/
 		else
 		begin
 		    //todo: umv: 
-		    if(register_operation == `REGISTER_WRITE_OPERATION)
+		    if(register_operation == `REGISTER_WRITE_OPERATION && register_number > 0)
 		    begin
-		        //register_operation_done <= 1;
 		        registers[register_number - 1] <= register_write;
 		    end
-		    //if(register_operation == 0)
-		        //register_operation_done <= 0;
 		end
     end    
 
@@ -397,16 +338,7 @@
     assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
     always @(*)
     begin
-        // Address decoding for reading registers
-/*        case (axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB])
-            2'h0 : reg_data_out <= slv_reg0;
-            2'h1 : reg_data_out <= slv_reg1;
-            2'h2 : reg_data_out <= slv_reg2;
-            2'h3 : reg_data_out <= slv_reg3;
-            default : reg_data_out <= 0;
-        endcase*/
-        if(//axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] > 0 &&
-           axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
+        if(axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB] < NUMBER_OF_REGISTERS)
            reg_data_out <= registers[axi_araddr[ADDR_LSB + OPT_MEM_ADDR_BITS : ADDR_LSB]];
         else reg_data_out <= 0;
     end

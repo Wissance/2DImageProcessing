@@ -18,72 +18,76 @@ module frequency_analyzer #
     output wire[31:0] f1_value
 );
 
-integer frequency0_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY0);
-integer frequency1_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY1);
-integer frequency0_deviation = 0;
-integer frequency1_deviation = 0;
-integer frequency_counter = 0;
-integer frequency0_counter = 0;
-integer frequency1_counter = 0;
+localparam integer frequency0_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY0);
+localparam integer frequency1_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY1);
+
+localparam integer frequency0_deviation = (frequency0_ticks * FREQUENCY0_DEVIATION) / 100;
+localparam integer frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
+
+reg[31:0] frequency_counter = 0;
+reg[31:0] frequency0_counter = 0;
+reg[31:0] frequency1_counter = 0;
+
 reg start_sample_value;
 reg[1:0] check_result;
 
 assign f0_value = frequency0_counter;
+//enable == 1 ? frequency0_counter : 0;
 assign f1_value = frequency1_counter;
+//enable == 1 ? frequency1_counter : 0;
+
+
 
 initial
 begin
-    start_sample_value = 0;
-    frequency0_deviation = (frequency0_ticks * FREQUENCY0_DEVIATION) / 100;
-    frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
+    frequency_counter = 32'b0;
+    frequency0_counter = 32'b0;
+    frequency1_counter = 32'b0;
 end
 
-always @(posedge clock or posedge clear)
+always @(posedge clock) 
 begin
-    if(~clear)
+    if(!clear) 
     begin
-        start_sample_value = 0;
-        frequency0_counter = 0;
-        frequency1_counter = 0;
-        frequency_counter = 0;
+        start_sample_value <= 0;
+        frequency0_counter <= 0;
+        frequency1_counter <= 0;
+        frequency_counter <= 0;
+        check_result <= 0;
     end
-    else
+    
+    else if(enable) 
     begin
-        if(enable)
+        if(frequency_counter == 0)
+            start_sample_value = sample_data;
+            
+        else if(sample_data != start_sample_value) 
         begin
-            if(frequency_counter == 0)
-            begin
-                start_sample_value = sample_data;
-            end
-            else
-            begin
-                if(sample_data != start_sample_value)
-                begin
-                    start_sample_value = sample_data;
-                    check_result = check_frequency(frequency_counter);
-                    if(check_result == 1)
-                        frequency1_counter = frequency1_counter +  frequency_counter;
-                    else if(check_result == 2)
-                        frequency0_counter = frequency0_counter +  frequency_counter;
-                frequency_counter = 0;
-                end
-            end
-            frequency_counter = frequency_counter + 1;
-        end
+            start_sample_value = sample_data;
+            check_result = check_frequency(frequency_counter);
+                
+            if(check_result == 2)
+                frequency1_counter = frequency1_counter + frequency_counter;
+            else if(check_result == 1)
+                frequency0_counter = frequency0_counter + frequency_counter;                
+            frequency_counter = 0;
+        end        
+        frequency_counter = frequency_counter + 1;
     end
 end
 
-function[1:0] check_frequency;
-input integer frequency;
-reg[1:0] result;
-begin
-    //todo: umv: first approach frequency could have deviation
-    if(frequency >= frequency0_ticks - frequency0_deviation && frequency <= frequency0_ticks + frequency0_deviation)
-        result = 1;
-    else if(frequency >= frequency1_ticks - frequency1_deviation && frequency <= frequency1_ticks + frequency1_deviation)
-        result = 2;
-    else result = 0;
-    check_frequency = result;
-end
+function[1:0] check_frequency(input reg[31:0] frequency);
+    reg[1:0] result;    
+    begin
+        //todo: umv: first approach frequency could have deviation
+        if(frequency >= frequency0_ticks - frequency0_deviation && frequency <= frequency0_ticks + frequency0_deviation)
+            result = 1;
+        else if(frequency >= frequency1_ticks - frequency1_deviation && frequency <= frequency1_ticks + frequency1_deviation)
+            result = 2;
+        else result = 0;
+        
+        check_frequency = result;
+    end
 endfunction
+
 endmodule
