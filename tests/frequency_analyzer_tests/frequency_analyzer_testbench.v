@@ -49,11 +49,11 @@ module frequency_analyzer_testbench;
 
     initial begin
         clock <= 1'b0;
-        clear <= 1'b0;
+        clear <= 1'b1;
         enable <= 1'b0;
         incoming_data <= 1'b0; 
         
-        clear <= #10 1'b1;
+        clear <= #10 1'b0;
         enable <= #10 1'b1;
         incoming_data <= #100 1'b1;
     end
