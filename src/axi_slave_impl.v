@@ -231,7 +231,7 @@
 		else
 		begin
 		    //todo: umv: 
-		    if(register_operation == `REGISTER_WRITE_OPERATION)
+		    if(register_operation == `REGISTER_WRITE_OPERATION && register_number > 0)
 		    begin
 		        registers[register_number - 1] <= register_write;
 		    end

@@ -22,7 +22,6 @@
 
 module frequency_analyzer_manager #
 (
-    // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 10,
     parameter integer PIXEL0_INDEX = 63,
@@ -68,17 +67,15 @@ module frequency_analyzer_manager #
     input wire  s00_axi_rready
 );
     
-    // todo: set it from image_capture_manager
-    //localparam integer pixel_0_index = 15;
-    //localparam integer pixel_1_index = 511;
-    //localparam integer pixel_2_index = 1023;
     localparam integer registers_number = 6;
     
     // frequency analyzer data
     reg pixel0_sample_data;
     reg pixel1_sample_data;
     reg pixel2_sample_data;
-    reg [9:0] pixel_counter;
+    reg [9:0] pixel0_counter;
+    reg [9:0] pixel1_counter;
+    reg [9:0] pixel2_counter;
     wire enable;
     // axi register access
     reg[31:0] register_write;
@@ -86,15 +83,7 @@ module frequency_analyzer_manager #
     reg[7:0] register_number;
     wire[31:0] register_read;
     reg write_completed;
-    
-    // frequency analyzer frequencies times
-/*    reg [31:0] pixel0_f0_action_time;
-    reg [31:0] pixel0_f1_action_time;
-    reg [31:0] pixel1_f0_action_time;
-    reg [31:0] pixel1_f1_action_time;
-    reg [31:0] pixel2_f0_action_time;
-    reg [31:0] pixel2_f1_action_time;*/
-    
+
     wire [31:0] pixel0_f0_action_time_net;
     wire [31:0] pixel0_f1_action_time_net;
     wire [31:0] pixel1_f0_action_time_net;
@@ -102,16 +91,23 @@ module frequency_analyzer_manager #
     wire [31:0] pixel2_f0_action_time_net;
     wire [31:0] pixel2_f1_action_time_net;
     
-/*    always @(*) 
-    begin
-        pixel0_f0_action_time = pixel0_f0_action_time_net;
-        pixel0_f1_action_time = pixel0_f1_action_time_net;
-        pixel1_f0_action_time = pixel1_f0_action_time_net;
-        pixel1_f1_action_time = pixel1_f1_action_time_net;
-        pixel2_f0_action_time = pixel2_f0_action_time_net;
-        pixel2_f1_action_time = pixel2_f1_action_time_net;
-    end*/
+/*    reg [31:0] pixel0_f0_action_time;
+    reg [31:0] pixel0_f1_action_time;
+    reg [31:0] pixel1_f0_action_time;
+    reg [31:0] pixel1_f1_action_time;
+    reg [31:0] pixel2_f0_action_time;
+    reg [31:0] pixel2_f1_action_time;
     
+    initial
+    begin
+        pixel0_f0_action_time = 0;
+        pixel0_f1_action_time = 0;
+        pixel1_f0_action_time = 0;
+        pixel1_f1_action_time = 0;
+        pixel2_f0_action_time = 0;
+        pixel2_f1_action_time = 0;
+    end*/
+       
     supply1 vcc;
     
     // enable generator
@@ -119,11 +115,13 @@ module frequency_analyzer_manager #
     
     //todo: umv: set proper frequencies
     frequency_analyzer #(
-        .FREQUENCY0(PIXEL0_FREQUENCY0),
+/*        .FREQUENCY0(PIXEL0_FREQUENCY0),
         .FREQUENCY1(PIXEL0_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) pixel0_analyzer(
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) */
+        )
+        pixel0_analyzer(
             .sample_data(pixel0_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
@@ -132,11 +130,13 @@ module frequency_analyzer_manager #
             .f1_value(pixel0_f1_action_time_net));
                          
     frequency_analyzer #(
-        .FREQUENCY0(PIXEL1_FREQUENCY0),
+/*        .FREQUENCY0(PIXEL1_FREQUENCY0),
         .FREQUENCY1(PIXEL1_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) pixel1_analyzer(
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) */
+        )
+        pixel1_analyzer(
             .sample_data(pixel1_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
@@ -145,11 +145,13 @@ module frequency_analyzer_manager #
             .f1_value(pixel1_f1_action_time_net));
                           
     frequency_analyzer #(
-        .FREQUENCY0(PIXEL2_FREQUENCY0),
+/*        .FREQUENCY0(PIXEL2_FREQUENCY0),
         .FREQUENCY1(PIXEL2_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) pixel2_analyzer(
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) */
+        )
+        pixel2_analyzer(
             .sample_data(pixel2_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
@@ -159,6 +161,25 @@ module frequency_analyzer_manager #
             
     assign irq = stop;
     
+/*    always@(*)
+    begin
+        if(!enable)
+        begin
+            pixel0_f0_action_time = 0;
+            pixel0_f1_action_time = 0;
+            pixel1_f0_action_time = 0;
+            pixel1_f1_action_time = 0;
+            pixel2_f0_action_time = 0;
+            pixel2_f1_action_time = 0;
+        end
+        pixel0_f0_action_time = pixel0_f0_action_time_net;
+        pixel0_f1_action_time = pixel0_f1_action_time_net;
+        pixel1_f0_action_time = pixel1_f0_action_time_net;
+        pixel1_f1_action_time = pixel1_f1_action_time_net;
+        pixel2_f0_action_time = pixel2_f0_action_time_net;
+        pixel2_f1_action_time= pixel2_f1_action_time_net;
+    end*/
+    
     // Instantiation of Axi Bus Interface S00_AXI
     axi_slave_impl # 
     ( 
@@ -166,7 +187,7 @@ module frequency_analyzer_manager #
         .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
         .NUMBER_OF_REGISTERS(registers_number)
     ) 
-    frequency_analyzer_manager_inst 
+    frequency_analyzer_manager_axi 
     (
         .S_AXI_ACLK(s00_axi_aclk),
         .S_AXI_ARESETN(s00_axi_aresetn),
@@ -196,9 +217,55 @@ module frequency_analyzer_manager #
         .register_write(register_write)
     );
     
-    always @(posedge pixel_clock) 
+    always @(posedge pixel_clock)
     begin
-        if(!clear || !s00_axi_aresetn) 
+        if(!enable || write_completed)
+        begin
+            pixel0_sample_data <= 0;
+            pixel0_counter <= 0;
+        end
+        else
+        begin
+            if(pixel0_counter == PIXEL0_INDEX)
+                pixel0_sample_data <= data[7];
+            pixel0_counter <= pixel0_counter + 1;
+        end
+    end
+
+    always @(posedge pixel_clock)
+    begin
+        if(!enable || write_completed)
+        begin
+            pixel1_sample_data <= 0;
+            pixel1_counter <= 0;
+        end
+        else
+        begin
+            if(pixel1_counter == PIXEL1_INDEX)
+                pixel1_sample_data <= data[7];
+            pixel1_counter <= pixel1_counter + 1;
+        end
+    end
+    
+    always @(posedge pixel_clock)
+    begin
+        if(!enable || write_completed)
+        begin
+            pixel2_sample_data <= 0;
+            pixel2_counter <= 0;
+        end
+        else
+        begin
+            if(pixel2_counter == PIXEL2_INDEX)
+                pixel2_sample_data <= data[7];
+            pixel2_counter <= pixel2_counter + 1;
+        end
+    end    
+    
+/*    always @(posedge pixel_clock) 
+    begin
+        if(!enable)
+        //!clear || !s00_axi_aresetn) 
         begin
             pixel0_sample_data <= 0;
             pixel1_sample_data <= 0;
@@ -228,7 +295,7 @@ module frequency_analyzer_manager #
                 pixel_counter <= 0;
             end
         end
-    end
+    end*/
     
     always @(posedge s00_axi_aclk) 
     begin

@@ -24,9 +24,9 @@ localparam integer frequency1_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY1);
 localparam integer frequency0_deviation = (frequency0_ticks * FREQUENCY0_DEVIATION) / 100;
 localparam integer frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
 
-integer frequency_counter;
-integer frequency0_counter;
-integer frequency1_counter;
+reg[31:0] frequency_counter = 0;
+reg[31:0] frequency0_counter = 0;
+reg[31:0] frequency1_counter = 0;
 
 reg start_sample_value;
 reg[1:0] check_result;
@@ -34,34 +34,41 @@ reg[1:0] check_result;
 assign f0_value = frequency0_counter;
 assign f1_value = frequency1_counter;
 
+initial
+begin
+    frequency_counter = 0;
+    frequency0_counter = 0;
+    frequency1_counter = 0;
+end
+
 always @(posedge clock) 
 begin
     if(!clear) 
     begin
-        start_sample_value = 0;
-        frequency0_counter = 0;
-        frequency1_counter = 0;
-        frequency_counter = 0;
+        start_sample_value <= 0;
+        frequency0_counter <= 0;
+        frequency1_counter <= 0;
+        frequency_counter <= 0;
     end
     
     else if(enable) 
     begin
         if(frequency_counter == 0)
-            start_sample_value = sample_data;
+            start_sample_value <= sample_data;
             
         else if(sample_data != start_sample_value) 
         begin
-            start_sample_value = sample_data;
-            check_result = check_frequency(frequency_counter);
+            start_sample_value <= sample_data;
+            check_result <= check_frequency(frequency_counter);
                 
             if(check_result == 1)
-                frequency1_counter = frequency1_counter + frequency_counter;
+                frequency1_counter <= frequency1_counter + frequency_counter;
             else if(check_result == 2)
-                frequency0_counter = frequency0_counter + frequency_counter;
+                frequency0_counter <= frequency0_counter + frequency_counter;
                     
             frequency_counter = 0;
         end        
-        frequency_counter = frequency_counter + 1;
+        frequency_counter <= frequency_counter + 1;
     end
 end
 

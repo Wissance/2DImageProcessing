@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "frequency_analyzer_manager,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "image_processing_2d_design_frequency_analyzer_manager_1_0,frequency_analyzer_manager,{}" *)
-(* CORE_GENERATION_INFO = "image_processing_2d_design_frequency_analyzer_manager_1_0,frequency_analyzer_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=frequency_analyzer_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=10,PIXEL0_INDEX=15,PIXEL1_INDEX=511,PIXEL2_INDEX=1023,PIXEL0_FREQUENCY0=9000,PIXEL0_FREQUENCY1=11000,PIXEL1_FREQUENCY0=15000,PIXEL1_FREQUENCY1=20000,PIXEL2_FREQUENCY0=25000,PIXEL2_FREQ\
+(* CORE_GENERATION_INFO = "image_processing_2d_design_frequency_analyzer_manager_1_0,frequency_analyzer_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=frequency_analyzer_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=10,PIXEL0_INDEX=63,PIXEL1_INDEX=511,PIXEL2_INDEX=1023,PIXEL0_FREQUENCY0=5000,PIXEL0_FREQUENCY1=10000,PIXEL1_FREQUENCY0=15000,PIXEL1_FREQUENCY1=20000,PIXEL2_FREQUENCY0=25000,PIXEL2_FREQ\
 UENCY1=30000,FREQUENCY_DEVIATION=10,CLOCK_FREQUENCY=100000000}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module image_processing_2d_design_frequency_analyzer_manager_1_0 (
@@ -139,11 +139,11 @@ input wire s00_axi_rready;
   frequency_analyzer_manager #(
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(10),
-    .PIXEL0_INDEX(15),
+    .PIXEL0_INDEX(63),
     .PIXEL1_INDEX(511),
     .PIXEL2_INDEX(1023),
-    .PIXEL0_FREQUENCY0(9000),
-    .PIXEL0_FREQUENCY1(11000),
+    .PIXEL0_FREQUENCY0(5000),
+    .PIXEL0_FREQUENCY1(10000),
     .PIXEL1_FREQUENCY0(15000),
     .PIXEL1_FREQUENCY1(20000),
     .PIXEL2_FREQUENCY0(25000),

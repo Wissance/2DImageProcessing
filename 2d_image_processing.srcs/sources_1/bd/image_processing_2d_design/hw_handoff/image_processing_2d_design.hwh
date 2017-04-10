@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 06 16:33:11 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Apr 10 14:12:49 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -25,12 +25,12 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
-    <PORT DIR="O" LEFT="0" NAME="LINESCANNER1_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+    <PORT DIR="O" LEFT="0" NAME="LINESCANNER1_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
       </CONNECTIONS>
@@ -1891,11 +1891,11 @@
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="PIXEL0_INDEX" VALUE="15"/>
+        <PARAMETER NAME="PIXEL0_INDEX" VALUE="63"/>
         <PARAMETER NAME="PIXEL1_INDEX" VALUE="511"/>
         <PARAMETER NAME="PIXEL2_INDEX" VALUE="1023"/>
-        <PARAMETER NAME="PIXEL0_FREQUENCY0" VALUE="9000"/>
-        <PARAMETER NAME="PIXEL0_FREQUENCY1" VALUE="11000"/>
+        <PARAMETER NAME="PIXEL0_FREQUENCY0" VALUE="5000"/>
+        <PARAMETER NAME="PIXEL0_FREQUENCY1" VALUE="10000"/>
         <PARAMETER NAME="PIXEL1_FREQUENCY0" VALUE="15000"/>
         <PARAMETER NAME="PIXEL1_FREQUENCY1" VALUE="20000"/>
         <PARAMETER NAME="PIXEL2_FREQUENCY0" VALUE="25000"/>
@@ -2104,11 +2104,11 @@
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="PIXEL0_INDEX" VALUE="15"/>
+        <PARAMETER NAME="PIXEL0_INDEX" VALUE="63"/>
         <PARAMETER NAME="PIXEL1_INDEX" VALUE="511"/>
         <PARAMETER NAME="PIXEL2_INDEX" VALUE="1023"/>
-        <PARAMETER NAME="PIXEL0_FREQUENCY0" VALUE="9000"/>
-        <PARAMETER NAME="PIXEL0_FREQUENCY1" VALUE="11000"/>
+        <PARAMETER NAME="PIXEL0_FREQUENCY0" VALUE="5000"/>
+        <PARAMETER NAME="PIXEL0_FREQUENCY1" VALUE="10000"/>
         <PARAMETER NAME="PIXEL1_FREQUENCY0" VALUE="15000"/>
         <PARAMETER NAME="PIXEL1_FREQUENCY1" VALUE="20000"/>
         <PARAMETER NAME="PIXEL2_FREQUENCY0" VALUE="25000"/>
@@ -2737,14 +2737,12 @@
         <PORT DIR="O" LEFT="0" NAME="interconnect_aresetn" RIGHT="0" SIGIS="rst"/>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
             <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="clear"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
@@ -2754,6 +2752,8 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M03_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M04_ARESETN"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="clear"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="clear"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
@@ -4110,9 +4110,8 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ACLK"/>
             <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="clock_divider_0" PORT="input_clock"/>
-            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="clock"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
@@ -4122,6 +4121,7 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M04_ACLK"/>
             <CONNECTION INSTANCE="clock_divider_1" PORT="input_clock"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
