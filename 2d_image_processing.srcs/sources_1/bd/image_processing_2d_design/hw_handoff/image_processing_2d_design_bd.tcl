@@ -252,7 +252,13 @@ CONFIG.clock_division {5} \
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property -dict [ list \
+CONFIG.PIXEL0_FREQUENCY0 {5000} \
+CONFIG.PIXEL0_FREQUENCY1 {10000} \
+CONFIG.PIXEL0_INDEX {63} \
+CONFIG.PIXEL1_INDEX {511} \
+ ] $frequency_analyzer_manager_0
+
   # Create instance: frequency_analyzer_manager_1, and set properties
   set block_name frequency_analyzer_manager
   set block_cell_name frequency_analyzer_manager_1
@@ -263,7 +269,12 @@ CONFIG.clock_division {5} \
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property -dict [ list \
+CONFIG.PIXEL0_FREQUENCY0 {5000} \
+CONFIG.PIXEL0_FREQUENCY1 {10000} \
+CONFIG.PIXEL0_INDEX {63} \
+ ] $frequency_analyzer_manager_1
+
   # Create instance: frequency_analyzer_synch_0, and set properties
   set block_name frequency_analyzer_synch
   set block_cell_name frequency_analyzer_synch_0

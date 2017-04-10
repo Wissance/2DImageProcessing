@@ -64,6 +64,5 @@ int main()
 
     // stop ...
     systemManager.stopImageCapture();
-    printf("Application stopped \r\n");
     return 0;
 }
