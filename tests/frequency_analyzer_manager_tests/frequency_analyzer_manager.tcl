@@ -4,4 +4,4 @@ add_force {/frequency_analyzer_manager_testbench/start} -radix hex {0 100ns} {1 
 add_force {/frequency_analyzer_manager_testbench/stop} -radix hex {0 0ns} {1 499ms} {0 500ms} -repeat_every 501ms 
 add_force {/frequency_analyzer_manager_testbench/clear} -radix hex {0} {1 100ns} {0 5000ms} 
 add_force {/frequency_analyzer_manager_testbench/s00_axi_aresetn} -radix hex {0} {1 100ns} {0 5000ms} 
-add_force {/frequency_analyzer_manager_testbench/s00_axi_aclk} -radix hex {1 0ns} {0 5ns} -repeat_every 10ns
+add_force {/frequency_analyzer_manager_testbench/s00_axi_aclk} -radix hex {1 0ns} {0 10ns} -repeat_every 20ns

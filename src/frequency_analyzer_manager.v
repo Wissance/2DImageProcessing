@@ -91,23 +91,6 @@ module frequency_analyzer_manager #
     wire [31:0] pixel2_f0_action_time_net;
     wire [31:0] pixel2_f1_action_time_net;
     
-/*    reg [31:0] pixel0_f0_action_time;
-    reg [31:0] pixel0_f1_action_time;
-    reg [31:0] pixel1_f0_action_time;
-    reg [31:0] pixel1_f1_action_time;
-    reg [31:0] pixel2_f0_action_time;
-    reg [31:0] pixel2_f1_action_time;
-    
-    initial
-    begin
-        pixel0_f0_action_time = 0;
-        pixel0_f1_action_time = 0;
-        pixel1_f0_action_time = 0;
-        pixel1_f1_action_time = 0;
-        pixel2_f0_action_time = 0;
-        pixel2_f1_action_time = 0;
-    end*/
-       
     supply1 vcc;
     
     // enable generator
@@ -115,12 +98,11 @@ module frequency_analyzer_manager #
     
     //todo: umv: set proper frequencies
     frequency_analyzer #(
-/*        .FREQUENCY0(PIXEL0_FREQUENCY0),
+        .FREQUENCY0(PIXEL0_FREQUENCY0),
         .FREQUENCY1(PIXEL0_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) */
-        )
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) 
         pixel0_analyzer(
             .sample_data(pixel0_sample_data),
             .clock(s00_axi_aclk),
@@ -130,12 +112,11 @@ module frequency_analyzer_manager #
             .f1_value(pixel0_f1_action_time_net));
                          
     frequency_analyzer #(
-/*        .FREQUENCY0(PIXEL1_FREQUENCY0),
+        .FREQUENCY0(PIXEL1_FREQUENCY0),
         .FREQUENCY1(PIXEL1_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) */
-        )
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY))
         pixel1_analyzer(
             .sample_data(pixel1_sample_data),
             .clock(s00_axi_aclk),
@@ -145,12 +126,11 @@ module frequency_analyzer_manager #
             .f1_value(pixel1_f1_action_time_net));
                           
     frequency_analyzer #(
-/*        .FREQUENCY0(PIXEL2_FREQUENCY0),
+        .FREQUENCY0(PIXEL2_FREQUENCY0),
         .FREQUENCY1(PIXEL2_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
-        .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) */
-        )
+        .CLOCK_FREQUENCY(CLOCK_FREQUENCY))
         pixel2_analyzer(
             .sample_data(pixel2_sample_data),
             .clock(s00_axi_aclk),
@@ -160,25 +140,6 @@ module frequency_analyzer_manager #
             .f1_value(pixel2_f1_action_time_net));
             
     assign irq = stop;
-    
-/*    always@(*)
-    begin
-        if(!enable)
-        begin
-            pixel0_f0_action_time = 0;
-            pixel0_f1_action_time = 0;
-            pixel1_f0_action_time = 0;
-            pixel1_f1_action_time = 0;
-            pixel2_f0_action_time = 0;
-            pixel2_f1_action_time = 0;
-        end
-        pixel0_f0_action_time = pixel0_f0_action_time_net;
-        pixel0_f1_action_time = pixel0_f1_action_time_net;
-        pixel1_f0_action_time = pixel1_f0_action_time_net;
-        pixel1_f1_action_time = pixel1_f1_action_time_net;
-        pixel2_f0_action_time = pixel2_f0_action_time_net;
-        pixel2_f1_action_time= pixel2_f1_action_time_net;
-    end*/
     
     // Instantiation of Axi Bus Interface S00_AXI
     axi_slave_impl # 
@@ -260,78 +221,51 @@ module frequency_analyzer_manager #
                 pixel2_sample_data <= data[7];
             pixel2_counter <= pixel2_counter + 1;
         end
-    end    
-    
-/*    always @(posedge pixel_clock) 
-    begin
-        if(!enable)
-        //!clear || !s00_axi_aresetn) 
-        begin
-            pixel0_sample_data <= 0;
-            pixel1_sample_data <= 0;
-            pixel2_sample_data <= 0;
-            pixel_counter <= 0;
-        end
-        
-        else 
-        begin
-            if(enable) 
-            begin
-                pixel_counter <= pixel_counter + 1;
-                
-                if(pixel_counter == PIXEL0_INDEX)
-                    pixel0_sample_data <= data[7];
-                else if (pixel_counter == PIXEL1_INDEX)
-                    pixel1_sample_data <= data[7];
-                else if (pixel_counter == PIXEL2_INDEX)
-                    pixel2_sample_data <= data[7];
-            end
-            
-            if(write_completed) 
-            begin
-                pixel0_sample_data <= 0;
-                pixel1_sample_data <= 0;
-                pixel2_sample_data <= 0;
-                pixel_counter <= 0;
-            end
-        end
-    end*/
+    end
     
     always @(posedge s00_axi_aclk) 
     begin
-        if(stop && !write_completed) 
+        if(s00_axi_aresetn)
         begin
-            register_operation <= 2;//`REGISTER_WRITE_OPERATION;
-            register_number <= register_number + 1;
-            register_write <= get_frequency(register_number);//200 + register_number; 
-            if(register_number == registers_number - 1)
-                write_completed <= 1;
-        end
-        
-        if(stop && write_completed) 
-        begin
-            register_operation <= 0;
-            register_number <= 0;
-            register_write <= 0;
-        end
-        
-        if(!stop) 
-        begin
-            register_operation <= 0;
-            register_number <= 0;
-            register_write <= 0;
             write_completed <= 0;
+        end
+        else
+        begin
+            if(stop)
+            begin
+                if(!write_completed)
+                begin
+                register_operation <= 2;//`REGISTER_WRITE_OPERATION;
+                register_number <= register_number + 1;
+                register_write <= get_frequency(register_number);//200 + register_number; 
+                if(register_number == registers_number - 1)
+                    write_completed <= 1;
+                end
+                else
+                begin
+                    register_operation <= 0;
+                    register_number <= 0;
+                    register_write <= 0;
+                end
+            end
+            else //if(!stop) 
+            begin
+                register_operation <= 0;
+                register_number <= 0;
+                register_write <= 0;
+                write_completed <= 0;
+            end
         end
     end
     
     function [31:0] get_frequency(input reg[2:0] index);
         case (index)
-            0: get_frequency = pixel0_f0_action_time_net;
-            1: get_frequency = pixel0_f1_action_time_net;
-            2: get_frequency = pixel1_f0_action_time_net;
-            3: get_frequency = pixel1_f1_action_time_net;
-            4: get_frequency = pixel2_f0_action_time_net;
-            5: get_frequency = pixel2_f1_action_time_net;
+            1: get_frequency = pixel0_f0_action_time_net;
+            2: get_frequency = pixel0_f1_action_time_net;
+            3: get_frequency = pixel1_f0_action_time_net;
+            4: get_frequency = pixel1_f1_action_time_net;
+            5: get_frequency = pixel2_f0_action_time_net;
+            6: get_frequency = pixel2_f1_action_time_net;
             default: get_frequency = 0;
         endcase
     endfunction 
