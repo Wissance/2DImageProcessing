@@ -20,28 +20,45 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module frequency_analyzer_testbench #
-(
-    parameter FREQUENCY0 = 9000,
-    parameter FREQUENCY1 = 11000,
-    parameter FREQUENCY0_DEVIATION = 10,
-    parameter FREQUENCY1_DEVIATION = 10,
-    parameter CLOCK_FREQUENCY = 50000000
-)
-(
-    input wire sample_data,
-    input wire clock,
-    input wire enable,
-    input wire clear,
-    output wire[31:0] f0_value,
-    output wire[31:0] f1_value
-);
+module frequency_analyzer_testbench;
 
-    frequency_analyzer #(.FREQUENCY0(FREQUENCY0), .FREQUENCY1(FREQUENCY1), 
-                         .FREQUENCY0_DEVIATION(FREQUENCY0_DEVIATION), 
-                         .FREQUENCY1_DEVIATION(FREQUENCY1_DEVIATION), 
-                         .CLOCK_FREQUENCYK(CLOCK_FREQUENCY)) 
-    frequency_analyzer_test (.sample_data(sample_data), .clock(clock), .enable(enable),
-                             .clear(clear), .f0_value(f0_value), .f1_value(f1_value));
+wire sample_data;
+reg clock;
+wire pixel_captured;
+reg incoming_data;
+
+reg enable;
+reg clear;
+
+wire[31:0] f0_value;
+wire[31:0] f1_value;
+
+assign pixel_captured = incoming_data ? clock : 0;
+
+frequency_analyzer #(
+    .FREQUENCY0(5000),
+    .FREQUENCY1(10000),
+    .FREQUENCY0_DEVIATION(10),
+    .FREQUENCY1_DEVIATION(10),
+    .CLOCK_FREQUENCY(100000000)) f(
+        .sample_data(sample_data),
+        .clock(pixel_captured),
+        .enable(enable),
+        .clear(clear),
+        .f0_value(f0_value),
+        .f1_value(f1_value));
+
+    initial begin
+        clock <= 1'b0;
+        clear <= 1'b0;
+        enable <= 1'b0;
+        incoming_data <= 1'b0; 
+        
+        clear <= #10 1'b1;
+        enable <= #10 1'b1;
+        incoming_data <= #100 1'b1;
+    end
+    
+    always #5 clock <= ~clock;
 
 endmodule
