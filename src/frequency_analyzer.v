@@ -50,30 +50,29 @@ begin
     if(!clear) 
     begin
         start_sample_value <= 0;
-        frequency0_counter <= 32'b0;
-        frequency1_counter <= 32'b0;
-        frequency_counter <= 32'b0;
+        frequency0_counter <= 0;
+        frequency1_counter <= 0;
+        frequency_counter <= 0;
         check_result <= 0;
     end
     
     else if(enable) 
     begin
         if(frequency_counter == 0)
-            start_sample_value <= sample_data;
+            start_sample_value = sample_data;
             
         else if(sample_data != start_sample_value) 
         begin
-            start_sample_value <= sample_data;
-            check_result <= check_frequency(frequency_counter);
+            start_sample_value = sample_data;
+            check_result = check_frequency(frequency_counter);
                 
-            if(check_result == 1)
-                frequency1_counter <= frequency1_counter + frequency_counter;
-            else if(check_result == 2)
-                frequency0_counter <= frequency0_counter + frequency_counter;
-                    
+            if(check_result == 2)
+                frequency1_counter = frequency1_counter + frequency_counter;
+            else if(check_result == 1)
+                frequency0_counter = frequency0_counter + frequency_counter;                
             frequency_counter = 0;
         end        
-        frequency_counter <= frequency_counter + 1;
+        frequency_counter = frequency_counter + 1;
     end
 end
 

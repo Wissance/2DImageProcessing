@@ -3,17 +3,17 @@ module frequency_analyzer_manager_testbench #
     // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 10,
-    parameter integer PIXEL0_INDEX = 32,
+    parameter integer PIXEL0_INDEX = 31,
     parameter integer PIXEL1_INDEX = 513,
     parameter integer PIXEL2_INDEX = 1023,
-    parameter integer PIXEL0_FREQUENCY0 = 9000,
-    parameter integer PIXEL0_FREQUENCY1 = 19000,
-    parameter integer PIXEL1_FREQUENCY0 = 15000,
-    parameter integer PIXEL1_FREQUENCY1 = 20000,
-    parameter integer PIXEL2_FREQUENCY0 = 25000,
-    parameter integer PIXEL2_FREQUENCY1 = 50000,
-    parameter integer FREQUENCY_DEVIATION = 20,
-    parameter integer CLOCK_FREQUENCY = 50000000
+    parameter integer PIXEL0_FREQUENCY0 = 5000,
+    parameter integer PIXEL0_FREQUENCY1 = 25000,
+    parameter integer PIXEL1_FREQUENCY0 = 40000,
+    parameter integer PIXEL1_FREQUENCY1 = 50000,
+    parameter integer PIXEL2_FREQUENCY0 = 70000,
+    parameter integer PIXEL2_FREQUENCY1 = 80000,
+    parameter integer FREQUENCY_DEVIATION = 30,
+    parameter integer CLOCK_FREQUENCY = 100000000
 )
 (
     input wire [7:0] data,

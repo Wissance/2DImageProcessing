@@ -237,58 +237,33 @@ module frequency_analyzer_manager #
            write_completed <= 0;
            register_number_value <= 0;
         end
-        if(stop)
-        begin
-            if(~write_completed)
-            begin
-                register_number_value <= register_number_value + 1;
-                if(register_number > 0)
-                begin
-                    register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
-                    register_write_value <= get_frequency(register_number);
-                end
-                if(register_number == 6)
-                    write_completed <= 1;
-            end
-            else
-            begin
-                register_operation_value <= 0;
-                register_write_value <= 0;
-            end
-            //if(register_number == 6)
-        end
         else
-        begin
-            write_completed <= 0;
-            register_number_value <= 0;
-        end
-        /*else
         begin
             if(stop)
             begin
                 if(!write_completed)
                 begin
-                register_operation <= 2;//`REGISTER_WRITE_OPERATION;
-                register_number <= register_number + 1;
-                register_write <= get_frequency(register_number);//200 + register_number; 
+                register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
+                register_number_value <= register_number + 1;
+                register_write_value <= get_frequency(register_number);//200 + register_number; 
                 if(register_number == registers_number - 1)
                     write_completed <= 1;
                 end
                 else
                 begin
-                    register_operation <= 0;
-                    register_number <= 0;
-                    register_write <= 0;
+                    register_operation_value <= 0;
+                    register_number_value <= 0;
+                    register_write_value <= 0;
                 end
             end
             else //if(!stop) 
             begin
-                register_operation <= 0;
-                register_number <= 0;
-                register_write <= 0;
+                register_operation_value <= 0;
+                register_number_value <= 0;
+                register_write_value <= 0;
                 write_completed <= 0;
             end
-        end*/
+        end
     end
     
     function [31:0] get_frequency(input reg[2:0] index);
