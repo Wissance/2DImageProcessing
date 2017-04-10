@@ -65,7 +65,7 @@ begin
     end
 end
 
-function[1:0] check_frequency(input reg[31:0] frequency);/* Синтезируемость порта с типом integer вызывает вопросы. */
+function[1:0] check_frequency(input reg[31:0] frequency);
     reg[1:0] result;    
     begin
         //todo: umv: first approach frequency could have deviation
