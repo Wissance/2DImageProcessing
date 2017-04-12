@@ -232,7 +232,7 @@ module frequency_analyzer_manager #
     
     always @(posedge s00_axi_aclk) 
     begin
-        if(s00_axi_aresetn)
+        if(!s00_axi_aresetn)
         begin
            write_completed <= 0;
            register_number_value <= 0;
