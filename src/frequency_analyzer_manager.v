@@ -96,9 +96,12 @@ module frequency_analyzer_manager #
     reg[1:0] register_operation_value;
     reg[7:0] register_number_value;
     
+    wire clear_impl;
+    
     assign register_write = register_write_value;
     assign register_operation = register_operation_value;
     assign register_number = register_number_value;
+    assign clear_impl = s00_axi_aresetn & ~clear & enable;
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(start), .CE(s00_axi_aresetn), .D(vcc), .Q(enable), .CLR(stop));
@@ -114,7 +117,7 @@ module frequency_analyzer_manager #
             .sample_data(pixel0_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
-            .clear(clear | ~write_completed), 
+            .clear(clear_impl), 
             .f0_value(pixel0_f0_action_time_net),
             .f1_value(pixel0_f1_action_time_net));
                          
@@ -128,7 +131,7 @@ module frequency_analyzer_manager #
             .sample_data(pixel1_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
-            .clear(clear | ~write_completed),
+            .clear(clear_impl),
             .f0_value(pixel1_f0_action_time_net),
             .f1_value(pixel1_f1_action_time_net));
                           
@@ -142,7 +145,7 @@ module frequency_analyzer_manager #
             .sample_data(pixel2_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
-            .clear(clear | ~write_completed),
+            .clear(clear_impl),
             .f0_value(pixel2_f0_action_time_net),
             .f1_value(pixel2_f1_action_time_net));
             
