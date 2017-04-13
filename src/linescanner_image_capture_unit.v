@@ -51,7 +51,7 @@ module linescanner_image_capture_unit(
     reg[2:0] sm1_state, sm1_state_to_go_to_after_waiting;
     reg[5:0] sm1_num_clocks_to_wait, sm1_clock_count;
     
-    always @ (posedge pixel_clock) begin
+    always @ (posedge pixel_clock or negedge n_reset) begin
         if(!n_reset) begin
             rst_cvc <= 1'b1;
             rst_cds <= 1'b1;
@@ -132,7 +132,7 @@ module linescanner_image_capture_unit(
     reg[2:0] sm2_state, sm2_state_to_go_to_after_waiting;
     reg[1:0] sm2_clock_count;
 
-    always @ (posedge pixel_clock) begin
+    always @ (posedge pixel_clock or negedge n_reset) begin
       if(!n_reset) begin
         load_pulse <= 1'b0;
         
