@@ -9,6 +9,10 @@
 extern PixelFrequencies linescanner0PixelFrequencies;
 extern PixelFrequencies linescanner1PixelFrequencies;
 
+#define SYNCH_FREQUENCY 2000 // Hz
+#define TESTING_TIME 1 // a
+#define CYCLES_NUMBER SYNCH_FREQUENCY * TESTING_TIME
+
 int main()
 {
     printf("Application started \r\n");
@@ -32,7 +36,8 @@ int main()
 
     systemManager.startImageCapture();
 
-    for(long l= 0; l < 40000000; l++);
+    //for(long l= 0; l < 40000000; l++);
+    while(linescanner0PixelFrequencies._counter != CYCLES_NUMBER);
 
     /*DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
     DragsterConfig linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
