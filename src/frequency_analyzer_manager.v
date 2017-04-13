@@ -114,7 +114,7 @@ module frequency_analyzer_manager #
             .sample_data(pixel0_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
-            .clear(clear), 
+            .clear(clear | ~write_completed), 
             .f0_value(pixel0_f0_action_time_net),
             .f1_value(pixel0_f1_action_time_net));
                          
@@ -128,7 +128,7 @@ module frequency_analyzer_manager #
             .sample_data(pixel1_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
-            .clear(clear),
+            .clear(clear | ~write_completed),
             .f0_value(pixel1_f0_action_time_net),
             .f1_value(pixel1_f1_action_time_net));
                           
@@ -142,11 +142,12 @@ module frequency_analyzer_manager #
             .sample_data(pixel2_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
-            .clear(clear),
+            .clear(clear | ~write_completed),
             .f0_value(pixel2_f0_action_time_net),
             .f1_value(pixel2_f1_action_time_net));
             
-    assign irq = stop;
+    assign irq = write_completed;
+    //stop;
     
     // Instantiation of Axi Bus Interface S00_AXI
     axi_slave_impl # 
@@ -187,7 +188,7 @@ module frequency_analyzer_manager #
     
     always @(posedge pixel_clock)
     begin
-        if(!enable || write_completed)
+        if(~enable)
         begin
             pixel0_sample_data <= 0;
             pixel0_counter <= 0;
@@ -195,14 +196,14 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel0_counter == PIXEL0_INDEX)
-                pixel0_sample_data <= data[7];
+                pixel0_sample_data <= data[7] & data[6];
             pixel0_counter <= pixel0_counter + 1;
         end
     end
 
     always @(posedge pixel_clock)
     begin
-        if(!enable || write_completed)
+        if(~enable)
         begin
             pixel1_sample_data <= 0;
             pixel1_counter <= 0;
@@ -210,14 +211,14 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel1_counter == PIXEL1_INDEX)
-                pixel1_sample_data <= data[7];
+                pixel1_sample_data <= data[7] & data[6];
             pixel1_counter <= pixel1_counter + 1;
         end
     end
     
     always @(posedge pixel_clock)
     begin
-        if(!enable || write_completed)
+        if(~enable)
         begin
             pixel2_sample_data <= 0;
             pixel2_counter <= 0;
@@ -225,14 +226,14 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel2_counter == PIXEL2_INDEX)
-                pixel2_sample_data <= data[7];
+                pixel2_sample_data <= data[7] & data[6];
             pixel2_counter <= pixel2_counter + 1;
         end
     end
     
     always @(posedge s00_axi_aclk) 
     begin
-        if(!s00_axi_aresetn)
+        if(~s00_axi_aresetn)
         begin
            write_completed <= 0;
            register_number_value <= 0;
@@ -241,13 +242,13 @@ module frequency_analyzer_manager #
         begin
             if(stop)
             begin
-                if(!write_completed)
+                if(~write_completed)
                 begin
-                register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
-                register_number_value <= register_number + 1;
-                register_write_value <= get_frequency(register_number);//200 + register_number; 
-                if(register_number == registers_number - 1)
-                    write_completed <= 1;
+                    register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
+                    register_number_value <= register_number + 1;
+                    register_write_value <= get_frequency(register_number);//200 + register_number; 
+                    if(register_number_value == registers_number - 1)
+                        write_completed <= 1;
                 end
                 else
                 begin

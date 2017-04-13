@@ -32,31 +32,28 @@ reg start_sample_value;
 reg[1:0] check_result;
 
 assign f0_value = frequency0_counter;
-//enable == 1 ? frequency0_counter : 0;
 assign f1_value = frequency1_counter;
-//enable == 1 ? frequency1_counter : 0;
-
-
 
 initial
 begin
-    frequency_counter = 32'b0;
-    frequency0_counter = 32'b0;
-    frequency1_counter = 32'b0;
+    frequency_counter = 0;
+    frequency0_counter = 0;
+    frequency1_counter = 0;
 end
 
 always @(posedge clock) 
 begin
     if(!clear) 
     begin
-        start_sample_value <= 0;
-        frequency0_counter <= 0;
-        frequency1_counter <= 0;
-        frequency_counter <= 0;
-        check_result <= 0;
+        start_sample_value = 0;
+        frequency0_counter = 0;
+        frequency1_counter = 0;
+        frequency_counter = 0;
+        check_result = 0;
     end
     
-    else if(enable) 
+    else  
+    if(enable) 
     begin
         if(frequency_counter == 0)
             start_sample_value = sample_data;
