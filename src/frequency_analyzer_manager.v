@@ -67,7 +67,7 @@ module frequency_analyzer_manager #
     input wire  s00_axi_rready
 );
     
-    localparam integer registers_number = 6;
+    localparam integer REGISTERS_NUMBER = 6;
     
     // frequency analyzer data
     reg pixel0_sample_data;
@@ -158,7 +158,7 @@ module frequency_analyzer_manager #
     ( 
         .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
         .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
-        .NUMBER_OF_REGISTERS(registers_number)
+        .NUMBER_OF_REGISTERS(REGISTERS_NUMBER)
     ) 
     frequency_analyzer_manager_axi 
     (
@@ -252,9 +252,9 @@ module frequency_analyzer_manager #
                     if(hold == 0)
                     begin
                         register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
-                        register_number_value <= register_number + 1;
-                        register_write_value <= get_frequency(register_number);//200 + register_number; 
-                        if(register_number_value == register_number_value - 1)
+                        register_number_value <= register_number_value + 1;
+                        register_write_value <= get_frequency(register_number_value);//200 + register_number; 
+                        if(register_number_value == REGISTERS_NUMBER)
                             write_completed <= 1;
                     end
                     hold <= hold + 1;
