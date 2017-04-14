@@ -96,12 +96,14 @@ module frequency_analyzer_manager #
     reg[1:0] register_operation_value;
     reg[7:0] register_number_value;
     
+    reg[1:0] hold;
+    
     wire clear_impl;
     
     assign register_write = register_write_value;
     assign register_operation = register_operation_value;
     assign register_number = register_number_value;
-    assign clear_impl = s00_axi_aresetn & ~clear & enable;
+    assign clear_impl = s00_axi_aresetn & ~write_completed & ~clear;
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(start), .CE(s00_axi_aresetn), .D(vcc), .Q(enable), .CLR(stop));
@@ -150,7 +152,6 @@ module frequency_analyzer_manager #
             .f1_value(pixel2_f1_action_time_net));
             
     assign irq = write_completed;
-    //stop;
     
     // Instantiation of Axi Bus Interface S00_AXI
     axi_slave_impl # 
@@ -240,6 +241,7 @@ module frequency_analyzer_manager #
         begin
            write_completed <= 0;
            register_number_value <= 0;
+           hold <= 0;
         end
         else
         begin
@@ -247,11 +249,15 @@ module frequency_analyzer_manager #
             begin
                 if(~write_completed)
                 begin
-                    register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
-                    register_number_value <= register_number + 1;
-                    register_write_value <= get_frequency(register_number);//200 + register_number; 
-                    if(register_number_value == registers_number - 1)
-                        write_completed <= 1;
+                    if(hold == 0)
+                    begin
+                        register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
+                        register_number_value <= register_number + 1;
+                        register_write_value <= get_frequency(register_number);//200 + register_number; 
+                        if(register_number_value == register_number_value - 1)
+                            write_completed <= 1;
+                    end
+                    hold <= hold + 1;
                 end
                 else
                 begin
@@ -266,6 +272,7 @@ module frequency_analyzer_manager #
                 register_number_value <= 0;
                 register_write_value <= 0;
                 write_completed <= 0;
+                hold <= 0;
             end
         end
     end

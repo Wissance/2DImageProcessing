@@ -143,10 +143,9 @@ void ImageCaptureManager::initializeSpi()
         xil_printf("\n XSpi_CfgInitialize Failed\n\r");
 
     /* По умолчанию SPI является Slave, опция ниже конфигурирует его как Master */
-     status = XSpi_SetOptions(&_spi, XSP_MASTER_OPTION | XSP_MANUAL_SSELECT_OPTION);
+     status = XSpi_SetOptions(&_spi, XSP_MASTER_OPTION);
     if(status != XST_SUCCESS)
         xil_printf("\n XSpi_SetOptions Failed\n\r");
-
     /* Запускаем SPI */
 
     XSpi_Start(&_spi);
@@ -158,12 +157,14 @@ void ImageCaptureManager::initializeSpi()
 void ImageCaptureManager::initializeDragsters()
 {
     // dragster0 config
-    _linescanner0Config.setControlRegister1(0xA9);
+    _linescanner0Config.setControlRegister1(//0xAB);   // Clock divider = 2
+                                            0xA9);   // Clock divider = 1
     _linescanner0Config.setControlRegister2(0x32);
     _linescanner0Config.setControlRegister3(0x13);
     _linescanner0Config.setEndOfRangeRegister(0x08);
     // dragster1 config
-    _linescanner1Config.setControlRegister1(0xA9);
+    _linescanner1Config.setControlRegister1(//0xAB);   // Clock divider = 2
+                                            0xA9);   // Clock divider = 1
     _linescanner1Config.setControlRegister2(0x32);
     _linescanner1Config.setControlRegister3(0x13);
     _linescanner1Config.setEndOfRangeRegister(0x08);
