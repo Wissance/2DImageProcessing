@@ -7,12 +7,12 @@ module frequency_analyzer_manager_testbench #
     parameter integer PIXEL1_INDEX = 513,
     parameter integer PIXEL2_INDEX = 1023,
     parameter integer PIXEL0_FREQUENCY0 = 5000,
-    parameter integer PIXEL0_FREQUENCY1 = 25000,
-    parameter integer PIXEL1_FREQUENCY0 = 40000,
+    parameter integer PIXEL0_FREQUENCY1 = 10000,
+    parameter integer PIXEL1_FREQUENCY0 = 14000,
     parameter integer PIXEL1_FREQUENCY1 = 50000,
     parameter integer PIXEL2_FREQUENCY0 = 70000,
     parameter integer PIXEL2_FREQUENCY1 = 80000,
-    parameter integer FREQUENCY_DEVIATION = 30,
+    parameter integer FREQUENCY_DEVIATION = 20,
     parameter integer CLOCK_FREQUENCY = 100000000
 )
 (
