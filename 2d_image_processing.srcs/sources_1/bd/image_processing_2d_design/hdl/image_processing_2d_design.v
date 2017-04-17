@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Apr 10 17:01:31 2017
+//Date        : Mon Apr 17 11:49:22 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -229,6 +229,7 @@ module image_processing_2d_design
   wire frequency_analyzer_synch_0_start_analyzer_1;
   wire frequency_analyzer_synch_0_stop_analyzer_0;
   wire frequency_analyzer_synch_0_stop_analyzer_1;
+  wire image_capture_manager_0_clear_memory;
   wire image_capture_manager_0_image_capture_enabled;
   wire linescanner_image_capture_unit_0_load_pulse;
   wire linescanner_image_capture_unit_0_main_clock;
@@ -555,7 +556,7 @@ module image_processing_2d_design
        (.input_clock(processing_system7_0_FCLK_CLK0),
         .output_clock(clock_divider_1_output_clock));
   image_processing_2d_design_frequency_analyzer_manager_0_1 frequency_analyzer_manager_0
-       (.clear(proc_sys_reset_0_peripheral_aresetn),
+       (.clear(image_capture_manager_0_clear_memory),
         .data(linescanner_image_capture_unit_0_pixel_data),
         .irq(frequency_analyzer_manager_1_irq),
         .pixel_clock(linescanner_image_capture_unit_0_pixel_captured),
@@ -583,7 +584,7 @@ module image_processing_2d_design
         .start(frequency_analyzer_synch_0_start_analyzer_0),
         .stop(frequency_analyzer_synch_0_stop_analyzer_0));
   image_processing_2d_design_frequency_analyzer_manager_1_0 frequency_analyzer_manager_1
-       (.clear(proc_sys_reset_0_peripheral_aresetn),
+       (.clear(image_capture_manager_0_clear_memory),
         .data(linescanner_image_capture_unit_1_pixel_data),
         .irq(frequency_analyzer_manager_0_irq),
         .pixel_clock(linescanner_image_capture_unit_1_pixel_captured),
@@ -619,7 +620,8 @@ module image_processing_2d_design
         .stop_analyzer_0(frequency_analyzer_synch_0_stop_analyzer_0),
         .stop_analyzer_1(frequency_analyzer_synch_0_stop_analyzer_1));
   image_processing_2d_design_image_capture_manager_0_0 image_capture_manager_0
-       (.image_capture_enabled(image_capture_manager_0_image_capture_enabled),
+       (.clear_memory(image_capture_manager_0_clear_memory),
+        .image_capture_enabled(image_capture_manager_0_image_capture_enabled),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(axi_interconnect_0_M01_AXI_ARADDR[3:0]),
         .s00_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),
