@@ -222,7 +222,7 @@ ARCHITECTURE image_processing_2d_design_axi_quad_spi_0_1_arch OF image_processin
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF image_processing_2d_design_axi_quad_spi_0_1_arch : ARCHITECTURE IS "image_processing_2d_design_axi_quad_spi_0_1,axi_quad_spi,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF image_processing_2d_design_axi_quad_spi_0_1_arch: ARCHITECTURE IS "image_processing_2d_design_axi_quad_spi_0_1,axi_quad_spi,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_quad_spi,x_ipVersion=3.2,x_ipCoreRevision=8,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Async_Clk=1,C_FAMILY=zynq,C_SELECT_XPM=0,C_SUB_FAMILY=zynq,C_INSTANCE=axi_quad_spi_inst,C_SPI_MEM_ADDR_BITS=24,C_TYPE_OF_AXI4_INTERFACE=0,C_XIP_MODE=0,C_UC_FAMILY=0,C_FIFO_DEPTH=16,C_SCK_RATIO=8,C_NUM_SS_BITS=2,C_NUM_TRANSFER_BITS=8,C_SPI_MODE=0,C_USE_STARTUP=0,C_SPI_MEMORY=1,C_" & 
+  ATTRIBUTE CORE_GENERATION_INFO OF image_processing_2d_design_axi_quad_spi_0_1_arch: ARCHITECTURE IS "image_processing_2d_design_axi_quad_spi_0_1,axi_quad_spi,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_quad_spi,x_ipVersion=3.2,x_ipCoreRevision=8,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,Async_Clk=1,C_FAMILY=zynq,C_SELECT_XPM=0,C_SUB_FAMILY=zynq,C_INSTANCE=axi_quad_spi_inst,C_SPI_MEM_ADDR_BITS=24,C_TYPE_OF_AXI4_INTERFACE=0,C_XIP_MODE=0,C_UC_FAMILY=0,C_FIFO_DEPTH=16,C_SCK_RATIO=2,C_NUM_SS_BITS=2,C_NUM_TRANSFER_BITS=8,C_SPI_MODE=0,C_USE_STARTUP=0,C_SPI_MEMORY=1,C_" & 
 "S_AXI_ADDR_WIDTH=7,C_S_AXI_DATA_WIDTH=32,C_S_AXI4_ADDR_WIDTH=24,C_S_AXI4_DATA_WIDTH=32,C_S_AXI4_ID_WIDTH=1,C_SHARED_STARTUP=0,C_S_AXI4_BASEADDR=0xFFFFFFFF,C_S_AXI4_HIGHADDR=0x00000000,C_LSB_STUP=0}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF ext_spi_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 spi_clk CLK";
@@ -271,7 +271,7 @@ BEGIN
       C_XIP_MODE => 0,
       C_UC_FAMILY => 0,
       C_FIFO_DEPTH => 16,
-      C_SCK_RATIO => 8,
+      C_SCK_RATIO => 2,
       C_NUM_SS_BITS => 2,
       C_NUM_TRANSFER_BITS => 8,
       C_SPI_MODE => 0,

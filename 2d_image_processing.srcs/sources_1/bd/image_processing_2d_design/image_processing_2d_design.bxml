@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="image_processing_2d_design" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1492411768"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1492411768"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1492411768"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1492427678"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1492427678"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1492427678"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\image_processing_2d_design_processing_system7_0_0\image_processing_2d_design_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -40,22 +40,6 @@
       </File>
       <File Name="ip\image_processing_2d_design_image_capture_manager_0_0\image_processing_2d_design_image_capture_manager_0_0.xci" Type="IP">
         <Instance HierarchyPath="image_capture_manager_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\image_processing_2d_design_clock_divider_0_0\image_processing_2d_design_clock_divider_0_0.xci" Type="IP">
-        <Instance HierarchyPath="clock_divider_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\image_processing_2d_design_clock_divider_1_0\image_processing_2d_design_clock_divider_1_0.xci" Type="IP">
-        <Instance HierarchyPath="clock_divider_1"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

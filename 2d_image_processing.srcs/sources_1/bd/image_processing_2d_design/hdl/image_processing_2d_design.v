@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Apr 17 11:49:22 2017
+//Date        : Mon Apr 17 16:14:32 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "image_processing_2d_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_processing_2d_design,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=27,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=1,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "image_processing_2d_design.hwdef" *) 
+(* CORE_GENERATION_INFO = "image_processing_2d_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_processing_2d_design,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=25,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=1,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "image_processing_2d_design.hwdef" *) 
 module image_processing_2d_design
    (DDR_addr,
     DDR_ba,
@@ -102,11 +102,11 @@ module image_processing_2d_design
   input LINESCANNER_MISO;
   output LINESCANNER_MOSI;
 
-  (* MARK_DEBUG *) wire [7:0]LINESCANNER0_DATA_1;
+  wire [7:0]LINESCANNER0_DATA_1;
   wire LINESCANNER0_END_ADC_1;
   wire LINESCANNER0_LVAL_1;
   wire LINESCANNER0_PIXEL_CLOCK_1;
-  (* MARK_DEBUG *) wire [7:0]LINESCANNER1_DATA_1;
+  wire [7:0]LINESCANNER1_DATA_1;
   wire LINESCANNER1_END_ADC_1;
   wire LINESCANNER1_LVAL_1;
   wire LINESCANNER1_PIXEL_CLOCK_1;
@@ -222,7 +222,6 @@ module image_processing_2d_design
   wire axi_quad_spi_0_sck_o;
   (* MARK_DEBUG *) wire [1:0]axi_quad_spi_0_ss_o;
   wire clock_divider_0_output_clock;
-  (* MARK_DEBUG *) wire clock_divider_1_output_clock;
   wire frequency_analyzer_manager_0_irq;
   wire frequency_analyzer_manager_1_irq;
   wire frequency_analyzer_synch_0_start_analyzer_0;
@@ -262,6 +261,7 @@ module image_processing_2d_design
   wire processing_system7_0_DDR_RESET_N;
   wire processing_system7_0_DDR_WE_N;
   wire processing_system7_0_FCLK_CLK0;
+  wire processing_system7_0_FCLK_CLK2;
   wire processing_system7_0_FCLK_RESET0_N;
   wire processing_system7_0_FIXED_IO_DDR_VRN;
   wire processing_system7_0_FIXED_IO_DDR_VRP;
@@ -522,7 +522,7 @@ module image_processing_2d_design
         .S01_AXI_wstrb(1'b0),
         .S01_AXI_wvalid(1'b0));
   image_processing_2d_design_axi_quad_spi_0_1 axi_quad_spi_0
-       (.ext_spi_clk(clock_divider_1_output_clock),
+       (.ext_spi_clk(processing_system7_0_FCLK_CLK2),
         .io0_i(1'b0),
         .io0_o(axi_quad_spi_0_io0_o),
         .io1_i(LINESCANNER_MISO_1),
@@ -549,12 +549,6 @@ module image_processing_2d_design
         .sck_o(axi_quad_spi_0_sck_o),
         .ss_i({1'b0,1'b0}),
         .ss_o(axi_quad_spi_0_ss_o));
-  image_processing_2d_design_clock_divider_0_0 clock_divider_0
-       (.input_clock(processing_system7_0_FCLK_CLK0),
-        .output_clock(clock_divider_0_output_clock));
-  image_processing_2d_design_clock_divider_1_0 clock_divider_1
-       (.input_clock(processing_system7_0_FCLK_CLK0),
-        .output_clock(clock_divider_1_output_clock));
   image_processing_2d_design_frequency_analyzer_manager_0_1 frequency_analyzer_manager_0
        (.clear(image_capture_manager_0_clear_memory),
         .data(linescanner_image_capture_unit_0_pixel_data),
@@ -699,6 +693,8 @@ module image_processing_2d_design
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
+        .FCLK_CLK1(clock_divider_0_output_clock),
+        .FCLK_CLK2(processing_system7_0_FCLK_CLK2),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
         .GPIO_I({1'b0,1'b0,1'b0,1'b0}),
         .IRQ_F2P(xlconcat_0_dout),

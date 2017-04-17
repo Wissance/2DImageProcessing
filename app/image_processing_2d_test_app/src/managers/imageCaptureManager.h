@@ -16,6 +16,8 @@ public:
     void startImageCapture();
     void stopImageCapture();
     DragsterConfig getDragsterConfig(unsigned char linescannerIndex);
+    void updateDragsters();
+    void sendTestSpiSequence();
 private:
     void configureInterrupts();
     // dragster
@@ -25,7 +27,7 @@ private:
     void readDragsterConfigImpl(DragsterConfig* config, int dragsterSlaveSelectMask);
     void sendDragsterRegisterValue(unsigned char address, unsigned char value);
     unsigned char readDragsterRegisterValue(unsigned char address);
-    void beginDragsterConfigTransaction();
+    void beginDragsterConfigTransaction(unsigned char slaveNumbe);
     void endDragsterConfigTransaction();
 private:
     // interrupt controller

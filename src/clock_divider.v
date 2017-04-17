@@ -35,7 +35,7 @@ module clock_divider #
     integer counter = 0;
 
     
-    if (clock_division == 1)
+/*    if (clock_division == 1)
     begin            
         always@ (input_clock)
         begin
@@ -54,5 +54,13 @@ module clock_divider #
                 counter = 0;
             end
         end
+    end*/
+    
+    always@ (input_clock)
+    begin
+        if(clock_division == 1)
+        begin
+        end
     end
+    
 endmodule

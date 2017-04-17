@@ -34,13 +34,20 @@ int main()
     ImageCaptureManager systemManager;
     systemManager.initialize();
 
+/*    while(1)
+    {
+    	systemManager.sendTestSpiSequence();
+    	for(int i=0; i< 1000000; i++);
+    }*/
+
     systemManager.startImageCapture();
 
-    //for(long l= 0; l < 40000000; l++);
+;
     while(linescanner0PixelFrequencies._counter != CYCLES_NUMBER);
 
-    /*DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
+/*    DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
     DragsterConfig linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
+    systemManager.updateDragsters();
 
     xil_printf("Linescanner 0, Register1: 0x%02X \r\n", linescanner0Config.getControlRegister1()._mapImpl._registerValue);
     xil_printf("Linescanner 0, Register2: 0x%02X \r\n", linescanner0Config.getControlRegister2()._mapImpl._registerValue);
@@ -48,10 +55,10 @@ int main()
 
     xil_printf("Linescanner 1, Register1: 0x%02X \r\n", linescanner1Config.getControlRegister1()._mapImpl._registerValue);
     xil_printf("Linescanner 1, Register2: 0x%02X \r\n", linescanner1Config.getControlRegister2()._mapImpl._registerValue);
-    xil_printf("Linescanner 1, Register3: 0x%02X \r\n\r\n", linescanner1Config.getControlRegister3()._mapImpl._registerValue);*/
+    xil_printf("Linescanner 1, Register3: 0x%02X \r\n\r\n", linescanner1Config.getControlRegister3()._mapImpl._registerValue);
 
     xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
-    xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);
+    xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);*/
 
     xil_printf("\nFrequency analyzer 0 pixel0 frequency 0 %d \r\n", linescanner0PixelFrequencies._pixel0Frequency0);
     xil_printf("Frequency analyzer 0 pixel0 frequency 1 %d \r\n", linescanner0PixelFrequencies._pixel0Frequency1);
