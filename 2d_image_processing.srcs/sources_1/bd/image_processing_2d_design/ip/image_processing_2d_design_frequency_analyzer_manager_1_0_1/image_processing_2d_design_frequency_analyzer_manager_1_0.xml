@@ -831,7 +831,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL2_INDEX</spirit:name>
         <spirit:displayName>Pixel2 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_INDEX">1023</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_INDEX">1000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL0_FREQUENCY0</spirit:name>
@@ -856,12 +856,12 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL2_FREQUENCY0</spirit:name>
         <spirit:displayName>Pixel2 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_FREQUENCY0">25000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_FREQUENCY0">40000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL2_FREQUENCY1</spirit:name>
         <spirit:displayName>Pixel2 Frequency1</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_FREQUENCY1">30000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_FREQUENCY1">50000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>FREQUENCY_DEVIATION</spirit:name>
@@ -914,7 +914,7 @@
     <spirit:parameter>
       <spirit:name>PIXEL2_INDEX</spirit:name>
       <spirit:displayName>Pixel2 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_INDEX">1023</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_INDEX">1000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PIXEL0_FREQUENCY0</spirit:name>
@@ -939,12 +939,12 @@
     <spirit:parameter>
       <spirit:name>PIXEL2_FREQUENCY0</spirit:name>
       <spirit:displayName>Pixel2 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_FREQUENCY0">25000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_FREQUENCY0">40000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PIXEL2_FREQUENCY1</spirit:name>
       <spirit:displayName>Pixel2 Frequency1</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_FREQUENCY1">30000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_FREQUENCY1">50000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>FREQUENCY_DEVIATION</spirit:name>
@@ -992,6 +992,9 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY0" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY1" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_INDEX" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_FREQUENCY0" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_FREQUENCY1" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_INDEX" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
