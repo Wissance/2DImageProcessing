@@ -46,24 +46,10 @@
 		input wire  s00_axi_rready
 	);
 	
-/*	wire [C_S00_AXI_DATA_WIDTH - 1 : 0] register_read_net;
-	wire [C_S00_AXI_DATA_WIDTH - 1 : 0] register_write_net;
-	wire [1:0] register_operation_net;
-	wire [7:0] register_number_net;*/
-	
     wire [C_S00_AXI_DATA_WIDTH - 1 : 0] register_read;
     reg [C_S00_AXI_DATA_WIDTH - 1 : 0] register_write;
     reg [1:0] register_operation;
     reg [7:0] register_number;
-    
-    always @(*)
-    begin
-        register_write = 0;
-        //register_write_net;
-        register_operation = 0;//register_operation_net;
-        register_number = 0;//register_number_net;
-    end
-	
 	
     // Instantiation of Axi Bus Interface S00_AXI
 	axi_slave_impl # ( 
@@ -105,6 +91,9 @@
         begin
             clear_memory <= 0;
             image_capture_enabled <= 0;
+            register_operation <= 0;
+            register_write <= 0;
+             register_number <= 0;
         end
         else
         begin

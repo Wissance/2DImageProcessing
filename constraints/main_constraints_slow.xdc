@@ -1,19 +1,19 @@
 # LINESCANNER PIXEL_CLOCK (INPUT)
-create_clock -period 20.000 -name linescanner0_pixel_clock -waveform {0.000 10.000} [get_ports LINESCANNER0_PIXEL_CLOCK]
-create_clock -period 20.000 -name linescanner1_pixel_clock -waveform {0.000 10.000} [get_ports LINESCANNER1_PIXEL_CLOCK]
+create_clock -period 10.000 -name linescanner0_pixel_clock -waveform {0.000 5.000} [get_ports LINESCANNER0_PIXEL_CLOCK]
+create_clock -period 10.000 -name linescanner1_pixel_clock -waveform {0.000 5.000} [get_ports LINESCANNER1_PIXEL_CLOCK]
 # FABRIC CLOCK
-create_clock -period 10.000 -name pl_fabric_clock -waveform {0.000 5.000} [get_pins image_processing_2d_design_i/processing_system7_0/FCLK_CLK0]
-set_clock_groups -logically_exclusive -group {linescanner0_pixel_clock} -group {linescanner1_pixel_clock}
-set_clock_groups -logically_exclusive -group {pl_fabric_clock} -group {linescanner0_pixel_clock}
-set_clock_groups -logically_exclusive -group {pl_fabric_clock} -group {linescanner1_pixel_clock}
+create_clock -period 5.000 -name pl_fabric_clock -waveform {0.000 2.500} [get_pins image_processing_2d_design_i/processing_system7_0/FCLK_CLK0]
+set_clock_groups -logically_exclusive -group linescanner0_pixel_clock -group linescanner1_pixel_clock
+set_clock_groups -logically_exclusive -group pl_fabric_clock -group linescanner0_pixel_clock
+set_clock_groups -logically_exclusive -group pl_fabric_clock -group linescanner1_pixel_clock
 #CLOCK DIVIDER FOR LINESCANNERS
 create_generated_clock -name clock_divider_0_clock -source [get_pins image_processing_2d_design_i/clock_divider_0/input_clock] -divide_by 2 [get_pins image_processing_2d_design_i/clock_divider_0/output_clock]
 create_generated_clock -name clock_divider_1_clock -source [get_pins image_processing_2d_design_i/clock_divider_1/input_clock] -divide_by 5 [get_pins image_processing_2d_design_i/clock_divider_1/output_clock]
 # CAN'T DESCRIBE RELATIONS
-set_clock_groups -logically_exclusive -group {pl_fabric_clock} -group {clock_divider_0_clock}
-set_clock_groups -logically_exclusive -group {pl_fabric_clock} -group {clock_divider_1_clock}
+set_clock_groups -logically_exclusive -group pl_fabric_clock -group clock_divider_0_clock
+set_clock_groups -logically_exclusive -group pl_fabric_clock -group clock_divider_1_clock
 # CLOCK DIVEDERS ARE INDIPENDENT FROM EACH OTHER
-set_clock_groups -logically_exclusive -group {clock_divider_0_clock} -group {clock_divider_1_clock}
+set_clock_groups -logically_exclusive -group clock_divider_0_clock -group clock_divider_1_clock
 
 # PINS DESCRIPTION
 set_property PACKAGE_PIN K18 [get_ports {LINESCANNER0_DATA[6]}]

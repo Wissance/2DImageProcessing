@@ -48,4 +48,6 @@
 *.str
 *.Xil
 *Debug/
-
+*vivado_pid*
+~$*
+*standalone_bsp_0*

@@ -1,3 +1,4 @@
+restart
 #AXI Signals
 add_force {/axi_slave_impl_testbench/S_AXI_ACLK} -radix hex {1 0ns} {0 5ns} -repeat_every 10ns
 add_force {/axi_slave_impl_testbench/S_AXI_ARESETN} -radix hex {0} {1 100us} {0 2000us}
@@ -15,4 +16,4 @@ add_force {/axi_slave_impl_testbench/S_AXI_WVALID} -radix hex {0} {1 500us} {0 5
 add_force {/axi_slave_impl_testbench/S_AXI_WSTRB} -radix hex {0} {0x1 490us} {0 550us} {0x1 610us} {0 650us}
 add_force {/axi_slave_impl_testbench/S_AXI_WDATA} -radix hex {0} {0x000000FF 500us} {0 590us} {0x000000EE 600us} {0 700us}
 
-
+run 2ms
