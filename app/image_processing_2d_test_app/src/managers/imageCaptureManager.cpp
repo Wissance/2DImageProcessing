@@ -270,7 +270,7 @@ void ImageCaptureManager::beginDragsterConfigTransaction(unsigned char slaveNumb
 
 void ImageCaptureManager::endDragsterConfigTransaction()
 {
-    u8 emptyBuffer[1] = {0};
-    XSpi_Transfer(&_spi, emptyBuffer, NULL, 1);
+    // u8 emptyBuffer[1] = {0};
+    // XSpi_Transfer(&_spi, emptyBuffer, NULL, 1);
     XSpi_SetSlaveSelect(&_spi, 0);
 }
