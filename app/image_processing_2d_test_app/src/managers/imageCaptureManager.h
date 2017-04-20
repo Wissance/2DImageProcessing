@@ -17,7 +17,7 @@ public:
     void stopImageCapture();
     DragsterConfig getDragsterConfig(unsigned char linescannerIndex);
     void updateDragsters();
-    void sendTestSpiSequence();
+    void sendTestSpiSequence();   //todo: umv: test method
 private:
     void configureInterrupts();
     // dragster
@@ -27,8 +27,8 @@ private:
     void readDragsterConfigImpl(DragsterConfig* config, int dragsterSlaveSelectMask);
     void sendDragsterRegisterValue(unsigned char address, unsigned char value);
     unsigned char readDragsterRegisterValue(unsigned char address);
-    void beginDragsterConfigTransaction(unsigned char slaveNumbe);
-    void endDragsterConfigTransaction();
+    void beginDragsterSpiTransaction(unsigned char slaveNumbe);
+    void endDragsterSpiTransaction();
 private:
     // interrupt controller
     XScuGic _interruptController;

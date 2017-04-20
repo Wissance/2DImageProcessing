@@ -13,6 +13,8 @@ extern PixelFrequencies linescanner1PixelFrequencies;
 #define TESTING_TIME 1 // a
 #define CYCLES_NUMBER SYNCH_FREQUENCY * TESTING_TIME
 
+//#define SPI_TESTING
+
 int main()
 {
     printf("Application started \r\n");
@@ -34,18 +36,21 @@ int main()
     ImageCaptureManager systemManager;
     systemManager.initialize();
 
-/*    while(1)
+#ifdef SPI_TESTING
+    while(1)
     {
     	systemManager.sendTestSpiSequence();
-    	for(int i=0; i< 1000000; i++);
-    }*/
-
+    	for(int i=0; i< 1000000; i++);  //pause
+    }
+    // stop ...
+    systemManager.stopImageCapture();
+    printf("Application stopped \r\n");
+#else
     systemManager.startImageCapture();
 
-;
     while(linescanner0PixelFrequencies._counter != CYCLES_NUMBER);
 
-/*    DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
+    DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
     DragsterConfig linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
     systemManager.updateDragsters();
 
@@ -58,7 +63,7 @@ int main()
     xil_printf("Linescanner 1, Register3: 0x%02X \r\n\r\n", linescanner1Config.getControlRegister3()._mapImpl._registerValue);
 
     xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
-    xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);*/
+    xil_printf("Frequency analyzer 1 rised %d times \r\n", linescanner1PixelFrequencies._counter);
 
     xil_printf("\nFrequency analyzer 0 pixel0 frequency 0 %d \r\n", linescanner0PixelFrequencies._pixel0Frequency0);
     xil_printf("Frequency analyzer 0 pixel0 frequency 1 %d \r\n", linescanner0PixelFrequencies._pixel0Frequency1);
@@ -77,5 +82,6 @@ int main()
     // stop ...
     systemManager.stopImageCapture();
     printf("Application stopped \r\n");
+#endif
     return 0;
 }
