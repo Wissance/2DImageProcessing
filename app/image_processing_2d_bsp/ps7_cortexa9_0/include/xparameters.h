@@ -325,44 +325,6 @@
 
 /******************************************************************/
 
-/* Definitions for driver SPI */
-#define XPAR_XSPI_NUM_INSTANCES 1
-
-/* Definitions for peripheral AXI_QUAD_SPI_0 */
-#define XPAR_AXI_QUAD_SPI_0_DEVICE_ID 0
-#define XPAR_AXI_QUAD_SPI_0_BASEADDR 0x41E00000
-#define XPAR_AXI_QUAD_SPI_0_HIGHADDR 0x41E00FFF
-#define XPAR_AXI_QUAD_SPI_0_FIFO_DEPTH 16
-#define XPAR_AXI_QUAD_SPI_0_FIFO_EXIST 1
-#define XPAR_AXI_QUAD_SPI_0_SPI_SLAVE_ONLY 0
-#define XPAR_AXI_QUAD_SPI_0_NUM_SS_BITS 2
-#define XPAR_AXI_QUAD_SPI_0_NUM_TRANSFER_BITS 8
-#define XPAR_AXI_QUAD_SPI_0_SPI_MODE 0
-#define XPAR_AXI_QUAD_SPI_0_TYPE_OF_AXI4_INTERFACE 0
-#define XPAR_AXI_QUAD_SPI_0_AXI4_BASEADDR 0
-#define XPAR_AXI_QUAD_SPI_0_AXI4_HIGHADDR 0
-#define XPAR_AXI_QUAD_SPI_0_XIP_MODE 0
-
-/* Canonical definitions for peripheral AXI_QUAD_SPI_0 */
-#define XPAR_SPI_0_DEVICE_ID 0
-#define XPAR_SPI_0_BASEADDR 0x41E00000
-#define XPAR_SPI_0_HIGHADDR 0x41E00FFF
-#define XPAR_SPI_0_FIFO_DEPTH 16
-#define XPAR_SPI_0_FIFO_EXIST 1
-#define XPAR_SPI_0_SPI_SLAVE_ONLY 0
-#define XPAR_SPI_0_NUM_SS_BITS 2
-#define XPAR_SPI_0_NUM_TRANSFER_BITS 8
-#define XPAR_SPI_0_SPI_MODE 0
-#define XPAR_SPI_0_TYPE_OF_AXI4_INTERFACE 0
-#define XPAR_SPI_0_AXI4_BASEADDR 0
-#define XPAR_SPI_0_AXI4_HIGHADDR 0
-#define XPAR_SPI_0_XIP_MODE 0
-#define XPAR_SPI_0_USE_STARTUP 0
-
-
-
-/******************************************************************/
-
 /* Definitions for driver TTCPS */
 #define XPAR_XTTCPS_NUM_INSTANCES 3
 

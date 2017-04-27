@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 27 16:26:38 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 27 16:46:00 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -35,19 +35,19 @@
         <CONNECTION INSTANCE="not_1bit_0" PORT="outp"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LINESCANNER_CLK" SIGIS="clk" SIGNAME="axi_quad_spi_0_sck_o">
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LINESCANNER_CLK" SIGIS="clk" SIGNAME="dragster_configurator_0_sclk">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="sck_o"/>
+        <CONNECTION INSTANCE="dragster_configurator_0" PORT="sclk"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="LINESCANNER_MOSI" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_o">
+    <PORT DIR="O" NAME="LINESCANNER_MOSI" SIGIS="undef" SIGNAME="dragster_configurator_0_mosi">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io0_o"/>
+        <CONNECTION INSTANCE="dragster_configurator_0" PORT="mosi"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="1" NAME="LINESCANNER_CS" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_o">
+    <PORT DIR="O" LEFT="1" NAME="LINESCANNER_CS" RIGHT="0" SIGIS="undef" SIGNAME="dragster_configurator_0_ss_n">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ss_o"/>
+        <CONNECTION INSTANCE="dragster_configurator_0" PORT="ss_n"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="LINESCANNER0_LVAL" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER0_LVAL">
@@ -142,7 +142,7 @@
     </PORT>
     <PORT DIR="I" NAME="LINESCANNER_MISO" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER_MISO">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io1_i"/>
+        <CONNECTION INSTANCE="dragster_configurator_0" PORT="miso"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -881,91 +881,23 @@
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_araddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_araddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_arvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awaddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_awaddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_bready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_bresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_bvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wvalid"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="M02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M02_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_awaddr"/>
@@ -1427,7 +1359,7 @@
             <PORTMAP LOGICAL="RDATA" PHYSICAL="S00_AXI_rdata"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M00_AXI" DATAWIDTH="32" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="M00_AXI_araddr"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="M00_AXI_arready"/>
@@ -1602,243 +1534,45 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_quad_spi_0" HWVERSION="3.2" INSTANCE="axi_quad_spi_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="MEMORY_CNTLR" MODTYPE="axi_quad_spi" VLNV="xilinx.com:ip:axi_quad_spi:3.2">
-      <DOCUMENTS>
-        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=axi_quad_spi;v=v3_2;d=pg153-axi-quad-spi.pdf"/>
-      </DOCUMENTS>
+    <MODULE FULLNAME="/dragster_configurator_0" HWVERSION="1.0" INSTANCE="dragster_configurator_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="dragster_configurator" VLNV="xilinx.com:module_ref:dragster_configurator:1.0">
+      <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Async_Clk" VALUE="1"/>
-        <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
-        <PARAMETER NAME="C_SUB_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_INSTANCE" VALUE="axi_quad_spi_inst"/>
-        <PARAMETER NAME="C_SPI_MEM_ADDR_BITS" VALUE="24"/>
-        <PARAMETER NAME="C_TYPE_OF_AXI4_INTERFACE" VALUE="0"/>
-        <PARAMETER NAME="C_XIP_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_UC_FAMILY" VALUE="0"/>
-        <PARAMETER NAME="C_FIFO_DEPTH" VALUE="16"/>
-        <PARAMETER NAME="C_SCK_RATIO" VALUE="2"/>
-        <PARAMETER NAME="C_NUM_SS_BITS" VALUE="2"/>
-        <PARAMETER NAME="C_NUM_TRANSFER_BITS" VALUE="8"/>
-        <PARAMETER NAME="C_SPI_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_STARTUP" VALUE="0"/>
-        <PARAMETER NAME="C_SPI_MEMORY" VALUE="1"/>
-        <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="7"/>
-        <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_S_AXI4_ADDR_WIDTH" VALUE="24"/>
-        <PARAMETER NAME="C_S_AXI4_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_S_AXI4_ID_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_SHARED_STARTUP" VALUE="0"/>
-        <PARAMETER NAME="C_LSB_STUP" VALUE="0"/>
-        <PARAMETER NAME="C_USE_STARTUP_INT" VALUE="0"/>
-        <PARAMETER NAME="UC_FAMILY" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_axi_quad_spi_0_1"/>
-        <PARAMETER NAME="Master_mode" VALUE="1"/>
-        <PARAMETER NAME="FIFO_INCLUDED" VALUE="1"/>
-        <PARAMETER NAME="Multiples16" VALUE="1"/>
-        <PARAMETER NAME="C_SCK_RATIO1" VALUE="1"/>
-        <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
-        <PARAMETER NAME="QSPI_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_dragster_configurator_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-        <PARAMETER NAME="C_BASEADDR" VALUE="0x41E00000"/>
-        <PARAMETER NAME="C_HIGHADDR" VALUE="0x41E00FFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="ext_spi_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK2">
+        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_aresetn" SIGIS="rst" SIGNAME="not_1bit_0_outp">
+        <PORT DIR="I" NAME="reset_n" SIGIS="rst" SIGNAME="not_1bit_0_outp">
           <CONNECTIONS>
             <CONNECTION INSTANCE="not_1bit_0" PORT="outp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awaddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awaddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_bready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_araddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_araddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_AXI_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="io0_i" SIGIS="undef"/>
-        <PORT DIR="O" NAME="io0_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_o">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER_MOSI"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="io0_t" SIGIS="undef"/>
-        <PORT DIR="I" NAME="io1_i" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER_MISO">
+        <PORT DIR="I" NAME="miso" SIGIS="undef" SIGNAME="External_Ports_LINESCANNER_MISO">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER_MISO"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="io1_o" SIGIS="undef"/>
-        <PORT DIR="O" NAME="io1_t" SIGIS="undef"/>
-        <PORT DIR="I" NAME="sck_i" SIGIS="undef"/>
-        <PORT DIR="O" NAME="sck_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_sck_o">
+        <PORT DIR="O" NAME="mosi" SIGIS="undef" SIGNAME="dragster_configurator_0_mosi">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER_MOSI"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sclk" SIGIS="undef" SIGNAME="dragster_configurator_0_sclk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER_CLK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="sck_t" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="1" NAME="ss_i" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="1" NAME="ss_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_o">
+        <PORT DIR="O" LEFT="1" NAME="ss_n" RIGHT="0" SIGIS="undef" SIGNAME="dragster_configurator_0_ss_n">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER_CS"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="ss_t" SIGIS="undef"/>
-        <PORT DIR="O" NAME="ip2intc_irpt" SENSITIVITY="EDGE_RISING" SIGIS="INTERRUPT"/>
       </PORTS>
-      <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="SPI_0" TYPE="INITIATOR" VLNV="xilinx.com:interface:spi:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="IO0_I" PHYSICAL="io0_i"/>
-            <PORTMAP LOGICAL="IO0_O" PHYSICAL="io0_o"/>
-            <PORTMAP LOGICAL="IO0_T" PHYSICAL="io0_t"/>
-            <PORTMAP LOGICAL="IO1_I" PHYSICAL="io1_i"/>
-            <PORTMAP LOGICAL="IO1_O" PHYSICAL="io1_o"/>
-            <PORTMAP LOGICAL="IO1_T" PHYSICAL="io1_t"/>
-            <PORTMAP LOGICAL="SCK_I" PHYSICAL="sck_i"/>
-            <PORTMAP LOGICAL="SCK_O" PHYSICAL="sck_o"/>
-            <PORTMAP LOGICAL="SCK_T" PHYSICAL="sck_t"/>
-            <PORTMAP LOGICAL="SS_I" PHYSICAL="ss_i"/>
-            <PORTMAP LOGICAL="SS_O" PHYSICAL="ss_o"/>
-            <PORTMAP LOGICAL="SS_T" PHYSICAL="ss_t"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M00_AXI" DATAWIDTH="32" NAME="AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="7"/>
-          <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="RUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
-          <PARAMETER NAME="HAS_BURST" VALUE="0"/>
-          <PARAMETER NAME="HAS_LOCK" VALUE="0"/>
-          <PARAMETER NAME="HAS_PROT" VALUE="0"/>
-          <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
-          <PARAMETER NAME="HAS_QOS" VALUE="0"/>
-          <PARAMETER NAME="HAS_REGION" VALUE="0"/>
-          <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
-          <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
-          <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
-          <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="image_processing_2d_design_processing_system7_0_0_FCLK_CLK0"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="ARADDR" PHYSICAL="s_axi_araddr"/>
-            <PORTMAP LOGICAL="ARREADY" PHYSICAL="s_axi_arready"/>
-            <PORTMAP LOGICAL="ARVALID" PHYSICAL="s_axi_arvalid"/>
-            <PORTMAP LOGICAL="AWADDR" PHYSICAL="s_axi_awaddr"/>
-            <PORTMAP LOGICAL="AWREADY" PHYSICAL="s_axi_awready"/>
-            <PORTMAP LOGICAL="AWVALID" PHYSICAL="s_axi_awvalid"/>
-            <PORTMAP LOGICAL="BREADY" PHYSICAL="s_axi_bready"/>
-            <PORTMAP LOGICAL="BRESP" PHYSICAL="s_axi_bresp"/>
-            <PORTMAP LOGICAL="BVALID" PHYSICAL="s_axi_bvalid"/>
-            <PORTMAP LOGICAL="RDATA" PHYSICAL="s_axi_rdata"/>
-            <PORTMAP LOGICAL="RREADY" PHYSICAL="s_axi_rready"/>
-            <PORTMAP LOGICAL="RRESP" PHYSICAL="s_axi_rresp"/>
-            <PORTMAP LOGICAL="RVALID" PHYSICAL="s_axi_rvalid"/>
-            <PORTMAP LOGICAL="WDATA" PHYSICAL="s_axi_wdata"/>
-            <PORTMAP LOGICAL="WREADY" PHYSICAL="s_axi_wready"/>
-            <PORTMAP LOGICAL="WSTRB" PHYSICAL="s_axi_wstrb"/>
-            <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_wvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-      </BUSINTERFACES>
+      <BUSINTERFACES/>
     </MODULE>
     <MODULE FULLNAME="/frequency_analyzer_manager_0" HWVERSION="1.0" INSTANCE="frequency_analyzer_manager_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="frequency_analyzer_manager" VLNV="xilinx.com:module_ref:frequency_analyzer_manager:1.0">
       <DOCUMENTS/>
@@ -2676,7 +2410,6 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
@@ -2691,6 +2424,7 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M04_ARESETN"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="dragster_configurator_0" PORT="reset_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -4088,7 +3822,6 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ACLK"/>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="clock"/>
@@ -4111,7 +3844,7 @@
         </PORT>
         <PORT CLKFREQUENCY="20000000" DIR="O" NAME="FCLK_CLK2" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ext_spi_clk"/>
+            <CONNECTION INSTANCE="dragster_configurator_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -4340,14 +4073,12 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
       <MEMORYMAP>
-        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x41E00000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x41E00FFF" INSTANCE="axi_quad_spi_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="AXI_LITE"/>
         <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x43C00FFF" INSTANCE="image_capture_manager_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s00_axi"/>
         <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x43C10000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x43C10FFF" INSTANCE="frequency_analyzer_manager_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s00_axi"/>
         <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x43C20000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x43C20FFF" INSTANCE="frequency_analyzer_manager_1" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s00_axi"/>
         <MEMRANGE ADDRESSBLOCK="HP0_DDR_LOWOCM" BASENAME="C_BASEADDR" BASEVALUE="0x50000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x5FFFFFFF" INSTANCE="processing_system7_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="MEMORY" SLAVEBUSINTERFACE="S_AXI_HP0"/>
       </MEMORYMAP>
       <PERIPHERALS>
-        <PERIPHERAL INSTANCE="axi_quad_spi_0"/>
         <PERIPHERAL INSTANCE="image_capture_manager_0"/>
         <PERIPHERAL INSTANCE="frequency_analyzer_manager_0"/>
         <PERIPHERAL INSTANCE="frequency_analyzer_manager_1"/>

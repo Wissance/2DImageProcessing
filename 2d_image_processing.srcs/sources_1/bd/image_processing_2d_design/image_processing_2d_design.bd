@@ -1183,22 +1183,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>axi_quad_spi_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="axi_quad_spi" spirit:vendor="xilinx.com" spirit:version="3.2"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_axi_quad_spi_0_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_USE_STARTUP">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_NUM_TRANSFER_BITS">8</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_NUM_SS_BITS">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SCK_RATIO">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_FIFO_DEPTH">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_XIP_MODE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_TYPE_OF_AXI4_INTERFACE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Master_mode">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_INCLUDED">1</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>xlconcat_0</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="xlconcat" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
@@ -1292,6 +1276,16 @@
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>dragster_configurator_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="dragster_configurator" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_dragster_configurator_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">dragster_configurator</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
       <spirit:interconnection>
@@ -1303,11 +1297,6 @@
         <spirit:name>axi_interconnect_0_M01_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="s00_axi" spirit:componentRef="image_capture_manager_0"/>
         <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="axi_interconnect_0"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
-        <spirit:name>axi_interconnect_0_M00_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="AXI_LITE" spirit:componentRef="axi_quad_spi_0"/>
-        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="axi_interconnect_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>axi_interconnect_0_M02_AXI</spirit:name>
@@ -1336,7 +1325,6 @@
         <spirit:internalPortReference spirit:componentRef="not_1bit_0" spirit:portRef="outp"/>
         <spirit:externalPortReference spirit:portRef="LINESCANNER1_N_RESET"/>
         <spirit:externalPortReference spirit:portRef="LINESCANNER0_N_RESET"/>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="reset"/>
@@ -1351,6 +1339,7 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M04_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="n_reset"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="reset_n"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>image_capture_manager_0_image_capture_enabled</spirit:name>
@@ -1365,7 +1354,6 @@
         <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="slowest_sync_clk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="M_AXI_GP0_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="S_AXI_HP0_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="clock"/>
@@ -1383,27 +1371,6 @@
         <spirit:name>xlconcat_0_dout</spirit:name>
         <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="dout"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="IRQ_F2P"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>axi_quad_spi_0_sck_o</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="sck_o"/>
-        <spirit:externalPortReference spirit:portRef="LINESCANNER_CLK"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>axi_quad_spi_0_io0_o</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="io0_o"/>
-        <spirit:externalPortReference spirit:portRef="LINESCANNER_MOSI"/>
-        <bd:hdl_attributes>
-          <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
-        </bd:hdl_attributes>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>axi_quad_spi_0_ss_o</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="ss_o"/>
-        <spirit:externalPortReference spirit:portRef="LINESCANNER_CS"/>
-        <bd:hdl_attributes>
-          <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
-        </bd:hdl_attributes>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>frequency_analyzer_manager_1_irq</spirit:name>
@@ -1555,28 +1522,40 @@
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="pixel_clock"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>LINESCANNER_MISO_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="LINESCANNER_MISO"/>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="io1_i"/>
-        <bd:hdl_attributes>
-          <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
-        </bd:hdl_attributes>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>image_capture_manager_0_clear_memory</spirit:name>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="clear_memory"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="clear"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="clear"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>processing_system7_0_FCLK_CLK2</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK2"/>
-        <spirit:internalPortReference spirit:componentRef="axi_quad_spi_0" spirit:portRef="ext_spi_clk"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>proc_sys_reset_0_peripheral_reset</spirit:name>
         <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="peripheral_reset"/>
         <spirit:internalPortReference spirit:componentRef="not_1bit_0" spirit:portRef="inp"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>dragster_configurator_0_mosi</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="mosi"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER_MOSI"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>LINESCANNER_MISO_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER_MISO"/>
+        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="miso"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>dragster_configurator_0_sclk</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="sclk"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER_CLK"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>dragster_configurator_0_ss_n</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="ss_n"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER_CS"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_FCLK_CLK2</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK2"/>
+        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -2532,7 +2511,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_3</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI3</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -2739,7 +2718,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI4LITE</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -2946,7 +2925,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI4LITE</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -3153,7 +3132,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI4LITE</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -3355,36 +3334,11 @@
     <spirit:library>BlockDiagram/image_processing_2d_design_imp/axi_interconnect_0_imp</spirit:library>
     <spirit:name>m00_couplers_imp</spirit:name>
     <spirit:version>1.00.a</spirit:version>
-    <spirit:componentInstances>
-      <spirit:componentInstance>
-        <spirit:instanceName>auto_pc</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI4LITE</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-    </spirit:componentInstances>
     <spirit:interconnections/>
-    <spirit:adHocConnections>
-      <spirit:adHocConnection>
-        <spirit:name>S_ACLK_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="S_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="auto_pc" spirit:portRef="aclk"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>S_ARESETN_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="S_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="auto_pc" spirit:portRef="aresetn"/>
-      </spirit:adHocConnection>
-    </spirit:adHocConnections>
+    <spirit:adHocConnections/>
     <spirit:hierConnections>
-      <spirit:hierConnection spirit:interfaceRef="M_AXI/auto_pc_to_m00_couplers">
-        <spirit:activeInterface spirit:busRef="M_AXI" spirit:componentRef="auto_pc"/>
-      </spirit:hierConnection>
-      <spirit:hierConnection spirit:interfaceRef="S_AXI/m00_couplers_to_auto_pc">
-        <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="auto_pc"/>
+      <spirit:hierConnection spirit:interfaceRef="M_AXI/m00_couplers_to_m00_couplers">
+        <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="./m00_couplers_to_m00_couplers"/>
       </spirit:hierConnection>
     </spirit:hierConnections>
   </spirit:design>
@@ -3749,7 +3703,7 @@
         <spirit:instanceName>auto_pc</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="axi_protocol_converter" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_5</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_auto_pc_4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SI_PROTOCOL">AXI3</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MI_PROTOCOL">AXI4</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -3789,12 +3743,6 @@
         <spirit:range>4G</spirit:range>
         <spirit:width>32</spirit:width>
         <spirit:segments>
-          <spirit:segment>
-            <spirit:name>SEG_axi_quad_spi_0_Reg</spirit:name>
-            <spirit:displayName>/axi_quad_spi_0/AXI_LITE/Reg</spirit:displayName>
-            <spirit:addressOffset>0x41E00000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
           <spirit:segment>
             <spirit:name>SEG_processing_system7_0_HP0_DDR_LOWOCM</spirit:name>
             <spirit:displayName>/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM</spirit:displayName>

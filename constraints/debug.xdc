@@ -1,6 +1,8 @@
-
-set_property MARK_DEBUG true [get_nets image_processing_2d_design_i/image_capture_manager_0_image_capture_enabled]
 set_property MARK_DEBUG true [get_nets image_processing_2d_design_i/processing_system7_0_FCLK_CLK2]
+set_property MARK_DEBUG true [get_nets image_processing_2d_design_i/dragster_configurator_0_n_0]
+set_property MARK_DEBUG true [get_nets image_processing_2d_design_i/LINESCANNER_CLK]
+set_property MARK_DEBUG true [get_nets {image_processing_2d_design_i/LINESCANNER_CS[0]}]
+set_property MARK_DEBUG true [get_nets {image_processing_2d_design_i/LINESCANNER_CS[1]}]
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU_CNT 4 [get_debug_cores u_ila_0]
@@ -28,23 +30,19 @@ set_property port_width 1 [get_debug_ports u_ila_1/clk]
 connect_debug_port u_ila_1/clk [get_nets [list image_processing_2d_design_i/processing_system7_0/inst/FCLK_CLK2]]
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe0]
 set_property port_width 2 [get_debug_ports u_ila_1/probe0]
-connect_debug_port u_ila_1/probe0 [get_nets [list {image_processing_2d_design_i/axi_quad_spi_0_ss_o[0]} {image_processing_2d_design_i/axi_quad_spi_0_ss_o[1]}]]
+connect_debug_port u_ila_1/probe0 [get_nets [list {image_processing_2d_design_i/LINESCANNER_CS[0]} {image_processing_2d_design_i/LINESCANNER_CS[1]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
 set_property port_width 1 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list image_processing_2d_design_i/image_capture_manager_0_image_capture_enabled]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
-set_property port_width 1 [get_debug_ports u_ila_0/probe2]
-connect_debug_port u_ila_0/probe2 [get_nets [list image_processing_2d_design_i/LINESCANNER_MISO_1]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
-set_property port_width 1 [get_debug_ports u_ila_0/probe3]
-connect_debug_port u_ila_0/probe3 [get_nets [list image_processing_2d_design_i/processing_system7_0_FCLK_CLK2]]
+connect_debug_port u_ila_0/probe1 [get_nets [list image_processing_2d_design_i/processing_system7_0_FCLK_CLK2]]
 create_debug_port u_ila_1 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe1]
 set_property port_width 1 [get_debug_ports u_ila_1/probe1]
-connect_debug_port u_ila_1/probe1 [get_nets [list image_processing_2d_design_i/axi_quad_spi_0_io0_o]]
+connect_debug_port u_ila_1/probe1 [get_nets [list image_processing_2d_design_i/dragster_configurator_0_n_0]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe2]
+set_property port_width 1 [get_debug_ports u_ila_1/probe2]
+connect_debug_port u_ila_1/probe2 [get_nets [list image_processing_2d_design_i/LINESCANNER_CLK]]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
