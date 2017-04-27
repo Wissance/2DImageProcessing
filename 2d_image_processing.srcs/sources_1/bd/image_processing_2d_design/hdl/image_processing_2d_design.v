@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Apr 17 16:14:32 2017
+//Date        : Thu Apr 27 16:26:36 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "image_processing_2d_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_processing_2d_design,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=25,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=1,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "image_processing_2d_design.hwdef" *) 
+(* CORE_GENERATION_INFO = "image_processing_2d_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_processing_2d_design,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=26,numReposBlks=18,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=1,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "image_processing_2d_design.hwdef" *) 
 module image_processing_2d_design
    (DDR_addr,
     DDR_ba,
@@ -244,7 +244,8 @@ module image_processing_2d_design
   wire linescanner_image_capture_unit_1_rst_cds;
   wire linescanner_image_capture_unit_1_rst_cvc;
   wire linescanner_image_capture_unit_1_sample;
-  wire [0:0]proc_sys_reset_0_peripheral_aresetn;
+  wire proc_sys_reset_0_peripheral_aresetn;
+  wire [0:0]proc_sys_reset_0_peripheral_reset;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -667,12 +668,15 @@ module image_processing_2d_design
         .rst_cds(linescanner_image_capture_unit_1_rst_cds),
         .rst_cvc(linescanner_image_capture_unit_1_rst_cvc),
         .sample(linescanner_image_capture_unit_1_sample));
+  image_processing_2d_design_not_1bit_0_0 not_1bit_0
+       (.inp(proc_sys_reset_0_peripheral_reset),
+        .outp(proc_sys_reset_0_peripheral_aresetn));
   image_processing_2d_design_proc_sys_reset_0_1 proc_sys_reset_0
        (.aux_reset_in(1'b1),
         .dcm_locked(1'b1),
         .ext_reset_in(processing_system7_0_FCLK_RESET0_N),
         .mb_debug_sys_rst(1'b0),
-        .peripheral_aresetn(proc_sys_reset_0_peripheral_aresetn),
+        .peripheral_reset(proc_sys_reset_0_peripheral_reset),
         .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
   image_processing_2d_design_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
@@ -2403,7 +2407,7 @@ module m00_couplers_imp_J0QEI9
     S_AXI_wstrb,
     S_AXI_wvalid);
   input M_ACLK;
-  input [0:0]M_ARESETN;
+  input M_ARESETN;
   output [31:0]M_AXI_araddr;
   input M_AXI_arready;
   output M_AXI_arvalid;
@@ -2422,7 +2426,7 @@ module m00_couplers_imp_J0QEI9
   output [3:0]M_AXI_wstrb;
   output M_AXI_wvalid;
   input S_ACLK;
-  input [0:0]S_ARESETN;
+  input S_ARESETN;
   input [31:0]S_AXI_araddr;
   input [1:0]S_AXI_arburst;
   input [3:0]S_AXI_arcache;
@@ -2460,7 +2464,7 @@ module m00_couplers_imp_J0QEI9
   input S_AXI_wvalid;
 
   wire S_ACLK_1;
-  wire [0:0]S_ARESETN_1;
+  wire S_ARESETN_1;
   wire [31:0]auto_pc_to_m00_couplers_ARADDR;
   wire auto_pc_to_m00_couplers_ARREADY;
   wire auto_pc_to_m00_couplers_ARVALID;
@@ -2524,7 +2528,7 @@ module m00_couplers_imp_J0QEI9
   assign M_AXI_wstrb[3:0] = auto_pc_to_m00_couplers_WSTRB;
   assign M_AXI_wvalid = auto_pc_to_m00_couplers_WVALID;
   assign S_ACLK_1 = S_ACLK;
-  assign S_ARESETN_1 = S_ARESETN[0];
+  assign S_ARESETN_1 = S_ARESETN;
   assign S_AXI_arready = m00_couplers_to_auto_pc_ARREADY;
   assign S_AXI_awready = m00_couplers_to_auto_pc_AWREADY;
   assign S_AXI_bresp[1:0] = m00_couplers_to_auto_pc_BRESP;
@@ -2685,7 +2689,7 @@ module m01_couplers_imp_1M9HB38
     S_AXI_wstrb,
     S_AXI_wvalid);
   input M_ACLK;
-  input [0:0]M_ARESETN;
+  input M_ARESETN;
   output [31:0]M_AXI_araddr;
   output [2:0]M_AXI_arprot;
   input M_AXI_arready;
@@ -2706,7 +2710,7 @@ module m01_couplers_imp_1M9HB38
   output [3:0]M_AXI_wstrb;
   output M_AXI_wvalid;
   input S_ACLK;
-  input [0:0]S_ARESETN;
+  input S_ARESETN;
   input [31:0]S_AXI_araddr;
   input [1:0]S_AXI_arburst;
   input [3:0]S_AXI_arcache;
@@ -2744,7 +2748,7 @@ module m01_couplers_imp_1M9HB38
   input S_AXI_wvalid;
 
   wire S_ACLK_1;
-  wire [0:0]S_ARESETN_1;
+  wire S_ARESETN_1;
   wire [31:0]auto_pc_to_m01_couplers_ARADDR;
   wire [2:0]auto_pc_to_m01_couplers_ARPROT;
   wire auto_pc_to_m01_couplers_ARREADY;
@@ -2812,7 +2816,7 @@ module m01_couplers_imp_1M9HB38
   assign M_AXI_wstrb[3:0] = auto_pc_to_m01_couplers_WSTRB;
   assign M_AXI_wvalid = auto_pc_to_m01_couplers_WVALID;
   assign S_ACLK_1 = S_ACLK;
-  assign S_ARESETN_1 = S_ARESETN[0];
+  assign S_ARESETN_1 = S_ARESETN;
   assign S_AXI_arready = m01_couplers_to_auto_pc_ARREADY;
   assign S_AXI_awready = m01_couplers_to_auto_pc_AWREADY;
   assign S_AXI_bresp[1:0] = m01_couplers_to_auto_pc_BRESP;
@@ -2975,7 +2979,7 @@ module m02_couplers_imp_1E92BOA
     S_AXI_wstrb,
     S_AXI_wvalid);
   input M_ACLK;
-  input [0:0]M_ARESETN;
+  input M_ARESETN;
   output [31:0]M_AXI_araddr;
   output [2:0]M_AXI_arprot;
   input M_AXI_arready;
@@ -2996,7 +3000,7 @@ module m02_couplers_imp_1E92BOA
   output [3:0]M_AXI_wstrb;
   output M_AXI_wvalid;
   input S_ACLK;
-  input [0:0]S_ARESETN;
+  input S_ARESETN;
   input [31:0]S_AXI_araddr;
   input [1:0]S_AXI_arburst;
   input [3:0]S_AXI_arcache;
@@ -3034,7 +3038,7 @@ module m02_couplers_imp_1E92BOA
   input S_AXI_wvalid;
 
   wire S_ACLK_1;
-  wire [0:0]S_ARESETN_1;
+  wire S_ARESETN_1;
   wire [31:0]auto_pc_to_m02_couplers_ARADDR;
   wire [2:0]auto_pc_to_m02_couplers_ARPROT;
   wire auto_pc_to_m02_couplers_ARREADY;
@@ -3102,7 +3106,7 @@ module m02_couplers_imp_1E92BOA
   assign M_AXI_wstrb[3:0] = auto_pc_to_m02_couplers_WSTRB;
   assign M_AXI_wvalid = auto_pc_to_m02_couplers_WVALID;
   assign S_ACLK_1 = S_ACLK;
-  assign S_ARESETN_1 = S_ARESETN[0];
+  assign S_ARESETN_1 = S_ARESETN;
   assign S_AXI_arready = m02_couplers_to_auto_pc_ARREADY;
   assign S_AXI_awready = m02_couplers_to_auto_pc_AWREADY;
   assign S_AXI_bresp[1:0] = m02_couplers_to_auto_pc_BRESP;
@@ -3265,7 +3269,7 @@ module m03_couplers_imp_8ZVH8V
     S_AXI_wstrb,
     S_AXI_wvalid);
   input M_ACLK;
-  input [0:0]M_ARESETN;
+  input M_ARESETN;
   output [31:0]M_AXI_araddr;
   output [2:0]M_AXI_arprot;
   input M_AXI_arready;
@@ -3286,7 +3290,7 @@ module m03_couplers_imp_8ZVH8V
   output [3:0]M_AXI_wstrb;
   output M_AXI_wvalid;
   input S_ACLK;
-  input [0:0]S_ARESETN;
+  input S_ARESETN;
   input [31:0]S_AXI_araddr;
   input [1:0]S_AXI_arburst;
   input [3:0]S_AXI_arcache;
@@ -3324,7 +3328,7 @@ module m03_couplers_imp_8ZVH8V
   input S_AXI_wvalid;
 
   wire S_ACLK_1;
-  wire [0:0]S_ARESETN_1;
+  wire S_ARESETN_1;
   wire [31:0]auto_pc_to_m03_couplers_ARADDR;
   wire [2:0]auto_pc_to_m03_couplers_ARPROT;
   wire auto_pc_to_m03_couplers_ARREADY;
@@ -3392,7 +3396,7 @@ module m03_couplers_imp_8ZVH8V
   assign M_AXI_wstrb[3:0] = auto_pc_to_m03_couplers_WSTRB;
   assign M_AXI_wvalid = auto_pc_to_m03_couplers_WVALID;
   assign S_ACLK_1 = S_ACLK;
-  assign S_ARESETN_1 = S_ARESETN[0];
+  assign S_ARESETN_1 = S_ARESETN;
   assign S_AXI_arready = m03_couplers_to_auto_pc_ARREADY;
   assign S_AXI_awready = m03_couplers_to_auto_pc_AWREADY;
   assign S_AXI_bresp[1:0] = m03_couplers_to_auto_pc_BRESP;
@@ -3569,7 +3573,7 @@ module m04_couplers_imp_YN7N1I
     S_AXI_wstrb,
     S_AXI_wvalid);
   input M_ACLK;
-  input [0:0]M_ARESETN;
+  input M_ARESETN;
   output [31:0]M_AXI_araddr;
   output [1:0]M_AXI_arburst;
   output [3:0]M_AXI_arcache;
@@ -3604,7 +3608,7 @@ module m04_couplers_imp_YN7N1I
   output [3:0]M_AXI_wstrb;
   output M_AXI_wvalid;
   input S_ACLK;
-  input [0:0]S_ARESETN;
+  input S_ARESETN;
   input [31:0]S_AXI_araddr;
   input [1:0]S_AXI_arburst;
   input [3:0]S_AXI_arcache;
@@ -3642,7 +3646,7 @@ module m04_couplers_imp_YN7N1I
   input S_AXI_wvalid;
 
   wire S_ACLK_1;
-  wire [0:0]S_ARESETN_1;
+  wire S_ARESETN_1;
   wire [31:0]auto_pc_to_m04_couplers_ARADDR;
   wire [1:0]auto_pc_to_m04_couplers_ARBURST;
   wire [3:0]auto_pc_to_m04_couplers_ARCACHE;
@@ -3737,7 +3741,7 @@ module m04_couplers_imp_YN7N1I
   assign M_AXI_wstrb[3:0] = auto_pc_to_m04_couplers_WSTRB;
   assign M_AXI_wvalid = auto_pc_to_m04_couplers_WVALID;
   assign S_ACLK_1 = S_ACLK;
-  assign S_ARESETN_1 = S_ARESETN[0];
+  assign S_ARESETN_1 = S_ARESETN;
   assign S_AXI_arready = m04_couplers_to_auto_pc_ARREADY;
   assign S_AXI_awready = m04_couplers_to_auto_pc_AWREADY;
   assign S_AXI_bresp[1:0] = m04_couplers_to_auto_pc_BRESP;
@@ -3936,7 +3940,7 @@ module s00_couplers_imp_1PH4J44
     S_AXI_wstrb,
     S_AXI_wvalid);
   input M_ACLK;
-  input [0:0]M_ARESETN;
+  input M_ARESETN;
   output [31:0]M_AXI_araddr;
   output [1:0]M_AXI_arburst;
   output [3:0]M_AXI_arcache;
@@ -3975,7 +3979,7 @@ module s00_couplers_imp_1PH4J44
   output [3:0]M_AXI_wstrb;
   output M_AXI_wvalid;
   input S_ACLK;
-  input [0:0]S_ARESETN;
+  input S_ARESETN;
   input [31:0]S_AXI_araddr;
   input [1:0]S_AXI_arburst;
   input [3:0]S_AXI_arcache;
@@ -4016,7 +4020,7 @@ module s00_couplers_imp_1PH4J44
   input S_AXI_wvalid;
 
   wire S_ACLK_1;
-  wire [0:0]S_ARESETN_1;
+  wire S_ARESETN_1;
   wire [31:0]auto_pc_to_s00_couplers_ARADDR;
   wire [1:0]auto_pc_to_s00_couplers_ARBURST;
   wire [3:0]auto_pc_to_s00_couplers_ARCACHE;
@@ -4120,7 +4124,7 @@ module s00_couplers_imp_1PH4J44
   assign M_AXI_wstrb[3:0] = auto_pc_to_s00_couplers_WSTRB;
   assign M_AXI_wvalid = auto_pc_to_s00_couplers_WVALID;
   assign S_ACLK_1 = S_ACLK;
-  assign S_ARESETN_1 = S_ARESETN[0];
+  assign S_ARESETN_1 = S_ARESETN;
   assign S_AXI_arready = s00_couplers_to_auto_pc_ARREADY;
   assign S_AXI_awready = s00_couplers_to_auto_pc_AWREADY;
   assign S_AXI_bid[11:0] = s00_couplers_to_auto_pc_BID;
@@ -4330,7 +4334,7 @@ module s01_couplers_imp_K956Q9
     S_AXI_wstrb,
     S_AXI_wvalid);
   input M_ACLK;
-  input [0:0]M_ARESETN;
+  input M_ARESETN;
   output M_AXI_araddr;
   output M_AXI_arburst;
   output M_AXI_arcache;
@@ -4369,7 +4373,7 @@ module s01_couplers_imp_K956Q9
   output M_AXI_wstrb;
   output M_AXI_wvalid;
   input S_ACLK;
-  input [0:0]S_ARESETN;
+  input S_ARESETN;
   input S_AXI_araddr;
   input S_AXI_arburst;
   input S_AXI_arcache;
