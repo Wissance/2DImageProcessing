@@ -4,10 +4,14 @@
 #include "imageCaptureState.h"
 #include "dragsterConfig.h"
 #include "pixelFrequencies.h"
+#ifdef USE_AXI_QUAD_SPI
 #include "xspi.h"
+#endif
 #include "xscugic.h"
 #include "xil_exception.h"
 #include "xil_assert.h"
+
+//#define USE_AXI_QUAD_SPI
 
 class ImageCaptureManager
 {
@@ -15,11 +19,14 @@ public:
     void initialize();
     void startImageCapture();
     void stopImageCapture();
+#ifdef USE_AXI_QUAD_SPI
     DragsterConfig getDragsterConfig(unsigned char linescannerIndex);
     void updateDragsters();
     void sendTestSpiSequence();   //todo: umv: test method
+#endif
 private:
     void configureInterrupts();
+#ifdef USE_AXI_QUAD_SPI
     // dragster
     void initializeSpi();
     void initializeDragsters();
@@ -29,11 +36,14 @@ private:
     unsigned char readDragsterRegisterValue(unsigned char address);
     void beginDragsterSpiTransaction(unsigned char slaveNumbe);
     void endDragsterSpiTransaction();
+#endif
 private:
     // interrupt controller
     XScuGic _interruptController;
     // dragster entities
+#ifdef USE_AXI_QUAD_SPI
     XSpi _spi;
+#endif
     ImageCaptureState _imageCaptureState;
     DragsterConfig _linescanner0Config;
     DragsterConfig _linescanner1Config;

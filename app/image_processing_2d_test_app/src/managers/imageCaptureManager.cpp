@@ -18,8 +18,10 @@
 
 #define INTERRUPT_CONTROLLER_DEVICE_ID XPAR_SCUGIC_SINGLE_DEVICE_ID
 
+#ifdef USE_AXI_QUAD_SPI
 u8 readBuffer[2];
 u8 writeBuffer[2];
+#endif
 
 PixelFrequencies linescanner0PixelFrequencies;
 PixelFrequencies linescanner1PixelFrequencies;
@@ -62,8 +64,10 @@ void freuqencyAnalyzer1Handler(void *data)
 
 void ImageCaptureManager::initialize()
 {
+#ifdef USE_AXI_QUAD_SPI
     initializeSpi();
     initializeDragsters();
+#endif
     configureInterrupts();
 }
 
@@ -79,14 +83,6 @@ void ImageCaptureManager::stopImageCapture()
     //Xil_Out32(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 2);
     write(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 0, STOP_COMMAND);
     xil_printf("\n Image Capture Manager has been stopped\n\r");
-}
-
-DragsterConfig ImageCaptureManager::getDragsterConfig(unsigned char linescannerIndex)
-{
-    struct DragsterConfig config;
-    readDragsterConfigImpl(&config, linescannerIndex == LINESCANNER0 ? LINESCANNER0_SLAVE_SELECT
-                                                                     : LINESCANNER1_SLAVE_SELECT);
-    return config;
 }
 
 void ImageCaptureManager::configureInterrupts()
@@ -124,6 +120,16 @@ void ImageCaptureManager::configureInterrupts()
 
     Xil_ExceptionEnable();
 }
+
+#ifdef USE_AXI_QUAD_SPI
+DragsterConfig ImageCaptureManager::getDragsterConfig(unsigned char linescannerIndex)
+{
+    struct DragsterConfig config;
+    readDragsterConfigImpl(&config, linescannerIndex == LINESCANNER0 ? LINESCANNER0_SLAVE_SELECT
+                                                                     : LINESCANNER1_SLAVE_SELECT);
+    return config;
+}
+
 
 /* Инициализация SPI в блокирующем режиме (polling mode)*/
 void ImageCaptureManager::initializeSpi()
@@ -257,3 +263,4 @@ void ImageCaptureManager::endDragsterSpiTransaction()
 {
     XSpi_SetSlaveSelect(&_spi, 0);
 }
+#endif
