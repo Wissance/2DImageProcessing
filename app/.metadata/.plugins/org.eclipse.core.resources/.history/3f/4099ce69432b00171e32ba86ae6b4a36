@@ -17,7 +17,6 @@ class ImageCaptureManager
 {
 public:
     void initialize();
-    void resetImageCapture();
     void startImageCapture();
     void stopImageCapture();
 #ifdef USE_AXI_QUAD_SPI

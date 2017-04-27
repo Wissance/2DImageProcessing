@@ -327,8 +327,8 @@ CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.158730} \
 CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {125.000000} \
 CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
-CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {50.000000} \
-CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {20.000000} \
+CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {80.000000} \
+CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_I2C_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_ACT_PCAP_PERIPHERAL_FREQMHZ {200.000000} \
@@ -373,8 +373,8 @@ CONFIG.PCW_CAN_PERIPHERAL_DIVISOR1 {1} \
 CONFIG.PCW_CAN_PERIPHERAL_FREQMHZ {100} \
 CONFIG.PCW_CAN_PERIPHERAL_VALID {0} \
 CONFIG.PCW_CLK0_FREQ {100000000} \
-CONFIG.PCW_CLK1_FREQ {50000000} \
-CONFIG.PCW_CLK2_FREQ {20000000} \
+CONFIG.PCW_CLK1_FREQ {80000000} \
+CONFIG.PCW_CLK2_FREQ {10000000} \
 CONFIG.PCW_CLK3_FREQ {10000000} \
 CONFIG.PCW_CORE0_FIQ_INTR {0} \
 CONFIG.PCW_CORE0_IRQ_INTR {0} \
@@ -510,10 +510,10 @@ CONFIG.PCW_FCLK0_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {5} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {4} \
 CONFIG.PCW_FCLK1_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {8} \
+CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {5} \
 CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {5} \
 CONFIG.PCW_FCLK2_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {10} \
+CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {20} \
 CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR1 {10} \
 CONFIG.PCW_FCLK3_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {1} \
@@ -523,8 +523,8 @@ CONFIG.PCW_FCLK_CLK1_BUF {true} \
 CONFIG.PCW_FCLK_CLK2_BUF {true} \
 CONFIG.PCW_FCLK_CLK3_BUF {false} \
 CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
-CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {50} \
-CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {20} \
+CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {80} \
+CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {10} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
 CONFIG.PCW_FPGA_FCLK1_ENABLE {1} \
@@ -1225,6 +1225,7 @@ CONFIG.IN1_WIDTH {1} \
   connect_bd_net -net frequency_analyzer_synch_0_stop_analyzer_1 [get_bd_pins frequency_analyzer_manager_1/stop] [get_bd_pins frequency_analyzer_synch_0/stop_analyzer_1]
   connect_bd_net -net image_capture_manager_0_clear_memory [get_bd_pins frequency_analyzer_manager_0/clear] [get_bd_pins frequency_analyzer_manager_1/clear] [get_bd_pins image_capture_manager_0/clear_memory]
   connect_bd_net -net image_capture_manager_0_image_capture_enabled [get_bd_pins frequency_analyzer_synch_0/enable] [get_bd_pins image_capture_manager_0/image_capture_enabled] [get_bd_pins linescanner_image_capture_unit_0/enable] [get_bd_pins linescanner_image_capture_unit_1/enable]
+  connect_bd_net -net image_capture_manager_0_reset [get_bd_pins image_capture_manager_0/reset] [get_bd_pins proc_sys_reset_0/aux_reset_in]
   connect_bd_net -net linescanner_image_capture_unit_0_load_pulse [get_bd_ports LINESCANNER0_LOAD_PULSE] [get_bd_pins linescanner_image_capture_unit_0/load_pulse]
   connect_bd_net -net linescanner_image_capture_unit_0_main_clock [get_bd_ports LINESCANNER0_MAIN_CLOCK] [get_bd_pins linescanner_image_capture_unit_0/main_clock]
   connect_bd_net -net linescanner_image_capture_unit_0_pixel_captured [get_bd_pins frequency_analyzer_manager_0/pixel_clock] [get_bd_pins linescanner_image_capture_unit_0/pixel_captured]
@@ -1299,6 +1300,7 @@ preplace inst not_1bit_0 -pg 1 -lvl 6 -y -400 -defaultsOSRD
 preplace inst frequency_analyzer_manager_0 -pg 1 -lvl 3 -y -660 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -y -680 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 5 2 NJ -770 1860
+preplace netloc image_capture_manager_0_reset 1 4 1 1180
 preplace netloc linescanner_image_capture_unit_1_main_clock 1 0 2 NJ -370 -270
 preplace netloc linescanner_image_capture_unit_1_sample 1 0 2 NJ -130 -290
 preplace netloc clock_divider_0_output_clock 1 0 6 -670 -850 NJ -850 NJ -850 NJ -850 NJ -850 1660

@@ -5,7 +5,8 @@
 	(
 		// Users to add parameters here
         parameter integer START_IMAGE_CAPTURE_COMMAND = 1,
-        parameter integer STOP_IMAGE_CAPTURE_COMMAND = 2,  
+        parameter integer STOP_IMAGE_CAPTURE_COMMAND = 2,
+        parameter integer RESET_IMAGE_CAPTURE_COMMAND = 3,    
 		// User parameters ends
 			 
 		// Do not modify the parameters beyond this line
@@ -18,6 +19,7 @@
 		// Users to add ports here
         output reg image_capture_enabled = 0,
         output reg clear_memory = 0,
+        output reg reset,
 		// User ports ends
 		
 		// Do not modify the ports beyond this line
@@ -46,10 +48,13 @@
 		input wire  s00_axi_rready
 	);
 	
+	//localparam RESET_CYCLES = 16;
+	
     wire [C_S00_AXI_DATA_WIDTH - 1 : 0] register_read;
     reg [C_S00_AXI_DATA_WIDTH - 1 : 0] register_write;
     reg [1:0] register_operation;
     reg [7:0] register_number;
+    //reg [7:0] reset_counter;
 	
     // Instantiation of Axi Bus Interface S00_AXI
 	axi_slave_impl # ( 
@@ -93,7 +98,9 @@
             image_capture_enabled <= 0;
             register_operation <= 0;
             register_write <= 0;
-             register_number <= 0;
+            register_number <= 0;
+            reset <= 1;
+            //reset_counter <= 0;
         end
         else
         begin
@@ -108,6 +115,12 @@
                 begin
                      clear_memory <= 1;
                      image_capture_enabled <= 0;
+                end
+                else if(s00_axi_wdata == RESET_IMAGE_CAPTURE_COMMAND)
+                begin
+                     reset <= 0;
+                     //reset_counter <= reset_counter + 1;
+                     //if(reset_counter == 
                 end
             end
             else

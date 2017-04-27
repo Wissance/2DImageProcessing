@@ -46,7 +46,6 @@ int main()
     systemManager.stopImageCapture();
     printf("Application stopped \r\n");
 #else
-    systemManager.resetImageCapture();
     systemManager.startImageCapture();
 
     while(linescanner0PixelFrequencies._counter != CYCLES_NUMBER);

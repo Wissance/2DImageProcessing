@@ -56,6 +56,7 @@
 module image_processing_2d_design_image_capture_manager_0_0 (
   image_capture_enabled,
   clear_memory,
+  reset,
   s00_axi_aclk,
   s00_axi_aresetn,
   s00_axi_awaddr,
@@ -81,6 +82,8 @@ module image_processing_2d_design_image_capture_manager_0_0 (
 
 output wire image_capture_enabled;
 output wire clear_memory;
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
+output wire reset;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s00_axi_aclk CLK" *)
 input wire s00_axi_aclk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 s00_axi_aresetn RST" *)
@@ -127,11 +130,13 @@ input wire s00_axi_rready;
   image_capture_manager #(
     .START_IMAGE_CAPTURE_COMMAND(1),
     .STOP_IMAGE_CAPTURE_COMMAND(2),
+    .RESET_IMAGE_CAPTURE_COMMAND(3),
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(4)
   ) inst (
     .image_capture_enabled(image_capture_enabled),
     .clear_memory(clear_memory),
+    .reset(reset),
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn),
     .s00_axi_awaddr(s00_axi_awaddr),

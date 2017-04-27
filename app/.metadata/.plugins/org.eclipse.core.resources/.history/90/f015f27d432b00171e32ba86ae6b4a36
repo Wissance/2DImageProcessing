@@ -9,7 +9,6 @@
 
 #define START_COMMAND 1
 #define STOP_COMMAND 2
-#define RESET_COMMAND 3
 
 #define LINESCANNER0_SLAVE_SELECT 1
 #define LINESCANNER1_SLAVE_SELECT 2
@@ -84,13 +83,6 @@ void ImageCaptureManager::stopImageCapture()
     //Xil_Out32(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 2);
     write(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 0, STOP_COMMAND);
     xil_printf("\n Image Capture Manager has been stopped\n\r");
-}
-
-void ImageCaptureManager::resetImageCapture()
-{
-    //Xil_Out32(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 2);
-    write(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 0, RESET_COMMAND);
-    xil_printf("\n Image Capture Manager has been reseted\n\r");
 }
 
 void ImageCaptureManager::configureInterrupts()
