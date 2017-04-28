@@ -36,9 +36,9 @@ module dragster_configurator #
     reg [3:0] register_counter;
     reg configuration_done;
     reg [1:0] slave;
-    wire enable;
+    reg enable;
     wire busy;
-    supply1 vcc;
+    //supply1 vcc;
 
 /*    wire internal_reset_n;
     wire internal_reset_clk;
@@ -48,13 +48,13 @@ module dragster_configurator #
     // enable generator 
     //FDRE reset_generator(.R(reset_n), .CE(vcc), .D(vcc), .C(clk), .Q(internal_reset));
     //FDCE reset_generator(.CLR(~reset_n), .CE(vcc), .D(vcc), .C(clk), .Q(internal_reset_n));
-    FDRE enable_generator(.R(enable), .CE(~busy & ~configuration_done & reset_n), .D(vcc), .C(clk), .Q(enable));
+    //FDRE enable_generator(.R(enable), .CE(~busy & ~configuration_done & reset_n), .D(vcc), .C(clk), .Q(enable));
     
     quick_spi spi_iml(.clk(clk), .reset_n(reset_n), .enable(enable), .busy(busy), 
                       .slave(slave), .outgoing_data(command_buffer), .operation(1'b1),
                       .miso(miso), .sclk(sclk), .ss_n(ss_n), .mosi(mosi));
     
-    always@(negedge reset_n
+    /*always@(negedge reset_n
             //posedge internal_reset_clk 
             or posedge enable)
     begin
@@ -68,14 +68,31 @@ module dragster_configurator #
         end
         else //if(enable)
         begin
-            if(~configuration_done)
+            register_counter = register_counter + 1;
+            command_buffer = get_dragster_config(register_counter - 1);
+            if(register_counter == 4)
             begin
-                register_counter = register_counter + 1;
-                command_buffer = get_dragster_config(register_counter - 1);
-                if(register_counter == 4)
-                begin
-                    //todo: umv: add dragster 1 configuring
-                    configuration_done = 1;
+                //todo: umv: add dragster 1 configuring
+                configuration_done = 1;
+            end
+        end
+    end*/
+    
+    always @ (posedge clk or negedge reset_n) begin
+        if(!reset_n) begin
+            register_counter <= 0;
+            enable <= 1'b1;
+        end
+        
+        else begin            
+            if(!busy) begin
+                if(register_counter <= 3) begin
+                    command_buffer <= get_dragster_config(register_counter);
+                    register_counter <= register_counter + 1;
+                end
+                
+                else begin
+                    register_counter <= 0;
                 end
             end
         end

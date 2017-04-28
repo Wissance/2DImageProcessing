@@ -1,458 +1,465 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2016.2 (64-bit)              -->
-<!--                                                         -->
-<!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
-
-<Project Version="7" Minor="14" Path="E:/oms/2DImageProcessing/2d_image_processing.xpr">
-  <DefaultLaunch Dir="$PRUNDIR"/>
-  <Configuration>
-    <Option Name="Id" Val="207163eb4246467283401edab4bbd337"/>
-    <Option Name="Part" Val="xc7z020clg484-3"/>
-    <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
-    <Option Name="CompiledLibDirXSim" Val=""/>
-    <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
-    <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
-    <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
-    <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
-    <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
-    <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
-    <Option Name="BoardPart" Val=""/>
-    <Option Name="ActiveSimSet" Val="linescanner_image_capture_unit_tests"/>
-    <Option Name="DefaultLib" Val="xil_defaultlib"/>
-    <Option Name="EnableCoreContainer" Val="FALSE"/>
-    <Option Name="XPMLibraries" Val="XPM_CDC"/>
-    <Option Name="XPMLibraries" Val="XPM_MEMORY"/>
-    <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
-    <Option Name="IPUserFilesDir" Val="$PPRDIR/2d_image_processing.ip_user_files"/>
-    <Option Name="IPStaticSourceDir" Val="$PPRDIR/2d_image_processing.ip_user_files/ipstatic"/>
-    <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="180"/>
-    <Option Name="WTModelSimLaunchSim" Val="0"/>
-    <Option Name="WTQuestaLaunchSim" Val="0"/>
-    <Option Name="WTIesLaunchSim" Val="0"/>
-    <Option Name="WTVcsLaunchSim" Val="0"/>
-    <Option Name="WTRivieraLaunchSim" Val="0"/>
-    <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="5"/>
-    <Option Name="WTModelSimExportSim" Val="5"/>
-    <Option Name="WTQuestaExportSim" Val="5"/>
-    <Option Name="WTIesExportSim" Val="5"/>
-    <Option Name="WTVcsExportSim" Val="5"/>
-    <Option Name="WTRivieraExportSim" Val="5"/>
-    <Option Name="WTActivehdlExportSim" Val="5"/>
-  </Configuration>
-  <FileSets Version="1" Minor="31">
-    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/src/axi_slave_impl.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/image_capture_manager.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/frequency_analyzer_synch.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/linescanner_image_capture_unit.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/frequency_analyzer.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/frequency_analyzer_manager.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/not_1bit.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/quick_spi.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/dragster_configurator.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/bd/image_processing_2d_design/image_processing_2d_design.bd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_synch_0_0/image_processing_2d_design_frequency_analyzer_synch_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xlconcat_0_0/image_processing_2d_design_xlconcat_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_1_1/image_processing_2d_design_linescanner_image_capture_unit_1_1.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_0_1/image_processing_2d_design_linescanner_image_capture_unit_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_0_1_1/image_processing_2d_design_frequency_analyzer_manager_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_1_0_1/image_processing_2d_design_frequency_analyzer_manager_1_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hdl/image_processing_2d_design.hwdef"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="image_processing_2d_design_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_4/image_processing_2d_design_auto_pc_4.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_3/image_processing_2d_design_auto_pc_3.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_2/image_processing_2d_design_auto_pc_2.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_1/image_processing_2d_design_auto_pc_1.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design.hwh"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_dragster_configurator_0_0/image_processing_2d_design_dragster_configurator_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_not_1bit_0_0/image_processing_2d_design_not_1bit_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hdl/image_processing_2d_design.v"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_0_1/image_processing_2d_design_auto_pc_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_image_capture_manager_0_0/image_processing_2d_design_image_capture_manager_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xbar_0/image_processing_2d_design_xbar_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_interconnect_0_0/image_processing_2d_design_axi_interconnect_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_proc_sys_reset_0_1/image_processing_2d_design_proc_sys_reset_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_processing_system7_0_0/image_processing_2d_design_processing_system7_0_0.xci"/>
-      </File>
-      <File Path="$PSRCDIR/sources_1/bd/image_processing_2d_design/hdl/image_processing_2d_design_wrapper.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/clock_divider.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="image_processing_2d_design_wrapper"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="frequency_analyzer_synch_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/frequency_analyzer_synch_tests">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/tests/frequency_analyzer_synch_tests/frequency_analyze_synch_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/tests/frequency_analyzer_synch_tests/frequency_analyzer_synch_testbench_behav.wcfg">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="frequency_analyzer_synch_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-        <Option Name="XSimWcfgFile" Val="$PPRDIR/tests/frequency_analyzer_synch_tests/frequency_analyzer_synch_testbench_behav.wcfg"/>
-        <Option Name="NLNetlistMode" Val="funcsim"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="frequency_analyzer_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/frequency_analyzer_tests">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/tests/frequency_analyzer_tests/frequency_analyzer_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/tests/frequency_analyzer_tests/frequency_analyzer_testbench_behav.wcfg">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="frequency_analyzer_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="image_capture_manager_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/image_capture_manager_tests">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/tests/image_capture_manager_tests/image_capture_manager_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/tests/image_capture_manager_tests/image_capture_manager_testbench_behav.wcfg">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="image_capture_manager_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="axi_slave_impl_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/axi_slave_impl_tests">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/tests/axi_slave_impl_tests/axi_slave_impl_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/tests/axi_slave_impl_tests/axi_slave_impl_testbench_behav.wcfg">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="axi_slave_impl_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SimMode" Val="post-implementation"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-        <Option Name="XSimWcfgFile" Val="$PPRDIR/tests/axi_slave_impl_tests/axi_slave_impl_testbench_behav.wcfg"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="main_constraints_slow" Type="Constrs" RelSrcDir="$PSRCDIR/main_constraints_slow">
-      <File Path="$PPRDIR/constraints/main_constraints_slow.xdc">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/constraints/debug.xdc">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TargetConstrsFile" Val="$PPRDIR/constraints/debug.xdc"/>
-        <Option Name="ConstrsType" Val="XDC"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="frequency_analyzer_manager_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/frequency_analyzer_manager_tests">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/tests/frequency_analyzer_manager_tests/frequency_analyzer_manager_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/tests/frequency_analyzer_manager_tests/frequency_analyzer_manager_testbench_behav.wcfg">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="frequency_analyzer_manager_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SimMode" Val="post-implementation"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-        <Option Name="XSimWcfgFile" Val="$PPRDIR/tests/frequency_analyzer_manager_tests/frequency_analyzer_manager_testbench_behav.wcfg"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="old_frequency_analyzer_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/old_frequency_analyzer_tests">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/tests/frequency_analyzer_tests/old_frequency_analyzer_tests/frequency_analyzer_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/tests/frequency_analyzer_tests/old_frequency_analyzer_tests/frequency_analyzer_testbench_behav.wcfg">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="frequency_analyzer_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="clock_divider_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/clock_divider_tests">
-      <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/tests/clock_divider_tests/clock_divider_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/tests/clock_divider_tests/clock_divider_testbench_behav.wcfg">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="clock_divider_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SimMode" Val="post-implementation"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="dragster_configurator_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/dragster_configurator_tests">
-      <File Path="$PPRDIR/tests/dragster_configurator_tests/dragster_configurator_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="dragster_configurator_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SimMode" Val="post-implementation"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="linescanner_image_capture_unit_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/linescanner_image_capture_unit_tests">
-      <File Path="$PPRDIR/tests/linescanner_image_capture_unit_tests/linescanner_image_capture_unit_testbench.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="linescanner_image_capture_unit_testbench"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-      </Config>
-    </FileSet>
-  </FileSets>
-  <Simulators>
-    <Simulator Name="XSim">
-      <Option Name="Description" Val="Vivado Simulator"/>
-      <Option Name="CompiledLib" Val="0"/>
-    </Simulator>
-    <Simulator Name="ModelSim">
-      <Option Name="Description" Val="ModelSim Simulator"/>
-    </Simulator>
-    <Simulator Name="Questa">
-      <Option Name="Description" Val="Questa Advanced Simulator"/>
-    </Simulator>
-    <Simulator Name="IES">
-      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
-    </Simulator>
-    <Simulator Name="VCS">
-      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
-    </Simulator>
-    <Simulator Name="Riviera">
-      <Option Name="Description" Val="Riviera-PRO Simulator"/>
-    </Simulator>
-    <Simulator Name="ActiveHDL">
-      <Option Name="Description" Val="Active-HDL Simulator"/>
-    </Simulator>
-  </Simulators>
-  <Runs Version="1" Minor="10">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-    </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Default settings for Implementation." State="current" SynthRun="synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-    </Run>
-  </Runs>
-  <MsgRule>
-    <MsgAttr Name="RuleType" Val="0"/>
-    <MsgAttr Name="Limit" Val="-1"/>
-    <MsgAttr Name="NewSeverity" Val="ANY"/>
-    <MsgAttr Name="Id" Val="Synth 8-5827"/>
-    <MsgAttr Name="Severity" Val="ANY"/>
-    <MsgAttr Name="ShowRule" Val="1"/>
-    <MsgAttr Name="RuleSource" Val="16"/>
-    <MsgAttr Name="StringIsRegExp" Val="0"/>
-    <MsgAttr Name="RuleId" Val="1"/>
-    <MsgAttr Name="Note" Val=""/>
-    <MsgAttr Name="Author" Val=""/>
-    <MsgAttr Name="CreatedTimestamp" Val=""/>
-  </MsgRule>
-  <MsgRule>
-    <MsgAttr Name="RuleType" Val="0"/>
-    <MsgAttr Name="Limit" Val="-1"/>
-    <MsgAttr Name="NewSeverity" Val="ANY"/>
-    <MsgAttr Name="Id" Val="Synth 8-5396"/>
-    <MsgAttr Name="Severity" Val="ANY"/>
-    <MsgAttr Name="ShowRule" Val="1"/>
-    <MsgAttr Name="RuleSource" Val="16"/>
-    <MsgAttr Name="StringIsRegExp" Val="0"/>
-    <MsgAttr Name="RuleId" Val="2"/>
-    <MsgAttr Name="Note" Val=""/>
-    <MsgAttr Name="Author" Val=""/>
-    <MsgAttr Name="CreatedTimestamp" Val=""/>
-  </MsgRule>
-</Project>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2016.2 (64-bit)              -->
+<!--                                                         -->
+<!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
+
+<Project Version="7" Minor="14" Path="D:/Projects/2DImageProcessing/2d_image_processing.xpr">
+  <DefaultLaunch Dir="$PRUNDIR"/>
+  <Configuration>
+    <Option Name="Id" Val="207163eb4246467283401edab4bbd337"/>
+    <Option Name="Part" Val="xc7z020clg484-3"/>
+    <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
+    <Option Name="CompiledLibDirXSim" Val=""/>
+    <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
+    <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
+    <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
+    <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
+    <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
+    <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
+    <Option Name="BoardPart" Val=""/>
+    <Option Name="ActiveSimSet" Val="image_capture_manager_tests"/>
+    <Option Name="DefaultLib" Val="xil_defaultlib"/>
+    <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="XPMLibraries" Val="XPM_CDC"/>
+    <Option Name="XPMLibraries" Val="XPM_MEMORY"/>
+    <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
+    <Option Name="IPUserFilesDir" Val="$PPRDIR/2d_image_processing.ip_user_files"/>
+    <Option Name="IPStaticSourceDir" Val="$PPRDIR/2d_image_processing.ip_user_files/ipstatic"/>
+    <Option Name="EnableBDX" Val="FALSE"/>
+    <Option Name="WTXSimLaunchSim" Val="181"/>
+    <Option Name="WTModelSimLaunchSim" Val="0"/>
+    <Option Name="WTQuestaLaunchSim" Val="0"/>
+    <Option Name="WTIesLaunchSim" Val="0"/>
+    <Option Name="WTVcsLaunchSim" Val="0"/>
+    <Option Name="WTRivieraLaunchSim" Val="0"/>
+    <Option Name="WTActivehdlLaunchSim" Val="0"/>
+    <Option Name="WTXSimExportSim" Val="5"/>
+    <Option Name="WTModelSimExportSim" Val="5"/>
+    <Option Name="WTQuestaExportSim" Val="5"/>
+    <Option Name="WTIesExportSim" Val="5"/>
+    <Option Name="WTVcsExportSim" Val="5"/>
+    <Option Name="WTRivieraExportSim" Val="5"/>
+    <Option Name="WTActivehdlExportSim" Val="5"/>
+  </Configuration>
+  <FileSets Version="1" Minor="31">
+    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/src/axi_slave_impl.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/image_capture_manager.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/frequency_analyzer_synch.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/linescanner_image_capture_unit.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/frequency_analyzer.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/frequency_analyzer_manager.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/not_1bit.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/quick_spi.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/dragster_configurator.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/image_processing_2d_design/image_processing_2d_design.bd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_proc_sys_reset_0_1/image_processing_2d_design_proc_sys_reset_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_processing_system7_0_0/image_processing_2d_design_processing_system7_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_axi_interconnect_0_0/image_processing_2d_design_axi_interconnect_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_1_1/image_processing_2d_design_linescanner_image_capture_unit_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_linescanner_image_capture_unit_0_1/image_processing_2d_design_linescanner_image_capture_unit_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_synch_0_0/image_processing_2d_design_frequency_analyzer_synch_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xlconcat_0_0/image_processing_2d_design_xlconcat_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_image_capture_manager_0_0/image_processing_2d_design_image_capture_manager_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_xbar_0/image_processing_2d_design_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_dragster_configurator_0_0/image_processing_2d_design_dragster_configurator_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_not_1bit_0_0/image_processing_2d_design_not_1bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hdl/image_processing_2d_design.v"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_1_0_1/image_processing_2d_design_frequency_analyzer_manager_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_frequency_analyzer_manager_0_1_1/image_processing_2d_design_frequency_analyzer_manager_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="image_processing_2d_design_dragster_configurator_0_0.xml"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design.hwh"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hdl/image_processing_2d_design.hwdef"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="hw_handoff/image_processing_2d_design_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="image_processing_2d_design_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_3/image_processing_2d_design_auto_pc_3.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_2/image_processing_2d_design_auto_pc_2.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_1/image_processing_2d_design_auto_pc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_4/image_processing_2d_design_auto_pc_4.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="ip/image_processing_2d_design_auto_pc_0_1/image_processing_2d_design_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="synth/image_processing_2d_design_dragster_configurator_0_0.v"/>
+        <CompFileExtendedInfo CompFileName="image_processing_2d_design.bd" FileRelPathName="sim/image_processing_2d_design_dragster_configurator_0_0.v"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/image_processing_2d_design/hdl/image_processing_2d_design_wrapper.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/clock_divider.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="image_processing_2d_design_wrapper"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="frequency_analyzer_synch_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/frequency_analyzer_synch_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/frequency_analyzer_synch_tests/frequency_analyze_synch_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tests/frequency_analyzer_synch_tests/frequency_analyzer_synch_testbench_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="frequency_analyzer_synch_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/tests/frequency_analyzer_synch_tests/frequency_analyzer_synch_testbench_behav.wcfg"/>
+        <Option Name="NLNetlistMode" Val="funcsim"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="frequency_analyzer_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/frequency_analyzer_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/frequency_analyzer_tests/frequency_analyzer_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tests/frequency_analyzer_tests/frequency_analyzer_testbench_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="frequency_analyzer_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="image_capture_manager_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/image_capture_manager_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/image_capture_manager_tests/image_capture_manager_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tests/image_capture_manager_tests/image_capture_manager_testbench_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="image_capture_manager_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="axi_slave_impl_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/axi_slave_impl_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/axi_slave_impl_tests/axi_slave_impl_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tests/axi_slave_impl_tests/axi_slave_impl_testbench_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="axi_slave_impl_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/tests/axi_slave_impl_tests/axi_slave_impl_testbench_behav.wcfg"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="main_constraints_slow" Type="Constrs" RelSrcDir="$PSRCDIR/main_constraints_slow">
+      <File Path="$PPRDIR/constraints/main_constraints_slow.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/constraints/debug.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TargetConstrsFile" Val="$PPRDIR/constraints/debug.xdc"/>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="frequency_analyzer_manager_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/frequency_analyzer_manager_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/frequency_analyzer_manager_tests/frequency_analyzer_manager_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tests/frequency_analyzer_manager_tests/frequency_analyzer_manager_testbench_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="frequency_analyzer_manager_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/tests/frequency_analyzer_manager_tests/frequency_analyzer_manager_testbench_behav.wcfg"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="old_frequency_analyzer_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/old_frequency_analyzer_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/frequency_analyzer_tests/old_frequency_analyzer_tests/frequency_analyzer_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tests/frequency_analyzer_tests/old_frequency_analyzer_tests/frequency_analyzer_testbench_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="frequency_analyzer_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="clock_divider_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/clock_divider_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/clock_divider_tests/clock_divider_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/tests/clock_divider_tests/clock_divider_testbench_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="clock_divider_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="dragster_configurator_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/dragster_configurator_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/dragster_configurator_tests/dragster_configurator_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="dragster_configurator_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="linescanner_image_capture_unit_tests" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/linescanner_image_capture_unit_tests">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/tests/linescanner_image_capture_unit_tests/linescanner_image_capture_unit_testbench.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="linescanner_image_capture_unit_testbench"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+  </FileSets>
+  <Simulators>
+    <Simulator Name="XSim">
+      <Option Name="Description" Val="Vivado Simulator"/>
+      <Option Name="CompiledLib" Val="0"/>
+    </Simulator>
+    <Simulator Name="ModelSim">
+      <Option Name="Description" Val="ModelSim Simulator"/>
+    </Simulator>
+    <Simulator Name="Questa">
+      <Option Name="Description" Val="Questa Advanced Simulator"/>
+    </Simulator>
+    <Simulator Name="IES">
+      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
+    </Simulator>
+    <Simulator Name="VCS">
+      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
+    </Simulator>
+    <Simulator Name="Riviera">
+      <Option Name="Description" Val="Riviera-PRO Simulator"/>
+    </Simulator>
+    <Simulator Name="ActiveHDL">
+      <Option Name="Description" Val="Active-HDL Simulator"/>
+    </Simulator>
+  </Simulators>
+  <Runs Version="1" Minor="10">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-3" ConstrsSet="main_constraints_slow" Description="Default settings for Implementation." State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+  </Runs>
+  <MsgRule>
+    <MsgAttr Name="RuleType" Val="0"/>
+    <MsgAttr Name="Limit" Val="-1"/>
+    <MsgAttr Name="NewSeverity" Val="ANY"/>
+    <MsgAttr Name="Id" Val="Synth 8-5827"/>
+    <MsgAttr Name="Severity" Val="ANY"/>
+    <MsgAttr Name="ShowRule" Val="1"/>
+    <MsgAttr Name="RuleSource" Val="16"/>
+    <MsgAttr Name="StringIsRegExp" Val="0"/>
+    <MsgAttr Name="RuleId" Val="1"/>
+    <MsgAttr Name="Note" Val=""/>
+    <MsgAttr Name="Author" Val=""/>
+    <MsgAttr Name="CreatedTimestamp" Val=""/>
+  </MsgRule>
+  <MsgRule>
+    <MsgAttr Name="RuleType" Val="0"/>
+    <MsgAttr Name="Limit" Val="-1"/>
+    <MsgAttr Name="NewSeverity" Val="ANY"/>
+    <MsgAttr Name="Id" Val="Synth 8-5396"/>
+    <MsgAttr Name="Severity" Val="ANY"/>
+    <MsgAttr Name="ShowRule" Val="1"/>
+    <MsgAttr Name="RuleSource" Val="16"/>
+    <MsgAttr Name="StringIsRegExp" Val="0"/>
+    <MsgAttr Name="RuleId" Val="2"/>
+    <MsgAttr Name="Note" Val=""/>
+    <MsgAttr Name="Author" Val=""/>
+    <MsgAttr Name="CreatedTimestamp" Val=""/>
+  </MsgRule>
+</Project>

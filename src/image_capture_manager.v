@@ -104,7 +104,7 @@
         end
         else
         begin
-            if(s00_axi_wstrb[0] || s00_axi_wvalid)
+            if(s00_axi_wstrb[0] && s00_axi_wvalid)
             begin
                 if(s00_axi_wdata == START_IMAGE_CAPTURE_COMMAND)
                 begin

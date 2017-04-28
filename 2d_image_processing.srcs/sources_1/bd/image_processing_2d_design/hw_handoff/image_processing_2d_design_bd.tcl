@@ -1225,7 +1225,6 @@ CONFIG.IN1_WIDTH {1} \
   connect_bd_net -net frequency_analyzer_synch_0_stop_analyzer_1 [get_bd_pins frequency_analyzer_manager_1/stop] [get_bd_pins frequency_analyzer_synch_0/stop_analyzer_1]
   connect_bd_net -net image_capture_manager_0_clear_memory [get_bd_pins frequency_analyzer_manager_0/clear] [get_bd_pins frequency_analyzer_manager_1/clear] [get_bd_pins image_capture_manager_0/clear_memory]
   connect_bd_net -net image_capture_manager_0_image_capture_enabled [get_bd_pins frequency_analyzer_synch_0/enable] [get_bd_pins image_capture_manager_0/image_capture_enabled] [get_bd_pins linescanner_image_capture_unit_0/enable] [get_bd_pins linescanner_image_capture_unit_1/enable]
-  connect_bd_net -net image_capture_manager_0_reset [get_bd_pins image_capture_manager_0/reset] [get_bd_pins proc_sys_reset_0/aux_reset_in]
   connect_bd_net -net linescanner_image_capture_unit_0_load_pulse [get_bd_ports LINESCANNER0_LOAD_PULSE] [get_bd_pins linescanner_image_capture_unit_0/load_pulse]
   connect_bd_net -net linescanner_image_capture_unit_0_main_clock [get_bd_ports LINESCANNER0_MAIN_CLOCK] [get_bd_pins linescanner_image_capture_unit_0/main_clock]
   connect_bd_net -net linescanner_image_capture_unit_0_pixel_captured [get_bd_pins frequency_analyzer_manager_0/pixel_clock] [get_bd_pins linescanner_image_capture_unit_0/pixel_captured]
@@ -1300,7 +1299,6 @@ preplace inst not_1bit_0 -pg 1 -lvl 6 -y -400 -defaultsOSRD
 preplace inst frequency_analyzer_manager_0 -pg 1 -lvl 3 -y -660 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -y -680 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 5 2 NJ -770 1860
-preplace netloc image_capture_manager_0_reset 1 4 1 1180
 preplace netloc linescanner_image_capture_unit_1_main_clock 1 0 2 NJ -370 -270
 preplace netloc linescanner_image_capture_unit_1_sample 1 0 2 NJ -130 -290
 preplace netloc clock_divider_0_output_clock 1 0 6 -670 -850 NJ -850 NJ -850 NJ -850 NJ -850 1660
