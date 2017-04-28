@@ -68,12 +68,15 @@ module dragster_configurator #
         end
         else //if(enable)
         begin
-            register_counter = register_counter + 1;
-            command_buffer = get_dragster_config(register_counter - 1);
-            if(register_counter == 4)
+            if(~configuration_done)
             begin
-                //todo: umv: add dragster 1 configuring
-                configuration_done = 1;
+                register_counter = register_counter + 1;
+                command_buffer = get_dragster_config(register_counter - 1);
+                if(register_counter == 4)
+                begin
+                    //todo: umv: add dragster 1 configuring
+                    configuration_done = 1;
+                end
             end
         end
     end

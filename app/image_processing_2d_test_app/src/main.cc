@@ -9,8 +9,8 @@
 extern PixelFrequencies linescanner0PixelFrequencies;
 extern PixelFrequencies linescanner1PixelFrequencies;
 
-#define SYNCH_FREQUENCY 2000 // Hz
-#define TESTING_TIME 1 // a
+#define SYNCH_FREQUENCY 2000 // Hz (period of mechanical part of system)
+#define TESTING_TIME 1       // seconds
 #define CYCLES_NUMBER SYNCH_FREQUENCY * TESTING_TIME
 
 //#define SPI_TESTING

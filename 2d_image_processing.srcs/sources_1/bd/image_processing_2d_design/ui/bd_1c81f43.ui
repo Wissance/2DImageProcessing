@@ -7,14 +7,14 @@ preplace port DDR -pg 1 -y -760 -defaultsOSRD
 preplace port LINESCANNER1_MAIN_CLOCK -pg 1 -y -340 -defaultsOSRD -left
 preplace port LINESCANNER1_RST_CVC -pg 1 -y -280 -defaultsOSRD -left
 preplace port LINESCANNER0_LVAL -pg 1 -y -600 -defaultsOSRD
-preplace port LINESCANNER1_END_ADC -pg 1 -y -170 -defaultsOSRD
 preplace port LINESCANNER_MOSI -pg 1 -y -90 -defaultsOSRD
+preplace port LINESCANNER1_END_ADC -pg 1 -y -170 -defaultsOSRD
 preplace port LINESCANNER0_RST_CDS -pg 1 -y -730 -defaultsOSRD -left
 preplace port LINESCANNER1_PIXEL_CLOCK -pg 1 -y -130 -defaultsOSRD
 preplace port LINESCANNER1_LVAL -pg 1 -y -150 -defaultsOSRD
 preplace port LINESCANNER0_LOAD_PULSE -pg 1 -y -790 -defaultsOSRD -left
-preplace port LINESCANNER1_SAMPLE -pg 1 -y -320 -defaultsOSRD -left
 preplace port LINESCANNER_CLK -pg 1 -y 30 -defaultsOSRD
+preplace port LINESCANNER1_SAMPLE -pg 1 -y -320 -defaultsOSRD -left
 preplace port LINESCANNER0_SAMPLE -pg 1 -y -750 -defaultsOSRD -left
 preplace port FIXED_IO -pg 1 -y -740 -defaultsOSRD
 preplace port LINESCANNER_MISO -pg 1 -y -110 -defaultsOSRD -right
