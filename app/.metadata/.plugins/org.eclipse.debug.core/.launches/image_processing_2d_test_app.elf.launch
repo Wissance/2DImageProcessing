@@ -14,7 +14,7 @@
 <stringAttribute key="com.xilinx.sdk.gdb.launch.TargetDevice" value="Auto Detect"/>
 <stringAttribute key="com.xilinx.sdk.gdb.launch.TargetPeer" value="Local"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.HOST" value="localhost"/>
-<stringAttribute key="org.eclipse.cdt.debug.mi.core.PORT" value="1241"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.PORT" value="1234"/>
 <booleanAttribute key="org.eclipse.cdt.debug.mi.core.REMOTE_TCP" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.debug.mi.core.verboseMode" value="false"/>
 <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
@@ -40,7 +40,7 @@
 <stringAttribute key="xilinx.romem.size" value=""/>
 <stringAttribute key="xilinx.stdio.baud" value="115200"/>
 <booleanAttribute key="xilinx.stdio.connect" value="true"/>
-<stringAttribute key="xilinx.stdio.port" value="COM20"/>
+<stringAttribute key="xilinx.stdio.port" value="COM3"/>
 <booleanAttribute key="xilinx.xmd.crosstrigger" value="true"/>
 <booleanAttribute key="xilinx.xmd.safe.mode" value="false"/>
 </launchConfiguration>

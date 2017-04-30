@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir D:\\Projects\\2DImageProcessing\\app\\webtalk
+webtalk_init -webtalk_dir C:\\GithubRepositories\\2DImageProcessing\\app\\webtalk
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "ѕн апр 17 17:04:28 2017" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "ѕн ма€ 1 00:44:01 2017" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "SDK v2016.2" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2016.2" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "amd64" -context "software_version_and_target_device"
@@ -12,9 +12,9 @@ webtalk_add_data -client project -key target_family -value "NA" -context "softwa
 webtalk_add_data -client project -key target_device -value "NA" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_package -value "NA" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_speed -value "NA" -context "software_version_and_target_device"
-webtalk_add_data -client project -key random_id -value "1e5nhoqeofe1hgg9d3bhkg1khq" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_id -value "2016.2_29" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "29" -context "software_version_and_target_device"
+webtalk_add_data -client project -key random_id -value "fufcrt93dlvmao4trejpjg811o" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_id -value "2016.2_5" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "5" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "" -context "user_environment"
@@ -22,12 +22,12 @@ webtalk_add_data -client project -key cpu_speed -value "" -context "user_environ
 webtalk_add_data -client project -key total_processors -value "" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "" -context "user_environment"
 webtalk_register_client -client sdk
-webtalk_add_data -client sdk -key uid -value "1492412938538" -context "sdk\\\\hardware/1492412938538"
-webtalk_add_data -client sdk -key isZynq -value "true" -context "sdk\\\\hardware/1492412938538"
-webtalk_add_data -client sdk -key Processors -value "2" -context "sdk\\\\hardware/1492412938538"
-webtalk_add_data -client sdk -key VivadoVersion -value "2016.2" -context "sdk\\\\hardware/1492412938538"
-webtalk_add_data -client sdk -key Arch -value "zynq" -context "sdk\\\\hardware/1492412938538"
-webtalk_add_data -client sdk -key Device -value "7z020" -context "sdk\\\\hardware/1492412938538"
-webtalk_add_data -client sdk -key IsHandoff -value "true" -context "sdk\\\\hardware/1492412938538"
-webtalk_transmit -clientid 519476071 -regid "" -xml D:\\Projects\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.xml -html D:\\Projects\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.html -wdm D:\\Projects\\2DImageProcessing\\app\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
+webtalk_add_data -client sdk -key uid -value "1493580783732" -context "sdk\\\\hardware/1493580783732"
+webtalk_add_data -client sdk -key isZynq -value "true" -context "sdk\\\\hardware/1493580783732"
+webtalk_add_data -client sdk -key Processors -value "2" -context "sdk\\\\hardware/1493580783732"
+webtalk_add_data -client sdk -key VivadoVersion -value "2016.2" -context "sdk\\\\hardware/1493580783732"
+webtalk_add_data -client sdk -key Arch -value "zynq" -context "sdk\\\\hardware/1493580783732"
+webtalk_add_data -client sdk -key Device -value "7z020" -context "sdk\\\\hardware/1493580783732"
+webtalk_add_data -client sdk -key IsHandoff -value "true" -context "sdk\\\\hardware/1493580783732"
+webtalk_transmit -clientid 880237274 -regid "" -xml C:\\GithubRepositories\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.xml -html C:\\GithubRepositories\\2DImageProcessing\\app\\webtalk\\usage_statistics_ext_sdk.html -wdm C:\\GithubRepositories\\2DImageProcessing\\app\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
 webtalk_terminate
