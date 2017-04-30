@@ -1,8 +1,8 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Fri Apr 28 15:09:12 2017
-//Host        : DLAB running 64-bit Service Pack 1  (build 7601)
+//Date        : Mon May 01 00:07:37 2017
+//Host        : DESKTOP-AV8UQH3 running 64-bit major release  (build 9200)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
 //Purpose     : IP block netlist
@@ -213,6 +213,7 @@ module image_processing_2d_design
   wire frequency_analyzer_synch_0_stop_analyzer_1;
   wire image_capture_manager_0_clear_memory;
   wire image_capture_manager_0_image_capture_enabled;
+  wire image_capture_manager_0_reset;
   wire linescanner_image_capture_unit_0_load_pulse;
   wire linescanner_image_capture_unit_0_main_clock;
   wire linescanner_image_capture_unit_0_pixel_captured;
@@ -571,6 +572,7 @@ module image_processing_2d_design
   image_processing_2d_design_image_capture_manager_0_0 image_capture_manager_0
        (.clear_memory(image_capture_manager_0_clear_memory),
         .image_capture_enabled(image_capture_manager_0_image_capture_enabled),
+        .reset(image_capture_manager_0_reset),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(axi_interconnect_0_M01_AXI_ARADDR[3:0]),
         .s00_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),
@@ -626,7 +628,7 @@ module image_processing_2d_design
        (.inp(proc_sys_reset_0_peripheral_reset),
         .outp(proc_sys_reset_0_peripheral_aresetn));
   image_processing_2d_design_proc_sys_reset_0_1 proc_sys_reset_0
-       (.aux_reset_in(1'b1),
+       (.aux_reset_in(image_capture_manager_0_reset),
         .dcm_locked(1'b1),
         .ext_reset_in(processing_system7_0_FCLK_RESET0_N),
         .mb_debug_sys_rst(1'b0),
