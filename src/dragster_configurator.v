@@ -33,11 +33,13 @@ module dragster_configurator #
 );
 
     reg [15:0] command_buffer;
+    wire[7:0] incoming_data;
     reg [3:0] register_counter;
     reg configuration_done;
     reg [1:0] slave;
     reg enable;
-    wire busy;
+    reg start_transaction;
+    wire end_of_transaction;
     //supply1 vcc;
 
 /*    wire internal_reset_n;
@@ -50,9 +52,20 @@ module dragster_configurator #
     //FDCE reset_generator(.CLR(~reset_n), .CE(vcc), .D(vcc), .C(clk), .Q(internal_reset_n));
     //FDRE enable_generator(.R(enable), .CE(~busy & ~configuration_done & reset_n), .D(vcc), .C(clk), .Q(enable));
     
-    quick_spi spi_iml(.clk(clk), .reset_n(reset_n), .enable(enable), .busy(busy), 
-                      .slave(slave), .outgoing_data(command_buffer), .operation(1'b1),
-                      .miso(miso), .sclk(sclk), .ss_n(ss_n), .mosi(mosi));
+    quick_spi spi_iml(
+        .clk(clk),
+        .reset_n(reset_n),
+        .enable(enable),
+        .start_transaction(start_transaction),
+        .slave(slave),
+        .incoming_data(incoming_data),
+        .outgoing_data(command_buffer),
+        .operation(1'b1),
+        .end_of_transaction(end_of_transaction),
+        .miso(miso),
+        .sclk(sclk),
+        .ss_n(ss_n),
+        .mosi(mosi));
     
     /*always@(negedge reset_n
             //posedge internal_reset_clk 
@@ -78,21 +91,28 @@ module dragster_configurator #
         end
     end*/
     
-    always @ (posedge clk or negedge reset_n) begin
+    always @ (posedge clk) begin
         if(!reset_n) begin
             register_counter <= 0;
-            enable <= 1'b1;
         end
         
-        else begin            
-            if(!busy) begin
-                if(register_counter <= 3) begin
+        else begin
+            if(!register_counter) begin
+                enable <= 1'b1;
+                start_transaction <= 1'b1;
+                command_buffer <= get_dragster_config(register_counter);
+                register_counter <= register_counter + 1;
+            end
+                
+            if(end_of_transaction) begin
+                if(register_counter < 4) begin
                     command_buffer <= get_dragster_config(register_counter);
                     register_counter <= register_counter + 1;
                 end
-                
-                else begin
-                    register_counter <= 0;
+            
+                if(register_counter == 4) begin
+                    enable <= 1'b0;
+                    start_transaction <= 1'b0;
                 end
             end
         end
