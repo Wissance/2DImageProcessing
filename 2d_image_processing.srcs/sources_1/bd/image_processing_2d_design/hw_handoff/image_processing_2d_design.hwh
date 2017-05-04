@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 04 12:28:12 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 04 15:19:55 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -2323,9 +2323,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_PIXEL_CLOCK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="main_clock_source" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK1">
+        <PORT DIR="I" NAME="main_clock_source" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK1"/>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="main_clock" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_0_main_clock">
@@ -2403,9 +2403,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_PIXEL_CLOCK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="main_clock_source" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK1">
+        <PORT DIR="I" NAME="main_clock_source" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK1"/>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="main_clock" SIGIS="clk" SIGNAME="linescanner_image_capture_unit_1_main_clock">
@@ -2456,6 +2456,7 @@
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="dragster_configurator_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
@@ -2466,7 +2467,6 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M04_ARESETN"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="dragster_configurator_0" PORT="reset_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3880,14 +3880,11 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M04_ACLK"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aclk"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="50000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
-          <CONNECTIONS>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="main_clock_source"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="main_clock_source"/>
           </CONNECTIONS>
         </PORT>
+        <PORT CLKFREQUENCY="50000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk"/>
         <PORT CLKFREQUENCY="20000000" DIR="O" NAME="FCLK_CLK2" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="dragster_configurator_0" PORT="clk"/>

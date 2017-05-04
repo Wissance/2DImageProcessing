@@ -1213,7 +1213,6 @@ CONFIG.IN1_WIDTH {1} \
   connect_bd_net -net LINESCANNER1_LVAL_1 [get_bd_ports LINESCANNER1_LVAL] [get_bd_pins linescanner_image_capture_unit_1/lval]
   connect_bd_net -net LINESCANNER1_PIXEL_CLOCK_1 [get_bd_ports LINESCANNER1_PIXEL_CLOCK] [get_bd_pins linescanner_image_capture_unit_1/pixel_clock]
   connect_bd_net -net LINESCANNER_MISO_1 [get_bd_ports LINESCANNER_MISO] [get_bd_pins dragster_configurator_0/miso]
-  connect_bd_net -net clock_divider_0_output_clock [get_bd_pins linescanner_image_capture_unit_0/main_clock_source] [get_bd_pins linescanner_image_capture_unit_1/main_clock_source] [get_bd_pins processing_system7_0/FCLK_CLK1]
   connect_bd_net -net dragster_configurator_0_mosi [get_bd_ports LINESCANNER_MOSI] [get_bd_pins dragster_configurator_0/mosi]
   connect_bd_net -net dragster_configurator_0_sclk [get_bd_ports LINESCANNER_CLK] [get_bd_pins dragster_configurator_0/sclk]
   connect_bd_net -net dragster_configurator_0_ss_n [get_bd_ports LINESCANNER_CS] [get_bd_pins dragster_configurator_0/ss_n]
@@ -1245,7 +1244,7 @@ HDL_ATTRIBUTE.MARK_DEBUG {true} \
   connect_bd_net -net linescanner_image_capture_unit_1_sample [get_bd_ports LINESCANNER1_SAMPLE] [get_bd_pins linescanner_image_capture_unit_1/sample]
   connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_ports LINESCANNER0_N_RESET] [get_bd_ports LINESCANNER1_N_RESET] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_interconnect_0/S01_ARESETN] [get_bd_pins dragster_configurator_0/reset_n] [get_bd_pins frequency_analyzer_manager_0/s00_axi_aresetn] [get_bd_pins frequency_analyzer_manager_1/s00_axi_aresetn] [get_bd_pins frequency_analyzer_synch_0/reset] [get_bd_pins image_capture_manager_0/s00_axi_aresetn] [get_bd_pins linescanner_image_capture_unit_0/n_reset] [get_bd_pins linescanner_image_capture_unit_1/n_reset] [get_bd_pins not_1bit_0/outp]
   connect_bd_net -net proc_sys_reset_0_peripheral_reset [get_bd_pins not_1bit_0/inp] [get_bd_pins proc_sys_reset_0/peripheral_reset]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/S01_ACLK] [get_bd_pins frequency_analyzer_manager_0/s00_axi_aclk] [get_bd_pins frequency_analyzer_manager_1/s00_axi_aclk] [get_bd_pins frequency_analyzer_synch_0/clock] [get_bd_pins image_capture_manager_0/s00_axi_aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/S01_ACLK] [get_bd_pins frequency_analyzer_manager_0/s00_axi_aclk] [get_bd_pins frequency_analyzer_manager_1/s00_axi_aclk] [get_bd_pins frequency_analyzer_synch_0/clock] [get_bd_pins image_capture_manager_0/s00_axi_aclk] [get_bd_pins linescanner_image_capture_unit_0/main_clock_source] [get_bd_pins linescanner_image_capture_unit_1/main_clock_source] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
   connect_bd_net -net processing_system7_0_FCLK_CLK2 [get_bd_pins dragster_configurator_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK2]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins processing_system7_0/IRQ_F2P] [get_bd_pins xlconcat_0/dout]
@@ -1299,21 +1298,20 @@ preplace inst dragster_configurator_0 -pg 1 -lvl 5 -y -100 -defaultsOSRD
 preplace inst not_1bit_0 -pg 1 -lvl 6 -y -400 -defaultsOSRD
 preplace inst frequency_analyzer_manager_0 -pg 1 -lvl 3 -y -660 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -y -680 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 5 2 NJ -770 1860
+preplace netloc processing_system7_0_DDR 1 5 2 NJ -770 NJ
 preplace netloc image_capture_manager_0_reset 1 4 1 1180
 preplace netloc linescanner_image_capture_unit_1_main_clock 1 0 2 NJ -370 -270
 preplace netloc linescanner_image_capture_unit_1_sample 1 0 2 NJ -130 -290
-preplace netloc clock_divider_0_output_clock 1 0 6 -670 -850 NJ -850 NJ -850 NJ -850 NJ -850 1660
 preplace netloc linescanner_image_capture_unit_1_rst_cds 1 0 2 NJ -360 -290
 preplace netloc LINESCANNER1_LVAL_1 1 0 1 -680
 preplace netloc linescanner_image_capture_unit_0_rst_cds 1 0 2 NJ -730 -290
 preplace netloc linescanner_image_capture_unit_0_rst_cvc 1 0 2 NJ -760 -280
-preplace netloc image_capture_manager_0_image_capture_enabled 1 0 5 -650 -390 NJ -330 NJ -350 370 -200 1130
+preplace netloc image_capture_manager_0_image_capture_enabled 1 0 5 -680 -390 NJ -330 NJ -350 370 -200 1130
 preplace netloc dragster_configurator_0_sclk 1 5 2 N -100 NJ
 preplace netloc image_capture_manager_0_clear_memory 1 2 3 140 -360 NJ -210 1140
 preplace netloc LINESCANNER1_END_ADC_1 1 0 1 -690
 preplace netloc frequency_analyzer_manager_1_irq 1 3 1 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 3 3 NJ -870 NJ -870 1650
+preplace netloc processing_system7_0_M_AXI_GP0 1 3 3 NJ -840 NJ -840 1640
 preplace netloc LINESCANNER_MISO_1 1 4 3 1200 -30 NJ -110 N
 preplace netloc axi_interconnect_0_M02_AXI 1 2 3 80 -810 NJ -810 1150
 preplace netloc linescanner_image_capture_unit_0_load_pulse 1 0 2 NJ -790 -250
@@ -1324,7 +1322,7 @@ preplace netloc LINESCANNER1_PIXEL_CLOCK_1 1 0 1 -720
 preplace netloc linescanner_image_capture_unit_0_sample 1 0 2 NJ -750 -270
 preplace netloc axi_interconnect_0_M04_AXI 1 4 1 1160
 preplace netloc xlconcat_0_dout 1 4 1 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 5 2 NJ -750 1860
+preplace netloc processing_system7_0_FIXED_IO 1 5 2 NJ -750 NJ
 preplace netloc linescanner_image_capture_unit_1_pixel_captured 1 1 2 NJ -260 N
 preplace netloc linescanner_image_capture_unit_1_pixel_data 1 1 2 NJ -280 N
 preplace netloc proc_sys_reset_0_peripheral_reset 1 5 1 N
@@ -1333,11 +1331,11 @@ preplace netloc frequency_analyzer_synch_0_start_analyzer_0 1 2 1 80
 preplace netloc linescanner_image_capture_unit_1_rst_cvc 1 0 2 NJ -140 -280
 preplace netloc LINESCANNER0_END_ADC_1 1 0 1 -710
 preplace netloc LINESCANNER0_DATA_1 1 0 1 -730
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 7 -660 -490 -280 -490 NJ -540 410 -190 NJ -310 1650 -340 1860
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 7 -660 -490 -280 -490 NJ -540 410 -190 NJ -310 1640 -340 1860
 preplace netloc axi_interconnect_0_M01_AXI 1 3 2 420 -670 1130
 preplace netloc frequency_analyzer_synch_0_start_analyzer_1 1 2 1 90
 preplace netloc frequency_analyzer_synch_0_stop_analyzer_0 1 2 1 90
-preplace netloc processing_system7_0_FCLK_CLK0 1 1 5 NJ -510 NJ -530 380 -820 1180 -840 1640
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 -670 -510 NJ -510 NJ -530 380 -820 1180 -850 1650
 preplace netloc dragster_configurator_0_ss_n 1 5 2 N -80 NJ
 preplace netloc frequency_analyzer_synch_0_stop_analyzer_1 1 2 1 80
 preplace netloc linescanner_image_capture_unit_0_pixel_data 1 1 2 -240 -710 NJ
@@ -1345,8 +1343,8 @@ preplace netloc linescanner_image_capture_unit_1_load_pulse 1 0 2 NJ -380 -260
 preplace netloc LINESCANNER1_DATA_1 1 0 1 -700
 preplace netloc axi_interconnect_0_M03_AXI 1 2 3 130 -790 NJ -790 1140
 preplace netloc processing_system7_0_FCLK_CLK2 1 4 2 1200 -490 1650
-preplace netloc dragster_configurator_0_mosi 1 5 2 NJ -120 1860
-preplace netloc LINESCANNER0_PIXEL_CLOCK_1 1 0 1 -680
+preplace netloc dragster_configurator_0_mosi 1 5 2 NJ -120 NJ
+preplace netloc LINESCANNER0_PIXEL_CLOCK_1 1 0 1 -690
 preplace netloc LINESCANNER0_LVAL_1 1 0 1 -700
 levelinfo -pg 1 -750 -440 -46 251 968 1430 1760 1900 -top -890 -bot 110
 ",

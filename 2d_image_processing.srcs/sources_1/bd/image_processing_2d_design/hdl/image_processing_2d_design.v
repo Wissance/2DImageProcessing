@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu May 04 12:28:10 2017
+//Date        : Thu May 04 15:19:33 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -201,7 +201,6 @@ module image_processing_2d_design
   wire axi_interconnect_0_M04_AXI_WREADY;
   wire [3:0]axi_interconnect_0_M04_AXI_WSTRB;
   wire axi_interconnect_0_M04_AXI_WVALID;
-  wire clock_divider_0_output_clock;
   wire dragster_configurator_0_mosi;
   wire dragster_configurator_0_sclk;
   wire [1:0]dragster_configurator_0_ss_n;
@@ -601,7 +600,7 @@ module image_processing_2d_design
         .load_pulse(linescanner_image_capture_unit_0_load_pulse),
         .lval(LINESCANNER0_LVAL_1),
         .main_clock(linescanner_image_capture_unit_0_main_clock),
-        .main_clock_source(clock_divider_0_output_clock),
+        .main_clock_source(processing_system7_0_FCLK_CLK0),
         .n_reset(proc_sys_reset_0_peripheral_aresetn),
         .pixel_captured(linescanner_image_capture_unit_0_pixel_captured),
         .pixel_clock(LINESCANNER0_PIXEL_CLOCK_1),
@@ -616,7 +615,7 @@ module image_processing_2d_design
         .load_pulse(linescanner_image_capture_unit_1_load_pulse),
         .lval(LINESCANNER1_LVAL_1),
         .main_clock(linescanner_image_capture_unit_1_main_clock),
-        .main_clock_source(clock_divider_0_output_clock),
+        .main_clock_source(processing_system7_0_FCLK_CLK0),
         .n_reset(proc_sys_reset_0_peripheral_aresetn),
         .pixel_captured(linescanner_image_capture_unit_1_pixel_captured),
         .pixel_clock(LINESCANNER1_PIXEL_CLOCK_1),
@@ -653,7 +652,6 @@ module image_processing_2d_design
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
-        .FCLK_CLK1(clock_divider_0_output_clock),
         .FCLK_CLK2(processing_system7_0_FCLK_CLK2),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
         .GPIO_I({1'b0,1'b0,1'b0,1'b0}),
