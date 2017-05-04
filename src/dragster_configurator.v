@@ -105,12 +105,12 @@ module dragster_configurator #
             end
                 
             if(end_of_transaction) begin
-                if(register_counter < 4) begin
+                if(register_counter < 5) begin
                     command_buffer <= get_dragster_config(register_counter);
                     register_counter <= register_counter + 1;
                 end
             
-                if(register_counter == 4) begin
+                if(register_counter == 5) begin
                     enable <= 1'b0;
                     start_transaction <= 1'b0;
                 end
@@ -141,6 +141,12 @@ module dragster_configurator #
                       //16'b0001000010010000;
            end
            3:
+           begin
+               // adc inversed gain (higher value smaller gain)
+               result = {8'b11111100, 8'b00000011};
+                     //16'b1000000010010101; 
+           end
+           4:
            begin
                // control register 1
                result = {8'b10101101, 8'b00000001};
