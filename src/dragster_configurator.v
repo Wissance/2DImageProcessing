@@ -125,22 +125,26 @@ module dragster_configurator #
            0:
            begin
                // control register 2
-               result = 16'b0100000001001100; 
+               result = {8'b00110010, 8'b00000010};
+                      //16'b0100000001001100; 
            end
            1:
            begin
                // control register 3
-               result = 16'b1010000011001000; 
+               result = {8'b00010011, 8'b00000101};
+                      //16'b1010000011001000; 
            end
            2:
            begin
                // end of range
-               result = 16'b0001000010010000;
+               result = {8'b00001000, 8'b00001001};
+                      //16'b0001000010010000;
            end
            3:
            begin
                // control register 1
-               result = 16'b1000000010010101; 
+               result = {8'b10101101, 8'b00000001};
+                     //16'b1000000010010101; 
            end
            default:
            begin

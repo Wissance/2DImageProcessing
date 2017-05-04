@@ -127,7 +127,7 @@
         <spirit:abstractionType spirit:library="display_processing_system7" spirit:name="fixedio_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>RST.LINESCANNER1_N_RESET</spirit:name>
+        <spirit:name>RST.LINESCANNER0_N_RESET</spirit:name>
         <spirit:displayName>Reset</spirit:displayName>
         <spirit:description>Reset</spirit:description>
         <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -139,7 +139,7 @@
               <spirit:name>RST</spirit:name>
             </spirit:logicalPort>
             <spirit:physicalPort>
-              <spirit:name>LINESCANNER1_N_RESET</spirit:name>
+              <spirit:name>LINESCANNER0_N_RESET</spirit:name>
             </spirit:physicalPort>
           </spirit:portMap>
         </spirit:portMaps>
@@ -156,7 +156,7 @@
         </spirit:parameters>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>RST.LINESCANNER0_N_RESET</spirit:name>
+        <spirit:name>RST.LINESCANNER1_N_RESET</spirit:name>
         <spirit:displayName>Reset</spirit:displayName>
         <spirit:description>Reset</spirit:description>
         <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -168,7 +168,7 @@
               <spirit:name>RST</spirit:name>
             </spirit:logicalPort>
             <spirit:physicalPort>
-              <spirit:name>LINESCANNER0_N_RESET</spirit:name>
+              <spirit:name>LINESCANNER1_N_RESET</spirit:name>
             </spirit:physicalPort>
           </spirit:portMap>
         </spirit:portMaps>
@@ -421,7 +421,7 @@
       </spirit:views>
       <spirit:ports>
         <spirit:port>
-          <spirit:name>LINESCANNER1_N_RESET</spirit:name>
+          <spirit:name>LINESCANNER0_N_RESET</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
             <spirit:vector>
@@ -431,7 +431,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>LINESCANNER0_N_RESET</spirit:name>
+          <spirit:name>LINESCANNER1_N_RESET</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
             <spirit:vector>
@@ -1323,8 +1323,8 @@
       <spirit:adHocConnection>
         <spirit:name>proc_sys_reset_0_peripheral_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="not_1bit_0" spirit:portRef="outp"/>
-        <spirit:externalPortReference spirit:portRef="LINESCANNER0_N_RESET"/>
         <spirit:externalPortReference spirit:portRef="LINESCANNER1_N_RESET"/>
+        <spirit:externalPortReference spirit:portRef="LINESCANNER0_N_RESET"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="n_reset"/>
