@@ -1,8 +1,8 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu May 04 15:19:33 2017
-//Host        : DLAB running 64-bit Service Pack 1  (build 7601)
+//Date        : Tue May 09 04:27:39 2017
+//Host        : DESKTOP-AV8UQH3 running 64-bit major release  (build 9200)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
 //Purpose     : IP block netlist
@@ -245,6 +245,7 @@ module image_processing_2d_design
   wire processing_system7_0_DDR_RESET_N;
   wire processing_system7_0_DDR_WE_N;
   wire processing_system7_0_FCLK_CLK0;
+  wire processing_system7_0_FCLK_CLK1;
   wire processing_system7_0_FCLK_CLK2;
   wire processing_system7_0_FCLK_RESET0_N;
   wire processing_system7_0_FIXED_IO_DDR_VRN;
@@ -600,7 +601,7 @@ module image_processing_2d_design
         .load_pulse(linescanner_image_capture_unit_0_load_pulse),
         .lval(LINESCANNER0_LVAL_1),
         .main_clock(linescanner_image_capture_unit_0_main_clock),
-        .main_clock_source(processing_system7_0_FCLK_CLK0),
+        .main_clock_source(processing_system7_0_FCLK_CLK1),
         .n_reset(proc_sys_reset_0_peripheral_aresetn),
         .pixel_captured(linescanner_image_capture_unit_0_pixel_captured),
         .pixel_clock(LINESCANNER0_PIXEL_CLOCK_1),
@@ -615,7 +616,7 @@ module image_processing_2d_design
         .load_pulse(linescanner_image_capture_unit_1_load_pulse),
         .lval(LINESCANNER1_LVAL_1),
         .main_clock(linescanner_image_capture_unit_1_main_clock),
-        .main_clock_source(processing_system7_0_FCLK_CLK0),
+        .main_clock_source(processing_system7_0_FCLK_CLK1),
         .n_reset(proc_sys_reset_0_peripheral_aresetn),
         .pixel_captured(linescanner_image_capture_unit_1_pixel_captured),
         .pixel_clock(LINESCANNER1_PIXEL_CLOCK_1),
@@ -652,6 +653,7 @@ module image_processing_2d_design
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
+        .FCLK_CLK1(processing_system7_0_FCLK_CLK1),
         .FCLK_CLK2(processing_system7_0_FCLK_CLK2),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
         .GPIO_I({1'b0,1'b0,1'b0,1'b0}),
