@@ -165,17 +165,18 @@ module dragster_configurator #
             result = {8'b00110010, 8'b00000010};
            end
            
-           /*2:
-           begin
-            result = {8'b00001000, 8'b00001001};
-           end*/
-           
            2: begin
            // Inversed ADC gain register
             result = {8'b11111100, 8'b00000011};
            end
            
-           3:
+          3:
+           begin
+           // end of range 
+            result = {8'b01111111 /*8'b00001000*/, 8'b00001001};
+           end
+           
+           4:
            begin
             // control register 1
                 result = {8'b10101001, 8'b00000001};
