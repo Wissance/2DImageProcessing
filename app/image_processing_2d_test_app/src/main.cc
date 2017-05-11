@@ -15,23 +15,11 @@ extern PixelFrequencies linescanner1PixelFrequencies;
 
 //#define SPI_TESTING
 
+static void clearFrequencies();
+
 int main()
 {
     printf("Application started \r\n");
-
-    linescanner0PixelFrequencies._pixel0Frequency0 = 0;
-    linescanner0PixelFrequencies._pixel0Frequency1 = 0;
-    linescanner0PixelFrequencies._pixel1Frequency0 = 0;
-    linescanner0PixelFrequencies._pixel1Frequency1 = 0;
-    linescanner0PixelFrequencies._pixel2Frequency0 = 0;
-    linescanner0PixelFrequencies._pixel2Frequency1 = 0;
-
-    linescanner1PixelFrequencies._pixel0Frequency0 = 0;
-    linescanner1PixelFrequencies._pixel0Frequency1 = 0;
-    linescanner1PixelFrequencies._pixel1Frequency0 = 0;
-    linescanner1PixelFrequencies._pixel1Frequency1 = 0;
-    linescanner1PixelFrequencies._pixel2Frequency0 = 0;
-    linescanner1PixelFrequencies._pixel2Frequency1 = 0;
 
     ImageCaptureManager systemManager;
     systemManager.initialize();
@@ -47,6 +35,7 @@ int main()
     printf("Application stopped \r\n");
 #else
     systemManager.resetImageCapture();
+    clearFrequencies();
     systemManager.startImageCapture();
 
     while(linescanner0PixelFrequencies._counter != CYCLES_NUMBER);
@@ -85,4 +74,21 @@ int main()
     printf("Application stopped \r\n");
 #endif
     return 0;
+}
+
+void clearFrequencies()
+{
+    linescanner0PixelFrequencies._pixel0Frequency0 = 0;
+    linescanner0PixelFrequencies._pixel0Frequency1 = 0;
+    linescanner0PixelFrequencies._pixel1Frequency0 = 0;
+    linescanner0PixelFrequencies._pixel1Frequency1 = 0;
+    linescanner0PixelFrequencies._pixel2Frequency0 = 0;
+    linescanner0PixelFrequencies._pixel2Frequency1 = 0;
+
+    linescanner1PixelFrequencies._pixel0Frequency0 = 0;
+    linescanner1PixelFrequencies._pixel0Frequency1 = 0;
+    linescanner1PixelFrequencies._pixel1Frequency0 = 0;
+    linescanner1PixelFrequencies._pixel1Frequency1 = 0;
+    linescanner1PixelFrequencies._pixel2Frequency0 = 0;
+    linescanner1PixelFrequencies._pixel2Frequency1 = 0;
 }

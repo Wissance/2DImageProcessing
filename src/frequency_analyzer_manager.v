@@ -239,9 +239,9 @@ module frequency_analyzer_manager #
     begin
         if(~s00_axi_aresetn)
         begin
-           write_completed <= 0;
-           register_number_value <= 0;
-           hold <= 0;
+           write_completed = 0;
+           register_number_value = 0;
+           hold = 0;
         end
         else
         begin
@@ -251,28 +251,31 @@ module frequency_analyzer_manager #
                 begin
                     if(hold == 0)
                     begin
-                        register_operation_value <= 2;//`REGISTER_WRITE_OPERATION;
-                        register_number_value <= register_number_value + 1;
-                        register_write_value <= get_frequency(register_number_value);//200 + register_number; 
-                        if(register_number_value == REGISTERS_NUMBER)
-                            write_completed <= 1;
+                        register_number_value = register_number_value + 1;
+                        if(register_number_value > 0 && register_number_value <= REGISTERS_NUMBER)
+                        begin
+                            register_operation_value = 2;//`REGISTER_WRITE_OPERATION;
+                            register_write_value = get_frequency(register_number_value);//200 + register_number; 
+                        end
+                        if(register_number_value == REGISTERS_NUMBER + 1)
+                            write_completed = 1;
                     end
-                    hold <= hold + 1;
+                    hold = hold + 1;
                 end
                 else
                 begin
-                    register_operation_value <= 0;
-                    register_number_value <= 0;
-                    register_write_value <= 0;
+                    register_operation_value = 0;
+                    register_number_value = 0;
+                    register_write_value = 0;
                 end
             end
             else //if(!stop) 
             begin
-                register_operation_value <= 0;
-                register_number_value <= 0;
-                register_write_value <= 0;
-                write_completed <= 0;
-                hold <= 0;
+                register_operation_value = 0;
+                register_number_value = 0;
+                register_write_value = 0;
+                write_completed = 0;
+                hold = 0;
             end
         end
     end

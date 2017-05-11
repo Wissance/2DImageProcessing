@@ -13,6 +13,9 @@
 
 //#define USE_AXI_QUAD_SPI
 
+extern PixelFrequencies linescanner0PixelFrequencies;
+extern PixelFrequencies linescanner1PixelFrequencies;
+
 class ImageCaptureManager
 {
 public:

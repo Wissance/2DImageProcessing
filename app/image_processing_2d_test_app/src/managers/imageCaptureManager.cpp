@@ -27,12 +27,8 @@ u8 writeBuffer[2];
 PixelFrequencies linescanner0PixelFrequencies;
 PixelFrequencies linescanner1PixelFrequencies;
 
-//static int lock = 0;
-
 void freuqencyAnalyzer0Handler(void *data)
 {
-    //while(lock);
-    //lock = 1;
     linescanner0PixelFrequencies._counter++;
     // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 1
     //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
@@ -42,14 +38,11 @@ void freuqencyAnalyzer0Handler(void *data)
     linescanner0PixelFrequencies._pixel1Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
     linescanner0PixelFrequencies._pixel1Frequency1 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
     linescanner0PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
-    linescanner0PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
-    //lock = 0;
+    linescanner0PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 20);
 }
 
 void freuqencyAnalyzer1Handler(void *data)
 {
-    //while(lock);
-    //lock = 1;
     linescanner1PixelFrequencies._counter++;
     // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 0
     //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
@@ -60,7 +53,6 @@ void freuqencyAnalyzer1Handler(void *data)
     linescanner1PixelFrequencies._pixel1Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 12);
     linescanner1PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 16);
     linescanner1PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
-    //lock = 0;
 }
 
 void ImageCaptureManager::initialize()
