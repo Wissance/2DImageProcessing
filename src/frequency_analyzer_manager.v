@@ -280,11 +280,11 @@ module frequency_analyzer_manager #
     function [31:0] get_frequency(input reg[2:0] index);
         case (index)
             1: get_frequency = pixel0_f0_action_time_net;
-            2: get_frequency = pixel0_f1_action_time_net;
-            3: get_frequency = pixel1_f0_action_time_net;
-            4: get_frequency = pixel1_f1_action_time_net;
-            5: get_frequency = pixel2_f0_action_time_net;
-            6: get_frequency = pixel2_f1_action_time_net;
+            2: get_frequency = pixel0_f0_action_time_net;//pixel0_f1_action_time_net;
+            3: get_frequency = pixel0_f0_action_time_net;//pixel1_f0_action_time_net;
+            4: get_frequency = pixel0_f0_action_time_net;//pixel1_f1_action_time_net;
+            5: get_frequency = pixel0_f0_action_time_net;//pixel2_f0_action_time_net;
+            6: get_frequency = pixel0_f0_action_time_net;//pixel2_f1_action_time_net;
             default: get_frequency = 0;
         endcase
     endfunction 

@@ -67,30 +67,6 @@ module dragster_configurator #
         .ss_n(ss_n),
         .mosi(mosi));
     
-    /*always@(negedge reset_n
-            //posedge internal_reset_clk 
-            or posedge enable)
-    begin
-        if(~reset_n)
-           //~internal_reset_n)
-        begin
-            register_counter = 0;
-            configuration_done = 0;
-            command_buffer = 0;
-            slave = 0;
-        end
-        else //if(enable)
-        begin
-            register_counter = register_counter + 1;
-            command_buffer = get_dragster_config(register_counter - 1);
-            if(register_counter == 4)
-            begin
-                //todo: umv: add dragster 1 configuring
-                configuration_done = 1;
-            end
-        end
-    end*/
-    
     always @ (posedge clk) begin
         if(!reset_n) begin
             register_counter <= 0;
@@ -121,38 +97,7 @@ module dragster_configurator #
     function[15:0] get_dragster_config(reg [3:0] index);
     reg[15:0] result;
     begin
-       case (index)
-           /*0:
-           begin
-               // control register 2
-               result = {8'b00110010, 8'b00000010};
-                      //16'b0100000001001100; 
-           end
-           1:
-           begin
-               // control register 3
-               result = {8'b00010011, 8'b00000101};
-                      //16'b1010000011001000; 
-           end
-           2:
-           begin
-               // end of range
-               result = {8'b00001000, 8'b00001001};
-                      //16'b0001000010010000;
-           end
-           3:
-           begin
-               // adc inversed gain (higher value smaller gain)
-               result = {8'b11111100, 8'b00000011};
-                     //16'b1000000010010101; 
-           end
-           4:
-           begin
-               // control register 1
-               result = {8'b10101101, 8'b00000001};
-                     //16'b1000000010010101; 
-           end*/
-           
+       case (index)          
           0:
            begin
             // control register 3
@@ -167,13 +112,13 @@ module dragster_configurator #
            
            2: begin
            // Inversed ADC gain register
-            result = {8'b11111100, 8'b00000011};
+            result = {8'b11000000, 8'b00000011};
            end
            
           3:
            begin
            // end of range 
-            result = {8'b01111111 /*8'b00001000*/, 8'b00001001};
+            result = {8'b00000111 /*8'b00001000*/, 8'b00001001};
            end
            
            4:
