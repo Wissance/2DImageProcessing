@@ -1,8 +1,8 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Tue May 09 04:27:39 2017
-//Host        : DESKTOP-AV8UQH3 running 64-bit major release  (build 9200)
+//Date        : Mon May 15 11:07:48 2017
+//Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
 //Purpose     : IP block netlist
