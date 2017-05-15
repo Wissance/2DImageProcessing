@@ -9,6 +9,7 @@
 
 #define START_COMMAND 1
 #define STOP_COMMAND 2
+#define RESET_COMMAND 3
 
 #define LINESCANNER0_SLAVE_SELECT 1
 #define LINESCANNER1_SLAVE_SELECT 2
@@ -18,18 +19,16 @@
 
 #define INTERRUPT_CONTROLLER_DEVICE_ID XPAR_SCUGIC_SINGLE_DEVICE_ID
 
+#ifdef USE_AXI_QUAD_SPI
 u8 readBuffer[2];
 u8 writeBuffer[2];
+#endif
 
 PixelFrequencies linescanner0PixelFrequencies;
 PixelFrequencies linescanner1PixelFrequencies;
 
-//static int lock = 0;
-
 void freuqencyAnalyzer0Handler(void *data)
 {
-    //while(lock);
-    //lock = 1;
     linescanner0PixelFrequencies._counter++;
     // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 1
     //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
@@ -39,14 +38,11 @@ void freuqencyAnalyzer0Handler(void *data)
     linescanner0PixelFrequencies._pixel1Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 8);
     linescanner0PixelFrequencies._pixel1Frequency1 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 12);
     linescanner0PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
-    linescanner0PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
-    //lock = 0;
+    linescanner0PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 20);
 }
 
 void freuqencyAnalyzer1Handler(void *data)
 {
-    //while(lock);
-    //lock = 1;
     linescanner1PixelFrequencies._counter++;
     // TODO: UMV: COMMENTED: BACEUSE LONG OPERATION BREAKES INTERUPT HANDLER 0
     //xil_printf("Frequency analyzer 0 rised %d times \r\n", linescanner0PixelFrequencies._counter);
@@ -57,13 +53,14 @@ void freuqencyAnalyzer1Handler(void *data)
     linescanner1PixelFrequencies._pixel1Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 12);
     linescanner1PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 16);
     linescanner1PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
-    //lock = 0;
 }
 
 void ImageCaptureManager::initialize()
 {
+#ifdef USE_AXI_QUAD_SPI
     initializeSpi();
     initializeDragsters();
+#endif
     configureInterrupts();
 }
 
@@ -81,12 +78,11 @@ void ImageCaptureManager::stopImageCapture()
     xil_printf("\n Image Capture Manager has been stopped\n\r");
 }
 
-DragsterConfig ImageCaptureManager::getDragsterConfig(unsigned char linescannerIndex)
+void ImageCaptureManager::resetImageCapture()
 {
-    struct DragsterConfig config;
-    readDragsterConfigImpl(&config, linescannerIndex == LINESCANNER0 ? LINESCANNER0_SLAVE_SELECT
-                                                                     : LINESCANNER1_SLAVE_SELECT);
-    return config;
+    //Xil_Out32(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 2);
+    write(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 0, RESET_COMMAND);
+    xil_printf("\n Image Capture Manager has been reseted\n\r");
 }
 
 void ImageCaptureManager::configureInterrupts()
@@ -125,6 +121,16 @@ void ImageCaptureManager::configureInterrupts()
     Xil_ExceptionEnable();
 }
 
+#ifdef USE_AXI_QUAD_SPI
+DragsterConfig ImageCaptureManager::getDragsterConfig(unsigned char linescannerIndex)
+{
+    struct DragsterConfig config;
+    readDragsterConfigImpl(&config, linescannerIndex == LINESCANNER0 ? LINESCANNER0_SLAVE_SELECT
+                                                                     : LINESCANNER1_SLAVE_SELECT);
+    return config;
+}
+
+
 /* Инициализация SPI в блокирующем режиме (polling mode)*/
 void ImageCaptureManager::initializeSpi()
 {
@@ -157,7 +163,7 @@ void ImageCaptureManager::initializeSpi()
 void ImageCaptureManager::initializeDragsters()
 {
     // dragster0 config
-    _linescanner0Config.setControlRegister1(//0xAB);   // Clock divider = 2
+    _linescanner0Config.setControlRegister1(//0xAD);   // Clock divider = 2
                                             0xA9);   // Clock divider = 1
     _linescanner0Config.setControlRegister2(0x32);
     _linescanner0Config.setControlRegister3(0x13);
@@ -174,36 +180,57 @@ void ImageCaptureManager::initializeDragsters()
     XSpi_SetSlaveSelect(&_spi, 0);
 }
 
+void ImageCaptureManager::updateDragsters()
+{
+	sendDragsterRegisterValue(CONTROL_REGISTER_1_ADDRESS, _linescanner0Config.getControlRegister1()._mapImpl._registerValue);
+	sendDragsterRegisterValue(CONTROL_REGISTER_1_ADDRESS, _linescanner1Config.getControlRegister1()._mapImpl._registerValue);
+}
+
+void ImageCaptureManager::sendTestSpiSequence()
+{
+	const unsigned char testSequence = 0xAA;
+	int status = XSpi_SetSlaveSelect(&_spi, LINESCANNER0_SLAVE_SELECT);
+    if(status == XST_SUCCESS)
+	    sendDragsterRegisterValue(CONTROL_REGISTER_2_ADDRESS, testSequence);
+    XSpi_SetSlaveSelect(&_spi, 0);
+}
+
 void ImageCaptureManager::readDragsterConfigImpl(DragsterConfig* config, int dragsterSlaveSelectMask)
 {
-    int status = XSpi_SetSlaveSelect(&_spi, dragsterSlaveSelectMask);
-    if(status == XST_SUCCESS)
-    {
-        config->setControlRegister1(readDragsterRegisterValue(1));
-        config->setControlRegister2(readDragsterRegisterValue(2));
-        config->setControlRegister3(readDragsterRegisterValue(3));
-    }
+	beginDragsterSpiTransaction(dragsterSlaveSelectMask);
+    config->setControlRegister1(readDragsterRegisterValue(1));
+    endDragsterSpiTransaction();
+
+    beginDragsterSpiTransaction(dragsterSlaveSelectMask);
+    config->setControlRegister2(readDragsterRegisterValue(2));
+    endDragsterSpiTransaction();
+
+    beginDragsterSpiTransaction(dragsterSlaveSelectMask);
+    config->setControlRegister3(readDragsterRegisterValue(3));
+    endDragsterSpiTransaction();
 }
 
 void ImageCaptureManager::initializeDragsterImpl(DragsterConfig* config, int dragsterSlaveSelectMask)
 {
-    int status = XSpi_SetSlaveSelect(&_spi, dragsterSlaveSelectMask);
-    if(status == XST_SUCCESS)
-    {
-        // todo: umv: read from fields
-        beginDragsterConfigTransaction();
-        // Запись конфигурации регистров Dragster
-        // CONTROL Register 2
-        sendDragsterRegisterValue(CONTROL_REGISTER_2_ADDRESS, config->getControlRegister2()._mapImpl._registerValue);
-        // CONTROL Register 3
-        sendDragsterRegisterValue(CONTROL_REGISTER_3_ADDRESS, config->getControlRegister3()._mapImpl._registerValue);
-        // End of Data Register
-        sendDragsterRegisterValue(END_OF_RANGE_REGISTER_ADDRESS, config->getEndOfRangeRegister());  // 8 bit pixels value
-        // CONTROL Register 1
-        sendDragsterRegisterValue(CONTROL_REGISTER_1_ADDRESS, config->getControlRegister1()._mapImpl._registerValue);
-        // 0 byte (must generate at least 3 clk before SS is disabled)
-        endDragsterConfigTransaction();
-    }
+    // CONTROL Register 2
+   beginDragsterSpiTransaction(dragsterSlaveSelectMask);
+   sendDragsterRegisterValue(CONTROL_REGISTER_2_ADDRESS, config->getControlRegister2()._mapImpl._registerValue);
+   endDragsterSpiTransaction();
+
+   // CONTROL Register 3
+   beginDragsterSpiTransaction(dragsterSlaveSelectMask);
+   sendDragsterRegisterValue(CONTROL_REGISTER_3_ADDRESS, config->getControlRegister3()._mapImpl._registerValue);
+   endDragsterSpiTransaction();
+
+   // End of Data Register
+   beginDragsterSpiTransaction(dragsterSlaveSelectMask);
+   sendDragsterRegisterValue(END_OF_RANGE_REGISTER_ADDRESS, config->getEndOfRangeRegister());  // 8 bit pixels value
+   endDragsterSpiTransaction();
+
+   // CONTROL Register 1
+   beginDragsterSpiTransaction(dragsterSlaveSelectMask);
+   sendDragsterRegisterValue(CONTROL_REGISTER_1_ADDRESS, config->getControlRegister1()._mapImpl._registerValue);
+   endDragsterSpiTransaction();
 }
 
 void ImageCaptureManager::sendDragsterRegisterValue(unsigned char address, unsigned char value)
@@ -217,26 +244,23 @@ void ImageCaptureManager::sendDragsterRegisterValue(unsigned char address, unsig
 
 unsigned char ImageCaptureManager::readDragsterRegisterValue(unsigned char address)
 {
-    //#define READ_REGISTER_ADDRESS
-	//beginDragsterConfigTransaction();
 	unsigned char readRegisterAddress = 0x0F;
 	readBuffer[0] = 0;
     writeBuffer[0] = convertFromMsbToLsbFirst(readRegisterAddress);
-    writeBuffer[1] = convertFromMsbToLsbFirst(address); //READ_REGISTER_ADDRESS);
-    int result = XSpi_Transfer(&_spi, writeBuffer, readBuffer, 2 + 1);
+    writeBuffer[1] = convertFromMsbToLsbFirst(address);
+    int result = XSpi_Transfer(&_spi, writeBuffer, NULL, 2);
     if(result != -XST_SUCCESS)
         xil_printf("Read fails, reason %d", result);
-    //endDragsterConfigTransaction();
     return convertFromLsbToMsbFirst(readBuffer[0]);
 }
 
-void ImageCaptureManager::beginDragsterConfigTransaction()
+void ImageCaptureManager::beginDragsterSpiTransaction(unsigned char slaveNumber)
 {
-
+	XSpi_SetSlaveSelect(&_spi, slaveNumber);
 }
 
-void ImageCaptureManager::endDragsterConfigTransaction()
+void ImageCaptureManager::endDragsterSpiTransaction()
 {
-    u8 emptyBuffer[1] = {0};
-    XSpi_Transfer(&_spi, emptyBuffer, NULL, 1);
+    XSpi_SetSlaveSelect(&_spi, 0);
 }
+#endif

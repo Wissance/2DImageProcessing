@@ -12,10 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="13560000001fs"></ZoomEndTime>
-      <Cursor1Time time="0fs"></Cursor1Time>
+      <ZoomEndTime time="37250000001fs"></ZoomEndTime>
+      <Cursor1Time time="10000000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/clock_divider_testbench/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
    <wvobject fp_name="/clock_divider_testbench/input_clock" type="logic">
       <obj_property name="ElementShortName">input_clock</obj_property>
       <obj_property name="ObjectShortName">input_clock</obj_property>

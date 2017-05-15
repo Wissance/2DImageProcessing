@@ -22,15 +22,16 @@
 
 module clock_divider_testbench
 (
-    input input_clock,
-    output output_clock_1,
-    output output_clock_2,
-    output output_clock_3,
-    output output_clock_4
+    input wire reset,
+    input wire input_clock,
+    output wire output_clock_1,
+    output wire output_clock_2,
+    output wire output_clock_3,
+    output wire output_clock_4
 );
 
-    clock_divider #(.clock_division(1)) divider_by_1  (.input_clock(input_clock), .output_clock(output_clock_1));
-    clock_divider #(.clock_division(2)) divider_by_2  (.input_clock(input_clock), .output_clock(output_clock_2));
-    clock_divider #(.clock_division(3)) divider_by_3  (.input_clock(input_clock), .output_clock(output_clock_3));
-    clock_divider #(.clock_division(4)) divider_by_4  (.input_clock(input_clock), .output_clock(output_clock_4));
+    clock_divider #(.clock_division(1)) divider_by_1  (.reset(reset), .input_clock(input_clock), .output_clock(output_clock_1));
+    clock_divider #(.clock_division(2)) divider_by_2  (.reset(reset), .reset(reset), .input_clock(input_clock), .output_clock(output_clock_2));
+    clock_divider #(.clock_division(3)) divider_by_3  (.reset(reset), .input_clock(input_clock), .output_clock(output_clock_3));
+    clock_divider #(.clock_division(4)) divider_by_4  (.reset(reset), .input_clock(input_clock), .output_clock(output_clock_4));
 endmodule
