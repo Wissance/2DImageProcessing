@@ -67,7 +67,7 @@ module frequency_analyzer_manager #
     input wire  s00_axi_rready
 );
     
-    localparam integer REGISTERS_NUMBER = 6;
+    localparam integer REGISTERS_NUMBER = 7; //6;
     
     // frequency analyzer data
     reg pixel0_sample_data;
@@ -90,6 +90,7 @@ module frequency_analyzer_manager #
     wire [31:0] pixel1_f1_action_time_net;
     wire [31:0] pixel2_f0_action_time_net;
     wire [31:0] pixel2_f1_action_time_net;
+    wire [31:0] pixel0_unknown_frequency;
     
     supply1 vcc;
     reg[31:0] register_write_value;
@@ -121,7 +122,8 @@ module frequency_analyzer_manager #
             .enable(enable),
             .clear(clear_impl), 
             .f0_value(pixel0_f0_action_time_net),
-            .f1_value(pixel0_f1_action_time_net));
+            .f1_value(pixel0_f1_action_time_net),
+            .unknown(pixel0_unknown_frequency));
                          
     frequency_analyzer #(
         .FREQUENCY0(PIXEL1_FREQUENCY0),
@@ -280,7 +282,7 @@ module frequency_analyzer_manager #
         end
     end
     
-    function [31:0] get_frequency(input reg[2:0] index);
+    function [31:0] get_frequency(input reg[3:0] index);
         case (index)
             1: get_frequency = pixel0_f0_action_time_net;
             2: get_frequency = pixel0_f1_action_time_net;
@@ -288,6 +290,7 @@ module frequency_analyzer_manager #
             4: get_frequency = pixel1_f1_action_time_net;
             5: get_frequency = pixel2_f0_action_time_net;
             6: get_frequency = pixel2_f1_action_time_net;
+            7: get_frequency = pixel0_unknown_frequency;
             default: get_frequency = 0;
         endcase
     endfunction 

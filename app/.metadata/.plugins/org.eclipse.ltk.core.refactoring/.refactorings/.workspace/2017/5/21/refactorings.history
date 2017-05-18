@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <session version="1.0">
-<refactoring comment="Delete resource &apos;image_processing_2d_design_wrapper_hw_platform_1&apos;" deleteContents="false" description="Delete resource &apos;image_processing_2d_design_wrapper_hw_platform_1&apos;" element1="/image_processing_2d_design_wrapper_hw_platform_1" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1494829325208"/>
+<refactoring comment="Delete resource &apos;image_processing_2d_design_wrapper_hw_platform_1&apos;" deleteContents="false" description="Delete resource &apos;image_processing_2d_design_wrapper_hw_platform_1&apos;" element1="/image_processing_2d_design_wrapper_hw_platform_1" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1495108080213"/>
 </session>

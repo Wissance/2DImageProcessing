@@ -15,7 +15,8 @@ module frequency_analyzer #
     input wire enable,
     input wire clear,
     output wire[31:0] f0_value,
-    output wire[31:0] f1_value
+    output wire[31:0] f1_value,
+    output wire [31:0] unknown
 );
 
 localparam integer frequency0_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY0);
@@ -27,24 +28,28 @@ localparam integer frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATI
 reg[31:0] frequency_counter = 0;
 reg[31:0] frequency0_counter = 0;
 reg[31:0] frequency1_counter = 0;
+reg[31:0] unassigned_frequency = 0;
 
 reg start_sample_value;
 reg[1:0] check_result;
 
 assign f0_value = frequency0_counter;
 assign f1_value = frequency1_counter;
+assign unknown = unassigned_frequency;
 
 initial
 begin
     frequency_counter = 0;
     frequency0_counter = 0;
     frequency1_counter = 0;
+    unassigned_frequency = 0;
 end
 
 always @(posedge clock) 
 begin
     if(!clear) 
     begin
+        unassigned_frequency = 0;
         start_sample_value = 0;
         frequency0_counter = 0;
         frequency1_counter = 0;
@@ -64,9 +69,16 @@ begin
             check_result = check_frequency(frequency_counter);
                 
             if(check_result == 2)
+            begin
                 frequency1_counter = frequency1_counter + frequency_counter;
+                frequency_counter = 0;
+            end
             else if(check_result == 1)
-                frequency0_counter = frequency0_counter + frequency_counter;                
+            begin
+                frequency0_counter = frequency0_counter + frequency_counter;
+                frequency_counter = 0;
+            end
+            else unassigned_frequency = unassigned_frequency + frequency_counter;          
             frequency_counter = 0;
         end        
         frequency_counter = frequency_counter + 1;

@@ -4,16 +4,18 @@
 
 struct PixelFrequencies
 {
-    int _pixel0Frequency0;
-    int _pixel0Frequency1;
+	unsigned int _pixel0Frequency0;
+	unsigned int _pixel0Frequency1;
 
-    int _pixel1Frequency0;
-    int _pixel1Frequency1;
+	unsigned int _pixel1Frequency0;
+	unsigned int _pixel1Frequency1;
 
-    int _pixel2Frequency0;
-    int _pixel2Frequency1;
+	unsigned int _pixel2Frequency0;
+	unsigned int _pixel2Frequency1;
 
-    int _counter;
+	unsigned int _counter;
+
+    unsigned long _pixel0UnassignedFrequency;
 };
 
 
