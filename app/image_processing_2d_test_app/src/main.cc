@@ -65,6 +65,7 @@ int main()
 
     xil_printf("\nFrequency analyzer 1 pixel0 frequency 0 %d \r\n", linescanner1PixelFrequencies._pixel0Frequency0);
     xil_printf("Frequency analyzer 1 pixel0 frequency 1 %d \r\n", linescanner1PixelFrequencies._pixel0Frequency1);
+    xil_printf("Frequency analyzer 0 pixel0 unassigned frequency 1 %d \r\n", linescanner1PixelFrequencies._pixel0UnassignedFrequency);
     xil_printf("Frequency analyzer 1 pixel1 frequency 0 %d \r\n", linescanner1PixelFrequencies._pixel1Frequency0);
     xil_printf("Frequency analyzer 1 pixel1 frequency 1 %d \r\n", linescanner1PixelFrequencies._pixel1Frequency1);
     xil_printf("Frequency analyzer 1 pixel2 frequency 0 %d \r\n", linescanner1PixelFrequencies._pixel2Frequency0);

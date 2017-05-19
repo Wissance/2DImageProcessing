@@ -81,12 +81,12 @@ module dragster_configurator #
             end
                 
             if(end_of_transaction) begin
-                if(register_counter < 4) begin
+                if(register_counter < 7) begin
                     command_buffer <= get_dragster_config(register_counter);
                     register_counter <= register_counter + 1;
                 end
             
-                if(register_counter == 4) begin
+                if(register_counter == 7) begin
                     enable <= 1'b0;
                     start_transaction <= 1'b0;
                 end
@@ -121,10 +121,26 @@ module dragster_configurator #
             result = {8'b00000111 /*8'b00001000*/, 8'b00001001};
            end
            
-           4:
+           /* Threshold 1 */
+           4: begin
+            result = {8'b00000001/*1*32=32*/, 8'b00000110};
+           end
+           
+           /* Threshold 2 */
+           5: begin
+            result = {8'b00000010/*2*32=64*/, 8'b00000111};
+           end
+           
+           /* Threshold 3 */
+           6: begin
+            result = {8'b00000101/*5*32=160*/, 8'b00001000};
+           end
+           
+           7:
            begin
             // control register 1
-                result = {8'b10101001, 8'b00000001};
+                //result = {8'b10101001, 8'b00000001};
+                result = {8'b11101001, 8'b00000001};
            end
            
            default:
