@@ -202,7 +202,9 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel0_counter == PIXEL0_INDEX)
-                pixel0_sample_data <= data[7] & data[6];
+                pixel0_sample_data <= data[7] | data[6];
+                                     //data[5] & data[4] | data[6] | data[7];
+                                     //data[7] & data[6] & data[5] & data[4];
             pixel0_counter <= pixel0_counter + 1;
         end
     end

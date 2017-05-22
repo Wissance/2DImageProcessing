@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May 15 11:07:50 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May 22 16:43:59 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -1627,7 +1627,7 @@
         <PARAMETER NAME="PIXEL1_FREQUENCY1" VALUE="20000"/>
         <PARAMETER NAME="PIXEL2_FREQUENCY0" VALUE="40000"/>
         <PARAMETER NAME="PIXEL2_FREQUENCY1" VALUE="50000"/>
-        <PARAMETER NAME="FREQUENCY_DEVIATION" VALUE="20"/>
+        <PARAMETER NAME="FREQUENCY_DEVIATION" VALUE="15"/>
         <PARAMETER NAME="CLOCK_FREQUENCY" VALUE="100000000"/>
         <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_frequency_analyzer_manager_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -2453,8 +2453,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
-            <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
+            <CONNECTION INSTANCE="dragster_configurator_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
@@ -2466,7 +2467,6 @@
             <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="dragster_configurator_0" PORT="reset_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

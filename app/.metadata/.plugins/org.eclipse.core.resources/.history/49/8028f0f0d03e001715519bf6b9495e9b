@@ -15,7 +15,7 @@ struct PixelFrequencies
 
 	unsigned int _counter;
 
-    unsigned long long _pixel0UnassignedFrequency;
+    unsigned long _pixel0UnassignedFrequency;
 };
 
 
