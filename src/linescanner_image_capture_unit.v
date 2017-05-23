@@ -90,7 +90,11 @@ module linescanner_image_capture_unit(
                     
                         sm1_state <= SM1_WAIT_NUM_CLOCKS;
                         sm1_state_to_go_to_after_waiting <= SM1_SEND_FE_OF_SAMPLE;
-                        sm1_num_clocks_to_wait <= 48*2;
+                        
+                        /* Время удержания SAMPLE */
+                        /* 1000ns/14.2857143ns(T) = 69.99999993(70clk) */
+                        /* (70clk - 2clk(Клоки затраченные на переключения))*/
+                        sm1_num_clocks_to_wait <= 68;
                     end
                 end
                    
