@@ -33,7 +33,7 @@ module frequency_analyzer_manager #
     parameter integer PIXEL1_FREQUENCY1 = 20000,
     parameter integer PIXEL2_FREQUENCY0 = 25000,
     parameter integer PIXEL2_FREQUENCY1 = 30000,
-    parameter integer FREQUENCY_DEVIATION = 20,
+    parameter integer FREQUENCY_DEVIATION = 40,
     parameter integer CLOCK_FREQUENCY = 100000000
 )
 (
