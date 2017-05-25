@@ -61,10 +61,8 @@ begin
     begin
         if(enable) 
         begin
-            if(frequency_counter < 2)// && start_sample_value != sample_data)
+            if(frequency_counter == 0)// && start_sample_value != sample_data)
                 start_sample_value = sample_data;
-            else
-            begin
             if(sample_data != start_sample_value) 
             begin
                 start_sample_value = sample_data;
@@ -74,8 +72,7 @@ begin
                 else if(check_result == 1)
                     frequency0_counter = frequency0_counter + frequency_counter;
                 else unassigned_frequency = unassigned_frequency + frequency_counter;          
-                frequency_counter = 0;
-            end              
+                frequency_counter = 0;           
             end
             frequency_counter = frequency_counter + 1;
         end
