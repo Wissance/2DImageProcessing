@@ -91,32 +91,32 @@ void displayFrequencies()
 
     xil_printf("Total analyzer time: %d seconds \r\n", TESTING_TIME);
 
-    xil_printf("\nFrequency analyzer 0 pixel0 frequency 0 %d ticks or, %d milliseconds\r\n",
+    xil_printf("\nFrequency analyzer 0 pixel0 frequency 0 %d ticks or, %x milliseconds\r\n",
     		   linescanner0PixelFrequencies._pixel0Frequency0, linescanner0PixelFrequencies._pixel0Frequency0 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 0 pixel0 frequency 1 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 0 pixel0 frequency 1 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner0PixelFrequencies._pixel0Frequency1, linescanner0PixelFrequencies._pixel0Frequency1 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 0 pixel0 unassigned frequency %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 0 pixel0 unassigned frequency %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner0PixelFrequencies._pixel0UnassignedFrequency, linescanner0PixelFrequencies._pixel0UnassignedFrequency / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 0 pixel1 frequency 0 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 0 pixel1 frequency 0 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner0PixelFrequencies._pixel1Frequency0, linescanner0PixelFrequencies._pixel1Frequency0 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 0 pixel1 frequency 1 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 0 pixel1 frequency 1 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner0PixelFrequencies._pixel1Frequency1, linescanner0PixelFrequencies._pixel1Frequency1 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 0 pixel2 frequency 0 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 0 pixel2 frequency 0 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner0PixelFrequencies._pixel2Frequency0, linescanner0PixelFrequencies._pixel2Frequency0 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 0 pixel2 frequency 1 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 0 pixel2 frequency 1 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner0PixelFrequencies._pixel2Frequency1, linescanner0PixelFrequencies._pixel2Frequency1 / TICKS_TO_TIME_COEFF);
 
-    xil_printf("\nFrequency analyzer 1 pixel0 frequency 0 %d ticks or, %d milliseconds\r\n",
+    xil_printf("\nFrequency analyzer 1 pixel0 frequency 0 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel0Frequency0, linescanner1PixelFrequencies._pixel0Frequency0 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 1 pixel0 frequency 1 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 1 pixel0 frequency 1 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel0Frequency1, linescanner1PixelFrequencies._pixel0Frequency1 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 0 pixel0 unassigned frequency %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 0 pixel0 unassigned frequency %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel0UnassignedFrequency, linescanner1PixelFrequencies._pixel0UnassignedFrequency / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 1 pixel1 frequency 0 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 1 pixel1 frequency 0 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel1Frequency0, linescanner1PixelFrequencies._pixel1Frequency0 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 1 pixel1 frequency 1 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 1 pixel1 frequency 1 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel1Frequency1, linescanner1PixelFrequencies._pixel1Frequency1 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 1 pixel2 frequency 0 %d ticks or, %d milliseconds\r\n",
+    xil_printf("Frequency analyzer 1 pixel2 frequency 0 %d ticks or, %.f2 milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel2Frequency0, linescanner1PixelFrequencies._pixel2Frequency0 / TICKS_TO_TIME_COEFF);
     xil_printf("Frequency analyzer 1 pixel2 frequency 1 %d ticks or, % milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel2Frequency1, linescanner1PixelFrequencies._pixel2Frequency1 / TICKS_TO_TIME_COEFF);

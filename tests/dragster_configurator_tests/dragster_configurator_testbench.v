@@ -33,9 +33,9 @@ module dragster_configurator_testbench
     initial
     begin
         clk <= 0;
-        reset_n <= 1;
-        reset_n <= #20 0;
-        reset_n <= #100 1;
+        reset_n <= 0;
+        //reset_n <= #20 0;
+        reset_n <= #200 1;
     end
 
     dragster_configurator configurator(.clk(clk), .reset_n(reset_n), 

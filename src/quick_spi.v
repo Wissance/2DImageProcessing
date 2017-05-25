@@ -45,7 +45,7 @@ reg[OUTGOING_DATA_WIDTH-1:0] outgoing_data_buffer;
 always @ (posedge clk) begin
     if(!reset_n) begin
         end_of_transaction <= 1'b0;
-        mosi <= 1'bz;
+        mosi <= 1'b0;
         sclk <= CPOL;
         ss_n <= {NUMBER_OF_SLAVES{1'b1}};
         sclk_toggle_count <= 0;
@@ -98,7 +98,7 @@ always @ (posedge clk) begin
                 
                 if(sclk_toggle_count == (OUTGOING_DATA_WIDTH*2)+transaction_toggles) begin
                     ss_n[slave] <= 1'b1;
-                    mosi <= 1'bz;
+                    mosi <= 1'b0;
                     incoming_data <= incoming_data_buffer;
                     incoming_data_buffer <= {INCOMING_DATA_WIDTH{1'b0}};
                     outgoing_data_buffer <= {OUTGOING_DATA_WIDTH{1'b0}};

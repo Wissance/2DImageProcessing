@@ -118,6 +118,6 @@ void displayFrequencies()
     		   linescanner1PixelFrequencies._pixel1Frequency1, linescanner1PixelFrequencies._pixel1Frequency1 / TICKS_TO_TIME_COEFF);
     xil_printf("Frequency analyzer 1 pixel2 frequency 0 %d ticks or, %d milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel2Frequency0, linescanner1PixelFrequencies._pixel2Frequency0 / TICKS_TO_TIME_COEFF);
-    xil_printf("Frequency analyzer 1 pixel2 frequency 1 %d ticks or, % milliseconds\r\n",
+    xil_printf("Frequency analyzer 1 pixel2 frequency 1 %d ticks or, %d milliseconds\r\n",
     		   linescanner1PixelFrequencies._pixel2Frequency1, linescanner1PixelFrequencies._pixel2Frequency1 / TICKS_TO_TIME_COEFF);
 }

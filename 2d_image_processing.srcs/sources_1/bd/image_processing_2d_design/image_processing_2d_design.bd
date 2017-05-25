@@ -1242,6 +1242,23 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
+        <spirit:instanceName>frequency_analyzer_manager_1</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="frequency_analyzer_manager" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_frequency_analyzer_manager_1_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PIXEL0_INDEX">63</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PIXEL2_INDEX">1000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PIXEL0_FREQUENCY0">5000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PIXEL0_FREQUENCY1">10000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PIXEL2_FREQUENCY0">40000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PIXEL2_FREQUENCY1">50000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FREQUENCY_DEVIATION">20</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">frequency_analyzer_manager</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
         <spirit:instanceName>dragster_configurator_0</spirit:instanceName>
         <spirit:componentRef spirit:library="module_ref" spirit:name="dragster_configurator" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -1258,23 +1275,6 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_frequency_analyzer_manager_0_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PIXEL0_INDEX">63</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PIXEL1_INDEX">511</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PIXEL2_INDEX">1000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PIXEL0_FREQUENCY0">5000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PIXEL0_FREQUENCY1">10000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PIXEL2_FREQUENCY0">40000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PIXEL2_FREQUENCY1">50000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FREQUENCY_DEVIATION">20</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">frequency_analyzer_manager</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>frequency_analyzer_manager_1</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="frequency_analyzer_manager" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">image_processing_2d_design_frequency_analyzer_manager_1_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PIXEL0_INDEX">63</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PIXEL2_INDEX">1000</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PIXEL0_FREQUENCY0">5000</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PIXEL0_FREQUENCY1">10000</spirit:configurableElementValue>
@@ -1328,10 +1328,6 @@
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="reset"/>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_0" spirit:portRef="n_reset"/>
-        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="n_reset"/>
-        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="reset_n"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M00_ARESETN"/>
@@ -1340,6 +1336,10 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M02_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M03_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M04_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="linescanner_image_capture_unit_1" spirit:portRef="n_reset"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="dragster_configurator_0" spirit:portRef="reset_n"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>image_capture_manager_0_image_capture_enabled</spirit:name>
@@ -1356,8 +1356,6 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="S_AXI_HP0_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_synch_0" spirit:portRef="clock"/>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M00_ACLK"/>
@@ -1366,6 +1364,8 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M02_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M04_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="s00_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>xlconcat_0_dout</spirit:name>
@@ -1518,8 +1518,8 @@
       <spirit:adHocConnection>
         <spirit:name>image_capture_manager_0_clear_memory</spirit:name>
         <spirit:internalPortReference spirit:componentRef="image_capture_manager_0" spirit:portRef="clear_memory"/>
-        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="clear"/>
         <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_1" spirit:portRef="clear"/>
+        <spirit:internalPortReference spirit:componentRef="frequency_analyzer_manager_0" spirit:portRef="clear"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>proc_sys_reset_0_peripheral_reset</spirit:name>
@@ -3761,15 +3761,15 @@
             <spirit:range>4K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_frequency_analyzer_manager_0_reg0</spirit:name>
-            <spirit:displayName>/frequency_analyzer_manager_0/s00_axi/reg0</spirit:displayName>
-            <spirit:addressOffset>0x43C10000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
             <spirit:name>SEG_frequency_analyzer_manager_1_reg0</spirit:name>
             <spirit:displayName>/frequency_analyzer_manager_1/s00_axi/reg0</spirit:displayName>
             <spirit:addressOffset>0x43C20000</spirit:addressOffset>
+            <spirit:range>4K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_frequency_analyzer_manager_0_reg0</spirit:name>
+            <spirit:displayName>/frequency_analyzer_manager_0/s00_axi/reg0</spirit:displayName>
+            <spirit:addressOffset>0x43C10000</spirit:addressOffset>
             <spirit:range>4K</spirit:range>
           </spirit:segment>
         </spirit:segments>
