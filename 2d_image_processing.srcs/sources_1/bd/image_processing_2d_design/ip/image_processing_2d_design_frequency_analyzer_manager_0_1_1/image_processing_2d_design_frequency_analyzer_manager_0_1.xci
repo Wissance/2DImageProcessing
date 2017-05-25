@@ -48,7 +48,7 @@
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH">32</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.FREQUENCY_DEVIATION">15</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.FREQUENCY_DEVIATION">20</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.PIXEL0_FREQUENCY0">5000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.PIXEL0_FREQUENCY1">10000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.PIXEL0_INDEX">63</spirit:configurableElementValue>
@@ -62,7 +62,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.C_S00_AXI_DATA_WIDTH">32</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">image_processing_2d_design_frequency_analyzer_manager_0_1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.FREQUENCY_DEVIATION">15</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.FREQUENCY_DEVIATION">20</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY0">5000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY1">10000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PIXEL0_INDEX">63</spirit:configurableElementValue>

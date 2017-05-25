@@ -27,13 +27,13 @@ module frequency_analyzer_manager #
     parameter integer PIXEL0_INDEX = 63,
     parameter integer PIXEL1_INDEX = 511,
     parameter integer PIXEL2_INDEX = 1023,
-    parameter integer PIXEL0_FREQUENCY0 = 5000,
+    parameter integer PIXEL0_FREQUENCY0 = 7500/*5000*/,/*2500 7500*/
     parameter integer PIXEL0_FREQUENCY1 = 10000,
     parameter integer PIXEL1_FREQUENCY0 = 15000,
     parameter integer PIXEL1_FREQUENCY1 = 20000,
     parameter integer PIXEL2_FREQUENCY0 = 25000,
     parameter integer PIXEL2_FREQUENCY1 = 30000,
-    parameter integer FREQUENCY_DEVIATION = 40,
+    parameter integer FREQUENCY_DEVIATION = 30,
     parameter integer CLOCK_FREQUENCY = 100000000
 )
 (
@@ -104,7 +104,9 @@ module frequency_analyzer_manager #
     assign register_write = register_write_value;
     assign register_operation = register_operation_value;
     assign register_number = register_number_value;
-    assign clear_impl = s00_axi_aresetn & ~write_completed & ~clear;
+    assign clear_impl = s00_axi_aresetn & 
+                       ~write_completed & 
+                       ~clear;
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(start), .CE(s00_axi_aresetn), .D(vcc), .Q(enable), .CLR(stop));
@@ -202,7 +204,7 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel0_counter == PIXEL0_INDEX)
-                pixel0_sample_data <= data[7] | data[6];
+                pixel0_sample_data <= data[7] | data[6] | data[5];
                                      //data[5] & data[4] | data[6] | data[7];
                                      //data[7] & data[6] & data[5] & data[4];
             pixel0_counter <= pixel0_counter + 1;

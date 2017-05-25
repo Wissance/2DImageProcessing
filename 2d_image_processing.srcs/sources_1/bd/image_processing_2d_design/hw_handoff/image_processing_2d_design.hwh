@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May 22 16:43:59 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 25 10:29:48 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -25,12 +25,12 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
-    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
+    <PORT DIR="O" LEFT="0" NAME="LINESCANNER1_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
       <CONNECTIONS>
         <CONNECTION INSTANCE="not_1bit_0" PORT="outp"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="0" NAME="LINESCANNER1_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
+    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
       <CONNECTIONS>
         <CONNECTION INSTANCE="not_1bit_0" PORT="outp"/>
       </CONNECTIONS>
@@ -1627,7 +1627,7 @@
         <PARAMETER NAME="PIXEL1_FREQUENCY1" VALUE="20000"/>
         <PARAMETER NAME="PIXEL2_FREQUENCY0" VALUE="40000"/>
         <PARAMETER NAME="PIXEL2_FREQUENCY1" VALUE="50000"/>
-        <PARAMETER NAME="FREQUENCY_DEVIATION" VALUE="15"/>
+        <PARAMETER NAME="FREQUENCY_DEVIATION" VALUE="20"/>
         <PARAMETER NAME="CLOCK_FREQUENCY" VALUE="100000000"/>
         <PARAMETER NAME="Component_Name" VALUE="image_processing_2d_design_frequency_analyzer_manager_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -2450,12 +2450,15 @@
         </PORT>
         <PORT DIR="O" NAME="outp" SIGIS="undef" SIGNAME="not_1bit_0_outp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
+            <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
             <CONNECTION INSTANCE="dragster_configurator_0" PORT="reset_n"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
@@ -2464,9 +2467,6 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M03_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M04_ARESETN"/>
-            <CONNECTION INSTANCE="linescanner_image_capture_unit_1" PORT="n_reset"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3870,6 +3870,8 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ACLK"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="clock"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
@@ -3878,8 +3880,6 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M02_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M04_ACLK"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="frequency_analyzer_manager_1" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="50000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">

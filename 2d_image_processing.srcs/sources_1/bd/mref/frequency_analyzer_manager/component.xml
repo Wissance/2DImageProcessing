@@ -277,7 +277,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3838a3ec</spirit:value>
+            <spirit:value>dd5b63aa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -290,7 +290,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3838a3ec</spirit:value>
+            <spirit:value>dd5b63aa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -755,7 +755,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL0_FREQUENCY0</spirit:name>
         <spirit:displayName>Pixel0 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_FREQUENCY0">5000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_FREQUENCY0">7500</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL0_FREQUENCY1</spirit:name>
@@ -785,7 +785,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>FREQUENCY_DEVIATION</spirit:name>
         <spirit:displayName>Frequency Deviation</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FREQUENCY_DEVIATION">20</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FREQUENCY_DEVIATION">30</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CLOCK_FREQUENCY</spirit:name>
@@ -849,7 +849,7 @@
     <spirit:parameter>
       <spirit:name>PIXEL0_FREQUENCY0</spirit:name>
       <spirit:displayName>Pixel0 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_FREQUENCY0">5000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_FREQUENCY0">7500</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PIXEL0_FREQUENCY1</spirit:name>
@@ -879,7 +879,7 @@
     <spirit:parameter>
       <spirit:name>FREQUENCY_DEVIATION</spirit:name>
       <spirit:displayName>Frequency Deviation</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FREQUENCY_DEVIATION">20</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FREQUENCY_DEVIATION">30</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CLOCK_FREQUENCY</spirit:name>
@@ -906,7 +906,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2017-05-22T11:43:05Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2017-05-23T10:38:54Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>
