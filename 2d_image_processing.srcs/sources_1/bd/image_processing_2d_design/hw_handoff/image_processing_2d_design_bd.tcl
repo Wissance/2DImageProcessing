@@ -327,7 +327,7 @@ CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.158730} \
 CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {125.000000} \
 CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
-CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {50.000000} \
+CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {80.000000} \
 CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {20.000000} \
 CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_I2C_PERIPHERAL_FREQMHZ {50} \
@@ -373,7 +373,7 @@ CONFIG.PCW_CAN_PERIPHERAL_DIVISOR1 {1} \
 CONFIG.PCW_CAN_PERIPHERAL_FREQMHZ {100} \
 CONFIG.PCW_CAN_PERIPHERAL_VALID {0} \
 CONFIG.PCW_CLK0_FREQ {100000000} \
-CONFIG.PCW_CLK1_FREQ {50000000} \
+CONFIG.PCW_CLK1_FREQ {80000000} \
 CONFIG.PCW_CLK2_FREQ {20000000} \
 CONFIG.PCW_CLK3_FREQ {10000000} \
 CONFIG.PCW_CORE0_FIQ_INTR {0} \
@@ -490,7 +490,7 @@ CONFIG.PCW_EN_PTP_ENET0 {0} \
 CONFIG.PCW_EN_PTP_ENET1 {0} \
 CONFIG.PCW_EN_QSPI {0} \
 CONFIG.PCW_EN_RST0_PORT {1} \
-CONFIG.PCW_EN_RST1_PORT {1} \
+CONFIG.PCW_EN_RST1_PORT {0} \
 CONFIG.PCW_EN_RST2_PORT {0} \
 CONFIG.PCW_EN_RST3_PORT {0} \
 CONFIG.PCW_EN_SDIO0 {1} \
@@ -510,7 +510,7 @@ CONFIG.PCW_FCLK0_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {5} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {4} \
 CONFIG.PCW_FCLK1_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {8} \
+CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {5} \
 CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {5} \
 CONFIG.PCW_FCLK2_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {10} \
@@ -523,7 +523,7 @@ CONFIG.PCW_FCLK_CLK1_BUF {true} \
 CONFIG.PCW_FCLK_CLK2_BUF {true} \
 CONFIG.PCW_FCLK_CLK3_BUF {false} \
 CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
-CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {50} \
+CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {80} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {20} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
@@ -1299,7 +1299,7 @@ preplace inst dragster_configurator_0 -pg 1 -lvl 5 -y -100 -defaultsOSRD
 preplace inst not_1bit_0 -pg 1 -lvl 6 -y -400 -defaultsOSRD
 preplace inst frequency_analyzer_manager_0 -pg 1 -lvl 3 -y -660 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -y -680 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 5 2 NJ -770 NJ
+preplace netloc processing_system7_0_DDR 1 5 2 NJ -760 NJ
 preplace netloc image_capture_manager_0_reset 1 4 1 1180
 preplace netloc linescanner_image_capture_unit_1_main_clock 1 0 2 NJ -370 -270
 preplace netloc linescanner_image_capture_unit_1_sample 1 0 2 NJ -130 -290
@@ -1312,7 +1312,7 @@ preplace netloc dragster_configurator_0_sclk 1 5 2 N -100 NJ
 preplace netloc image_capture_manager_0_clear_memory 1 2 3 140 -360 NJ -210 1140
 preplace netloc LINESCANNER1_END_ADC_1 1 0 1 -690
 preplace netloc frequency_analyzer_manager_1_irq 1 3 1 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 3 3 NJ -870 NJ -870 1650
+preplace netloc processing_system7_0_M_AXI_GP0 1 3 3 NJ -830 NJ -830 1650
 preplace netloc LINESCANNER_MISO_1 1 4 3 1200 -30 NJ -110 N
 preplace netloc axi_interconnect_0_M02_AXI 1 2 3 80 -810 NJ -810 1150
 preplace netloc linescanner_image_capture_unit_0_load_pulse 1 0 2 NJ -790 -250
@@ -1323,7 +1323,7 @@ preplace netloc LINESCANNER1_PIXEL_CLOCK_1 1 0 1 -720
 preplace netloc linescanner_image_capture_unit_0_sample 1 0 2 NJ -750 -270
 preplace netloc axi_interconnect_0_M04_AXI 1 4 1 1160
 preplace netloc xlconcat_0_dout 1 4 1 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 5 2 NJ -750 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 5 2 NJ -740 NJ
 preplace netloc linescanner_image_capture_unit_1_pixel_captured 1 1 2 NJ -260 N
 preplace netloc linescanner_image_capture_unit_1_pixel_data 1 1 2 NJ -280 N
 preplace netloc proc_sys_reset_0_peripheral_reset 1 5 1 N
@@ -1336,15 +1336,15 @@ preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 7 -660 -490 -280 -490 NJ
 preplace netloc axi_interconnect_0_M01_AXI 1 3 2 420 -670 1130
 preplace netloc frequency_analyzer_synch_0_start_analyzer_1 1 2 1 90
 preplace netloc frequency_analyzer_synch_0_stop_analyzer_0 1 2 1 90
-preplace netloc processing_system7_0_FCLK_CLK0 1 1 5 NJ -510 NJ -530 400 -680 1180 -840 1640
-preplace netloc processing_system7_0_FCLK_CLK1 1 0 6 -670 -850 NJ -850 NJ -850 NJ -850 NJ -850 1660
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 5 NJ -510 NJ -530 400 -680 1180 -530 1650
+preplace netloc processing_system7_0_FCLK_CLK1 1 0 6 -670 -840 NJ -840 NJ -840 NJ -840 NJ -840 1660
 preplace netloc dragster_configurator_0_ss_n 1 5 2 N -80 NJ
 preplace netloc frequency_analyzer_synch_0_stop_analyzer_1 1 2 1 80
 preplace netloc linescanner_image_capture_unit_0_pixel_data 1 1 2 -240 -710 NJ
 preplace netloc linescanner_image_capture_unit_1_load_pulse 1 0 2 NJ -380 -260
 preplace netloc LINESCANNER1_DATA_1 1 0 1 -700
 preplace netloc axi_interconnect_0_M03_AXI 1 2 3 130 -800 NJ -800 1140
-preplace netloc processing_system7_0_FCLK_CLK2 1 4 2 1200 -490 1650
+preplace netloc processing_system7_0_FCLK_CLK2 1 4 2 1200 -490 1660
 preplace netloc dragster_configurator_0_mosi 1 5 2 NJ -120 NJ
 preplace netloc LINESCANNER0_PIXEL_CLOCK_1 1 0 1 -680
 preplace netloc LINESCANNER0_LVAL_1 1 0 1 -700
