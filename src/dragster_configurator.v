@@ -49,7 +49,7 @@ module dragster_configurator #
         .reset_n(reset_n),
         .enable(enable),
         .start_transaction(start_transaction),
-        .slave(2'b10),//ss_n),//slave),
+        .slave(2'b00),//ss_n),//slave),
         .incoming_data(incoming_data),
         .outgoing_data(command_buffer),
         .operation(1'b1),

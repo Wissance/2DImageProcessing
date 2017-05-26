@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 25 17:09:54 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May 26 13:14:18 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="image_processing_2d_design" PACKAGE="clg484" SPEEDGRADE="-3"/>
 
@@ -25,12 +25,12 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
-    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
+    <PORT DIR="O" LEFT="0" NAME="LINESCANNER1_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
       <CONNECTIONS>
         <CONNECTION INSTANCE="not_1bit_0" PORT="outp"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="0" NAME="LINESCANNER1_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
+    <PORT DIR="O" LEFT="0" NAME="LINESCANNER0_N_RESET" RIGHT="0" SIGIS="rst" SIGNAME="not_1bit_0_outp">
       <CONNECTIONS>
         <CONNECTION INSTANCE="not_1bit_0" PORT="outp"/>
       </CONNECTIONS>
@@ -2450,8 +2450,8 @@
         </PORT>
         <PORT DIR="O" NAME="outp" SIGIS="undef" SIGNAME="not_1bit_0_outp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER0_N_RESET"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="LINESCANNER1_N_RESET"/>
             <CONNECTION INSTANCE="frequency_analyzer_synch_0" PORT="reset"/>
             <CONNECTION INSTANCE="image_capture_manager_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="linescanner_image_capture_unit_0" PORT="n_reset"/>
