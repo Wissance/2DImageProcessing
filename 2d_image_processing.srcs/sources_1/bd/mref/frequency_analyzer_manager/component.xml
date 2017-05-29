@@ -277,7 +277,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>62e84ac3</spirit:value>
+            <spirit:value>6ca77a10</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -290,7 +290,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>62e84ac3</spirit:value>
+            <spirit:value>6ca77a10</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -792,6 +792,16 @@
         <spirit:displayName>Clock Frequency</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
       </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>THRESHOLD_VALUE</spirit:name>
+        <spirit:displayName>Threshold Value</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">20</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>DARK_PIXELS_COUNT</spirit:name>
+        <spirit:displayName>Dark Pixels Count</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DARK_PIXELS_COUNT">16</spirit:value>
+      </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:choices>
@@ -814,7 +824,7 @@
       <spirit:file>
         <spirit:name>xgui/frequency_analyzer_manager_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f0683938</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_4773dd9f</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -887,6 +897,16 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
+      <spirit:name>THRESHOLD_VALUE</spirit:name>
+      <spirit:displayName>Threshold Value</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">20</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>DARK_PIXELS_COUNT</spirit:name>
+      <spirit:displayName>Dark Pixels Count</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DARK_PIXELS_COUNT">16</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">frequency_analyzer_manager_v1_0</spirit:value>
     </spirit:parameter>
@@ -906,7 +926,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2017-05-29T05:41:56Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2017-05-29T09:46:11Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>

@@ -147,7 +147,9 @@ input wire s00_axi_rready;
     .PIXEL2_FREQUENCY0(40000),
     .PIXEL2_FREQUENCY1(50000),
     .FREQUENCY_DEVIATION(20),
-    .CLOCK_FREQUENCY(100000000)
+    .CLOCK_FREQUENCY(100000000),
+    .THRESHOLD_VALUE(20),
+    .DARK_PIXELS_COUNT(16)
   ) inst (
     .data(data),
     .pixel_clock(pixel_clock),
