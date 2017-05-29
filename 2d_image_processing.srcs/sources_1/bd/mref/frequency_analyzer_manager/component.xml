@@ -277,7 +277,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>6ca77a10</spirit:value>
+            <spirit:value>e16124a5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -290,7 +290,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>6ca77a10</spirit:value>
+            <spirit:value>e16124a5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -795,7 +795,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>THRESHOLD_VALUE</spirit:name>
         <spirit:displayName>Threshold Value</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">20</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">100</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DARK_PIXELS_COUNT</spirit:name>
@@ -899,7 +899,7 @@
     <spirit:parameter>
       <spirit:name>THRESHOLD_VALUE</spirit:name>
       <spirit:displayName>Threshold Value</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">20</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DARK_PIXELS_COUNT</spirit:name>
@@ -926,7 +926,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2017-05-29T09:46:11Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2017-05-29T12:21:14Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>

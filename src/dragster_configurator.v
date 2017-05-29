@@ -101,7 +101,7 @@ module dragster_configurator #
        case (index)  
            0: result = {8'b00010011,8'b00000101};  // control register 3 ()
            1: result = {8'b00110010, 8'b00000010};
-           2: result = {8'b00010000, 8'b00000011}; // inversed adc gain (address 3)
+           2: result = {8'b00001000, 8'b00000011}; // inversed adc gain (address 3)
            3: result = {8'b00011111, 8'b00001001}; // end of adc register
            4: result = {8'b10101001, 8'b00000001}; // control register 1 (address 1) update bit
            default: result = 16'b0000000000000000;

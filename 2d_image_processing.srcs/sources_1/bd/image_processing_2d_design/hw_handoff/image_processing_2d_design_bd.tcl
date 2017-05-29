@@ -232,6 +232,7 @@ CONFIG.PIXEL1_INDEX {511} \
 CONFIG.PIXEL2_FREQUENCY0 {40000} \
 CONFIG.PIXEL2_FREQUENCY1 {50000} \
 CONFIG.PIXEL2_INDEX {1000} \
+CONFIG.THRESHOLD_VALUE {40} \
  ] $frequency_analyzer_manager_0
 
   # Create instance: frequency_analyzer_manager_1, and set properties
@@ -252,6 +253,7 @@ CONFIG.PIXEL0_INDEX {63} \
 CONFIG.PIXEL2_FREQUENCY0 {40000} \
 CONFIG.PIXEL2_FREQUENCY1 {50000} \
 CONFIG.PIXEL2_INDEX {1000} \
+CONFIG.THRESHOLD_VALUE {40} \
  ] $frequency_analyzer_manager_1
 
   # Create instance: frequency_analyzer_synch_0, and set properties

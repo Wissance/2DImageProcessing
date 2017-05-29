@@ -35,7 +35,7 @@ module frequency_analyzer_manager #
     parameter integer PIXEL2_FREQUENCY1 = 30000,
     parameter integer FREQUENCY_DEVIATION = 30,
     parameter integer CLOCK_FREQUENCY = 100000000,
-    parameter integer THRESHOLD_VALUE = 20,
+    parameter integer THRESHOLD_VALUE = 100,
     parameter integer DARK_PIXELS_COUNT = 16
 )
 (
@@ -210,47 +210,15 @@ module frequency_analyzer_manager #
         begin
             if(pixel_counter == DARK_PIXELS_COUNT + PIXEL0_INDEX - 1)
                 pixel0_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-            if(pixel_counter == PIXEL1_INDEX + PIXEL0_INDEX - 1)
-                pixel1_sample_data <= THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-            if(pixel_counter == PIXEL2_INDEX + PIXEL0_INDEX - 1)
-                pixel2_sample_data <= THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+            if(pixel_counter == DARK_PIXELS_COUNT + PIXEL1_INDEX - 1)
+                pixel1_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+            if(pixel_counter == DARK_PIXELS_COUNT + PIXEL2_INDEX - 1)
+                pixel2_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
             pixel_counter <= pixel_counter + 1;
             if(pixel_counter == 1023 + DARK_PIXELS_COUNT)
                 pixel_counter <= 0;
         end
     end
-
-/*    always @(posedge pixel_clock)
-    begin
-        if(~enable || ~write_completed)
-        begin
-            pixel1_sample_data = 0;
-            pixel1_counter = 0;
-        end
-        else
-        begin
-            if(pixel1_counter == PIXEL1_INDEX)
-                pixel1_sample_data = THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-                                      //data > 8'h1c;//data[7];// & data[6];
-            pixel1_counter = pixel1_counter + 1;
-        end
-    end
-    
-    always @(posedge pixel_clock)
-    begin
-        if(~enable)
-        begin
-            pixel2_sample_data <= 0;
-            pixel2_counter <= 0;
-        end
-        else
-        begin
-            if(pixel2_counter == PIXEL2_INDEX)
-                pixel2_sample_data <= THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-                                     //data > 8'h1c;//data[7];// & data[6];
-            pixel2_counter <= pixel2_counter + 1;
-        end
-    end*/
     
     always @(posedge s00_axi_aclk) 
     begin

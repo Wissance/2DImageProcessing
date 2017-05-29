@@ -427,7 +427,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9a05886c</spirit:value>
+            <spirit:value>984ce007</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -446,7 +446,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon May 29 09:46:29 UTC 2017</spirit:value>
+            <spirit:value>Mon May 29 12:21:27 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -458,7 +458,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9a05886c</spirit:value>
+            <spirit:value>984ce007</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -481,7 +481,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>152b49b5</spirit:value>
+            <spirit:value>34b75c74</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -500,7 +500,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon May 29 09:46:29 UTC 2017</spirit:value>
+            <spirit:value>Mon May 29 12:21:27 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -512,7 +512,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>152b49b5</spirit:value>
+            <spirit:value>34b75c74</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -1013,7 +1013,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>THRESHOLD_VALUE</spirit:name>
         <spirit:displayName>Threshold Value</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">20</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">40</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DARK_PIXELS_COUNT</spirit:name>
@@ -1124,7 +1124,7 @@
     <spirit:parameter>
       <spirit:name>THRESHOLD_VALUE</spirit:name>
       <spirit:displayName>Threshold Value</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">20</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">40</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DARK_PIXELS_COUNT</spirit:name>
@@ -1176,6 +1176,7 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_FREQUENCY0" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_FREQUENCY1" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_INDEX" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.THRESHOLD_VALUE" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
