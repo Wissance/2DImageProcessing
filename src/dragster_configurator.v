@@ -103,7 +103,7 @@ module dragster_configurator #
            1: result = {8'b00110010, 8'b00000010};
            2: result = {8'b11000000, 8'b00000011}; // inversed adc gain (address 3)
            3: result = {8'b00011111, 8'b00001001}; // end of adc register
-           4: result = {8'b10101011, 8'b00000001}; // control register 1 (address 1) update bit
+           4: result = {8'b10101001, 8'b00000001}; // control register 1 (address 1) update bit
            default: result = 16'b0000000000000000;
        endcase
        get_dragster_config = result;

@@ -204,7 +204,8 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel0_counter == PIXEL0_INDEX)
-                pixel0_sample_data <= data[7];// | data[6] | data[5];
+                pixel0_sample_data <= data > 8'h1c;
+                                     //data[7];// | data[6] | data[5];
                                      //data[5] & data[4] | data[6] | data[7];
                                      //data[7] & data[6] & data[5] & data[4];
             pixel0_counter <= pixel0_counter + 1;
@@ -221,7 +222,7 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel1_counter == PIXEL1_INDEX)
-                pixel1_sample_data <= data[7];// & data[6];
+                pixel1_sample_data <= data > 8'h1c;//data[7];// & data[6];
             pixel1_counter <= pixel1_counter + 1;
         end
     end
@@ -236,7 +237,7 @@ module frequency_analyzer_manager #
         else
         begin
             if(pixel2_counter == PIXEL2_INDEX)
-                pixel2_sample_data <= data[7];// & data[6];
+                pixel2_sample_data <= data > 8'h1c;//data[7];// & data[6];
             pixel2_counter <= pixel2_counter + 1;
         end
     end
