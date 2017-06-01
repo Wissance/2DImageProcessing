@@ -137,9 +137,9 @@ input wire s00_axi_rready;
   frequency_analyzer_manager #(
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(10),
-    .PIXEL0_INDEX(63),
-    .PIXEL1_INDEX(511),
-    .PIXEL2_INDEX(1000),
+    .PIXEL0_INDEX(2),
+    .PIXEL1_INDEX(1000),
+    .PIXEL2_INDEX(2000),
     .PIXEL0_FREQUENCY0(5000),
     .PIXEL0_FREQUENCY1(10000),
     .PIXEL1_FREQUENCY0(15000),
@@ -149,7 +149,7 @@ input wire s00_axi_rready;
     .FREQUENCY_DEVIATION(20),
     .CLOCK_FREQUENCY(100000000),
     .THRESHOLD_VALUE(40),
-    .DARK_PIXELS_COUNT(16)
+    .DARK_PIXELS_COUNT(32)
   ) inst (
     .data(data),
     .pixel_clock(pixel_clock),

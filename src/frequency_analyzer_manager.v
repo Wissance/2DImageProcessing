@@ -36,7 +36,7 @@ module frequency_analyzer_manager #
     parameter integer FREQUENCY_DEVIATION = 30,
     parameter integer CLOCK_FREQUENCY = 100000000,
     parameter integer THRESHOLD_VALUE = 100,
-    parameter integer DARK_PIXELS_COUNT = 16
+    parameter integer DARK_PIXELS_COUNT = 32
 )
 (
     input wire [7:0] data,
@@ -75,10 +75,7 @@ module frequency_analyzer_manager #
     reg pixel0_sample_data;
     reg pixel1_sample_data;
     reg pixel2_sample_data;
-    reg [10:0] pixel_counter;
-    //reg [10:0] pixel0_counter;
-    //reg [10:0] pixel1_counter;
-    //reg [10:0] pixel2_counter;
+    reg [12:0] pixel_counter;
     wire enable;
     // axi register access
     wire[31:0] register_write;
@@ -208,14 +205,17 @@ module frequency_analyzer_manager #
         end
         else
         begin
-            if(pixel_counter == DARK_PIXELS_COUNT + PIXEL0_INDEX - 1)
-                pixel0_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-            if(pixel_counter == DARK_PIXELS_COUNT + PIXEL1_INDEX - 1)
-                pixel1_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-            if(pixel_counter == DARK_PIXELS_COUNT + PIXEL2_INDEX - 1)
-                pixel2_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+            if(pixel_counter[0] == 0) // even pixel coressponds to tap A
+            begin
+                if(pixel_counter == DARK_PIXELS_COUNT + PIXEL0_INDEX)
+                    pixel0_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+                if(pixel_counter == DARK_PIXELS_COUNT + PIXEL1_INDEX)
+                    pixel1_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+                if(pixel_counter == DARK_PIXELS_COUNT + PIXEL2_INDEX)
+                    pixel2_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0;
+            end
             pixel_counter <= pixel_counter + 1;
-            if(pixel_counter == 1023 + DARK_PIXELS_COUNT)
+            if(pixel_counter == 2047 + DARK_PIXELS_COUNT)
                 pixel_counter <= 0;
         end
     end
