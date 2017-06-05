@@ -277,7 +277,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1f38a886</spirit:value>
+            <spirit:value>ca68fce0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -290,7 +290,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1f38a886</spirit:value>
+            <spirit:value>ca68fce0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -798,9 +798,14 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">100</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>DARK_PIXELS_COUNT</spirit:name>
-        <spirit:displayName>Dark Pixels Count</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DARK_PIXELS_COUNT">32</spirit:value>
+        <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
+        <spirit:displayName>Tap Dark Pixels Count</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>TAP_COLOR_PIXELS_COUNT</spirit:name>
+        <spirit:displayName>Tap Color Pixels Count</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -824,7 +829,7 @@
       <spirit:file>
         <spirit:name>xgui/frequency_analyzer_manager_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_4773dd9f</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_8c6b19d2</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -902,9 +907,14 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>DARK_PIXELS_COUNT</spirit:name>
-      <spirit:displayName>Dark Pixels Count</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DARK_PIXELS_COUNT">32</spirit:value>
+      <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
+      <spirit:displayName>Tap Dark Pixels Count</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>TAP_COLOR_PIXELS_COUNT</spirit:name>
+      <spirit:displayName>Tap Color Pixels Count</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -926,7 +936,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2017-06-01T17:33:14Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2017-06-05T09:20:31Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>

@@ -36,7 +36,8 @@ module frequency_analyzer_manager #
     parameter integer FREQUENCY_DEVIATION = 30,
     parameter integer CLOCK_FREQUENCY = 100000000,
     parameter integer THRESHOLD_VALUE = 100,
-    parameter integer DARK_PIXELS_COUNT = 32
+    parameter integer TAP_DARK_PIXELS_COUNT = 16,     // for single TAP
+    parameter integer TAP_COLOR_PIXELS_COUNT = 1024   // for single TAP
 )
 (
     input wire [7:0] data,
@@ -75,7 +76,7 @@ module frequency_analyzer_manager #
     reg pixel0_sample_data;
     reg pixel1_sample_data;
     reg pixel2_sample_data;
-    reg [12:0] pixel_counter;
+    reg [11:0] pixel_counter;
     wire enable;
     // axi register access
     wire[31:0] register_write;
@@ -205,17 +206,18 @@ module frequency_analyzer_manager #
         end
         else
         begin
-            if(pixel_counter[0] == 0) // even pixel coressponds to tap A
-            begin
-                if(pixel_counter == DARK_PIXELS_COUNT + PIXEL0_INDEX)
-                    pixel0_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-                if(pixel_counter == DARK_PIXELS_COUNT + PIXEL1_INDEX)
-                    pixel1_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
-                if(pixel_counter == DARK_PIXELS_COUNT + PIXEL2_INDEX)
-                    pixel2_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0;
-            end
             pixel_counter <= pixel_counter + 1;
-            if(pixel_counter == 2047 + DARK_PIXELS_COUNT)
+            //if(pixel_counter[0] == 0) // even pixel coressponds to tap A
+            //begin
+                if(pixel_counter == TAP_DARK_PIXELS_COUNT + PIXEL0_INDEX)
+                    pixel0_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+                if(pixel_counter == TAP_DARK_PIXELS_COUNT + PIXEL1_INDEX)
+                    pixel1_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+                if(pixel_counter == TAP_DARK_PIXELS_COUNT + PIXEL2_INDEX)
+                    pixel2_sample_data <= data > THRESHOLD_VALUE ? 1'b1 : 1'b0;
+            //end
+            
+            if(pixel_counter >= TAP_COLOR_PIXELS_COUNT + TAP_DARK_PIXELS_COUNT)
                 pixel_counter <= 0;
         end
     end

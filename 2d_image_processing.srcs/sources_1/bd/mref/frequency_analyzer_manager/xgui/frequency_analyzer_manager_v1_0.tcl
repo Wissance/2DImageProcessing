@@ -6,7 +6,6 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "CLOCK_FREQUENCY" -parent ${Page_0}
   ipgui::add_param $IPINST -name "C_S00_AXI_ADDR_WIDTH" -parent ${Page_0}
   ipgui::add_param $IPINST -name "C_S00_AXI_DATA_WIDTH" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "DARK_PIXELS_COUNT" -parent ${Page_0}
   ipgui::add_param $IPINST -name "FREQUENCY_DEVIATION" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PIXEL0_FREQUENCY0" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PIXEL0_FREQUENCY1" -parent ${Page_0}
@@ -17,6 +16,8 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "PIXEL2_FREQUENCY0" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PIXEL2_FREQUENCY1" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PIXEL2_INDEX" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "TAP_COLOR_PIXELS_COUNT" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "TAP_DARK_PIXELS_COUNT" -parent ${Page_0}
   ipgui::add_param $IPINST -name "THRESHOLD_VALUE" -parent ${Page_0}
 
 
@@ -46,15 +47,6 @@ proc update_PARAM_VALUE.C_S00_AXI_DATA_WIDTH { PARAM_VALUE.C_S00_AXI_DATA_WIDTH 
 
 proc validate_PARAM_VALUE.C_S00_AXI_DATA_WIDTH { PARAM_VALUE.C_S00_AXI_DATA_WIDTH } {
 	# Procedure called to validate C_S00_AXI_DATA_WIDTH
-	return true
-}
-
-proc update_PARAM_VALUE.DARK_PIXELS_COUNT { PARAM_VALUE.DARK_PIXELS_COUNT } {
-	# Procedure called to update DARK_PIXELS_COUNT when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.DARK_PIXELS_COUNT { PARAM_VALUE.DARK_PIXELS_COUNT } {
-	# Procedure called to validate DARK_PIXELS_COUNT
 	return true
 }
 
@@ -148,6 +140,24 @@ proc validate_PARAM_VALUE.PIXEL2_INDEX { PARAM_VALUE.PIXEL2_INDEX } {
 	return true
 }
 
+proc update_PARAM_VALUE.TAP_COLOR_PIXELS_COUNT { PARAM_VALUE.TAP_COLOR_PIXELS_COUNT } {
+	# Procedure called to update TAP_COLOR_PIXELS_COUNT when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.TAP_COLOR_PIXELS_COUNT { PARAM_VALUE.TAP_COLOR_PIXELS_COUNT } {
+	# Procedure called to validate TAP_COLOR_PIXELS_COUNT
+	return true
+}
+
+proc update_PARAM_VALUE.TAP_DARK_PIXELS_COUNT { PARAM_VALUE.TAP_DARK_PIXELS_COUNT } {
+	# Procedure called to update TAP_DARK_PIXELS_COUNT when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.TAP_DARK_PIXELS_COUNT { PARAM_VALUE.TAP_DARK_PIXELS_COUNT } {
+	# Procedure called to validate TAP_DARK_PIXELS_COUNT
+	return true
+}
+
 proc update_PARAM_VALUE.THRESHOLD_VALUE { PARAM_VALUE.THRESHOLD_VALUE } {
 	# Procedure called to update THRESHOLD_VALUE when any of the dependent parameters in the arguments change
 }
@@ -228,8 +238,13 @@ proc update_MODELPARAM_VALUE.THRESHOLD_VALUE { MODELPARAM_VALUE.THRESHOLD_VALUE 
 	set_property value [get_property value ${PARAM_VALUE.THRESHOLD_VALUE}] ${MODELPARAM_VALUE.THRESHOLD_VALUE}
 }
 
-proc update_MODELPARAM_VALUE.DARK_PIXELS_COUNT { MODELPARAM_VALUE.DARK_PIXELS_COUNT PARAM_VALUE.DARK_PIXELS_COUNT } {
+proc update_MODELPARAM_VALUE.TAP_DARK_PIXELS_COUNT { MODELPARAM_VALUE.TAP_DARK_PIXELS_COUNT PARAM_VALUE.TAP_DARK_PIXELS_COUNT } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.DARK_PIXELS_COUNT}] ${MODELPARAM_VALUE.DARK_PIXELS_COUNT}
+	set_property value [get_property value ${PARAM_VALUE.TAP_DARK_PIXELS_COUNT}] ${MODELPARAM_VALUE.TAP_DARK_PIXELS_COUNT}
+}
+
+proc update_MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT { MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT PARAM_VALUE.TAP_COLOR_PIXELS_COUNT } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.TAP_COLOR_PIXELS_COUNT}] ${MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT}
 }
 

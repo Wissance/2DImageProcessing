@@ -27,6 +27,7 @@ module linescanner_image_capture_unit(
     localparam SM1_SEND_RE_OF_RST_CVC_AND_RST_CDS = 4;
     localparam SM1_WAIT_NUM_CLOCKS = 5;
     
+    localparam clocks_per_microsecond_40_mhz = 38;
     localparam clocks_per_microsecond_50_mhz = 48;
     localparam clocks_per_microsecond_60_mhz = 58;
     localparam clocks_per_microsecond_70_mhz = 68;

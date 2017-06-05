@@ -427,7 +427,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4e37461f</spirit:value>
+            <spirit:value>958ef35c</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -446,7 +446,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 01 17:33:32 UTC 2017</spirit:value>
+            <spirit:value>Mon Jun 05 09:21:03 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -458,7 +458,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4e37461f</spirit:value>
+            <spirit:value>958ef35c</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -481,7 +481,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9774d4c9</spirit:value>
+            <spirit:value>08507fcc</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -500,7 +500,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 01 17:33:32 UTC 2017</spirit:value>
+            <spirit:value>Mon Jun 05 09:21:03 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -512,7 +512,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9774d4c9</spirit:value>
+            <spirit:value>08507fcc</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -1016,9 +1016,14 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">40</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>DARK_PIXELS_COUNT</spirit:name>
-        <spirit:displayName>Dark Pixels Count</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DARK_PIXELS_COUNT">32</spirit:value>
+        <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
+        <spirit:displayName>Tap Dark Pixels Count</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>TAP_COLOR_PIXELS_COUNT</spirit:name>
+        <spirit:displayName>Tap Color Pixels Count</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1127,9 +1132,14 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">40</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>DARK_PIXELS_COUNT</spirit:name>
-      <spirit:displayName>Dark Pixels Count</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DARK_PIXELS_COUNT">32</spirit:value>
+      <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
+      <spirit:displayName>Tap Dark Pixels Count</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>TAP_COLOR_PIXELS_COUNT</spirit:name>
+      <spirit:displayName>Tap Color Pixels Count</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -1169,7 +1179,6 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.WUSER_WIDTH" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.CLK_DOMAIN" xilinx:valueSource="default_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.FREQ_HZ" xilinx:valueSource="user_prop"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.DARK_PIXELS_COUNT" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FREQUENCY_DEVIATION" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY0" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY1" xilinx:valueSource="user"/>
