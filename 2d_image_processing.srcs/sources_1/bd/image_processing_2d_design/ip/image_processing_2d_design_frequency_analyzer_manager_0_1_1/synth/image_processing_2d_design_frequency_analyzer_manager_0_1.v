@@ -52,8 +52,8 @@
 
 (* X_CORE_INFO = "frequency_analyzer_manager,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "image_processing_2d_design_frequency_analyzer_manager_0_1,frequency_analyzer_manager,{}" *)
-(* CORE_GENERATION_INFO = "image_processing_2d_design_frequency_analyzer_manager_0_1,frequency_analyzer_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=frequency_analyzer_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=10,PIXEL0_INDEX=63,PIXEL1_INDEX=511,PIXEL2_INDEX=1000,PIXEL0_FREQUENCY0=5000,PIXEL0_FREQUENCY1=10000,PIXEL1_FREQUENCY0=15000,PIXEL1_FREQUENCY1=20000,PIXEL2_FREQUENCY0=40000,PIXEL2_FREQ\
-UENCY1=50000,FREQUENCY_DEVIATION=20,CLOCK_FREQUENCY=100000000}" *)
+(* CORE_GENERATION_INFO = "image_processing_2d_design_frequency_analyzer_manager_0_1,frequency_analyzer_manager,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=frequency_analyzer_manager,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=10,PIXEL0_INDEX=2,PIXEL1_INDEX=512,PIXEL2_INDEX=768,POINT0_FREQUENCY0=5000,POINT0_FREQUENCY1=10000,POINT1_FREQUENCY0=15000,POINT1_FREQUENCY1=20000,POINT2_FREQUENCY0=25000,POINT2_FREQUE\
+NCY1=30000,FREQUENCY_DEVIATION=20,CLOCK_FREQUENCY=100000000,THRESHOLD_VALUE=96,TAP_DARK_PIXELS_COUNT=16,TAP_COLOR_PIXELS_COUNT=1024,POINT_WIDTH_PIXEL=128}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module image_processing_2d_design_frequency_analyzer_manager_0_1 (
   data,
@@ -139,17 +139,21 @@ input wire s00_axi_rready;
   frequency_analyzer_manager #(
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(10),
-    .PIXEL0_INDEX(63),
-    .PIXEL1_INDEX(511),
-    .PIXEL2_INDEX(1000),
-    .PIXEL0_FREQUENCY0(5000),
-    .PIXEL0_FREQUENCY1(10000),
-    .PIXEL1_FREQUENCY0(15000),
-    .PIXEL1_FREQUENCY1(20000),
-    .PIXEL2_FREQUENCY0(40000),
-    .PIXEL2_FREQUENCY1(50000),
+    .PIXEL0_INDEX(2),
+    .PIXEL1_INDEX(512),
+    .PIXEL2_INDEX(768),
+    .POINT0_FREQUENCY0(5000),
+    .POINT0_FREQUENCY1(10000),
+    .POINT1_FREQUENCY0(15000),
+    .POINT1_FREQUENCY1(20000),
+    .POINT2_FREQUENCY0(25000),
+    .POINT2_FREQUENCY1(30000),
     .FREQUENCY_DEVIATION(20),
-    .CLOCK_FREQUENCY(100000000)
+    .CLOCK_FREQUENCY(100000000),
+    .THRESHOLD_VALUE(96),
+    .TAP_DARK_PIXELS_COUNT(16),
+    .TAP_COLOR_PIXELS_COUNT(1024),
+    .POINT_WIDTH_PIXEL(128)
   ) inst (
     .data(data),
     .pixel_clock(pixel_clock),

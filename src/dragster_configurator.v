@@ -36,28 +36,20 @@ module dragster_configurator #
     wire[7:0] incoming_data;
     reg [3:0] register_counter;
     reg configuration_done;
-    reg [1:0] slave;
+    //reg [1:0] slave;
     reg enable;
     reg start_transaction;
     wire end_of_transaction;
-    //supply1 vcc;
 
-/*    wire internal_reset_n;
-    wire internal_reset_clk;
-
-    assign internal_reset_clk = clk & !internal_reset_n;*/
-    
-    // enable generator 
-    //FDRE reset_generator(.R(reset_n), .CE(vcc), .D(vcc), .C(clk), .Q(internal_reset));
-    //FDCE reset_generator(.CLR(~reset_n), .CE(vcc), .D(vcc), .C(clk), .Q(internal_reset_n));
-    //FDRE enable_generator(.R(enable), .CE(~busy & ~configuration_done & reset_n), .D(vcc), .C(clk), .Q(enable));
+    localparam NUMBER_OF_REGISTERS = 5;
+    localparam REGISTER_MAX_INDEX = NUMBER_OF_REGISTERS - 1;
     
     quick_spi spi_iml(
         .clk(clk),
         .reset_n(reset_n),
         .enable(enable),
         .start_transaction(start_transaction),
-        .slave(slave),
+        .slave(2'b00),//ss_n),//slave),
         .incoming_data(incoming_data),
         .outgoing_data(command_buffer),
         .operation(1'b1),
@@ -67,26 +59,35 @@ module dragster_configurator #
         .ss_n(ss_n),
         .mosi(mosi));
     
-    always @ (posedge clk) begin
-        if(!reset_n) begin
+    always @ (posedge clk)// or posedge end_of_transaction) 
+    begin
+        if(!reset_n) 
+        begin
             register_counter <= 0;
+            start_transaction <= 1'b0;
+            enable <= 1'b0;
         end
         
-        else begin
-            if(!register_counter) begin
+        else 
+        begin
+            if(!register_counter) 
+            begin
                 enable <= 1'b1;
                 start_transaction <= 1'b1;
                 command_buffer <= get_dragster_config(register_counter);
                 register_counter <= register_counter + 1;
             end
                 
-            if(end_of_transaction) begin
-                if(register_counter < 7) begin
+            if(end_of_transaction) 
+            begin
+                if(register_counter < NUMBER_OF_REGISTERS) 
+                begin
                     command_buffer <= get_dragster_config(register_counter);
                     register_counter <= register_counter + 1;
                 end
             
-                if(register_counter == 7) begin
+                if(register_counter == NUMBER_OF_REGISTERS)
+                begin
                     enable <= 1'b0;
                     start_transaction <= 1'b0;
                 end
@@ -97,56 +98,13 @@ module dragster_configurator #
     function[15:0] get_dragster_config(reg [3:0] index);
     reg[15:0] result;
     begin
-       case (index)          
-          0:
-           begin
-            // control register 3
-            result = {8'b00010011,8'b00000101};
-           end
-           
-           1:
-           begin
-           // control register 2
-            result = {8'b00110010, 8'b00000010};
-           end
-           
-           2: begin
-           // Inversed ADC gain register
-            result = {8'b11000000, 8'b00000011};
-           end
-           
-          3:
-           begin
-           // end of range 
-            result = {8'b00000111 /*8'b00001000*/, 8'b00001001};
-           end
-           
-           /* Threshold 1 */
-           4: begin
-            result = {8'b00000001/*1*32=32*/, 8'b00000110};
-           end
-           
-           /* Threshold 2 */
-           5: begin
-            result = {8'b00000010/*2*32=64*/, 8'b00000111};
-           end
-           
-           /* Threshold 3 */
-           6: begin
-            result = {8'b00000101/*5*32=160*/, 8'b00001000};
-           end
-           
-           7:
-           begin
-            // control register 1
-                //result = {8'b10101001, 8'b00000001};
-                result = {8'b11101001, 8'b00000001};
-           end
-           
-           default:
-           begin
-               result = 16'b0000000000000000;
-           end
+       case (index)  
+           0: result = {8'b00111011, 8'b00000101};  // control register 3 (assress 5)
+           1: result = {8'b00100010, 8'b00000010}; // control register 2 (address 2)
+           2: result = {8'b11101011, 8'b00000011}; // inversed adc gain (address 3)
+           3: result = {8'b00011111, 8'b00001001}; // end of adc register (assress 9)
+           4: result = {8'b10100001, 8'b00000001}; // control register 1 (address 1) update bit
+           default: result = 16'b0000000000000000;
        endcase
        get_dragster_config = result;
     end

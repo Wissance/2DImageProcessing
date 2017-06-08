@@ -151,7 +151,6 @@ FCLK_CLK0,
 FCLK_CLK1, 
 FCLK_CLK2, 
 FCLK_RESET0_N, 
-FCLK_RESET1_N, 
 MIO, 
 DDR_CAS_n, 
 DDR_CKE, 
@@ -269,7 +268,6 @@ output FCLK_CLK0;
 output FCLK_CLK1;
 output FCLK_CLK2;
 output FCLK_RESET0_N;
-output FCLK_RESET1_N;
 input [53 : 0] MIO;
 input DDR_CAS_n;
 input DDR_CKE;
@@ -677,7 +675,7 @@ input PS_PORB;
 	
     .FCLK_CLK3(),
     .FCLK_RESET0_N(FCLK_RESET0_N),
-    .FCLK_RESET1_N(FCLK_RESET1_N),
+    .FCLK_RESET1_N(),
     .FCLK_RESET2_N(),
     .FCLK_RESET3_N(),
     .IRQ_F2P(IRQ_F2P),

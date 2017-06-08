@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="" key="image_processing_2d_design_wrapper_hw_platform_0-bmmFile"/>
-	<item value="D:\Projects\2DImageProcessing\bitstreams\70MHz_8bit.bit" key="image_processing_2d_design_wrapper_hw_platform_0-bitFile"/>
+	<item value="D:\Projects\2DImageProcessing\2d_image_processing.runs\impl_1\image_processing_2d_design_wrapper.bit" key="image_processing_2d_design_wrapper_hw_platform_0-bitFile"/>
 	<item value="Auto Detect" key="image_processing_2d_design_wrapper_hw_platform_0-device"/>
 	<item value="image_processing_2d_design_wrapper_hw_platform_0" key="programfpga.hwplatform"/>
 	<item value="Local" key="image_processing_2d_design_wrapper_hw_platform_0-target"/>

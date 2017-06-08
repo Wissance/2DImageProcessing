@@ -57,31 +57,33 @@ begin
         check_result = 0;
     end
     
-    else  
-    if(enable) 
+    else
     begin
-        if(frequency_counter == 0)
-            start_sample_value = sample_data;
-            
-        else if(sample_data != start_sample_value) 
+        if(enable) 
         begin
-            start_sample_value = sample_data;
-            check_result = check_frequency(frequency_counter);
-                
-            if(check_result == 2)
+            if(frequency_counter == 0)// && start_sample_value != sample_data)
+                start_sample_value = sample_data;
+            if(sample_data != start_sample_value) 
             begin
-                frequency1_counter = frequency1_counter + frequency_counter;
+                start_sample_value = sample_data;
+                check_result = check_frequency(frequency_counter);          
+                if(check_result == 2)
+                    frequency1_counter = frequency1_counter + frequency_counter;
+                else if(check_result == 1)
+                    frequency0_counter = frequency0_counter + frequency_counter;
+                else unassigned_frequency = unassigned_frequency + frequency_counter;          
+                frequency_counter = 0;           
+            end
+            frequency_counter = frequency_counter + 1;
+        end
+        else 
+        begin
+            if(frequency_counter > 0)
+            begin
+                unassigned_frequency = unassigned_frequency + frequency_counter;;
                 frequency_counter = 0;
             end
-            else if(check_result == 1)
-            begin
-                frequency0_counter = frequency0_counter + frequency_counter;
-                frequency_counter = 0;
-            end
-            else unassigned_frequency = unassigned_frequency + frequency_counter;          
-            frequency_counter = 0;
-        end        
-        frequency_counter = frequency_counter + 1;
+        end
     end
 end
 

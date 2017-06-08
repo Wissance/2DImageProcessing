@@ -1,24 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 23.09.2016 08:48:06
-// Design Name: 
-// Module Name: linescanner_image_capture_unit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module linescanner_image_capture_unit(
     input wire enable,
@@ -40,18 +20,26 @@ module linescanner_image_capture_unit(
     assign pixel_captured = lval ? pixel_clock : 0;
     assign pixel_data = data;
       
-    localparam
-    SM1_SEND_FE_OF_RST_CVC = 0,
-    SM1_SEND_FE_OF_RST_CDS = 1,
-    SM1_SEND_RE_OF_SAMPLE = 2,
-    SM1_SEND_FE_OF_SAMPLE = 3,
-    SM1_SEND_RE_OF_RST_CVC_AND_RST_CDS = 4,
-    SM1_WAIT_NUM_CLOCKS = 5;
-      
-    reg[2:0] sm1_state, sm1_state_to_go_to_after_waiting;
-    reg[5:0] sm1_num_clocks_to_wait, sm1_clock_count;
+    localparam SM1_SEND_FE_OF_RST_CVC = 0;
+    localparam SM1_SEND_FE_OF_RST_CDS = 1;
+    localparam SM1_SEND_RE_OF_SAMPLE = 2;
+    localparam SM1_SEND_FE_OF_SAMPLE = 3;
+    localparam SM1_SEND_RE_OF_RST_CVC_AND_RST_CDS = 4;
+    localparam SM1_WAIT_NUM_CLOCKS = 5;
     
-    always @ (posedge pixel_clock or negedge n_reset) begin
+    localparam clocks_per_microsecond_40_mhz = 38;
+    localparam clocks_per_microsecond_50_mhz = 48;
+    localparam clocks_per_microsecond_60_mhz = 58;
+    localparam clocks_per_microsecond_70_mhz = 68;
+    localparam clocks_per_microsecond_80_mhz = 78;
+    localparam clocks_per_microsecond = clocks_per_microsecond_50_mhz;
+      
+    reg[7:0] sm1_state;
+    reg[7:0] sm1_state_to_go_to_after_waiting;
+    reg[7:0] sm1_num_clocks_to_wait;
+    reg[7:0] sm1_clock_count;
+    
+    always @ (posedge pixel_clock) begin
         if(!n_reset) begin
             rst_cvc <= 1'b1;
             rst_cds <= 1'b1;
@@ -71,7 +59,7 @@ module linescanner_image_capture_unit(
                     
                     sm1_state <= SM1_WAIT_NUM_CLOCKS;
                     sm1_state_to_go_to_after_waiting <= SM1_SEND_FE_OF_RST_CDS;    
-                    sm1_num_clocks_to_wait <= 48;
+                    sm1_num_clocks_to_wait <= clocks_per_microsecond;
                 end
                 
                 SM1_SEND_FE_OF_RST_CDS:
@@ -90,7 +78,7 @@ module linescanner_image_capture_unit(
                     
                         sm1_state <= SM1_WAIT_NUM_CLOCKS;
                         sm1_state_to_go_to_after_waiting <= SM1_SEND_FE_OF_SAMPLE;
-                        sm1_num_clocks_to_wait <= 48*2;
+                        sm1_num_clocks_to_wait <= clocks_per_microsecond;
                     end
                 end
                    
@@ -121,18 +109,18 @@ module linescanner_image_capture_unit(
             endcase
     end
 
-    localparam
-    SM2_WAIT_FOR_RE_OF_END_ADC = 0,
-    SM2_WAIT_FOR_FE_OF_LVAL = 1,
-    SM2_SEND_RE_OF_LOAD_PULSE = 2,
-    SM2_SEND_FE_OF_LOAD_PULSE = 3,
-    SM2_WAIT_FOR_FE_OF_END_ADC = 4,
-    SM2_WAIT_NUM_CLOCKS = 5;
+    localparam SM2_WAIT_FOR_RE_OF_END_ADC = 0;
+    localparam SM2_WAIT_FOR_FE_OF_LVAL = 1;
+    localparam SM2_SEND_RE_OF_LOAD_PULSE = 2;
+    localparam SM2_SEND_FE_OF_LOAD_PULSE = 3;
+    localparam SM2_WAIT_FOR_FE_OF_END_ADC = 4;
+    localparam SM2_WAIT_NUM_CLOCKS = 5;
 
-    reg[2:0] sm2_state, sm2_state_to_go_to_after_waiting;
-    reg[1:0] sm2_clock_count;
+    reg[7:0] sm2_state;
+    reg[7:0] sm2_state_to_go_to_after_waiting;
+    reg[7:0] sm2_clock_count;
 
-    always @ (posedge pixel_clock or negedge n_reset) begin
+    always @ (posedge pixel_clock) begin
       if(!n_reset) begin
         load_pulse <= 1'b0;
         

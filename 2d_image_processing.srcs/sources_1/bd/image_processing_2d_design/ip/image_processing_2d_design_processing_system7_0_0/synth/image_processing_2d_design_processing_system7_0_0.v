@@ -152,7 +152,6 @@ module image_processing_2d_design_processing_system7_0_0 (
   FCLK_CLK1,
   FCLK_CLK2,
   FCLK_RESET0_N,
-  FCLK_RESET1_N,
   MIO,
   DDR_CAS_n,
   DDR_CKE,
@@ -363,8 +362,6 @@ output wire FCLK_CLK1;
 output wire FCLK_CLK2;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 FCLK_RESET0_N RST" *)
 output wire FCLK_RESET0_N;
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 FCLK_RESET1_N RST" *)
-output wire FCLK_RESET1_N;
 (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO" *)
 inout wire [53 : 0] MIO;
 (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *)
@@ -1083,7 +1080,7 @@ inout wire PS_PORB;
     .FCLK_CLKTRIG2_N(1'B0),
     .FCLK_CLKTRIG3_N(1'B0),
     .FCLK_RESET0_N(FCLK_RESET0_N),
-    .FCLK_RESET1_N(FCLK_RESET1_N),
+    .FCLK_RESET1_N(),
     .FCLK_RESET2_N(),
     .FCLK_RESET3_N(),
     .FTMD_TRACEIN_DATA(32'B0),

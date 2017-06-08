@@ -427,7 +427,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>c7f77ba4</spirit:value>
+            <spirit:value>6a55f404</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -446,7 +446,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon May 15 06:07:49 UTC 2017</spirit:value>
+            <spirit:value>Thu Jun 08 11:10:06 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -458,7 +458,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>c7f77ba4</spirit:value>
+            <spirit:value>6a55f404</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -481,7 +481,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>5d4b0a3b</spirit:value>
+            <spirit:value>6a4e29ad</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -500,7 +500,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon May 15 06:07:49 UTC 2017</spirit:value>
+            <spirit:value>Thu Jun 08 11:10:06 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -512,7 +512,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>5d4b0a3b</spirit:value>
+            <spirit:value>6a4e29ad</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -958,47 +958,47 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL0_INDEX</spirit:name>
         <spirit:displayName>Pixel0 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_INDEX">63</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_INDEX">2</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL1_INDEX</spirit:name>
         <spirit:displayName>Pixel1 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_INDEX">511</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_INDEX">512</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL2_INDEX</spirit:name>
         <spirit:displayName>Pixel2 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_INDEX">1000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_INDEX">768</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL0_FREQUENCY0</spirit:name>
-        <spirit:displayName>Pixel0 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_FREQUENCY0">5000</spirit:value>
+        <spirit:name>POINT0_FREQUENCY0</spirit:name>
+        <spirit:displayName>Point0 Frequency0</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT0_FREQUENCY0">5000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL0_FREQUENCY1</spirit:name>
-        <spirit:displayName>Pixel0 Frequency1</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_FREQUENCY1">10000</spirit:value>
+        <spirit:name>POINT0_FREQUENCY1</spirit:name>
+        <spirit:displayName>Point0 Frequency1</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT0_FREQUENCY1">10000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL1_FREQUENCY0</spirit:name>
-        <spirit:displayName>Pixel1 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_FREQUENCY0">15000</spirit:value>
+        <spirit:name>POINT1_FREQUENCY0</spirit:name>
+        <spirit:displayName>Point1 Frequency0</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT1_FREQUENCY0">15000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL1_FREQUENCY1</spirit:name>
-        <spirit:displayName>Pixel1 Frequency1</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_FREQUENCY1">20000</spirit:value>
+        <spirit:name>POINT1_FREQUENCY1</spirit:name>
+        <spirit:displayName>Point1 Frequency1</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT1_FREQUENCY1">20000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL2_FREQUENCY0</spirit:name>
-        <spirit:displayName>Pixel2 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_FREQUENCY0">40000</spirit:value>
+        <spirit:name>POINT2_FREQUENCY0</spirit:name>
+        <spirit:displayName>Point2 Frequency0</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT2_FREQUENCY0">25000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL2_FREQUENCY1</spirit:name>
-        <spirit:displayName>Pixel2 Frequency1</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_FREQUENCY1">50000</spirit:value>
+        <spirit:name>POINT2_FREQUENCY1</spirit:name>
+        <spirit:displayName>Point2 Frequency1</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT2_FREQUENCY1">30000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>FREQUENCY_DEVIATION</spirit:name>
@@ -1009,6 +1009,26 @@
         <spirit:name>CLOCK_FREQUENCY</spirit:name>
         <spirit:displayName>Clock Frequency</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>THRESHOLD_VALUE</spirit:name>
+        <spirit:displayName>Threshold Value</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">96</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
+        <spirit:displayName>Tap Dark Pixels Count</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>TAP_COLOR_PIXELS_COUNT</spirit:name>
+        <spirit:displayName>Tap Color Pixels Count</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
+        <spirit:displayName>Point Width Pixel</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT_WIDTH_PIXEL">128</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1059,47 +1079,47 @@
     <spirit:parameter>
       <spirit:name>PIXEL0_INDEX</spirit:name>
       <spirit:displayName>Pixel0 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_INDEX">63</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_INDEX">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PIXEL1_INDEX</spirit:name>
       <spirit:displayName>Pixel1 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_INDEX">511</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_INDEX">512</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PIXEL2_INDEX</spirit:name>
       <spirit:displayName>Pixel2 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_INDEX">1000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_INDEX">768</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL0_FREQUENCY0</spirit:name>
-      <spirit:displayName>Pixel0 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_FREQUENCY0">5000</spirit:value>
+      <spirit:name>POINT0_FREQUENCY0</spirit:name>
+      <spirit:displayName>Point0 Frequency0</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT0_FREQUENCY0">5000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL0_FREQUENCY1</spirit:name>
-      <spirit:displayName>Pixel0 Frequency1</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_FREQUENCY1">10000</spirit:value>
+      <spirit:name>POINT0_FREQUENCY1</spirit:name>
+      <spirit:displayName>Point0 Frequency1</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT0_FREQUENCY1">10000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL1_FREQUENCY0</spirit:name>
-      <spirit:displayName>Pixel1 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_FREQUENCY0">15000</spirit:value>
+      <spirit:name>POINT1_FREQUENCY0</spirit:name>
+      <spirit:displayName>Point1 Frequency0</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT1_FREQUENCY0">15000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL1_FREQUENCY1</spirit:name>
-      <spirit:displayName>Pixel1 Frequency1</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_FREQUENCY1">20000</spirit:value>
+      <spirit:name>POINT1_FREQUENCY1</spirit:name>
+      <spirit:displayName>Point1 Frequency1</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT1_FREQUENCY1">20000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL2_FREQUENCY0</spirit:name>
-      <spirit:displayName>Pixel2 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_FREQUENCY0">40000</spirit:value>
+      <spirit:name>POINT2_FREQUENCY0</spirit:name>
+      <spirit:displayName>Point2 Frequency0</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT2_FREQUENCY0">25000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL2_FREQUENCY1</spirit:name>
-      <spirit:displayName>Pixel2 Frequency1</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_FREQUENCY1">50000</spirit:value>
+      <spirit:name>POINT2_FREQUENCY1</spirit:name>
+      <spirit:displayName>Point2 Frequency1</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT2_FREQUENCY1">30000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>FREQUENCY_DEVIATION</spirit:name>
@@ -1110,6 +1130,26 @@
       <spirit:name>CLOCK_FREQUENCY</spirit:name>
       <spirit:displayName>Clock Frequency</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>THRESHOLD_VALUE</spirit:name>
+      <spirit:displayName>Threshold Value</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">96</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
+      <spirit:displayName>Tap Dark Pixels Count</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>TAP_COLOR_PIXELS_COUNT</spirit:name>
+      <spirit:displayName>Tap Color Pixels Count</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
+      <spirit:displayName>Point Width Pixel</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT_WIDTH_PIXEL">128</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -1150,13 +1190,11 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.CLK_DOMAIN" xilinx:valueSource="default_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.FREQ_HZ" xilinx:valueSource="user_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FREQUENCY_DEVIATION" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY0" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_FREQUENCY1" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_INDEX" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL1_INDEX" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_FREQUENCY0" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_FREQUENCY1" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_INDEX" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.POINT_WIDTH_PIXEL" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.THRESHOLD_VALUE" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
