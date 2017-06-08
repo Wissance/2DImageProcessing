@@ -40,6 +40,8 @@ void freuqencyAnalyzer0Handler(void *data)
     linescanner0PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 16);
     linescanner0PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 20);
     linescanner0PixelFrequencies._pixel0UnassignedFrequency += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 24);
+    linescanner0PixelFrequencies._pixel1UnassignedFrequency += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 28);
+    linescanner0PixelFrequencies._pixel2UnassignedFrequency += read(FREQUENCY_ANALYZER0_BASE_ADDRESS, 32);
 }
 
 void freuqencyAnalyzer1Handler(void *data)
@@ -55,6 +57,8 @@ void freuqencyAnalyzer1Handler(void *data)
     linescanner1PixelFrequencies._pixel2Frequency0 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 16);
     linescanner1PixelFrequencies._pixel2Frequency1 += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 20);
     linescanner1PixelFrequencies._pixel0UnassignedFrequency += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 24);
+    linescanner1PixelFrequencies._pixel1UnassignedFrequency += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 28);
+    linescanner1PixelFrequencies._pixel2UnassignedFrequency += read(FREQUENCY_ANALYZER1_BASE_ADDRESS, 32);
 }
 
 void ImageCaptureManager::initialize()

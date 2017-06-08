@@ -71,7 +71,7 @@ module frequency_analyzer_manager #
     input wire  s00_axi_rready
 );
     
-    localparam integer REGISTERS_NUMBER = 7;
+    localparam integer REGISTERS_NUMBER = 9;
     
     localparam POINT0_START_INDEX = TAP_DARK_PIXELS_COUNT + PIXEL0_INDEX;
     localparam POINT0_END_INDEX = POINT0_START_INDEX + POINT_WIDTH_PIXEL;
@@ -105,12 +105,13 @@ module frequency_analyzer_manager #
     wire [31:0] pixel2_f0_action_time_net;
     wire [31:0] pixel2_f1_action_time_net;
     wire [31:0] pixel0_unknown_frequency;
+    wire [31:0] pixel1_unknown_frequency;
+    wire [31:0] pixel2_unknown_frequency;
     
     supply1 vcc;
     reg[31:0] register_write_value;
     reg[1:0] register_operation_value;
-    reg[7:0] register_number_value;
-    
+    reg[7:0] register_number_value;    
     reg[1:0] hold;
     
     wire clear_impl;
@@ -118,9 +119,7 @@ module frequency_analyzer_manager #
     assign register_write = register_write_value;
     assign register_operation = register_operation_value;
     assign register_number = register_number_value;
-    assign clear_impl = s00_axi_aresetn & 
-                       ~write_completed & 
-                       ~clear;
+    assign clear_impl = s00_axi_aresetn & ~write_completed & ~clear;
     
     // enable generator
     FDCE #(.INIT(0)) enable_generator(.C(start), .CE(s00_axi_aresetn), .D(vcc), .Q(enable), .CLR(stop));
@@ -153,7 +152,8 @@ module frequency_analyzer_manager #
             .enable(enable),
             .clear(clear_impl),
             .f0_value(pixel1_f0_action_time_net),
-            .f1_value(pixel1_f1_action_time_net));
+            .f1_value(pixel1_f1_action_time_net),
+            .unknown(pixel1_unknown_frequency));
                           
     frequency_analyzer #(
         .FREQUENCY0(POINT2_FREQUENCY0),
@@ -167,7 +167,8 @@ module frequency_analyzer_manager #
             .enable(enable),
             .clear(clear_impl),
             .f0_value(pixel2_f0_action_time_net),
-            .f1_value(pixel2_f1_action_time_net));
+            .f1_value(pixel2_f1_action_time_net),
+            .unknown(pixel2_unknown_frequency));
             
     assign irq = write_completed;
     
@@ -313,6 +314,8 @@ module frequency_analyzer_manager #
             5: get_frequency = pixel2_f0_action_time_net;
             6: get_frequency = pixel2_f1_action_time_net;
             7: get_frequency = pixel0_unknown_frequency;
+            8: get_frequency = pixel1_unknown_frequency;
+            9: get_frequency = pixel2_unknown_frequency;
             default: get_frequency = 0;
         endcase
     endfunction 
