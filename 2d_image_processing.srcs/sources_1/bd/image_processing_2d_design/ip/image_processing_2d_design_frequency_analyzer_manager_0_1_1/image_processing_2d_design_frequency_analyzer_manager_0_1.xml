@@ -427,7 +427,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>a07fa32a</spirit:value>
+            <spirit:value>6a55f404</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -446,7 +446,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 05 13:04:35 UTC 2017</spirit:value>
+            <spirit:value>Thu Jun 08 11:10:06 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -458,7 +458,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>a07fa32a</spirit:value>
+            <spirit:value>6a55f404</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -481,7 +481,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>675a7aa3</spirit:value>
+            <spirit:value>6a4e29ad</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -500,7 +500,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 05 13:04:35 UTC 2017</spirit:value>
+            <spirit:value>Thu Jun 08 11:10:06 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -512,7 +512,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>675a7aa3</spirit:value>
+            <spirit:value>6a4e29ad</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -963,7 +963,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL1_INDEX</spirit:name>
         <spirit:displayName>Pixel1 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_INDEX">256</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_INDEX">512</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>PIXEL2_INDEX</spirit:name>
@@ -1028,7 +1028,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
         <spirit:displayName>Point Width Pixel</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT_WIDTH_PIXEL">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT_WIDTH_PIXEL">128</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1084,7 +1084,7 @@
     <spirit:parameter>
       <spirit:name>PIXEL1_INDEX</spirit:name>
       <spirit:displayName>Pixel1 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_INDEX">256</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_INDEX">512</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PIXEL2_INDEX</spirit:name>
@@ -1149,7 +1149,7 @@
     <spirit:parameter>
       <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
       <spirit:displayName>Point Width Pixel</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT_WIDTH_PIXEL">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT_WIDTH_PIXEL">128</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

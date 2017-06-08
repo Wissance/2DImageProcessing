@@ -138,7 +138,7 @@ input wire s00_axi_rready;
     .C_S00_AXI_DATA_WIDTH(32),
     .C_S00_AXI_ADDR_WIDTH(10),
     .PIXEL0_INDEX(2),
-    .PIXEL1_INDEX(256),
+    .PIXEL1_INDEX(512),
     .PIXEL2_INDEX(768),
     .POINT0_FREQUENCY0(5000),
     .POINT0_FREQUENCY1(10000),
@@ -151,7 +151,7 @@ input wire s00_axi_rready;
     .THRESHOLD_VALUE(96),
     .TAP_DARK_PIXELS_COUNT(16),
     .TAP_COLOR_PIXELS_COUNT(1024),
-    .POINT_WIDTH_PIXEL(16)
+    .POINT_WIDTH_PIXEL(128)
   ) inst (
     .data(data),
     .pixel_clock(pixel_clock),
