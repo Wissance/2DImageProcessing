@@ -24,17 +24,21 @@ module frequency_analyzer_manager #
 (
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 10,
-    parameter integer PIXEL0_INDEX = 63,
-    parameter integer PIXEL1_INDEX = 511,
-    parameter integer PIXEL2_INDEX = 1023,
-    parameter integer PIXEL0_FREQUENCY0 = 7500/*5000*/,/*2500 7500*/
-    parameter integer PIXEL0_FREQUENCY1 = 10000,
-    parameter integer PIXEL1_FREQUENCY0 = 15000,
-    parameter integer PIXEL1_FREQUENCY1 = 20000,
-    parameter integer PIXEL2_FREQUENCY0 = 25000,
-    parameter integer PIXEL2_FREQUENCY1 = 30000,
+    parameter integer PIXEL0_INDEX = 2,
+    parameter integer PIXEL1_INDEX = 256,
+    parameter integer PIXEL2_INDEX = 768,
+    parameter integer POINT0_FREQUENCY0 = 5000/*5000*/,/*2500 7500*/
+    parameter integer POINT0_FREQUENCY1 = 10000,
+    parameter integer POINT1_FREQUENCY0 = 15000,
+    parameter integer POINT1_FREQUENCY1 = 20000,
+    parameter integer POINT2_FREQUENCY0 = 25000,
+    parameter integer POINT2_FREQUENCY1 = 30000,
     parameter integer FREQUENCY_DEVIATION = 30,
-    parameter integer CLOCK_FREQUENCY = 100000000
+    parameter integer CLOCK_FREQUENCY = 100000000,
+    parameter integer THRESHOLD_VALUE = 100,
+    parameter integer TAP_DARK_PIXELS_COUNT = 16,      // for single TAP
+    parameter integer TAP_COLOR_PIXELS_COUNT = 1024,   // for single TAP
+    parameter integer POINT_WIDTH_PIXEL = 32
 )
 (
     input wire [7:0] data,
@@ -67,15 +71,25 @@ module frequency_analyzer_manager #
     input wire  s00_axi_rready
 );
     
-    localparam integer REGISTERS_NUMBER = 7; //6;
+    localparam integer REGISTERS_NUMBER = 7;
+    
+    localparam POINT0_START_INDEX = TAP_DARK_PIXELS_COUNT + PIXEL0_INDEX;
+    localparam POINT0_END_INDEX = POINT0_START_INDEX + POINT_WIDTH_PIXEL;
+    
+    localparam POINT1_START_INDEX = TAP_DARK_PIXELS_COUNT + PIXEL1_INDEX;
+    localparam POINT1_END_INDEX = POINT1_START_INDEX + POINT_WIDTH_PIXEL;
+    
+    localparam POINT2_START_INDEX = TAP_DARK_PIXELS_COUNT + PIXEL2_INDEX;
+    localparam POINT2_END_INDEX = POINT2_START_INDEX + POINT_WIDTH_PIXEL;
     
     // frequency analyzer data
     reg pixel0_sample_data;
+    reg [7:0] max_point0_data;
     reg pixel1_sample_data;
+    reg [7:0] max_point1_data;
     reg pixel2_sample_data;
-    reg [9:0] pixel0_counter;
-    reg [9:0] pixel1_counter;
-    reg [9:0] pixel2_counter;
+    reg [7:0] max_point2_data;
+    reg [11:0] pixel_counter;
     wire enable;
     // axi register access
     wire[31:0] register_write;
@@ -113,8 +127,8 @@ module frequency_analyzer_manager #
     
     //todo: umv: set proper frequencies
     frequency_analyzer #(
-        .FREQUENCY0(PIXEL0_FREQUENCY0),
-        .FREQUENCY1(PIXEL0_FREQUENCY1), 
+        .FREQUENCY0(POINT0_FREQUENCY0),
+        .FREQUENCY1(POINT0_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
         .CLOCK_FREQUENCY(CLOCK_FREQUENCY)) 
@@ -128,8 +142,8 @@ module frequency_analyzer_manager #
             .unknown(pixel0_unknown_frequency));
                          
     frequency_analyzer #(
-        .FREQUENCY0(PIXEL1_FREQUENCY0),
-        .FREQUENCY1(PIXEL1_FREQUENCY1), 
+        .FREQUENCY0(POINT1_FREQUENCY0),
+        .FREQUENCY1(POINT1_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
         .CLOCK_FREQUENCY(CLOCK_FREQUENCY))
@@ -142,8 +156,8 @@ module frequency_analyzer_manager #
             .f1_value(pixel1_f1_action_time_net));
                           
     frequency_analyzer #(
-        .FREQUENCY0(PIXEL2_FREQUENCY0),
-        .FREQUENCY1(PIXEL2_FREQUENCY1), 
+        .FREQUENCY0(POINT2_FREQUENCY0),
+        .FREQUENCY1(POINT2_FREQUENCY1), 
         .FREQUENCY0_DEVIATION(FREQUENCY_DEVIATION),
         .FREQUENCY1_DEVIATION(FREQUENCY_DEVIATION),
         .CLOCK_FREQUENCY(CLOCK_FREQUENCY))
@@ -196,48 +210,52 @@ module frequency_analyzer_manager #
     
     always @(posedge pixel_clock)
     begin
-        if(~enable)
+        if(~enable || write_completed)
         begin
             pixel0_sample_data <= 0;
-            pixel0_counter <= 0;
-        end
-        else
-        begin
-            if(pixel0_counter == PIXEL0_INDEX)
-                pixel0_sample_data <= data[7];// | data[6] | data[5];
-                                     //data[5] & data[4] | data[6] | data[7];
-                                     //data[7] & data[6] & data[5] & data[4];
-            pixel0_counter <= pixel0_counter + 1;
-        end
-    end
-
-    always @(posedge pixel_clock)
-    begin
-        if(~enable)
-        begin
             pixel1_sample_data <= 0;
-            pixel1_counter <= 0;
-        end
-        else
-        begin
-            if(pixel1_counter == PIXEL1_INDEX)
-                pixel1_sample_data <= data[7];// & data[6];
-            pixel1_counter <= pixel1_counter + 1;
-        end
-    end
-    
-    always @(posedge pixel_clock)
-    begin
-        if(~enable)
-        begin
             pixel2_sample_data <= 0;
-            pixel2_counter <= 0;
+            pixel_counter <= 0;
+            
+            max_point0_data <= 0;
+            max_point1_data <= 0;
+            max_point2_data <= 0;
         end
         else
         begin
-            if(pixel2_counter == PIXEL2_INDEX)
-                pixel2_sample_data <= data[7];// & data[6];
-            pixel2_counter <= pixel2_counter + 1;
+            pixel_counter <= pixel_counter + 1;
+            
+            if(pixel_counter >= POINT0_START_INDEX && pixel_counter < POINT0_END_INDEX)
+            begin
+                if(max_point0_data < data)
+                    max_point0_data <= data;
+            end
+            if(pixel_counter == POINT0_END_INDEX)
+                pixel0_sample_data <= max_point0_data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+            
+            if(pixel_counter >= POINT1_START_INDEX && pixel_counter < POINT1_END_INDEX)
+            begin
+                if(max_point1_data < data)
+                    max_point1_data <= data;
+            end
+            if(pixel_counter == POINT1_END_INDEX)
+                pixel1_sample_data <= max_point1_data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+            
+            if(pixel_counter >= POINT2_START_INDEX && pixel_counter < POINT2_END_INDEX)
+            begin
+                if(max_point2_data < data)
+                    max_point2_data <= data;
+            end
+            if(pixel_counter == POINT2_END_INDEX)
+                pixel2_sample_data <= max_point2_data > THRESHOLD_VALUE ? 1'b1 : 1'b0;             
+            
+            if(pixel_counter >= TAP_COLOR_PIXELS_COUNT + TAP_DARK_PIXELS_COUNT)
+            begin
+                pixel_counter <= 0;
+                max_point0_data <= 0;
+                max_point1_data <= 0;
+                max_point2_data <= 0;
+            end
         end
     end
     
