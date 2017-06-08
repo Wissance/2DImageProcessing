@@ -24,9 +24,9 @@ module frequency_analyzer_manager #
 (
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 10,
-    parameter integer PIXEL0_INDEX = 2,
-    parameter integer PIXEL1_INDEX = 256,
-    parameter integer PIXEL2_INDEX = 768,
+    parameter integer DEFAULT_PIXEL0_INDEX = 2,
+    parameter integer DEFAULT_PIXEL1_INDEX = 256,
+    parameter integer DEFAULT_PIXEL2_INDEX = 768,
     parameter integer POINT0_FREQUENCY0 = 5000/*5000*/,/*2500 7500*/
     parameter integer POINT0_FREQUENCY1 = 10000,
     parameter integer POINT1_FREQUENCY0 = 15000,
@@ -35,10 +35,10 @@ module frequency_analyzer_manager #
     parameter integer POINT2_FREQUENCY1 = 30000,
     parameter integer FREQUENCY_DEVIATION = 30,
     parameter integer CLOCK_FREQUENCY = 100000000,
-    parameter integer THRESHOLD_VALUE = 100,
+    parameter integer DEFAULT_THRESHOLD_VALUE = 96,
     parameter integer TAP_DARK_PIXELS_COUNT = 16,      // for single TAP
     parameter integer TAP_COLOR_PIXELS_COUNT = 1024,   // for single TAP
-    parameter integer POINT_WIDTH_PIXEL = 32
+    parameter integer DEFAULT_POINT_WIDTH_PIXELS = 32
 )
 (
     input wire [7:0] data,
@@ -71,17 +71,19 @@ module frequency_analyzer_manager #
     input wire  s00_axi_rready
 );
     
-    localparam integer REGISTERS_NUMBER = 9;
+    localparam integer MANAGEMRNT_REGISTERS_NUMBER = 16;
+    localparam integer FREQUENCY_REGISTERS_NUMBER = 9;
     
-    localparam POINT0_START_INDEX = TAP_DARK_PIXELS_COUNT + PIXEL0_INDEX;
-    localparam POINT0_END_INDEX = POINT0_START_INDEX + POINT_WIDTH_PIXEL;
+    localparam DEFAULT_POINT0_START_INDEX = TAP_DARK_PIXELS_COUNT + DEFAULT_PIXEL0_INDEX;
+    localparam DEFAULT_POINT0_STOP_INDEX = DEFAULT_POINT0_START_INDEX + DEFAULT_POINT_WIDTH_PIXELS;
     
-    localparam POINT1_START_INDEX = TAP_DARK_PIXELS_COUNT + PIXEL1_INDEX;
-    localparam POINT1_END_INDEX = POINT1_START_INDEX + POINT_WIDTH_PIXEL;
+    localparam DEFAULT_POINT1_START_INDEX = TAP_DARK_PIXELS_COUNT + DEFAULT_PIXEL1_INDEX;
+    localparam DEFAULT_POINT1_STOP_INDEX = DEFAULT_POINT1_START_INDEX + DEFAULT_POINT_WIDTH_PIXELS;
     
-    localparam POINT2_START_INDEX = TAP_DARK_PIXELS_COUNT + PIXEL2_INDEX;
-    localparam POINT2_END_INDEX = POINT2_START_INDEX + POINT_WIDTH_PIXEL;
+    localparam DEFAULT_POINT2_START_INDEX = TAP_DARK_PIXELS_COUNT + DEFAULT_PIXEL2_INDEX;
+    localparam DEFAULT_POINT2_STOP_INDEX = DEFAULT_POINT2_START_INDEX + DEFAULT_POINT_WIDTH_PIXELS;
     
+    wire enable;
     // frequency analyzer data
     reg pixel0_sample_data;
     reg [7:0] max_point0_data;
@@ -90,14 +92,28 @@ module frequency_analyzer_manager #
     reg pixel2_sample_data;
     reg [7:0] max_point2_data;
     reg [11:0] pixel_counter;
-    wire enable;
+
     // axi register access
     wire[31:0] register_write;
     wire[1:0] register_operation;
     wire[7:0] register_number;
     wire[31:0] register_read;
     reg write_completed;
-
+    reg[31:0] register_write_value;
+    reg[1:0] register_operation_value;
+    reg[7:0] register_number_value;    
+    reg[1:0] hold;     
+    wire clear_impl;
+    // module management
+    reg [7:0] light_threshold;
+    reg [10:0] point0_start_index;
+    reg [10:0] point0_stop_index;
+    reg [10:0] point1_start_index;
+    reg [10:0] point1_stop_index;
+    reg [10:0] point2_start_index;
+    reg [10:0] point2_stop_index;
+    reg [7:0] point_width_pixels;
+    // frequencies
     wire [31:0] pixel0_f0_action_time_net;
     wire [31:0] pixel0_f1_action_time_net;
     wire [31:0] pixel1_f0_action_time_net;
@@ -109,12 +125,6 @@ module frequency_analyzer_manager #
     wire [31:0] pixel2_unknown_frequency;
     
     supply1 vcc;
-    reg[31:0] register_write_value;
-    reg[1:0] register_operation_value;
-    reg[7:0] register_number_value;    
-    reg[1:0] hold;
-    
-    wire clear_impl;
     
     assign register_write = register_write_value;
     assign register_operation = register_operation_value;
@@ -177,7 +187,7 @@ module frequency_analyzer_manager #
     ( 
         .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
         .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
-        .NUMBER_OF_REGISTERS(REGISTERS_NUMBER)
+        .NUMBER_OF_REGISTERS(MANAGEMRNT_REGISTERS_NUMBER)
     ) 
     frequency_analyzer_manager_axi 
     (
@@ -226,29 +236,29 @@ module frequency_analyzer_manager #
         begin
             pixel_counter <= pixel_counter + 1;
             
-            if(pixel_counter >= POINT0_START_INDEX && pixel_counter < POINT0_END_INDEX)
+            if(pixel_counter >= point0_start_index && pixel_counter < point0_stop_index)
             begin
                 if(max_point0_data < data)
                     max_point0_data <= data;
             end
-            if(pixel_counter == POINT0_END_INDEX)
-                pixel0_sample_data <= max_point0_data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+            if(pixel_counter == point0_stop_index)
+                pixel0_sample_data <= max_point0_data > light_threshold ? 1'b1 : 1'b0; 
             
-            if(pixel_counter >= POINT1_START_INDEX && pixel_counter < POINT1_END_INDEX)
+            if(pixel_counter >= point1_start_index && pixel_counter <  point1_stop_index)
             begin
                 if(max_point1_data < data)
                     max_point1_data <= data;
             end
-            if(pixel_counter == POINT1_END_INDEX)
-                pixel1_sample_data <= max_point1_data > THRESHOLD_VALUE ? 1'b1 : 1'b0; 
+            if(pixel_counter ==  point1_stop_index)
+                pixel1_sample_data <= max_point1_data > light_threshold ? 1'b1 : 1'b0; 
             
-            if(pixel_counter >= POINT2_START_INDEX && pixel_counter < POINT2_END_INDEX)
+            if(pixel_counter >= point2_start_index && pixel_counter <  point2_stop_index)
             begin
                 if(max_point2_data < data)
                     max_point2_data <= data;
             end
-            if(pixel_counter == POINT2_END_INDEX)
-                pixel2_sample_data <= max_point2_data > THRESHOLD_VALUE ? 1'b1 : 1'b0;             
+            if(pixel_counter ==  point2_stop_index)
+                pixel2_sample_data <= max_point2_data > light_threshold ? 1'b1 : 1'b0;             
             
             if(pixel_counter >= TAP_COLOR_PIXELS_COUNT + TAP_DARK_PIXELS_COUNT)
             begin
@@ -260,6 +270,7 @@ module frequency_analyzer_manager #
         end
     end
     
+    // Interact via AXI
     always @(posedge s00_axi_aclk) 
     begin
         if(~s00_axi_aresetn)
@@ -267,6 +278,14 @@ module frequency_analyzer_manager #
            write_completed = 0;
            register_number_value = 0;
            hold = 0;
+           light_threshold = DEFAULT_THRESHOLD_VALUE;
+           point0_start_index = DEFAULT_POINT0_START_INDEX;
+           point0_stop_index = DEFAULT_POINT0_STOP_INDEX;
+           point1_start_index = DEFAULT_POINT1_START_INDEX;
+           point1_stop_index = DEFAULT_POINT1_STOP_INDEX;
+           point2_start_index = DEFAULT_POINT2_START_INDEX;
+           point2_stop_index = DEFAULT_POINT2_STOP_INDEX;
+           point_width_pixels = DEFAULT_POINT_WIDTH_PIXELS;
         end
         else
         begin
@@ -277,12 +296,12 @@ module frequency_analyzer_manager #
                     if(hold == 0)
                     begin
                         register_number_value = register_number_value + 1;
-                        if(register_number_value > 0 && register_number_value <= REGISTERS_NUMBER)
+                        if(register_number_value > 0 && register_number_value <= FREQUENCY_REGISTERS_NUMBER)
                         begin
                             register_operation_value = 2;//`REGISTER_WRITE_OPERATION;
                             register_write_value = get_frequency(register_number_value);//200 + register_number; 
                         end
-                        if(register_number_value == REGISTERS_NUMBER + 1)
+                        if(register_number_value == FREQUENCY_REGISTERS_NUMBER + 1)
                             write_completed = 1;
                     end
                     hold = hold + 1;
@@ -294,7 +313,7 @@ module frequency_analyzer_manager #
                     register_write_value = 0;
                 end
             end
-            else //if(!stop) 
+            else
             begin
                 register_operation_value = 0;
                 register_number_value = 0;
