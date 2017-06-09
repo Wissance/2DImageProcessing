@@ -30,7 +30,8 @@ module linescanner_image_capture_unit_mini(
     localparam clocks_per_microsecond_60_mhz = 58;
     localparam clocks_per_microsecond_70_mhz = 68;
     localparam clocks_per_microsecond_80_mhz = 78;
-    localparam clocks_per_microsecond = clocks_per_microsecond_50_mhz;
+    localparam clocks_per_microsecond_100_mhz = 98;
+    localparam clocks_per_microsecond = clocks_per_microsecond_100_mhz;
       
     reg[7:0] sm1_state;
     reg[7:0] sm1_state_to_go_to_after_waiting;
