@@ -47,13 +47,14 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:module_ref:linescanner_image_capture_unit:1.0
+// IP VLNV: xilinx.com:module_ref:linescanner_image_capture_unit_mini:1.0
 // IP Revision: 1
 
-`timescale 1ns/1ps
-
+(* X_CORE_INFO = "linescanner_image_capture_unit_mini,Vivado 2016.2" *)
+(* CHECK_LICENSE_TYPE = "image_processing_2d_design_linescanner_image_capture_unit_mini_1_0,linescanner_image_capture_unit_mini,{}" *)
+(* CORE_GENERATION_INFO = "image_processing_2d_design_linescanner_image_capture_unit_mini_1_0,linescanner_image_capture_unit_mini,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=linescanner_image_capture_unit_mini,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module image_processing_2d_design_linescanner_image_capture_unit_1_1 (
+module image_processing_2d_design_linescanner_image_capture_unit_mini_1_0 (
   enable,
   data,
   rst_cvc,
@@ -61,11 +62,9 @@ module image_processing_2d_design_linescanner_image_capture_unit_1_1 (
   sample,
   end_adc,
   lval,
-  pixel_clock,
   main_clock_source,
   main_clock,
   n_reset,
-  load_pulse,
   pixel_data,
   pixel_captured
 );
@@ -77,18 +76,15 @@ output wire rst_cds;
 output wire sample;
 input wire end_adc;
 input wire lval;
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pixel_clock CLK" *)
-input wire pixel_clock;
 input wire main_clock_source;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 main_clock CLK" *)
 output wire main_clock;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 n_reset RST" *)
 input wire n_reset;
-output wire load_pulse;
 output wire [7 : 0] pixel_data;
 output wire pixel_captured;
 
-  linescanner_image_capture_unit inst (
+  linescanner_image_capture_unit_mini inst (
     .enable(enable),
     .data(data),
     .rst_cvc(rst_cvc),
@@ -96,11 +92,9 @@ output wire pixel_captured;
     .sample(sample),
     .end_adc(end_adc),
     .lval(lval),
-    .pixel_clock(pixel_clock),
     .main_clock_source(main_clock_source),
     .main_clock(main_clock),
     .n_reset(n_reset),
-    .load_pulse(load_pulse),
     .pixel_data(pixel_data),
     .pixel_captured(pixel_captured)
   );

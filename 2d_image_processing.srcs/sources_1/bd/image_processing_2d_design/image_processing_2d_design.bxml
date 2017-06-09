@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="image_processing_2d_design" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1496920211"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1496920211"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1496920211"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1497001379"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1497001379"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1497001379"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\image_processing_2d_design_processing_system7_0_0\image_processing_2d_design_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -62,22 +62,6 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\image_processing_2d_design_linescanner_image_capture_unit_0_1\image_processing_2d_design_linescanner_image_capture_unit_0_1.xci" Type="IP">
-        <Instance HierarchyPath="linescanner_image_capture_unit_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\image_processing_2d_design_linescanner_image_capture_unit_1_1\image_processing_2d_design_linescanner_image_capture_unit_1_1.xci" Type="IP">
-        <Instance HierarchyPath="linescanner_image_capture_unit_1"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="ip\image_processing_2d_design_frequency_analyzer_manager_0_1_1\image_processing_2d_design_frequency_analyzer_manager_0_1.xci" Type="IP">
         <Instance HierarchyPath="frequency_analyzer_manager_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
@@ -111,6 +95,22 @@
       </File>
       <File Name="ip\image_processing_2d_design_dragster_configurator_0_0\image_processing_2d_design_dragster_configurator_0_0.xci" Type="IP">
         <Instance HierarchyPath="dragster_configurator_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\image_processing_2d_design_linescanner_image_capture_unit_mini_0_0\image_processing_2d_design_linescanner_image_capture_unit_mini_0_0.xci" Type="IP">
+        <Instance HierarchyPath="linescanner_image_capture_unit_mini_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\image_processing_2d_design_linescanner_image_capture_unit_mini_1_0\image_processing_2d_design_linescanner_image_capture_unit_mini_1_0.xci" Type="IP">
+        <Instance HierarchyPath="linescanner_image_capture_unit_mini_1"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

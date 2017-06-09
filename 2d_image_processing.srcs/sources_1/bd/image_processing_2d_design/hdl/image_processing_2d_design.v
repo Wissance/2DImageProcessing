@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Jun 08 16:10:05 2017
+//Date        : Fri Jun 09 14:42:54 2017
 //Host        : DLAB running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target image_processing_2d_design.bd
 //Design      : image_processing_2d_design
@@ -105,11 +105,9 @@ module image_processing_2d_design
   wire [7:0]LINESCANNER0_DATA_1;
   wire LINESCANNER0_END_ADC_1;
   wire LINESCANNER0_LVAL_1;
-  wire LINESCANNER0_PIXEL_CLOCK_1;
   wire [7:0]LINESCANNER1_DATA_1;
   wire LINESCANNER1_END_ADC_1;
   wire LINESCANNER1_LVAL_1;
-  wire LINESCANNER1_PIXEL_CLOCK_1;
   wire LINESCANNER_MISO_1;
   wire [31:0]axi_interconnect_0_M01_AXI_ARADDR;
   wire [2:0]axi_interconnect_0_M01_AXI_ARPROT;
@@ -213,20 +211,18 @@ module image_processing_2d_design
   wire image_capture_manager_0_clear_memory;
   wire image_capture_manager_0_image_capture_enabled;
   wire image_capture_manager_0_reset;
-  wire linescanner_image_capture_unit_0_load_pulse;
-  wire linescanner_image_capture_unit_0_main_clock;
-  wire linescanner_image_capture_unit_0_pixel_captured;
-  (* MARK_DEBUG *) wire [7:0]linescanner_image_capture_unit_0_pixel_data;
-  wire linescanner_image_capture_unit_0_rst_cds;
-  wire linescanner_image_capture_unit_0_rst_cvc;
-  wire linescanner_image_capture_unit_0_sample;
-  wire linescanner_image_capture_unit_1_load_pulse;
-  wire linescanner_image_capture_unit_1_main_clock;
-  wire linescanner_image_capture_unit_1_pixel_captured;
-  wire [7:0]linescanner_image_capture_unit_1_pixel_data;
-  wire linescanner_image_capture_unit_1_rst_cds;
-  wire linescanner_image_capture_unit_1_rst_cvc;
-  wire linescanner_image_capture_unit_1_sample;
+  wire linescanner_image_capture_unit_mini_0_main_clock;
+  wire linescanner_image_capture_unit_mini_0_pixel_captured;
+  wire [7:0]linescanner_image_capture_unit_mini_0_pixel_data;
+  wire linescanner_image_capture_unit_mini_0_rst_cds;
+  wire linescanner_image_capture_unit_mini_0_rst_cvc;
+  wire linescanner_image_capture_unit_mini_0_sample;
+  wire linescanner_image_capture_unit_mini_1_main_clock;
+  wire linescanner_image_capture_unit_mini_1_pixel_captured;
+  wire [7:0]linescanner_image_capture_unit_mini_1_pixel_data;
+  wire linescanner_image_capture_unit_mini_1_rst_cds;
+  wire linescanner_image_capture_unit_mini_1_rst_cvc;
+  wire linescanner_image_capture_unit_mini_1_sample;
   wire proc_sys_reset_0_peripheral_aresetn;
   wire [0:0]proc_sys_reset_0_peripheral_reset;
   wire [14:0]processing_system7_0_DDR_ADDR;
@@ -245,7 +241,6 @@ module image_processing_2d_design
   wire processing_system7_0_DDR_RESET_N;
   wire processing_system7_0_DDR_WE_N;
   wire processing_system7_0_FCLK_CLK0;
-  wire processing_system7_0_FCLK_CLK1;
   wire processing_system7_0_FCLK_CLK2;
   wire processing_system7_0_FCLK_RESET0_N;
   wire processing_system7_0_FIXED_IO_DDR_VRN;
@@ -296,24 +291,20 @@ module image_processing_2d_design
 
   assign LINESCANNER0_DATA_1 = LINESCANNER0_DATA[7:0];
   assign LINESCANNER0_END_ADC_1 = LINESCANNER0_END_ADC;
-  assign LINESCANNER0_LOAD_PULSE = linescanner_image_capture_unit_0_load_pulse;
   assign LINESCANNER0_LVAL_1 = LINESCANNER0_LVAL;
-  assign LINESCANNER0_MAIN_CLOCK = linescanner_image_capture_unit_0_main_clock;
+  assign LINESCANNER0_MAIN_CLOCK = linescanner_image_capture_unit_mini_0_main_clock;
   assign LINESCANNER0_N_RESET[0] = proc_sys_reset_0_peripheral_aresetn;
-  assign LINESCANNER0_PIXEL_CLOCK_1 = LINESCANNER0_PIXEL_CLOCK;
-  assign LINESCANNER0_RST_CDS = linescanner_image_capture_unit_0_rst_cds;
-  assign LINESCANNER0_RST_CVC = linescanner_image_capture_unit_0_rst_cvc;
-  assign LINESCANNER0_SAMPLE = linescanner_image_capture_unit_0_sample;
+  assign LINESCANNER0_RST_CDS = linescanner_image_capture_unit_mini_0_rst_cds;
+  assign LINESCANNER0_RST_CVC = linescanner_image_capture_unit_mini_0_rst_cvc;
+  assign LINESCANNER0_SAMPLE = linescanner_image_capture_unit_mini_0_sample;
   assign LINESCANNER1_DATA_1 = LINESCANNER1_DATA[7:0];
   assign LINESCANNER1_END_ADC_1 = LINESCANNER1_END_ADC;
-  assign LINESCANNER1_LOAD_PULSE = linescanner_image_capture_unit_1_load_pulse;
   assign LINESCANNER1_LVAL_1 = LINESCANNER1_LVAL;
-  assign LINESCANNER1_MAIN_CLOCK = linescanner_image_capture_unit_1_main_clock;
+  assign LINESCANNER1_MAIN_CLOCK = linescanner_image_capture_unit_mini_1_main_clock;
   assign LINESCANNER1_N_RESET[0] = proc_sys_reset_0_peripheral_aresetn;
-  assign LINESCANNER1_PIXEL_CLOCK_1 = LINESCANNER1_PIXEL_CLOCK;
-  assign LINESCANNER1_RST_CDS = linescanner_image_capture_unit_1_rst_cds;
-  assign LINESCANNER1_RST_CVC = linescanner_image_capture_unit_1_rst_cvc;
-  assign LINESCANNER1_SAMPLE = linescanner_image_capture_unit_1_sample;
+  assign LINESCANNER1_RST_CDS = linescanner_image_capture_unit_mini_1_rst_cds;
+  assign LINESCANNER1_RST_CVC = linescanner_image_capture_unit_mini_1_rst_cvc;
+  assign LINESCANNER1_SAMPLE = linescanner_image_capture_unit_mini_1_sample;
   assign LINESCANNER_CLK = dragster_configurator_0_sclk;
   assign LINESCANNER_CS[1:0] = dragster_configurator_0_ss_n;
   assign LINESCANNER_MISO_1 = LINESCANNER_MISO;
@@ -507,9 +498,9 @@ module image_processing_2d_design
         .ss_n(dragster_configurator_0_ss_n));
   image_processing_2d_design_frequency_analyzer_manager_0_1 frequency_analyzer_manager_0
        (.clear(image_capture_manager_0_clear_memory),
-        .data(linescanner_image_capture_unit_0_pixel_data),
+        .data(linescanner_image_capture_unit_mini_0_pixel_data),
         .irq(frequency_analyzer_manager_1_irq),
-        .pixel_clock(linescanner_image_capture_unit_0_pixel_captured),
+        .pixel_clock(linescanner_image_capture_unit_mini_0_pixel_captured),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(axi_interconnect_0_M02_AXI_ARADDR[9:0]),
         .s00_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),
@@ -535,9 +526,9 @@ module image_processing_2d_design
         .stop(frequency_analyzer_synch_0_stop_analyzer_0));
   image_processing_2d_design_frequency_analyzer_manager_1_0 frequency_analyzer_manager_1
        (.clear(image_capture_manager_0_clear_memory),
-        .data(linescanner_image_capture_unit_1_pixel_data),
+        .data(linescanner_image_capture_unit_mini_1_pixel_data),
         .irq(frequency_analyzer_manager_0_irq),
-        .pixel_clock(linescanner_image_capture_unit_1_pixel_captured),
+        .pixel_clock(linescanner_image_capture_unit_mini_1_pixel_captured),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(axi_interconnect_0_M03_AXI_ARADDR[9:0]),
         .s00_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),
@@ -594,36 +585,32 @@ module image_processing_2d_design
         .s00_axi_wready(axi_interconnect_0_M01_AXI_WREADY),
         .s00_axi_wstrb(axi_interconnect_0_M01_AXI_WSTRB),
         .s00_axi_wvalid(axi_interconnect_0_M01_AXI_WVALID));
-  image_processing_2d_design_linescanner_image_capture_unit_0_1 linescanner_image_capture_unit_0
+  image_processing_2d_design_linescanner_image_capture_unit_mini_0_0 linescanner_image_capture_unit_mini_0
        (.data(LINESCANNER0_DATA_1),
         .enable(image_capture_manager_0_image_capture_enabled),
         .end_adc(LINESCANNER0_END_ADC_1),
-        .load_pulse(linescanner_image_capture_unit_0_load_pulse),
         .lval(LINESCANNER0_LVAL_1),
-        .main_clock(linescanner_image_capture_unit_0_main_clock),
-        .main_clock_source(processing_system7_0_FCLK_CLK1),
+        .main_clock(linescanner_image_capture_unit_mini_0_main_clock),
+        .main_clock_source(processing_system7_0_FCLK_CLK0),
         .n_reset(proc_sys_reset_0_peripheral_aresetn),
-        .pixel_captured(linescanner_image_capture_unit_0_pixel_captured),
-        .pixel_clock(LINESCANNER0_PIXEL_CLOCK_1),
-        .pixel_data(linescanner_image_capture_unit_0_pixel_data),
-        .rst_cds(linescanner_image_capture_unit_0_rst_cds),
-        .rst_cvc(linescanner_image_capture_unit_0_rst_cvc),
-        .sample(linescanner_image_capture_unit_0_sample));
-  image_processing_2d_design_linescanner_image_capture_unit_1_1 linescanner_image_capture_unit_1
+        .pixel_captured(linescanner_image_capture_unit_mini_0_pixel_captured),
+        .pixel_data(linescanner_image_capture_unit_mini_0_pixel_data),
+        .rst_cds(linescanner_image_capture_unit_mini_0_rst_cds),
+        .rst_cvc(linescanner_image_capture_unit_mini_0_rst_cvc),
+        .sample(linescanner_image_capture_unit_mini_0_sample));
+  image_processing_2d_design_linescanner_image_capture_unit_mini_1_0 linescanner_image_capture_unit_mini_1
        (.data(LINESCANNER1_DATA_1),
         .enable(image_capture_manager_0_image_capture_enabled),
         .end_adc(LINESCANNER1_END_ADC_1),
-        .load_pulse(linescanner_image_capture_unit_1_load_pulse),
         .lval(LINESCANNER1_LVAL_1),
-        .main_clock(linescanner_image_capture_unit_1_main_clock),
-        .main_clock_source(processing_system7_0_FCLK_CLK1),
+        .main_clock(linescanner_image_capture_unit_mini_1_main_clock),
+        .main_clock_source(processing_system7_0_FCLK_CLK0),
         .n_reset(proc_sys_reset_0_peripheral_aresetn),
-        .pixel_captured(linescanner_image_capture_unit_1_pixel_captured),
-        .pixel_clock(LINESCANNER1_PIXEL_CLOCK_1),
-        .pixel_data(linescanner_image_capture_unit_1_pixel_data),
-        .rst_cds(linescanner_image_capture_unit_1_rst_cds),
-        .rst_cvc(linescanner_image_capture_unit_1_rst_cvc),
-        .sample(linescanner_image_capture_unit_1_sample));
+        .pixel_captured(linescanner_image_capture_unit_mini_1_pixel_captured),
+        .pixel_data(linescanner_image_capture_unit_mini_1_pixel_data),
+        .rst_cds(linescanner_image_capture_unit_mini_1_rst_cds),
+        .rst_cvc(linescanner_image_capture_unit_mini_1_rst_cvc),
+        .sample(linescanner_image_capture_unit_mini_1_sample));
   image_processing_2d_design_not_1bit_0_0 not_1bit_0
        (.inp(proc_sys_reset_0_peripheral_reset),
         .outp(proc_sys_reset_0_peripheral_aresetn));
@@ -653,7 +640,6 @@ module image_processing_2d_design
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
-        .FCLK_CLK1(processing_system7_0_FCLK_CLK1),
         .FCLK_CLK2(processing_system7_0_FCLK_CLK2),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
         .GPIO_I({1'b0,1'b0,1'b0,1'b0}),
