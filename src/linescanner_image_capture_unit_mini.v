@@ -8,7 +8,6 @@ module linescanner_image_capture_unit_mini(
     output reg sample,
     input wire end_adc,
     input wire lval,
-    input wire pixel_clock,
     input wire main_clock_source,
     output wire main_clock,
     input wire n_reset,
@@ -16,7 +15,7 @@ module linescanner_image_capture_unit_mini(
     output wire pixel_captured);
     
     assign main_clock = main_clock_source;
-    assign pixel_captured = lval ? pixel_clock : 0;
+    assign pixel_captured = lval ? main_clock_source : 0;
     assign pixel_data = data;
       
     localparam SM1_SEND_FE_OF_RST_CVC = 0;
@@ -38,7 +37,7 @@ module linescanner_image_capture_unit_mini(
     reg[7:0] sm1_num_clocks_to_wait;
     reg[7:0] sm1_clock_count;
     
-    always @ (posedge pixel_clock) begin
+    always @ (posedge main_clock_source) begin
         if(!n_reset) begin
             rst_cvc <= 1'b1;
             rst_cds <= 1'b1;
