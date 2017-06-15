@@ -100,6 +100,7 @@ module frequency_analyzer_manager #
     wire[31:0] register_read;
     reg write_completed;
     reg[31:0] register_write_value;
+    reg[31:0] register_read_value;
     reg[1:0] register_operation_value;
     reg[7:0] register_number_value;    
     reg[1:0] hold;     
@@ -129,6 +130,7 @@ module frequency_analyzer_manager #
     supply1 vcc;
     
     assign register_write = register_write_value;
+    assign register_read = register_read_value;
     assign register_operation = register_operation_value;
     assign register_number = register_number_value;
     assign clear_impl = s00_axi_aresetn & ~write_completed & ~clear;
@@ -293,75 +295,101 @@ module frequency_analyzer_manager #
         end
         else
         begin
-		    if(start && ~configuration_done)
+        if (start && ~configuration_done)
+        begin
+            if(~configuring)
+            begin
+                register_operation_value = 1;  // read
+                register_number_value = 10;
+                configuring = 1;
+            end
+            else
+            begin
+                if(register_read_value > 0)
+                begin
+                    light_threshold = register_read;
+                    configuration_done = 1;
+                    configuring = 0;
+                end
+            end
+        end
+/*		    if(start && ~configuration_done)
 			begin
 			   if(~configuring)
 			   begin
 			       register_operation_value = 1;  // read
 			       register_number_value = 10;
 			       configuring = 1;
-				   hold = 2;
+				   //hold = 2;
 			   end
 			   
-			   if (hold == 0 && register_read > 0)
-			   begin
-			       if(register_number_value == 10)
+			   //if (hold == 0)
+			   //begin
+			       if(register_number_value == 10  && register_read > 0)
+			       begin
 				       light_threshold = register_read;
-				   else if(register_number_value == 11)
-				       point0_start_index = register_read;
-                   else if(register_number_value == 12)
-				       point0_stop_index = register_read;
-				   else if(register_number_value == 13)
-				       point1_start_index = register_read;
-                   else if(register_number_value == 14)
-				       point1_stop_index = register_read;
-				   else if(register_number_value == 15)
-				       point2_start_index = register_read;
-                   if(register_number_value == 16)
-				       point2_stop_index = register_read;
-				   if(register_number_value == 17)
-				       point_width_pixels = register_read;
-				   register_number_value = register_number_value + 1;
-			   end	
-			   hold =  hold + 1;   
+				       configuration_done = 1;
+                       configuring = 0;
+				       //configuration_done = 1;
+				   end
+//				   else if(register_number_value == 11  && register_read > 0)
+//				       point0_start_index = register_read;
+//                   else if(register_number_value == 12  && register_read > 0)
+//				       point0_stop_index = register_read;
+//				   else if(register_number_value == 13  && register_read > 0)
+//				       point1_start_index = register_read;
+//                   else if(register_number_value == 14  && register_read > 0)
+//				       point1_stop_index = register_read;
+//				   else if(register_number_value == 15  && register_read > 0)
+//				       point2_start_index = register_read;
+//                   else if(register_number_value == 16  && register_read > 0)
+//				       point2_stop_index = register_read;
+//				   else if(register_number_value == 17  && register_read > 0)
+//				       point_width_pixels = register_read;
+				   //register_number_value = register_number_value + 1;
+			   //end	
+			   //hold = hold + 1;   
 			   if(register_number_value == 17)
 			   begin
 		           configuration_done = 1;
 				   configuring = 0;
-				   hold = 0;
+				   //hold = 0;
 			   end
-			end
+			end*/
+			else
+			begin
             if(stop)
-            begin
-                if(~write_completed)
                 begin
-                    if(hold == 0)
+                    if(~write_completed)
                     begin
-                        register_number_value = register_number_value + 1;
-                        if(register_number_value > 0 && register_number_value <= FREQUENCY_REGISTERS_NUMBER)
+                        if(hold == 0)
                         begin
-                            register_operation_value = 2;//`REGISTER_WRITE_OPERATION;
-                            register_write_value = get_frequency(register_number_value);//200 + register_number; 
+                            register_number_value = register_number_value + 1;
+                            if(register_number_value > 0 && register_number_value <= FREQUENCY_REGISTERS_NUMBER)
+                            begin
+                                register_operation_value = 2;//`REGISTER_WRITE_OPERATION;
+                                register_write_value = get_frequency(register_number_value);//200 + register_number; 
+                            end
+                            if(register_number_value == FREQUENCY_REGISTERS_NUMBER + 1)
+                                write_completed = 1;
                         end
-                        if(register_number_value == FREQUENCY_REGISTERS_NUMBER + 1)
-                            write_completed = 1;
+                        hold = hold + 1;
                     end
-                    hold = hold + 1;
+                    else
+                    begin
+                        register_operation_value = 0;
+                        register_number_value = 0;
+                        register_write_value = 0;
+                    end
                 end
                 else
                 begin
                     register_operation_value = 0;
                     register_number_value = 0;
                     register_write_value = 0;
+                    write_completed = 0;
+                    hold = 0;
                 end
-            end
-            else
-            begin
-                register_operation_value = 0;
-                register_number_value = 0;
-                register_write_value = 0;
-                write_completed = 0;
-                hold = 0;
             end
         end
     end
