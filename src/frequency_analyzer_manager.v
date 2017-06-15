@@ -27,7 +27,7 @@ module frequency_analyzer_manager #
     parameter integer DEFAULT_PIXEL0_INDEX = 2,
     parameter integer DEFAULT_PIXEL1_INDEX = 256,
     parameter integer DEFAULT_PIXEL2_INDEX = 768,
-    parameter integer POINT0_FREQUENCY0 = 5000/*5000*/,/*2500 7500*/
+    parameter integer POINT0_FREQUENCY0 = 5000,
     parameter integer POINT0_FREQUENCY1 = 10000,
     parameter integer POINT1_FREQUENCY0 = 15000,
     parameter integer POINT1_FREQUENCY1 = 20000,
@@ -113,6 +113,8 @@ module frequency_analyzer_manager #
     reg [10:0] point2_start_index;
     reg [10:0] point2_stop_index;
     reg [7:0] point_width_pixels;
+	reg configuration_done;
+	reg configuring;
     // frequencies
     wire [31:0] pixel0_f0_action_time_net;
     wire [31:0] pixel0_f1_action_time_net;
@@ -286,9 +288,49 @@ module frequency_analyzer_manager #
            point2_start_index = DEFAULT_POINT2_START_INDEX;
            point2_stop_index = DEFAULT_POINT2_STOP_INDEX;
            point_width_pixels = DEFAULT_POINT_WIDTH_PIXELS;
+		   configuration_done = 0;
+		   configuring = 0;
         end
         else
         begin
+		    if(start && ~configuration_done)
+			begin
+			   if(~configuring)
+			   begin
+			       register_operation_value = 1;  // read
+			       register_number_value = 10;
+			       configuring = 1;
+				   hold = 2;
+			   end
+			   
+			   if (hold == 0 && register_read > 0)
+			   begin
+			       if(register_number_value == 10)
+				       light_threshold = register_read;
+				   else if(register_number_value == 11)
+				       point0_start_index = register_read;
+                   else if(register_number_value == 12)
+				       point0_stop_index = register_read;
+				   else if(register_number_value == 13)
+				       point1_start_index = register_read;
+                   else if(register_number_value == 14)
+				       point1_stop_index = register_read;
+				   else if(register_number_value == 15)
+				       point2_start_index = register_read;
+                   if(register_number_value == 16)
+				       point2_stop_index = register_read;
+				   if(register_number_value == 17)
+				       point_width_pixels = register_read;
+				   register_number_value = register_number_value + 1;
+			   end	
+			   hold =  hold + 1;   
+			   if(register_number_value == 17)
+			   begin
+		           configuration_done = 1;
+				   configuring = 0;
+				   hold = 0;
+			   end
+			end
             if(stop)
             begin
                 if(~write_completed)

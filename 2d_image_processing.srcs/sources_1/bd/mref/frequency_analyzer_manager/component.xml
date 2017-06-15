@@ -277,7 +277,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7e6c8349</spirit:value>
+            <spirit:value>275cdc30</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -290,7 +290,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7e6c8349</spirit:value>
+            <spirit:value>275cdc30</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -738,19 +738,19 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL0_INDEX</spirit:name>
-        <spirit:displayName>Pixel0 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_INDEX">2</spirit:value>
+        <spirit:name>DEFAULT_PIXEL0_INDEX</spirit:name>
+        <spirit:displayName>Default Pixel0 Index</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_PIXEL0_INDEX">2</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL1_INDEX</spirit:name>
-        <spirit:displayName>Pixel1 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_INDEX">256</spirit:value>
+        <spirit:name>DEFAULT_PIXEL1_INDEX</spirit:name>
+        <spirit:displayName>Default Pixel1 Index</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_PIXEL1_INDEX">256</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL2_INDEX</spirit:name>
-        <spirit:displayName>Pixel2 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_INDEX">768</spirit:value>
+        <spirit:name>DEFAULT_PIXEL2_INDEX</spirit:name>
+        <spirit:displayName>Default Pixel2 Index</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>POINT0_FREQUENCY0</spirit:name>
@@ -793,9 +793,9 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>THRESHOLD_VALUE</spirit:name>
-        <spirit:displayName>Threshold Value</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">100</spirit:value>
+        <spirit:name>DEFAULT_THRESHOLD_VALUE</spirit:name>
+        <spirit:displayName>Default Threshold Value</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_THRESHOLD_VALUE">96</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
@@ -808,9 +808,9 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
-        <spirit:displayName>Point Width Pixel</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT_WIDTH_PIXEL">32</spirit:value>
+        <spirit:name>DEFAULT_POINT_WIDTH_PIXELS</spirit:name>
+        <spirit:displayName>Default Point Width Pixels</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT_WIDTH_PIXELS">32</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -834,7 +834,7 @@
       <spirit:file>
         <spirit:name>xgui/frequency_analyzer_manager_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_faffd64c</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_47ce2366</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -852,19 +852,19 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL0_INDEX</spirit:name>
-      <spirit:displayName>Pixel0 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_INDEX">2</spirit:value>
+      <spirit:name>DEFAULT_PIXEL0_INDEX</spirit:name>
+      <spirit:displayName>Default Pixel0 Index</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_PIXEL0_INDEX">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL1_INDEX</spirit:name>
-      <spirit:displayName>Pixel1 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_INDEX">256</spirit:value>
+      <spirit:name>DEFAULT_PIXEL1_INDEX</spirit:name>
+      <spirit:displayName>Default Pixel1 Index</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_PIXEL1_INDEX">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL2_INDEX</spirit:name>
-      <spirit:displayName>Pixel2 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_INDEX">768</spirit:value>
+      <spirit:name>DEFAULT_PIXEL2_INDEX</spirit:name>
+      <spirit:displayName>Default Pixel2 Index</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>POINT0_FREQUENCY0</spirit:name>
@@ -907,9 +907,9 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>THRESHOLD_VALUE</spirit:name>
-      <spirit:displayName>Threshold Value</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">100</spirit:value>
+      <spirit:name>DEFAULT_THRESHOLD_VALUE</spirit:name>
+      <spirit:displayName>Default Threshold Value</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_THRESHOLD_VALUE">96</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
@@ -922,9 +922,9 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
-      <spirit:displayName>Point Width Pixel</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT_WIDTH_PIXEL">32</spirit:value>
+      <spirit:name>DEFAULT_POINT_WIDTH_PIXELS</spirit:name>
+      <spirit:displayName>Default Point Width Pixels</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT_WIDTH_PIXELS">32</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -946,7 +946,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2017-06-08T06:24:57Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2017-06-15T08:11:42Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>

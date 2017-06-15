@@ -1,0 +1,20 @@
+#ifndef SRC_DATA_FREQUENCYANALYZERMANAGERCONFIG_H_
+#define SRC_DATA_FREQUENCYANALYZERMANAGERCONFIG_H_
+
+class FrequecnyAnalyzerManagerConfig
+{
+public:
+private:
+    unsigned char _threshould;
+    unsigned short _point0StartIndex;
+    unsigned short _point0StopIndex;
+    unsigned short _point1StartIndex;
+    unsigned short _point1StopIndex;
+    unsigned short _point2StartIndex;
+    unsigned short _point2StopIndex;
+    unsigned char _pointPixelWidth;
+};
+
+
+
+#endif /* SRC_DATA_FREQUENCYANALYZERMANAGERCONFIG_H_ */

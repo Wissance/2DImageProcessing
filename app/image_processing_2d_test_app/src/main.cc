@@ -14,9 +14,6 @@ extern PixelFrequencies linescanner1PixelFrequencies;
 #define CYCLES_NUMBER SYNCH_FREQUENCY * TESTING_TIME
 #define TICKS_TO_TIME_COEFF 100000
 
-//#define SPI_TESTING
-
-static void clearFrequencies();
 static void displayFrequencies();
 
 int main()
@@ -24,24 +21,14 @@ int main()
     printf("Application started \r\n");
 
     ImageCaptureManager systemManager;
-    systemManager.initialize();
-
-#ifdef SPI_TESTING
-    while(1)
-    {
-    	systemManager.sendTestSpiSequence();
-    	for(int i=0; i< 1000000; i++);  //pause
-    }
-    // stop ...
-    systemManager.stopImageCapture();
-    printf("Application stopped \r\n");
-#else
     systemManager.resetImageCapture();
+    systemManager.initialize();
+    //systemManager.resetImageCapture();
     clearFrequencies();
     systemManager.startImageCapture();
 
     while(linescanner0PixelFrequencies._counter != CYCLES_NUMBER);
-#ifdef USE_AXI_QUAD_SPI
+/*
     DragsterConfig linescanner0Config = systemManager.getDragsterConfig(LINESCANNER0);
     DragsterConfig linescanner1Config = systemManager.getDragsterConfig(LINESCANNER1);
     systemManager.updateDragsters();
@@ -53,35 +40,13 @@ int main()
     xil_printf("Linescanner 1, Register1: 0x%02X \r\n", linescanner1Config.getControlRegister1()._mapImpl._registerValue);
     xil_printf("Linescanner 1, Register2: 0x%02X \r\n", linescanner1Config.getControlRegister2()._mapImpl._registerValue);
     xil_printf("Linescanner 1, Register3: 0x%02X \r\n\r\n", linescanner1Config.getControlRegister3()._mapImpl._registerValue);
-#endif
+*/
 
     displayFrequencies();
     // stop ...
     systemManager.stopImageCapture();
     printf("Application stopped \r\n");
-#endif
     return 0;
-}
-
-void clearFrequencies()
-{
-	linescanner0PixelFrequencies._counter = 0;
-    linescanner0PixelFrequencies._pixel0Frequency0 = 0;
-    linescanner0PixelFrequencies._pixel0Frequency1 = 0;
-    linescanner0PixelFrequencies._pixel1Frequency0 = 0;
-    linescanner0PixelFrequencies._pixel1Frequency1 = 0;
-    linescanner0PixelFrequencies._pixel2Frequency0 = 0;
-    linescanner0PixelFrequencies._pixel2Frequency1 = 0;
-    linescanner0PixelFrequencies._pixel0UnassignedFrequency = 0;
-
-    linescanner1PixelFrequencies._counter = 0;
-    linescanner1PixelFrequencies._pixel0Frequency0 = 0;
-    linescanner1PixelFrequencies._pixel0Frequency1 = 0;
-    linescanner1PixelFrequencies._pixel1Frequency0 = 0;
-    linescanner1PixelFrequencies._pixel1Frequency1 = 0;
-    linescanner1PixelFrequencies._pixel2Frequency0 = 0;
-    linescanner1PixelFrequencies._pixel2Frequency1 = 0;
-    linescanner1PixelFrequencies._pixel0UnassignedFrequency = 0;
 }
 
 void displayFrequencies()

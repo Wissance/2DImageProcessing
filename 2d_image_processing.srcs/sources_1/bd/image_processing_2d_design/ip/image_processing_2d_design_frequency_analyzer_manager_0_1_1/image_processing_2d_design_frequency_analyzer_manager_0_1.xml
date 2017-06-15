@@ -427,7 +427,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6a55f404</spirit:value>
+            <spirit:value>424ea31b</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -446,7 +446,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 08 11:10:06 UTC 2017</spirit:value>
+            <spirit:value>Thu Jun 15 08:11:51 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -458,7 +458,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6a55f404</spirit:value>
+            <spirit:value>424ea31b</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -481,7 +481,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6a4e29ad</spirit:value>
+            <spirit:value>e7f7916c</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -500,7 +500,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 08 11:10:06 UTC 2017</spirit:value>
+            <spirit:value>Thu Jun 15 08:11:51 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -512,7 +512,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6a4e29ad</spirit:value>
+            <spirit:value>e7f7916c</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -956,19 +956,19 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL0_INDEX</spirit:name>
-        <spirit:displayName>Pixel0 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL0_INDEX">2</spirit:value>
+        <spirit:name>DEFAULT_PIXEL0_INDEX</spirit:name>
+        <spirit:displayName>Default Pixel0 Index</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_PIXEL0_INDEX">2</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL1_INDEX</spirit:name>
-        <spirit:displayName>Pixel1 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL1_INDEX">512</spirit:value>
+        <spirit:name>DEFAULT_PIXEL1_INDEX</spirit:name>
+        <spirit:displayName>Default Pixel1 Index</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_PIXEL1_INDEX">256</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>PIXEL2_INDEX</spirit:name>
-        <spirit:displayName>Pixel2 Index</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PIXEL2_INDEX">768</spirit:value>
+        <spirit:name>DEFAULT_PIXEL2_INDEX</spirit:name>
+        <spirit:displayName>Default Pixel2 Index</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>POINT0_FREQUENCY0</spirit:name>
@@ -1011,9 +1011,9 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>THRESHOLD_VALUE</spirit:name>
-        <spirit:displayName>Threshold Value</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.THRESHOLD_VALUE">96</spirit:value>
+        <spirit:name>DEFAULT_THRESHOLD_VALUE</spirit:name>
+        <spirit:displayName>Default Threshold Value</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_THRESHOLD_VALUE">96</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
@@ -1026,9 +1026,9 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
-        <spirit:displayName>Point Width Pixel</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT_WIDTH_PIXEL">128</spirit:value>
+        <spirit:name>DEFAULT_POINT_WIDTH_PIXELS</spirit:name>
+        <spirit:displayName>Default Point Width Pixels</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT_WIDTH_PIXELS">32</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1077,19 +1077,19 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL0_INDEX</spirit:name>
-      <spirit:displayName>Pixel0 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL0_INDEX">2</spirit:value>
+      <spirit:name>DEFAULT_PIXEL0_INDEX</spirit:name>
+      <spirit:displayName>Default Pixel0 Index</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_PIXEL0_INDEX">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL1_INDEX</spirit:name>
-      <spirit:displayName>Pixel1 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL1_INDEX">512</spirit:value>
+      <spirit:name>DEFAULT_PIXEL1_INDEX</spirit:name>
+      <spirit:displayName>Default Pixel1 Index</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_PIXEL1_INDEX">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PIXEL2_INDEX</spirit:name>
-      <spirit:displayName>Pixel2 Index</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PIXEL2_INDEX">768</spirit:value>
+      <spirit:name>DEFAULT_PIXEL2_INDEX</spirit:name>
+      <spirit:displayName>Default Pixel2 Index</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>POINT0_FREQUENCY0</spirit:name>
@@ -1132,9 +1132,9 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>THRESHOLD_VALUE</spirit:name>
-      <spirit:displayName>Threshold Value</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.THRESHOLD_VALUE">96</spirit:value>
+      <spirit:name>DEFAULT_THRESHOLD_VALUE</spirit:name>
+      <spirit:displayName>Default Threshold Value</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_THRESHOLD_VALUE">96</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TAP_DARK_PIXELS_COUNT</spirit:name>
@@ -1147,9 +1147,9 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT_WIDTH_PIXEL</spirit:name>
-      <spirit:displayName>Point Width Pixel</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT_WIDTH_PIXEL">128</spirit:value>
+      <spirit:name>DEFAULT_POINT_WIDTH_PIXELS</spirit:name>
+      <spirit:displayName>Default Point Width Pixels</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT_WIDTH_PIXELS">32</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -1190,11 +1190,6 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.CLK_DOMAIN" xilinx:valueSource="default_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.FREQ_HZ" xilinx:valueSource="user_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FREQUENCY_DEVIATION" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL0_INDEX" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL1_INDEX" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PIXEL2_INDEX" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.POINT_WIDTH_PIXEL" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.THRESHOLD_VALUE" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
