@@ -19,6 +19,8 @@ public:
     void setPointStartIndex(unsigned char index, unsigned short value);
     unsigned char getPointStopIndex(unsigned char index);
     void setPointStopIndex(unsigned char index, unsigned short value);
+    unsigned char getPointsPixelWidth() {return _pointPixelWidth;}
+    void setPointsPixelWidth(unsigned char value) {_pointPixelWidth = value;}
 private:
     unsigned char _threshold;
     unsigned short _point0StartIndex;
