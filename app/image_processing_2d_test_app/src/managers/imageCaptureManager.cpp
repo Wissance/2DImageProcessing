@@ -104,6 +104,15 @@ void ImageCaptureManager :: resetImageCapture()
     xil_printf("\n Image Capture Manager has been reseted\n\r");
 }
 
+DragsterConfig* ImageCaptureManager :: getDragsterConfig(unsigned char linescannerIndex)
+{
+    if(linescannerIndex == LINESCANNER0)
+       return &_linescanner0Config;
+    else if(linescannerIndex == LINESCANNER1)
+       return &_linescanner1Config;
+    return NULL;
+}
+
 void ImageCaptureManager :: configureInterrupts()
 {
     XScuGic_Config* config = XScuGic_LookupConfig(INTERRUPT_CONTROLLER_DEVICE_ID);
@@ -142,6 +151,6 @@ void ImageCaptureManager :: configureInterrupts()
 
 void ImageCaptureManager :: configureFrequencyAnalyzerManagers()
 {
-	_analyzerManager0Configs.setThreshold(98);
+	_analyzerManager0Configs.setThreshold(95);
 	write(FREQUENCY_ANALYZER0_BASE_ADDRESS, THRESHOLD_INDEX * 4, _analyzerManager0Configs.getThreshold());
 }

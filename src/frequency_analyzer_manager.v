@@ -295,67 +295,49 @@ module frequency_analyzer_manager #
         end
         else
         begin
-        if (start && ~configuration_done)
-        begin
-            if(~configuring)
+            if (start && ~configuration_done)
             begin
-                register_operation_value = 1;  // read
-                register_number_value = 10;
-                configuring = 1;
-            end
-            else
-            begin
-                if(register_read_value > 0)
+                if(~configuring)
                 begin
-                    light_threshold = register_read;
-                    configuration_done = 1;
-                    configuring = 0;
+                    register_operation_value = 1;  // read
+                    register_number_value = 9;
+                    configuring = 1;
+                end
+                else
+                begin
+                    if(hold == 2 && register_read > 0)
+                    begin
+                        // todo : umv : write defines instead of literals
+                        if(register_number_value == 10)
+                            light_threshold = register_read;
+                        else if(register_number_value == 11)
+                            point0_start_index = register_read;
+                        else if(register_number_value == 12)
+                            point0_stop_index = register_read;
+                        else if(register_number_value == 13)
+                            point1_start_index = register_read;
+                        else if(register_number_value == 14)
+                            point1_stop_index = register_read;
+                        else if(register_number_value == 15)
+                            point2_start_index = register_read;
+                        else if(register_number_value == 16)
+                            point2_stop_index = register_read;
+                        else if(register_number_value == 17)
+                            point_width_pixels = register_read;
+                    end
+                    hold = hold + 1;
+                    if(hold == 3)
+                    begin
+                        register_number_value = register_number_value + 1;
+                        hold = 0;
+                    end
+                    if(register_number_value == 18)
+                    begin
+                        configuration_done = 1;
+                        configuring = 0;
+                    end
                 end
             end
-        end
-/*		    if(start && ~configuration_done)
-			begin
-			   if(~configuring)
-			   begin
-			       register_operation_value = 1;  // read
-			       register_number_value = 10;
-			       configuring = 1;
-				   //hold = 2;
-			   end
-			   
-			   //if (hold == 0)
-			   //begin
-			       if(register_number_value == 10  && register_read > 0)
-			       begin
-				       light_threshold = register_read;
-				       configuration_done = 1;
-                       configuring = 0;
-				       //configuration_done = 1;
-				   end
-//				   else if(register_number_value == 11  && register_read > 0)
-//				       point0_start_index = register_read;
-//                   else if(register_number_value == 12  && register_read > 0)
-//				       point0_stop_index = register_read;
-//				   else if(register_number_value == 13  && register_read > 0)
-//				       point1_start_index = register_read;
-//                   else if(register_number_value == 14  && register_read > 0)
-//				       point1_stop_index = register_read;
-//				   else if(register_number_value == 15  && register_read > 0)
-//				       point2_start_index = register_read;
-//                   else if(register_number_value == 16  && register_read > 0)
-//				       point2_stop_index = register_read;
-//				   else if(register_number_value == 17  && register_read > 0)
-//				       point_width_pixels = register_read;
-				   //register_number_value = register_number_value + 1;
-			   //end	
-			   //hold = hold + 1;   
-			   if(register_number_value == 17)
-			   begin
-		           configuration_done = 1;
-				   configuring = 0;
-				   //hold = 0;
-			   end
-			end*/
 			else
 			begin
             if(stop)

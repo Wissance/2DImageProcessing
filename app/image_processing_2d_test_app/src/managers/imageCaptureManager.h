@@ -21,6 +21,7 @@ public:
     void resetImageCapture();
     void startImageCapture();
     void stopImageCapture();
+    DragsterConfig* getDragsterConfig(unsigned char linescannerIndex);
 private:
     void configureInterrupts();
     void configureFrequencyAnalyzerManagers();
