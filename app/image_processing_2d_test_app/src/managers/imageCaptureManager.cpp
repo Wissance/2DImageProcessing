@@ -152,7 +152,7 @@ void ImageCaptureManager :: configureInterrupts()
 void ImageCaptureManager :: configureFrequencyAnalyzerManagers()
 {
 	_analyzerManager0Configs.setThreshold(157);
-	_analyzerManager0Configs.setPointsPixelWidth(2);
+	_analyzerManager0Configs.setPointsPixelWidth(8);
 	write(FREQUENCY_ANALYZER0_BASE_ADDRESS, THRESHOLD_INDEX * 4, _analyzerManager0Configs.getThreshold());
 	write(FREQUENCY_ANALYZER0_BASE_ADDRESS,  POINS_PIXEL_WIDTH_INDEX * 4, _analyzerManager0Configs.getPointsPixelWidth());
 }
