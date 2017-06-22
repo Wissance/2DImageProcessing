@@ -225,11 +225,6 @@ CONFIG.NUM_SI {2} \
    }
     set_property -dict [ list \
 CONFIG.FREQUENCY_DEVIATION {20} \
-CONFIG.PIXEL0_INDEX {2} \
-CONFIG.PIXEL1_INDEX {512} \
-CONFIG.PIXEL2_INDEX {768} \
-CONFIG.POINT_WIDTH_PIXEL {128} \
-CONFIG.THRESHOLD_VALUE {96} \
  ] $frequency_analyzer_manager_0
 
   # Create instance: frequency_analyzer_manager_1, and set properties
@@ -244,11 +239,6 @@ CONFIG.THRESHOLD_VALUE {96} \
    }
     set_property -dict [ list \
 CONFIG.FREQUENCY_DEVIATION {20} \
-CONFIG.PIXEL0_INDEX {2} \
-CONFIG.PIXEL1_INDEX {512} \
-CONFIG.PIXEL2_INDEX {768} \
-CONFIG.POINT_WIDTH_PIXEL {128} \
-CONFIG.THRESHOLD_VALUE {112} \
  ] $frequency_analyzer_manager_1
 
   # Create instance: frequency_analyzer_synch_0, and set properties
