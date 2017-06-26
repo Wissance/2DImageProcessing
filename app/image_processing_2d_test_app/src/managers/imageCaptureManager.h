@@ -9,6 +9,8 @@
 #include "pixelFrequencies.h"
 #include "frequencyAnalyzerManagerConfig.h"
 
+#define DEFAULT_VALIBRATION_CYCLES 20
+
 extern PixelFrequencies linescanner0PixelFrequencies;
 extern PixelFrequencies linescanner1PixelFrequencies;
 
@@ -25,6 +27,8 @@ public:
 private:
     void configureInterrupts();
     void configureFrequencyAnalyzerManagers();
+    void configureFrequencyAnalyzerManagersImpl(unsigned int baseAddress, FrequecnyAnalyzerManagerConfig* config);
+	void calibrateThreshold(unsigned char linescannerIndex, unsigned int numberOfCycles = DEFAULT_VALIBRATION_CYCLES);
 private:
     // interrupt controller
     XScuGic _interruptController;

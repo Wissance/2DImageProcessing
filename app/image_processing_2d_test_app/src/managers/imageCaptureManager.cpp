@@ -85,21 +85,18 @@ void ImageCaptureManager::initialize()
 
 void ImageCaptureManager :: startImageCapture()
 {
-    //Xil_Out32(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 1);
     write(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 0, START_COMMAND);
     xil_printf("\n Image Capture Manager has been started\n\r");
 }
 
 void ImageCaptureManager :: stopImageCapture()
 {
-    //Xil_Out32(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 2);
     write(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 0, STOP_COMMAND);
     xil_printf("\n Image Capture Manager has been stopped\n\r");
 }
 
 void ImageCaptureManager :: resetImageCapture()
 {
-    //Xil_Out32(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 2);
     write(IMAGE_CAPTURE_MANAGER_BASE_ADDRESS, 0, RESET_COMMAND);
     xil_printf("\n Image Capture Manager has been reseted\n\r");
 }
@@ -155,4 +152,43 @@ void ImageCaptureManager :: configureFrequencyAnalyzerManagers()
 	_analyzerManager0Configs.setPointsPixelWidth(8);
 	write(FREQUENCY_ANALYZER0_BASE_ADDRESS, THRESHOLD_INDEX * 4, _analyzerManager0Configs.getThreshold());
 	write(FREQUENCY_ANALYZER0_BASE_ADDRESS,  POINS_PIXEL_WIDTH_INDEX * 4, _analyzerManager0Configs.getPointsPixelWidth());
+}
+
+
+void ImageCaptureManager :: configureFrequencyAnalyzerManagersImpl(unsigned int baseAddress, FrequecnyAnalyzerManagerConfig* config)
+{
+    write(baseAddress, THRESHOLD_INDEX * 4, config->getThreshold());
+    write(baseAddress,  POINS_PIXEL_WIDTH_INDEX * 4, config->getPointsPixelWidth());
+}
+
+// todo: umv: calibation performes on pixel 0 frequency 0
+void ImageCaptureManager :: calibrateThreshold(unsigned char linescannerIndex, unsigned int numberOfCycles)
+{
+	unsigned int baseAddress = (linescannerIndex == LINESCANNER0) ? FREQUENCY_ANALYZER0_BASE_ADDRESS:
+	                                                                FREQUENCY_ANALYZER1_BASE_ADDRESS;
+	PixelFrequencies* frequencies = (linescannerIndex == LINESCANNER0) ? &linescanner0PixelFrequencies:
+			                                                             &linescanner1PixelFrequencies;
+	FrequecnyAnalyzerManagerConfig* config = (linescannerIndex == LINESCANNER0) ? &_analyzerManager0Configs:
+			                                                                      &_analyzerManager1Configs;
+	config->setPointsPixelWidth(8);
+	unsigned long long maxPixel0Frequency0Value = 0;
+	unsigned char threshold;
+	for(unsigned int step = 0; step < 255; step++)
+	{
+		clearFrequencies();
+		resetImageCapture();
+		config->setThreshold(step);
+		configureFrequencyAnalyzerManagersImpl(baseAddress, config);
+		startImageCapture();
+		while(frequencies->_counter < numberOfCycles);
+		if(frequencies->_pixel0Frequency0 > maxPixel0Frequency0Value)
+		{
+			maxPixel0Frequency0Value = frequencies->_pixel0Frequency0;
+			threshold = step;
+		}
+		stopImageCapture();
+	}
+	xil_printf("Maximum value of %d for calibration cycles %d corresponds to threshold: %d",
+			   maxPixel0Frequency0Value, numberOfCycles, (int)threshold);
+	config->setThreshold(threshold);
 }
