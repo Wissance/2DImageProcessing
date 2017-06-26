@@ -18,14 +18,14 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`define VALUE_NOT_SET 0
 
 module frequency_analyzer_testbench #
 (
-    parameter FREQUENCY0 = 9000,
-    parameter FREQUENCY1 = 11000,
-    parameter FREQUENCY0_DEVIATION = 20,
-    parameter FREQUENCY1_DEVIATION = 20,
+    parameter DEFAULT_FREQUENCY0 = 9000,
+    parameter DEFAULT_FREQUENCY1 = 11000,
+    parameter DEFAULT_FREQUENCY0_DEVIATION = 20,
+    parameter DEFAULT_FREQUENCY1_DEVIATION = 20,
     parameter CLOCK_FREQUENCY = 50000000
 )
 (
@@ -37,11 +37,12 @@ module frequency_analyzer_testbench #
     output wire[31:0] f1_value
 );
 
-    frequency_analyzer #(.FREQUENCY0(FREQUENCY0), .FREQUENCY1(FREQUENCY1), 
-                         .FREQUENCY0_DEVIATION(FREQUENCY0_DEVIATION), 
-                         .FREQUENCY1_DEVIATION(FREQUENCY1_DEVIATION), 
+    frequency_analyzer #(.DEFAULT_FREQUENCY0(DEFAULT_FREQUENCY0), .DEFAULT_FREQUENCY1(DEFAULT_FREQUENCY1), 
+                         .DEFAULT_FREQUENCY0_DEVIATION(DEFAULT_FREQUENCY0_DEVIATION), 
+                         .DEFAULT_FREQUENCY1_DEVIATION(DEFAULT_FREQUENCY1_DEVIATION), 
                          .CLOCK_FREQUENCYK(CLOCK_FREQUENCY)) 
     frequency_analyzer_test (.sample_data(sample_data), .clock(clock), .enable(enable),
-                             .clear(clear), .f0_value(f0_value), .f1_value(f1_value));
+                             .clear(clear), .f0(`VALUE_NOT_SET), .f1(`VALUE_NOT_SET), .deviation(`VALUE_NOT_SET),
+                             .f0_value(f0_value), .f1_value(f1_value));
 
 endmodule

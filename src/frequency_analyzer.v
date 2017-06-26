@@ -3,10 +3,10 @@
 module frequency_analyzer #
 (
     // FREQUENCY_2 MUST ALWAYS BE GREATER THAN FREQUENCY_1
-    parameter FREQUENCY0 = 9000,                   // i.e. 9  kHz
-    parameter FREQUENCY1 = 11000,                  // i.e. 11 kHz
-    parameter FREQUENCY0_DEVIATION = 10,           // in percents
-    parameter FREQUENCY1_DEVIATION = 10,           // in percents
+    parameter DEFAULT_FREQUENCY0 = 9000,                   // i.e. 9  kHz
+    parameter DEFAULT_FREQUENCY1 = 11000,                  // i.e. 11 kHz
+    parameter DEFAULT_FREQUENCY0_DEVIATION = 10,           // in percents
+    parameter DEFAULT_FREQUENCY1_DEVIATION = 10,           // in percents
     parameter CLOCK_FREQUENCY = 50000000           // i.e. 50 MHz
 )
 (
@@ -14,16 +14,19 @@ module frequency_analyzer #
     input wire clock,
     input wire enable,
     input wire clear,
+    input wire[31:0] f0,          // this value must be already calculated
+    input wire[31:0] f1,          // this value must be already calculated
+    input wire[31:0] deviation,   // this value must be already calculated
     output wire[31:0] f0_value,
     output wire[31:0] f1_value,
     output wire [31:0] unknown
 );
 
-localparam integer frequency0_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY0);
-localparam integer frequency1_ticks = CLOCK_FREQUENCY / (2 * FREQUENCY1);
+localparam integer frequency0_ticks = CLOCK_FREQUENCY / (2 * DEFAULT_FREQUENCY0);
+localparam integer frequency1_ticks = CLOCK_FREQUENCY / (2 * DEFAULT_FREQUENCY1);
 
-localparam integer frequency0_deviation = (frequency0_ticks * FREQUENCY0_DEVIATION) / 100;
-localparam integer frequency1_deviation = (frequency1_ticks * FREQUENCY1_DEVIATION) / 100;
+localparam integer frequency0_deviation = (frequency0_ticks * DEFAULT_FREQUENCY0_DEVIATION) / 100;
+localparam integer frequency1_deviation = (frequency1_ticks * DEFAULT_FREQUENCY1_DEVIATION) / 100;
 
 reg[31:0] frequency_counter = 0;
 reg[31:0] frequency0_counter = 0;

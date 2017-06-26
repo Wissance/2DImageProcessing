@@ -277,7 +277,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2e64369f</spirit:value>
+            <spirit:value>875665d2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -290,7 +290,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2e64369f</spirit:value>
+            <spirit:value>875665d2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -753,39 +753,39 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT0_FREQUENCY0</spirit:name>
-        <spirit:displayName>Point0 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT0_FREQUENCY0">5000</spirit:value>
+        <spirit:name>DEFAULT_POINT0_FREQUENCY0</spirit:name>
+        <spirit:displayName>Default Point0 Frequency0</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT0_FREQUENCY0">5000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT0_FREQUENCY1</spirit:name>
-        <spirit:displayName>Point0 Frequency1</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT0_FREQUENCY1">10000</spirit:value>
+        <spirit:name>DEFAULT_POINT0_FREQUENCY1</spirit:name>
+        <spirit:displayName>Default Point0 Frequency1</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT0_FREQUENCY1">10000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT1_FREQUENCY0</spirit:name>
-        <spirit:displayName>Point1 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT1_FREQUENCY0">15000</spirit:value>
+        <spirit:name>DEFAULT_POINT1_FREQUENCY0</spirit:name>
+        <spirit:displayName>Default Point1 Frequency0</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT1_FREQUENCY0">15000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT1_FREQUENCY1</spirit:name>
-        <spirit:displayName>Point1 Frequency1</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT1_FREQUENCY1">20000</spirit:value>
+        <spirit:name>DEFAULT_POINT1_FREQUENCY1</spirit:name>
+        <spirit:displayName>Default Point1 Frequency1</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT1_FREQUENCY1">20000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT2_FREQUENCY0</spirit:name>
-        <spirit:displayName>Point2 Frequency0</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT2_FREQUENCY0">25000</spirit:value>
+        <spirit:name>DEFAULT_POINT2_FREQUENCY0</spirit:name>
+        <spirit:displayName>Default Point2 Frequency0</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT2_FREQUENCY0">25000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>POINT2_FREQUENCY1</spirit:name>
-        <spirit:displayName>Point2 Frequency1</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.POINT2_FREQUENCY1">30000</spirit:value>
+        <spirit:name>DEFAULT_POINT2_FREQUENCY1</spirit:name>
+        <spirit:displayName>Default Point2 Frequency1</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_POINT2_FREQUENCY1">30000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>FREQUENCY_DEVIATION</spirit:name>
-        <spirit:displayName>Frequency Deviation</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.FREQUENCY_DEVIATION">30</spirit:value>
+        <spirit:name>DEFAULT_FREQUENCY_DEVIATION</spirit:name>
+        <spirit:displayName>Default Frequency Deviation</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_FREQUENCY_DEVIATION">30</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CLOCK_FREQUENCY</spirit:name>
@@ -834,7 +834,7 @@
       <spirit:file>
         <spirit:name>xgui/frequency_analyzer_manager_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_47ce2366</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_5b18faed</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -867,39 +867,39 @@
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT0_FREQUENCY0</spirit:name>
-      <spirit:displayName>Point0 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT0_FREQUENCY0">5000</spirit:value>
+      <spirit:name>DEFAULT_POINT0_FREQUENCY0</spirit:name>
+      <spirit:displayName>Default Point0 Frequency0</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT0_FREQUENCY0">5000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT0_FREQUENCY1</spirit:name>
-      <spirit:displayName>Point0 Frequency1</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT0_FREQUENCY1">10000</spirit:value>
+      <spirit:name>DEFAULT_POINT0_FREQUENCY1</spirit:name>
+      <spirit:displayName>Default Point0 Frequency1</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT0_FREQUENCY1">10000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT1_FREQUENCY0</spirit:name>
-      <spirit:displayName>Point1 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT1_FREQUENCY0">15000</spirit:value>
+      <spirit:name>DEFAULT_POINT1_FREQUENCY0</spirit:name>
+      <spirit:displayName>Default Point1 Frequency0</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT1_FREQUENCY0">15000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT1_FREQUENCY1</spirit:name>
-      <spirit:displayName>Point1 Frequency1</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT1_FREQUENCY1">20000</spirit:value>
+      <spirit:name>DEFAULT_POINT1_FREQUENCY1</spirit:name>
+      <spirit:displayName>Default Point1 Frequency1</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT1_FREQUENCY1">20000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT2_FREQUENCY0</spirit:name>
-      <spirit:displayName>Point2 Frequency0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT2_FREQUENCY0">25000</spirit:value>
+      <spirit:name>DEFAULT_POINT2_FREQUENCY0</spirit:name>
+      <spirit:displayName>Default Point2 Frequency0</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT2_FREQUENCY0">25000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>POINT2_FREQUENCY1</spirit:name>
-      <spirit:displayName>Point2 Frequency1</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.POINT2_FREQUENCY1">30000</spirit:value>
+      <spirit:name>DEFAULT_POINT2_FREQUENCY1</spirit:name>
+      <spirit:displayName>Default Point2 Frequency1</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_POINT2_FREQUENCY1">30000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>FREQUENCY_DEVIATION</spirit:name>
-      <spirit:displayName>Frequency Deviation</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FREQUENCY_DEVIATION">30</spirit:value>
+      <spirit:name>DEFAULT_FREQUENCY_DEVIATION</spirit:name>
+      <spirit:displayName>Default Frequency Deviation</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_FREQUENCY_DEVIATION">30</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CLOCK_FREQUENCY</spirit:name>
@@ -946,7 +946,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2017-06-22T12:14:20Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2017-06-26T10:34:43Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>

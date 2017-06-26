@@ -48,36 +48,36 @@
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH">32</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_FREQUENCY_DEVIATION">30</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_PIXEL0_INDEX">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_PIXEL1_INDEX">256</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_POINT0_FREQUENCY0">5000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_POINT0_FREQUENCY1">10000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_POINT1_FREQUENCY0">15000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_POINT1_FREQUENCY1">20000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_POINT2_FREQUENCY0">25000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_POINT2_FREQUENCY1">30000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_POINT_WIDTH_PIXELS">32</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEFAULT_THRESHOLD_VALUE">96</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.FREQUENCY_DEVIATION">20</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.POINT0_FREQUENCY0">5000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.POINT0_FREQUENCY1">10000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.POINT1_FREQUENCY0">15000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.POINT1_FREQUENCY1">20000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.POINT2_FREQUENCY0">25000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.POINT2_FREQUENCY1">30000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.CLOCK_FREQUENCY">100000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.C_S00_AXI_ADDR_WIDTH">10</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.C_S00_AXI_DATA_WIDTH">32</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">image_processing_2d_design_frequency_analyzer_manager_1_0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_FREQUENCY_DEVIATION">30</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_PIXEL0_INDEX">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_PIXEL1_INDEX">256</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_PIXEL2_INDEX">768</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_POINT0_FREQUENCY0">5000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_POINT0_FREQUENCY1">10000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_POINT1_FREQUENCY0">15000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_POINT1_FREQUENCY1">20000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_POINT2_FREQUENCY0">25000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_POINT2_FREQUENCY1">30000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_POINT_WIDTH_PIXELS">32</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DEFAULT_THRESHOLD_VALUE">96</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.FREQUENCY_DEVIATION">20</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.POINT0_FREQUENCY0">5000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.POINT0_FREQUENCY1">10000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.POINT1_FREQUENCY0">15000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.POINT1_FREQUENCY1">20000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.POINT2_FREQUENCY0">25000</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.POINT2_FREQUENCY1">30000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TAP_COLOR_PIXELS_COUNT">1024</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TAP_DARK_PIXELS_COUNT">16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.ARCHITECTURE">zynq</spirit:configurableElementValue>
@@ -131,7 +131,6 @@
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.WUSER_WIDTH" xilinx:valueSource="constant"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.CLK_DOMAIN" xilinx:valueSource="default_prop"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_ACLK.FREQ_HZ" xilinx:valueSource="user_prop"/>
-            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FREQUENCY_DEVIATION" xilinx:valueSource="user"/>
           </xilinx:configElementInfos>
         </xilinx:componentInstanceExtensions>
       </spirit:vendorExtensions>

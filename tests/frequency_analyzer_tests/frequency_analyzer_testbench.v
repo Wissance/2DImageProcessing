@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`define VALUE_NOT_SET 0
 
 module frequency_analyzer_testbench;
     wire sample_data;
@@ -35,15 +35,18 @@ module frequency_analyzer_testbench;
     assign pixel_captured = incoming_data & clock;
 
     frequency_analyzer #(
-        .FREQUENCY0(5000),
-        .FREQUENCY1(10000),
-        .FREQUENCY0_DEVIATION(10),
-        .FREQUENCY1_DEVIATION(10),
+        .DEFAULT_FREQUENCY0(5000),
+        .DEFAULT_FREQUENCY1(10000),
+        .DEFAULT_FREQUENCY0_DEVIATION(10),
+        .DEFAULT_FREQUENCY1_DEVIATION(10),
         .CLOCK_FREQUENCY(100000000)) f(
             .sample_data(sample_data),
             .clock(pixel_captured),
             .enable(enable),
             .clear(clear),
+            .f0(`VALUE_NOT_SET),
+            .f1(`VALUE_NOT_SET),
+            .deviation(`VALUE_NOT_SET),
             .f0_value(f0_value),
             .f1_value(f1_value));
 
