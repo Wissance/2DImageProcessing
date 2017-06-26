@@ -73,6 +73,14 @@ module frequency_analyzer_manager #
     
     localparam integer MANAGEMRNT_REGISTERS_NUMBER = 16;
     localparam integer FREQUENCY_REGISTERS_NUMBER = 9;
+    localparam integer THRESHOLD_INDEX = 10;               // all indexes are index + 1
+    localparam integer POINT0_START_INDEX = 11;
+    localparam integer POINT0_STOP_INDEX = 12;
+    localparam integer POINT1_START_INDEX = 13;
+    localparam integer POINT1_STOP_INDEX = 14;
+    localparam integer POINT2_START_INDEX = 15;
+    localparam integer POINT2_STOP_INDEX = 16;
+    localparam integer POINT_WIDTH_INDEX = 17;
     
     localparam DEFAULT_POINT0_START_INDEX = TAP_DARK_PIXELS_COUNT + DEFAULT_PIXEL0_INDEX;
     localparam DEFAULT_POINT0_STOP_INDEX = DEFAULT_POINT0_START_INDEX + DEFAULT_POINT_WIDTH_PIXELS;
@@ -344,21 +352,21 @@ module frequency_analyzer_manager #
                     if(hold == 2 && register_read > 0)
                     begin
                         // todo : umv : write defines instead of literals
-                        if(register_number_value == 10)
+                        if(register_number_value == THRESHOLD_INDEX)
                             light_threshold = register_read;
-                        else if(register_number_value == 11)
+                        else if(register_number_value == POINT0_START_INDEX)
                             point0_start_index = register_read;
-                        else if(register_number_value == 12)
+                        else if(register_number_value == POINT0_STOP_INDEX)
                             point0_stop_index = register_read;
-                        else if(register_number_value == 13)
+                        else if(register_number_value == POINT1_START_INDEX)
                             point1_start_index = register_read;
-                        else if(register_number_value == 14)
+                        else if(register_number_value == POINT1_STOP_INDEX)
                             point1_stop_index = register_read;
-                        else if(register_number_value == 15)
+                        else if(register_number_value == POINT2_START_INDEX)
                             point2_start_index = register_read;
-                        else if(register_number_value == 16)
+                        else if(register_number_value == POINT2_STOP_INDEX)
                             point2_stop_index = register_read;
-                        else if(register_number_value == 17)
+                        else if(register_number_value == POINT_WIDTH_INDEX)
                             point_width_pixels = register_read;
                     end
                     hold = hold + 1;
