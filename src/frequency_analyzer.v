@@ -14,10 +14,10 @@ module frequency_analyzer #
     input wire clock,
     input wire enable,
     input wire clear,
-    input wire[31:0] f0,             // this value must be already calculated
-    input wire[31:0] f1,             // this value must be already calculated
-    input wire[31:0] f0_deviation,   // this value must be already calculated
-    input wire[31:0] f1_deviation,   // this value must be already calculated
+    input wire[31:0] f0,             // this value must be already calculated (already in ticks)
+    input wire[31:0] f1,             // this value must be already calculated (already in ticks)
+    input wire[31:0] f0_deviation,   // this value must be already calculated (already in ticks relative to f0)
+    input wire[31:0] f1_deviation,   // this value must be already calculated (already in ticks relative to f1)
     output wire[31:0] f0_value,
     output wire[31:0] f1_value,
     output wire [31:0] unknown
@@ -74,13 +74,21 @@ begin
     begin
         if(enable) 
         begin
-            // todo : umv: update using values
+            if(f0 > 0)
+               using_frequency0 = f0;
+            if(f0_deviation > 0)
+               using_frequency0_deviation = f0_deviation;
+            if(f1 > 0)   
+               using_frequency1  = f1;
+            if(f1_deviation > 0)
+               using_frequency1_deviation = f1_deviation;
             if(frequency_counter == 0)// && start_sample_value != sample_data)
                 start_sample_value = sample_data;
             if(sample_data != start_sample_value) 
             begin
                 start_sample_value = sample_data;
-                check_result = check_frequency(frequency_counter);          
+                check_result = check_frequency(frequency_counter, using_frequency0, using_frequency0_deviation,
+                                               using_frequency1, using_frequency1_deviation);          
                 if(check_result == 2)
                     frequency1_counter = frequency1_counter + frequency_counter;
                 else if(check_result == 1)
@@ -101,13 +109,14 @@ begin
     end
 end
 
-function[1:0] check_frequency(input reg[31:0] frequency);
+function[1:0] check_frequency(input reg[31:0] frequency, input reg[31:0] f0_ticks, input reg[31:0] f0_deviation_ticks, 
+                              input reg[31:0] f1_ticks, input reg[31:0] f1_deviation_ticks);
     reg[1:0] result;    
     begin
         //todo: umv: first approach frequency could have deviation
-        if(frequency >= frequency0_ticks - frequency0_deviation && frequency <= frequency0_ticks + frequency0_deviation)
+        if(frequency >= f0_ticks - f0_deviation_ticks && frequency <= f0_ticks + f0_deviation_ticks)
             result = 1;
-        else if(frequency >= frequency1_ticks - frequency1_deviation && frequency <= frequency1_ticks + frequency1_deviation)
+        else if(frequency >= f1_ticks - f1_deviation_ticks && frequency <= f1_ticks + f1_deviation_ticks)
             result = 2;
         else result = 0;
         
