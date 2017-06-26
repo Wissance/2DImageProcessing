@@ -80,6 +80,7 @@ void freuqencyAnalyzer1Handler(void *data)
 void ImageCaptureManager::initialize()
 {
     configureInterrupts();
+    calibrateThreshold(LINESCANNER0);
     configureFrequencyAnalyzerManagers();
 }
 
@@ -188,6 +189,8 @@ void ImageCaptureManager :: calibrateThreshold(unsigned char linescannerIndex, u
 		}
 		stopImageCapture();
 	}
+    clearFrequencies();
+    resetImageCapture();
 	xil_printf("Maximum value of %d for calibration cycles %d corresponds to threshold: %d",
 			   maxPixel0Frequency0Value, numberOfCycles, (int)threshold);
 	config->setThreshold(threshold);
