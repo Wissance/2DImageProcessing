@@ -87,10 +87,16 @@ module frequency_analyzer_manager #
     // frequency analyzer data
     reg pixel0_sample_data;
     reg [7:0] max_point0_data;
+    reg [7:0] min_point0_data;
+    reg [7:0] avg_point0_data;
     reg pixel1_sample_data;
     reg [7:0] max_point1_data;
+    reg [7:0] min_point1_data;
+    reg [7:0] avg_point1_data;
     reg pixel2_sample_data;
     reg [7:0] max_point2_data;
+    reg [7:0] min_point2_data;
+    reg [15:0] avg_point2_data;
     reg [11:0] pixel_counter;
 
     // axi register access
@@ -231,10 +237,18 @@ module frequency_analyzer_manager #
             pixel1_sample_data <= 0;
             pixel2_sample_data <= 0;
             pixel_counter <= 0;
-            
+            // max values
             max_point0_data <= 0;
             max_point1_data <= 0;
             max_point2_data <= 0;
+            // min values
+            min_point0_data <= 0;
+            min_point1_data <= 0;
+            min_point2_data <= 0;
+            // avg values
+            avg_point0_data <= 0;
+            avg_point1_data <= 0;
+            avg_point2_data <= 0;
         end
         else
         begin
@@ -244,32 +258,54 @@ module frequency_analyzer_manager #
             begin
                 if(max_point0_data < data)
                     max_point0_data <= data;
+                if(min_point0_data > data)
+                    min_point0_data <= data;
+                avg_point0_data <= get_average(max_point0_data, min_point0_data);
             end
             if(pixel_counter == point0_stop_index)
-                pixel0_sample_data <= max_point0_data > light_threshold ? 1'b1 : 1'b0; 
+                pixel0_sample_data <= avg_point0_data > light_threshold ? 1'b1 : 1'b0; 
             
             if(pixel_counter >= point1_start_index && pixel_counter <  point1_stop_index)
             begin
                 if(max_point1_data < data)
                     max_point1_data <= data;
+                if(min_point1_data > data)
+                    min_point1_data <= data;
+                avg_point1_data <= get_average(max_point1_data, min_point1_data);
             end
             if(pixel_counter ==  point1_stop_index)
-                pixel1_sample_data <= max_point1_data > light_threshold ? 1'b1 : 1'b0; 
+                pixel1_sample_data <= avg_point1_data > light_threshold ? 1'b1 : 1'b0; 
             
             if(pixel_counter >= point2_start_index && pixel_counter <  point2_stop_index)
             begin
                 if(max_point2_data < data)
                     max_point2_data <= data;
+                if(min_point2_data > data)
+                    min_point2_data <= data;
+                avg_point2_data <= get_average(max_point2_data, min_point2_data);
             end
             if(pixel_counter ==  point2_stop_index)
-                pixel2_sample_data <= max_point2_data > light_threshold ? 1'b1 : 1'b0;             
+                pixel2_sample_data <= avg_point2_data > light_threshold ? 1'b1 : 1'b0;      
             
             if(pixel_counter >= TAP_COLOR_PIXELS_COUNT + TAP_DARK_PIXELS_COUNT)
             begin
                 pixel_counter <= 0;
+                // clear sample data
+                pixel0_sample_data <= 0;
+                pixel1_sample_data <= 0;
+                pixel2_sample_data <= 0;
+                // clear max data
                 max_point0_data <= 0;
                 max_point1_data <= 0;
                 max_point2_data <= 0;
+                // min values
+                min_point0_data <= 0;
+                min_point1_data <= 0;
+                min_point2_data <= 0;
+                // clear avg
+                avg_point0_data <= 0;
+                avg_point1_data <= 0;
+                avg_point2_data <= 0;
             end
         end
     end
@@ -389,5 +425,17 @@ module frequency_analyzer_manager #
             9: get_frequency = pixel2_unknown_frequency;
             default: get_frequency = 0;
         endcase
-    endfunction 
+    endfunction
+    
+    function[7:0] get_average(input reg[7:0] max, input reg[7:0] min);
+        reg[7:0] avg;
+        reg[7:0] delta;
+        begin
+            delta = max - min;
+            delta = delta >> 1;
+            avg = min + delta;
+            get_average = avg;
+        end
+    endfunction
+     
 endmodule
