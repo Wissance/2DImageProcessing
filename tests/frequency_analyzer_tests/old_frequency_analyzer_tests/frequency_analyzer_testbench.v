@@ -42,7 +42,8 @@ module frequency_analyzer_testbench #
                          .DEFAULT_FREQUENCY1_DEVIATION(DEFAULT_FREQUENCY1_DEVIATION), 
                          .CLOCK_FREQUENCYK(CLOCK_FREQUENCY)) 
     frequency_analyzer_test (.sample_data(sample_data), .clock(clock), .enable(enable),
-                             .clear(clear), .f0(`VALUE_NOT_SET), .f1(`VALUE_NOT_SET), .deviation(`VALUE_NOT_SET),
+                             .clear(clear), .f0(`VALUE_NOT_SET), .f1(`VALUE_NOT_SET),
+                             .f0_deviation(`VALUE_NOT_SET), .f1_deviation(`VALUE_NOT_SET),
                              .f0_value(f0_value), .f1_value(f1_value));
 
 endmodule

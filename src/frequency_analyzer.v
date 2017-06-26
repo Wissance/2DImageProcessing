@@ -14,9 +14,10 @@ module frequency_analyzer #
     input wire clock,
     input wire enable,
     input wire clear,
-    input wire[31:0] f0,          // this value must be already calculated
-    input wire[31:0] f1,          // this value must be already calculated
-    input wire[31:0] deviation,   // this value must be already calculated
+    input wire[31:0] f0,             // this value must be already calculated
+    input wire[31:0] f1,             // this value must be already calculated
+    input wire[31:0] f0_deviation,   // this value must be already calculated
+    input wire[31:0] f1_deviation,   // this value must be already calculated
     output wire[31:0] f0_value,
     output wire[31:0] f1_value,
     output wire [31:0] unknown
@@ -27,6 +28,11 @@ localparam integer frequency1_ticks = CLOCK_FREQUENCY / (2 * DEFAULT_FREQUENCY1)
 
 localparam integer frequency0_deviation = (frequency0_ticks * DEFAULT_FREQUENCY0_DEVIATION) / 100;
 localparam integer frequency1_deviation = (frequency1_ticks * DEFAULT_FREQUENCY1_DEVIATION) / 100;
+
+reg[31:0] using_frequency0;
+reg[31:0] using_frequency0_deviation;
+reg[31:0] using_frequency1;
+reg[31:0] using_frequency1_deviation;
 
 reg[31:0] frequency_counter = 0;
 reg[31:0] frequency0_counter = 0;
@@ -58,12 +64,17 @@ begin
         frequency1_counter = 0;
         frequency_counter = 0;
         check_result = 0;
+        using_frequency0 = frequency0_ticks;
+        using_frequency0_deviation = frequency0_deviation;
+        using_frequency1  = frequency1_ticks;
+        using_frequency1_deviation = frequency1_deviation;
     end
     
     else
     begin
         if(enable) 
         begin
+            // todo : umv: update using values
             if(frequency_counter == 0)// && start_sample_value != sample_data)
                 start_sample_value = sample_data;
             if(sample_data != start_sample_value) 

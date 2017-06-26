@@ -83,13 +83,16 @@ module frequency_analyzer_manager #
     localparam integer POINT_WIDTH_INDEX = 17;
     localparam integer POINT0_FREQUENCY0_INDEX = 18;
     localparam integer POINT0_FREQUENCY1_INDEX = 19;
-    localparam integer POINT0_FREQUENCIES_DEVIATION = 20;
-    localparam integer POINT1_FREQUENCY0_INDEX = 21;
-    localparam integer POINT1_FREQUENCY1_INDEX = 22;
-    localparam integer POINT1_FREQUENCIES_DEVIATION = 23;
-    localparam integer POINT2_FREQUENCY0_INDEX = 24;
-    localparam integer POINT2_FREQUENCY1_INDEX = 25;
-    localparam integer POINT2_FREQUENCIES_DEVIATION = 26;
+    localparam integer POINT0_FREQUENCY0_DEVIATION = 20;
+    localparam integer POINT0_FREQUENCY1_DEVIATION = 22;
+    localparam integer POINT1_FREQUENCY0_INDEX = 23;
+    localparam integer POINT1_FREQUENCY1_INDEX = 24;
+    localparam integer POINT1_FREQUENCY0_DEVIATION = 25;
+    localparam integer POINT1_FREQUENCY1_DEVIATION = 25;
+    localparam integer POINT2_FREQUENCY0_INDEX = 27;
+    localparam integer POINT2_FREQUENCY1_INDEX = 28;
+    localparam integer POINT2_FREQUENCY0_DEVIATION = 29;
+    localparam integer POINT2_FREQUENCY1_DEVIATION = 30;
     
     localparam DEFAULT_POINT0_START_INDEX = TAP_DARK_PIXELS_COUNT + DEFAULT_PIXEL0_INDEX;
     localparam DEFAULT_POINT0_STOP_INDEX = DEFAULT_POINT0_START_INDEX + DEFAULT_POINT_WIDTH_PIXELS;
@@ -140,13 +143,16 @@ module frequency_analyzer_manager #
     // analyzers frequencies
     reg [31:0] point0_frequency0;
     reg [31:0] point0_frequency1;
-    reg [31:0] point0_frequencies_deviation;
+    reg [31:0] point0_frequency0_deviation;
+    reg [31:0] point0_frequency1_deviation;
     reg [31:0] point1_frequency0;
     reg [31:0] point1_frequency1;
-    reg [31:0] point1_frequencies_deviation;
+    reg [31:0] point1_frequency0_deviation;
+    reg [31:0] point1_frequency1_deviation;
     reg [31:0] point2_frequency0;
     reg [31:0] point2_frequency1;
-    reg [31:0] point2_frequencies_deviation;
+    reg [31:0] point2_frequency0_deviation;
+    reg [31:0] point2_frequency1_deviation;
     
 	reg configuration_done;
 	reg configuring;
@@ -183,7 +189,11 @@ module frequency_analyzer_manager #
             .sample_data(pixel0_sample_data),
             .clock(s00_axi_aclk),
             .enable(enable),
-            .clear(clear_impl), 
+            .clear(clear_impl),
+            .f0(point0_frequency0),
+            .f1(point0_frequency1),
+            .f0_deviation(point0_frequency0_deviation),
+            .f1_deviation(point0_frequency1_deviation),
             .f0_value(pixel0_f0_action_time_net),
             .f1_value(pixel0_f1_action_time_net),
             .unknown(pixel0_unknown_frequency));
@@ -199,6 +209,10 @@ module frequency_analyzer_manager #
             .clock(s00_axi_aclk),
             .enable(enable),
             .clear(clear_impl),
+            .f0(point1_frequency0),
+            .f1(point1_frequency1),
+            .f0_deviation(point1_frequency0_deviation),
+            .f1_deviation(point1_frequency1_deviation),
             .f0_value(pixel1_f0_action_time_net),
             .f1_value(pixel1_f1_action_time_net),
             .unknown(pixel1_unknown_frequency));
@@ -214,6 +228,10 @@ module frequency_analyzer_manager #
             .clock(s00_axi_aclk),
             .enable(enable),
             .clear(clear_impl),
+            .f0(point2_frequency0),
+            .f1(point2_frequency1),
+            .f0_deviation(point2_frequency0_deviation),
+            .f1_deviation(point2_frequency1_deviation),
             .f0_value(pixel2_f0_action_time_net),
             .f1_value(pixel2_f1_action_time_net),
             .unknown(pixel2_unknown_frequency));
@@ -354,15 +372,18 @@ module frequency_analyzer_manager #
            point2_start_index = DEFAULT_POINT2_START_INDEX;
            point2_stop_index = DEFAULT_POINT2_STOP_INDEX;
            point_width_pixels = DEFAULT_POINT_WIDTH_PIXELS;
-           point0_frequency0 = DEFAULT_POINT0_FREQUENCY0;
-           point0_frequency1 = DEFAULT_POINT0_FREQUENCY1;
-           point0_frequencies_deviation = DEFAULT_FREQUENCY_DEVIATION;
-           point1_frequency0 = DEFAULT_POINT1_FREQUENCY0;
-           point1_frequency1 = DEFAULT_POINT1_FREQUENCY1;
-           point1_frequencies_deviation = DEFAULT_FREQUENCY_DEVIATION;
-           point2_frequency0 = DEFAULT_POINT2_FREQUENCY0;
-           point2_frequency1 = DEFAULT_POINT2_FREQUENCY1;
-           point2_frequencies_deviation = DEFAULT_FREQUENCY_DEVIATION;
+           point0_frequency0 = 0;
+           point0_frequency1 = 0;
+           point0_frequency0_deviation = 0;
+           point0_frequency1_deviation = 0;
+           point1_frequency0 = 0;
+           point1_frequency1 = 0;
+           point1_frequency0_deviation = 0;
+           point1_frequency1_deviation = 0;
+           point2_frequency0 = 0;
+           point2_frequency1 = 0;
+           point2_frequency0_deviation = 0;
+           point2_frequency1_deviation = 0;
 		   configuration_done = 0;
 		   configuring = 0;
         end
@@ -402,20 +423,26 @@ module frequency_analyzer_manager #
                             point0_frequency0 = register_read;
                         else if(register_number_value == POINT0_FREQUENCY1_INDEX)
                             point0_frequency1 = register_read;
-                        else if(register_number_value == POINT0_FREQUENCIES_DEVIATION)
-                            point0_frequencies_deviation = register_read;
+                        else if(register_number_value == POINT0_FREQUENCY0_DEVIATION)
+                            point0_frequency0_deviation = register_read;
+                        else if(register_number_value == POINT0_FREQUENCY1_DEVIATION)
+                            point0_frequency0_deviation = register_read;
                         else if(register_number_value == POINT1_FREQUENCY0_INDEX)
                             point1_frequency0 = register_read;
                         else if(register_number_value == POINT1_FREQUENCY1_INDEX)
                             point1_frequency1 = register_read;
-                        else if(register_number_value == POINT1_FREQUENCIES_DEVIATION)
-                            point1_frequencies_deviation = register_read;
+                        else if(register_number_value == POINT1_FREQUENCY0_DEVIATION)
+                            point1_frequency0_deviation = register_read;
+                        else if(register_number_value == POINT1_FREQUENCY1_DEVIATION)
+                            point1_frequency1_deviation = register_read;
                         else if(register_number_value == POINT2_FREQUENCY0_INDEX)
                             point2_frequency0 = register_read;
                         else if(register_number_value == POINT2_FREQUENCY1_INDEX)
                             point2_frequency1 = register_read;
-                        else if(register_number_value == POINT2_FREQUENCIES_DEVIATION)
-                            point2_frequencies_deviation = register_read;
+                        else if(register_number_value == POINT2_FREQUENCY0_DEVIATION)
+                            point2_frequency0_deviation = register_read;
+                        else if(register_number_value == POINT2_FREQUENCY1_DEVIATION)
+                            point2_frequency1_deviation = register_read;
                                     
                     end
                     hold = hold + 1;
@@ -424,7 +451,7 @@ module frequency_analyzer_manager #
                         register_number_value = register_number_value + 1;
                         hold = 0;
                     end
-                    if(register_number_value == POINT2_FREQUENCIES_DEVIATION + 1)
+                    if(register_number_value == POINT2_FREQUENCY1_DEVIATION + 1)
                     begin
                         configuration_done = 1;
                         configuring = 0;

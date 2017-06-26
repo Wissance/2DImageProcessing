@@ -36,7 +36,7 @@ module frequency_analyzer_synch #
 );
 
     localparam integer frequency_ticks = CLOCK / FREQUENCY;
-    localparam integer signal_delay = 40;
+    localparam integer signal_delay = 42;
     integer clock_counter;
 
 	always @(posedge clock) 

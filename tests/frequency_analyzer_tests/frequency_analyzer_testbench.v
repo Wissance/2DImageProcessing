@@ -46,7 +46,8 @@ module frequency_analyzer_testbench;
             .clear(clear),
             .f0(`VALUE_NOT_SET),
             .f1(`VALUE_NOT_SET),
-            .deviation(`VALUE_NOT_SET),
+            .f0_deviation(`VALUE_NOT_SET),
+            .f1_deviation(`VALUE_NOT_SET),
             .f0_value(f0_value),
             .f1_value(f1_value));
 
