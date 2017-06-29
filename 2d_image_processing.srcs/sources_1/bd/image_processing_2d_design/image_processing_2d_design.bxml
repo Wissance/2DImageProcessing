@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="image_processing_2d_design" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1498473298"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1498473298"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1498473298"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1498733293"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1498733293"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1498733293"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\image_processing_2d_design_processing_system7_0_0\image_processing_2d_design_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -23,7 +23,6 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip\image_processing_2d_design_axi_interconnect_0_0\image_processing_2d_design_axi_interconnect_0_0.xci" Type="IP">
-        <Instance HierarchyPath="axi_interconnect_0"/>
         <Properties IsEditable="false" IsVisible="false" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
