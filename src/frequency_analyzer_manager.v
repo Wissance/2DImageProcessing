@@ -71,8 +71,9 @@ module frequency_analyzer_manager #
     input wire  s00_axi_rready
 );
     
-    localparam integer MANAGEMRNT_REGISTERS_NUMBER = 16;
+    localparam integer MANAGEMRNT_REGISTERS_NUMBER = 20;
     localparam integer FREQUENCY_REGISTERS_NUMBER = 9;
+    
     localparam integer THRESHOLD_INDEX = 10;               // all indexes are index + 1
     localparam integer POINT0_START_INDEX = 11;
     localparam integer POINT0_STOP_INDEX = 12;
@@ -515,10 +516,10 @@ module frequency_analyzer_manager #
         reg[7:0] avg;
         reg[7:0] delta;
         begin
-            delta = max - min;
-            delta = delta >> 1;
+            delta = (max - min) / 2;
+            //delta = delta >> 1;
             avg = min + delta;
-            get_average = avg;
+            get_average = min; //avg;
         end
     endfunction
      
