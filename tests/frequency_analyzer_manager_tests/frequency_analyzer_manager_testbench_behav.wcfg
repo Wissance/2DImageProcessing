@@ -12,18 +12,13 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="3587536658fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomEndTime time="3587536659fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="39" />
+   <WVObjectSize size="41" />
    <wvobject fp_name="/frequency_analyzer_manager_testbench/data" type="array">
       <obj_property name="ElementShortName">data[7:0]</obj_property>
       <obj_property name="ObjectShortName">data[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_counter" type="array">
-      <obj_property name="ElementShortName">pixel0_counter[9:0]</obj_property>
-      <obj_property name="ObjectShortName">pixel0_counter[9:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_sample_data" type="logic">
       <obj_property name="ElementShortName">pixel0_sample_data</obj_property>
@@ -44,6 +39,18 @@
    <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_f0_action_time_net" type="array">
       <obj_property name="ElementShortName">pixel0_f0_action_time_net[31:0]</obj_property>
       <obj_property name="ObjectShortName">pixel0_f0_action_time_net[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/max_point0_data" type="array">
+      <obj_property name="ElementShortName">max_point0_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">max_point0_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/min_point0_data" type="array">
+      <obj_property name="ElementShortName">min_point0_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">min_point0_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/avg_point0_data" type="array">
+      <obj_property name="ElementShortName">avg_point0_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">avg_point0_data[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/frequency_analyzer_manager_testbench/testing_frequency_analyzer_manager/pixel0_f1_action_time_net" type="array">
       <obj_property name="ElementShortName">pixel0_f1_action_time_net[31:0]</obj_property>

@@ -289,9 +289,9 @@ module frequency_analyzer_manager #
             max_point1_data <= 0;
             max_point2_data <= 0;
             // min values
-            min_point0_data <= 0;
-            min_point1_data <= 0;
-            min_point2_data <= 0;
+            min_point0_data <= 255;
+            min_point1_data <= 255;
+            min_point2_data <= 255;
             // avg values
             avg_point0_data <= 0;
             avg_point1_data <= 0;
@@ -346,9 +346,9 @@ module frequency_analyzer_manager #
                 max_point1_data <= 0;
                 max_point2_data <= 0;
                 // min values
-                min_point0_data <= 0;
-                min_point1_data <= 0;
-                min_point2_data <= 0;
+                min_point0_data <= 255;
+                min_point1_data <= 255;
+                min_point2_data <= 255;
                 // clear avg
                 avg_point0_data <= 0;
                 avg_point1_data <= 0;
@@ -517,9 +517,8 @@ module frequency_analyzer_manager #
         reg[7:0] delta;
         begin
             delta = (max - min) / 2;
-            //delta = delta >> 1;
             avg = min + delta;
-            get_average = min; //avg;
+            get_average = avg;
         end
     endfunction
      
