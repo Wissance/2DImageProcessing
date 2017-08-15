@@ -3,10 +3,10 @@
 module frequency_jump_detector #
 (
     parameter pixel_number = 0,
-    parameter period_1,
-    parameter period_2,
-    parameter period_3,
-    parameter tolerance
+    parameter period_1, /* нс */
+    parameter period_2, /* нс */
+    parameter period_3, /* нс */
+    parameter tolerance /* нс */
 )
 (
     input wire pixel_clock,
@@ -23,16 +23,17 @@ reg measure_time;
 reg[31:0] elapsed_time;
 
 reg[1:0] current_frequency;
-localparam FREQUENCY_1 = 2'b00;
-localparam FREQUENCY_2 = 2'b01;
-localparam FREQUENCY_3 = 2'b10;
+localparam FREQUENCY_UNKNOWN = 2'b00;
+localparam FREQUENCY_1 = 2'b01;
+localparam FREQUENCY_2 = 2'b10;
+localparam FREQUENCY_3 = 2'b11;
 
 always@(posedge pixel_clock) begin
     if(!reset) begin
         pixel_counter <= 0;
         measure_time <= 1'b0;
         elapsed_time <= 0;
-        current_frequency <= FREQUENCY_1;
+        current_frequency <= FREQUENCY_UNKNOWN;
     end
     
     else begin
@@ -51,30 +52,39 @@ always@(posedge pixel_clock) begin
                         end
                         
                         else begin
+							/* Сбрасываем время. */
+							elapsed_time <= 0;
+						
+							/* Время между импульсами приблизительно соответствует периоду частоты 1. */
                             if(elapsed_time >= period_1 - tolerance && elapsed_time <= period_1 + tolerance) begin
-                                if(current_frequency != FREQUENCY_1)
+                                if(current_frequency != FREQUENCY_UNKNOWN && current_frequency != FREQUENCY_1)
                                     jump_detected <= 1'b1;
                                     
                                 current_frequency <= FREQUENCY_1;
                             end
                             
+							/* Время между импульсами приблизительно соответствует периоду частоты 2. */
                             else if(elapsed_time >= period_2 - tolerance && elapsed_time <= period_2 + tolerance) begin
-                                if(current_frequency != FREQUENCY_2)
+                                if(current_frequency != FREQUENCY_UNKNOWN && current_frequency != FREQUENCY_2)
                                     jump_detected <= 1'b1;
 
                                 current_frequency <= FREQUENCY_2;                               
                             end
                             
+							/* Время между импульсами приблизительно соответствует периоду частоты 3. */
                             else if(elapsed_time >= period_3 - tolerance && elapsed_time <= period_3 + tolerance) begin
-                                if(current_frequency != FREQUENCY_3)
+                                if(current_frequency != FREQUENCY_UNKNOWN && current_frequency != FREQUENCY_3)
                                     jump_detected <= 1'b1;
                             
                                 current_frequency <= FREQUENCY_3;
                             end
                             
-                            else begin
-                            //.............
+							/* Промежуток оказался слижком коротким, либо длинным. */
+                            /* else begin
+								jump_detected <= 1'b1;
+								current_frequency <= FREQUENCY_UNKNOWN;
                             end
+							*/
                         end
                     end
                 end
