@@ -79,7 +79,7 @@ always@(posedge pixel_clock) begin
                                 current_frequency <= FREQUENCY_3;
                             end
                             
-							/* Промежуток оказался слижком коротким, либо длинным. */
+							/* Промежуток оказался слишком коротким, либо длинным. */
                             /* else begin
 								jump_detected <= 1'b1;
 								current_frequency <= FREQUENCY_UNKNOWN;
