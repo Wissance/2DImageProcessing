@@ -47,7 +47,26 @@ i = 1;
 numberOfSamples = 6;
 
 while i + numberOfSamples <= sampling_frequency / 2 + 1
-    pattern = square_wave_3(i:i+numberOfSamples-1)
+    test_subject = square_wave_3(i:i+numberOfSamples-1);
+    
+    k = 1;
+    match_found = false;
+    
+    while k + numberOfSamples <= sampling_frequency / 2 + 1
+        original = square_wave_1(k:k+numberOfSamples-1);
+        
+        if test_subject == original
+            match_found = true;
+            break;
+        end
+            
+        k = k + numberOfSamples;
+    end
+    
+    if match_found == false
+        msgbox(sprintf('Jump detected at %u',i));
+        break;
+    end
     
     i = i + numberOfSamples;
 end
