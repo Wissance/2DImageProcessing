@@ -1,8 +1,8 @@
 %{ Выставляем частоту дискретизации. %}
 sampling_frequency = 50000;
 
-%{ Создаем временной вектор продолжительностью в 0.5 секунды. %}
-time = (0:1/sampling_frequency:0.5)';
+%{ Создаем временной вектор продолжительностью в 0.0005 секунды. %}
+time = (0:1/sampling_frequency:0.0005)';
 
 %{ Задаем интересующие нас частоты. %}
 frequency_1 = 21000;
@@ -14,24 +14,24 @@ square_wave_2 = (square(frequency_2 * 2 * pi * time, 50) + 1) * 0.5;
 
 %{ Конкатенируем половины обеих волн для симуляции прыжка частоты. %}
 square_wave_3 = [...
-    square_wave_1(1:sampling_frequency/4);...
-    square_wave_2(sampling_frequency/4+1:sampling_frequency/2+1)];
+    square_wave_1(1:length(square_wave_1)/2);...
+    square_wave_2(length(square_wave_2)/2+1:length(square_wave_2))];
 
 %{ Создаем скоп для каждой волны. %}
 scope_1 = dsp.TimeScope(...
     'Name', '21kHz square wave',...
     'SampleRate',sampling_frequency,...
-    'TimeSpan',0.5);
+    'TimeSpan',0.0005);
 
 scope_2 = dsp.TimeScope(...
     'Name', '18kHz square wave',...
     'SampleRate',sampling_frequency,...
-    'TimeSpan',0.5);
+    'TimeSpan',0.0005);
 
 scope_3 = dsp.TimeScope(...
     'Name', '21+18kHz square wave',...
     'SampleRate',sampling_frequency,...
-    'TimeSpan',0.5);
+    'TimeSpan',0.0005);
 
 %{ Передаем волны в скопы. %}
 scope_1(square_wave_1);
@@ -46,13 +46,13 @@ scope_3(square_wave_3);
 i = 1;
 numberOfSamples = 6;
 
-while i + numberOfSamples <= sampling_frequency / 2 + 1
+while i + numberOfSamples <= length(square_wave_3)
     test_subject = square_wave_3(i:i+numberOfSamples-1);
     
     k = 1;
     match_found = false;
     
-    while k + numberOfSamples <= sampling_frequency / 2 + 1
+    while k + numberOfSamples <= length(square_wave_1)
         original = square_wave_1(k:k+numberOfSamples-1);
         
         if test_subject == original
@@ -70,6 +70,3 @@ while i + numberOfSamples <= sampling_frequency / 2 + 1
     
     i = i + numberOfSamples;
 end
-
-    
-
